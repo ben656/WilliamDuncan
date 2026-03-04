@@ -5,16 +5,43 @@ export default function Contact() {
     name: '',
     email: '',
     message: '',
+    'honeypot': '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => {
-      setFormData({ name: '', email: '', message: '' })
-      setSubmitted(false)
-    }, 3000)
+
+    if (formData.honeypot) {
+      return
+    }
+
+    setIsLoading(true)
+
+    const formDataToSend = new FormData(e.currentTarget)
+
+    try {
+      const response = await fetch('https://formspree.io/f/xqedrdow', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json',
+        },
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+        setFormData({ name: '', email: '', message: '', honeypot: '' })
+        setTimeout(() => {
+          setSubmitted(false)
+        }, 5000)
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -45,6 +72,7 @@ export default function Contact() {
             <input
               type="text"
               id="name"
+              name="name"
               required
               value={formData.name}
               onChange={(e) =>
@@ -64,6 +92,7 @@ export default function Contact() {
             <input
               type="email"
               id="email"
+              name="email"
               required
               value={formData.email}
               onChange={(e) =>
@@ -82,6 +111,7 @@ export default function Contact() {
             </label>
             <textarea
               id="message"
+              name="message"
               rows={6}
               required
               value={formData.message}
@@ -92,12 +122,32 @@ export default function Contact() {
             ></textarea>
           </div>
 
+          <input
+            type="text"
+            name="honeypot"
+            value={formData.honeypot}
+            onChange={(e) =>
+              setFormData({ ...formData, honeypot: e.target.value })
+            }
+            style={{ display: 'none' }}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+
+          {submitted && (
+            <div className="animate-fade-in bg-gold/10 border border-gold/30 rounded p-4 text-center">
+              <p className="font-sans text-sm text-gold">
+                Thank you. A member of our team will respond shortly.
+              </p>
+            </div>
+          )}
+
           <button
             type="submit"
-            disabled={submitted}
+            disabled={submitted || isLoading}
             className="w-full bg-gold hover:bg-gold-dark text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {submitted ? 'Message Sent!' : 'Send Message'}
+            {isLoading ? 'Sending...' : submitted ? 'Message Sent!' : 'Send Message'}
           </button>
         </form>
       </div>
