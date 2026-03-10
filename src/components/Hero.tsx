@@ -1,13 +1,23 @@
+import { useEffect, useRef, useState } from 'react'
+
 export default function Hero() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLDivElement>(null)
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     element?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      ref={sectionRef}
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-dark to-navy opacity-95" />
       <div
@@ -19,41 +29,91 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 py-32 text-center">
-        <div className="space-y-8 animate-fade-in">
-          <div className="flex justify-center mb-8">
-            <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-20 md:h-24" />
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex-1 space-y-8">
+          <div
+            className={`transition-all duration-1000 transform ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-16 md:h-20" />
+              <div>
+                <p className="text-gold font-sans text-sm font-semibold tracking-widest uppercase">Established 1924</p>
+              </div>
+            </div>
+
+            <h1 className="font-serif text-6xl md:text-7xl font-bold text-gray-100 leading-tight mb-6">
+              <span className="block">WD - Chartered</span>
+              <span className="block text-gold">Accountants</span>
+            </h1>
+
+            <p className="font-sans text-xl text-gray-300 mb-8">
+              Business & Tax Advisors
+            </p>
           </div>
 
-          <h1 className="font-serif text-5xl md:text-7xl font-bold text-gray-100 leading-tight">
-            Chartered Accountants &<br />
-            <span className="text-gold">Business Advisers</span>
-          </h1>
+          <div
+            className={`transition-all duration-1000 delay-300 transform ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <div className="space-y-6 border-l-4 border-gold pl-6">
+              <div>
+                <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-100 mb-4">
+                  A Century of<br />
+                  <span className="text-gold">Trusted Expertise</span>
+                </h2>
+              </div>
 
-          <p className="font-sans text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-            For over 100 years, we have proudly delivered Chartered accountancy
-            services to clients across the UK and beyond.
-          </p>
+              <div className="space-y-4 text-gray-300 font-sans leading-relaxed">
+                <p className="text-lg">
+                  For more than a century, we have advised businesses, entrepreneurs and families with integrity, discretion and technical excellence.
+                </p>
+                <p className="text-lg">
+                  Our long-standing client relationships are built on trust and results. While our heritage defines us, our strategic and forward-thinking approach ensures our clients remain ahead in an evolving financial landscape.
+                </p>
+              </div>
 
-          <p className="font-sans text-base md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Combining heritage, precision and forward-thinking strategy, we
-            deliver tailored financial solutions that protect wealth, support
-            growth, and create long-term value.
-          </p>
+              <div className="flex flex-col sm:flex-row gap-4 pt-8">
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="bg-gold hover:bg-gold-dark text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  Speak to an Adviser
+                </button>
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="border-2 border-gold text-gold hover:bg-gold hover:text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300"
+                >
+                  Our Services
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="bg-gold hover:bg-gold-dark text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
-              Speak to an Adviser
-            </button>
-            <button
-              onClick={() => scrollToSection('services')}
-              className="border-2 border-gold text-gold hover:bg-gold hover:text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300"
-            >
-              Our Services
-            </button>
+        <div
+          className={`flex-1 hidden lg:flex items-center justify-center transition-all duration-1000 delay-500 transform ${
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}
+        >
+          <div className="relative w-full aspect-square max-w-md">
+            <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-gold/10 rounded-lg blur-3xl animate-pulse" />
+            <div className="relative bg-navy-dark/50 border-2 border-gold/30 rounded-lg p-8 backdrop-blur-sm h-full flex flex-col justify-center items-center space-y-4">
+              <div className="text-6xl font-serif text-gold font-bold">100+</div>
+              <p className="text-gray-300 text-center text-lg">Years of Financial Excellence</p>
+              <div className="grid grid-cols-2 gap-4 w-full pt-4">
+                <div className="text-center p-3 border border-gold/20 rounded">
+                  <p className="text-gold text-2xl font-bold">200+</p>
+                  <p className="text-gray-400 text-sm">Active Clients</p>
+                </div>
+                <div className="text-center p-3 border border-gold/20 rounded">
+                  <p className="text-gold text-2xl font-bold">£M+</p>
+                  <p className="text-gray-400 text-sm">Assets Managed</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
