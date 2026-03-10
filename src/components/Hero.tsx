@@ -100,17 +100,29 @@ export default function Hero() {
         >
           <div className="relative w-full aspect-square max-w-md">
             <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-gold/10 rounded-lg blur-3xl animate-pulse" />
-            <div className="relative bg-navy-dark/50 border-2 border-gold/30 rounded-lg p-8 backdrop-blur-sm h-full flex flex-col justify-center items-center space-y-4">
-              <div className="text-6xl font-serif text-gold font-bold">100+</div>
+            <div className="relative bg-navy-dark/50 border-2 border-gold/30 rounded-lg p-8 backdrop-blur-sm h-full flex flex-col justify-center items-center space-y-4 animate-shimmer animate-float animate-gradient-shift">
+              <div className="text-6xl font-serif text-gold font-bold animate-pulse">100+</div>
               <p className="text-gray-300 text-center text-lg">Years of Financial Excellence</p>
               <div className="grid grid-cols-2 gap-4 w-full pt-4">
-                <div className="text-center p-3 border border-gold/20 rounded">
+                <div
+                  className="text-center p-3 border border-gold/20 rounded stat-card-hover animate-glow-pulse"
+                  style={{
+                    animationDelay: '0s',
+                    transition: 'all 0.3s ease-in-out'
+                  }}
+                >
                   <p className="text-gold text-2xl font-bold">200+</p>
                   <p className="text-gray-400 text-sm">Active Clients</p>
                 </div>
-                <div className="text-center p-3 border border-gold/20 rounded">
-                  <p className="text-gold text-2xl font-bold">£M+</p>
-                  <p className="text-gray-400 text-sm">Assets Managed</p>
+                <div
+                  className="text-center p-3 border border-gold/20 rounded stat-card-hover animate-glow-pulse"
+                  style={{
+                    animationDelay: '0.3s',
+                    transition: 'all 0.3s ease-in-out'
+                  }}
+                >
+                  <p className="text-gold text-2xl font-bold">500+</p>
+                  <p className="text-gray-400 text-sm">Business Cases</p>
                 </div>
               </div>
             </div>
