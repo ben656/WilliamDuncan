@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Services from './components/Services'
 import WhyChooseUs from './components/WhyChooseUs'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -21,7 +20,6 @@ function App() {
     <div className="min-h-screen">
       <Navbar scrolled={scrolled} />
       <Hero />
-      <Services />
       <WhyChooseUs />
       <Contact />
       <Footer />
