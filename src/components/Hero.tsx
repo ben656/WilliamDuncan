@@ -71,7 +71,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <p className="font-sans text-xl text-gray-300 mb-8">
+            <p className="font-sans text-xl text-gold mb-8">
               Chartered Accountants, Business & Tax Advisers
             </p>
           </div>
