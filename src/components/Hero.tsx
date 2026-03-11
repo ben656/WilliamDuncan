@@ -14,8 +14,8 @@ const services = [
     summary: 'Comprehensive accounting solutions including bookkeeping, financial statements, and regulatory compliance.'
   },
   {
-    title: 'Audit & Assurance',
-    summary: 'Independent audits and assurance services providing confidence in your financial reporting.'
+    title: 'Mergers & Acquisitions',
+    summary: 'Expert guidance on mergers, acquisitions, due diligence, and business valuations to ensure successful transactions.'
   },
   {
     title: 'Payroll & HR',
