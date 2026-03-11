@@ -81,8 +81,16 @@ export default function Hero() {
           }`}
         >
           <div className="relative flex items-center justify-center mb-16">
-            <div className="relative bg-gradient-to-r from-gold/20 via-gold/30 to-gold/20 border-2 border-gold rounded-full px-16 py-12 md:px-24 md:py-16 shadow-2xl backdrop-blur-sm">
-              <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-center">
+            <div
+              className="relative border-2 border-gold rounded-full px-16 py-12 md:px-24 md:py-16 shadow-2xl overflow-hidden"
+              style={{
+                backgroundImage: 'url(/2022-12-22.webp)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-gold/20 via-gold/30 to-gold/20 backdrop-blur-sm"></div>
+              <h1 className="relative z-10 font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-center">
                 <span className="text-gray-100">A Century of</span>
                 <br />
                 <span className="text-gold">Trusted Expertise</span>
