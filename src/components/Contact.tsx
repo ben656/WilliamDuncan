@@ -5,7 +5,7 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-100 mb-4">
-            Get in <span className="text-gold">Touch</span>
+            <span className="text-gold">Get in Touch</span>
           </h2>
           <div className="w-24 h-1 bg-gold mx-auto"></div>
         </div>
