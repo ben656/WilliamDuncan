@@ -98,32 +98,23 @@ export default function Hero() {
             isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
-          <div className="relative w-full aspect-square max-w-md">
-            <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-gold/10 rounded-lg blur-3xl animate-pulse" />
-            <div className="relative bg-navy-dark/50 border-2 border-gold/30 rounded-lg p-8 backdrop-blur-sm h-full flex flex-col justify-center items-center space-y-4 animate-shimmer animate-float animate-gradient-shift">
-              <div className="text-6xl font-serif text-gold font-bold animate-pulse">100+</div>
-              <p className="text-gray-300 text-center text-lg">Years of Financial Excellence</p>
-              <div className="grid grid-cols-2 gap-4 w-full pt-4">
-                <div
-                  className="text-center p-3 border border-gold/20 rounded stat-card-hover animate-glow-pulse"
-                  style={{
-                    animationDelay: '0s',
-                    transition: 'all 0.3s ease-in-out'
-                  }}
-                >
-                  <p className="text-gold text-2xl font-bold">200+</p>
-                  <p className="text-gray-400 text-sm">Active Clients</p>
-                </div>
-                <div
-                  className="text-center p-3 border border-gold/20 rounded stat-card-hover animate-glow-pulse"
-                  style={{
-                    animationDelay: '0.3s',
-                    transition: 'all 0.3s ease-in-out'
-                  }}
-                >
-                  <p className="text-gold text-2xl font-bold">500+</p>
-                  <p className="text-gray-400 text-sm">Business Cases</p>
-                </div>
+          <div className="w-full flex flex-col items-center justify-center space-y-16 px-8">
+            <div className="text-center space-y-4">
+              <div className="text-7xl font-serif text-gold font-bold">100+</div>
+              <p className="text-gray-300 text-lg font-light">Years of Financial Excellence</p>
+            </div>
+
+            <div className="flex items-center justify-between w-full max-w-xs">
+              <div className="flex flex-col items-center space-y-2">
+                <p className="text-5xl font-serif text-gold font-bold">200+</p>
+                <p className="text-gray-400 text-sm font-light">Active Clients</p>
+              </div>
+
+              <div className="h-16 w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
+
+              <div className="flex flex-col items-center space-y-2">
+                <p className="text-5xl font-serif text-gold font-bold">500+</p>
+                <p className="text-gray-400 text-sm font-light">Business Cases</p>
               </div>
             </div>
           </div>
