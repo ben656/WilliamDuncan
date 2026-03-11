@@ -93,32 +93,6 @@ export default function Hero() {
           </div>
         </div>
 
-        <div
-          className={`flex-1 hidden lg:flex items-center justify-center transition-all duration-1000 delay-500 transform ${
-            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-          }`}
-        >
-          <div className="w-full flex flex-col items-center justify-center space-y-16 px-8">
-            <div className="text-center space-y-4">
-              <div className="text-7xl font-serif text-gold font-bold">100+</div>
-              <p className="text-gray-300 text-lg font-light">Years of Financial Excellence</p>
-            </div>
-
-            <div className="flex items-center justify-between w-full max-w-xs">
-              <div className="flex flex-col items-center space-y-2">
-                <p className="text-5xl font-serif text-gold font-bold">200+</p>
-                <p className="text-gray-400 text-sm font-light">Active Clients</p>
-              </div>
-
-              <div className="h-16 w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
-
-              <div className="flex flex-col items-center space-y-2">
-                <p className="text-5xl font-serif text-gold font-bold">500+</p>
-                <p className="text-gray-400 text-sm font-light">Business Cases</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
