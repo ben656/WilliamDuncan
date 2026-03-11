@@ -26,12 +26,6 @@ export default function Navbar({ scrolled }: NavbarProps) {
             Home
           </button>
           <button
-            onClick={() => scrollToSection('heritage')}
-            className="text-sm font-sans text-gray-300 hover:text-gold transition-colors"
-          >
-            Heritage
-          </button>
-          <button
             onClick={() => scrollToSection('contact')}
             className="text-sm font-sans bg-gold hover:bg-gold-dark text-navy px-6 py-2 rounded transition-colors"
           >
