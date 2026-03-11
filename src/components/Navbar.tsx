@@ -14,7 +14,7 @@ export default function Navbar({ scrolled }: NavbarProps) {
         scrolled ? 'bg-navy shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-end items-center">
         <div className="hidden md:flex gap-8 items-center">
           <button
             onClick={() => scrollToSection('hero')}
