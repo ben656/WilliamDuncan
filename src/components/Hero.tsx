@@ -57,8 +57,8 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 flex flex-col lg:flex-row items-center gap-12">
-        <div className="flex-1 space-y-8">
+      <div className="relative z-10 w-full px-6 py-24">
+        <div className="max-w-2xl space-y-8">
           <div
             className={`transition-all duration-1000 transform ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -89,7 +89,7 @@ export default function Hero() {
                 </h2>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-0">
                 {services.map((service, index) => (
                   <div
                     key={index}
@@ -97,19 +97,33 @@ export default function Hero() {
                     onMouseEnter={() => setHoveredService(index)}
                     onMouseLeave={() => setHoveredService(null)}
                   >
-                    <div className="flex items-start gap-3 py-2">
-                      <span className="text-gold text-xl font-bold mt-1">•</span>
-                      <div className="flex-1">
+                    <div className="flex items-center gap-3 py-1.5 px-2 -mx-2 rounded hover:bg-navy-dark/30 transition-all duration-200">
+                      <span className="text-gold text-xl font-bold">•</span>
+                      <div className="flex-1 flex items-center justify-between">
                         <p className="font-sans text-lg text-gray-300 group-hover:text-gold transition-colors">
                           {service.title}
                         </p>
-                        {hoveredService === index && (
-                          <p className="font-sans text-sm text-gray-400 mt-2 animate-fade-in">
-                            {service.summary}
-                          </p>
-                        )}
+                        <svg
+                          className="w-4 h-4 text-gold/50 group-hover:text-gold transition-all duration-200 group-hover:translate-x-1"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path d="M9 5l7 7-7 7"></path>
+                        </svg>
                       </div>
                     </div>
+
+                    {hoveredService === index && (
+                      <div className="absolute left-full top-0 ml-8 w-80 bg-navy-dark border-l-2 border-gold px-6 py-4 rounded shadow-2xl animate-slide-in z-50">
+                        <p className="font-sans text-sm text-gray-300 leading-relaxed">
+                          {service.summary}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
