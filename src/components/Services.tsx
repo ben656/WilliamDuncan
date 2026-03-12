@@ -57,36 +57,27 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
     <div
       ref={cardRef}
-      className={`group bg-navy-dark border border-gold/20 rounded-lg p-8 transition-all duration-500 hover:border-gold hover:shadow-2xl hover:shadow-gold/20 hover:-translate-y-2 ${
+      className={`transition-all duration-500 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      <div className="mb-6">
+      <div className="flex items-start gap-4">
         <svg
-          className="w-12 h-12 text-gold"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="1.5"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d={service.icon}></path>
-        </svg>
-      </div>
-      <h3 className="font-serif text-2xl font-semibold text-gray-100 mb-4 group-hover:text-gold transition-colors flex items-center gap-3">
-        <svg
-          className="w-4 h-4 text-gold flex-shrink-0"
+          className="w-3 h-3 text-gold flex-shrink-0 mt-2"
           viewBox="0 0 24 24"
           fill="currentColor"
         >
-          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+          <path d="M12 2L16 12L12 22L8 12L12 2Z M12 2L22 12L12 12L2 12L12 2Z" />
         </svg>
-        {service.title}
-      </h3>
-      <p className="font-sans text-gray-400 leading-relaxed">
-        {service.description}
-      </p>
+        <div className="flex-1">
+          <h3 className="font-serif text-2xl font-semibold text-gray-100 mb-3">
+            {service.title}
+          </h3>
+          <p className="font-sans text-gray-400 leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+      </div>
     </div>
   )
 }
