@@ -1,116 +1,98 @@
 import { useEffect, useRef, useState } from 'react'
 
-const services = [
-  {
-    title: 'Accounts and Tax Planning',
-    summary: 'Comprehensive accounting services paired with strategic tax optimization to minimize liabilities and ensure full regulatory compliance.'
-  },
-  {
-    title: 'Business and Tax Advisory',
-    summary: 'Expert guidance for business growth and operational excellence, combined with proactive tax strategies tailored to your specific needs.'
-  },
-  {
-    title: 'Strategy Planning',
-    summary: 'Long-term business planning and development services to help you navigate challenges and capitalize on opportunities for sustainable growth.'
-  }
-]
-
 export default function Hero() {
-  const [showOval, setShowOval] = useState(false)
-  const [hoveredService, setHoveredService] = useState<number | null>(null)
+  const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowOval(true)
-    }, 1000)
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    element?.scrollIntoView({ behavior: 'smooth' })
+  }
 
-    return () => clearTimeout(timer)
+  useEffect(() => {
+    setIsVisible(true)
   }, [])
 
   return (
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-dark to-navy opacity-95" />
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `linear-gradient(to right, #C6A75E 1px, transparent 1px),
+                            linear-gradient(to bottom, #C6A75E 1px, transparent 1px)`,
+          backgroundSize: '100px 100px',
+        }}
+      />
 
-      <div className="absolute top-8 left-6 z-20">
-        <div
-          className={`transition-all duration-1000 transform ${
-            showOval ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-          }`}
-        >
-          <div className="flex items-center gap-4 mb-3">
-            <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-14 md:h-16" />
-            <div>
-              <p className="text-gold font-sans text-xs md:text-sm font-semibold tracking-widest uppercase">est 1924</p>
-            </div>
-          </div>
-          <p className="font-sans text-xs md:text-sm text-platinum -mt-1">
-            Chartered Accountants, Business & Tax Advisers
-          </p>
-        </div>
-      </div>
-
-      <div className="relative z-10 w-full px-6 py-24 flex flex-col items-center">
-        <div
-          className={`transition-all duration-1000 transform ${
-            showOval ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-          }`}
-        >
-          <div className="relative flex items-center justify-center mb-16">
-            <div
-              className="relative border-2 border-gold rounded-full px-16 py-12 md:px-24 md:py-16 shadow-2xl overflow-hidden"
-              style={{
-                backgroundImage: 'url(/2022-12-22.webp)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-gold/20 via-gold/30 to-gold/20 backdrop-blur-sm"></div>
-              <h1 className="relative z-10 font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-center">
-                <span className="text-white">A Century of</span>
-                <br />
-                <span className="text-white">Trusted Expertise</span>
-              </h1>
-            </div>
-          </div>
-        </div>
-
-        <div
-          className={`transition-all duration-1000 delay-500 transform w-full max-w-4xl ${
-            showOval ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="relative cursor-pointer group text-center"
-                onMouseEnter={() => setHoveredService(index)}
-                onMouseLeave={() => setHoveredService(null)}
-              >
-                <div className="flex flex-col items-center gap-2 transition-all duration-300">
-                  <span className="text-gold text-base md:text-lg">◆</span>
-                  <h3 className="font-sans text-base md:text-lg font-semibold text-gray-300 group-hover:text-gold transition-colors leading-tight">
-                    {service.title}
-                  </h3>
-                </div>
-
-                {hoveredService === index && (
-                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 w-72 bg-navy-dark border-2 border-gold px-6 py-4 rounded-lg shadow-2xl animate-slide-in z-50">
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-gold"></div>
-                    <p className="font-sans text-sm text-gray-300 leading-relaxed">
-                      {service.summary}
-                    </p>
-                  </div>
-                )}
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex-1 space-y-8">
+          <div
+            className={`transition-all duration-1000 transform ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-16 md:h-20" />
+              <div>
+                <p className="text-gold font-sans text-sm font-semibold tracking-widest uppercase">Established 1924</p>
               </div>
-            ))}
+            </div>
+
+            <h1 className="font-serif text-6xl md:text-7xl font-bold text-gray-100 leading-tight mb-6">
+              <span className="block">WD - Chartered</span>
+              <span className="block text-gold">Accountants</span>
+            </h1>
+
+            <p className="font-sans text-xl text-gray-300 mb-8">
+              Business & Tax Advisors
+            </p>
+          </div>
+
+          <div
+            className={`transition-all duration-1000 delay-300 transform ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <div className="space-y-6 border-l-4 border-gold pl-6">
+              <div>
+                <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-100 mb-4">
+                  A Century of<br />
+                  <span className="text-gold">Trusted Expertise</span>
+                </h2>
+              </div>
+
+              <div className="space-y-4 text-gray-300 font-sans leading-relaxed">
+                <p className="text-lg">
+                  For more than a century, we have advised businesses, entrepreneurs and families with integrity, discretion and technical excellence.
+                </p>
+                <p className="text-lg">
+                  Our long-standing client relationships are built on trust and results. While our heritage defines us, our strategic and forward-thinking approach ensures our clients remain ahead in an evolving financial landscape.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 pt-8">
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="bg-gold hover:bg-gold-dark text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  Speak to an Adviser
+                </button>
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="border-2 border-gold text-gold hover:bg-gold hover:text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300"
+                >
+                  Our Services
+                </button>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
