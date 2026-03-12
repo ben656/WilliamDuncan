@@ -14,26 +14,13 @@ export default function Navbar({ scrolled }: NavbarProps) {
         scrolled ? 'bg-navy shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="flex items-center gap-3"></div>
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-end items-center">
         <div className="hidden md:flex gap-8 items-center">
           <button
             onClick={() => scrollToSection('hero')}
             className="text-sm font-sans text-gray-300 hover:text-gold transition-colors"
           >
             Home
-          </button>
-          <button
-            onClick={() => scrollToSection('heritage')}
-            className="text-sm font-sans text-gray-300 hover:text-gold transition-colors"
-          >
-            About
-          </button>
-          <button
-            onClick={() => scrollToSection('services')}
-            className="text-sm font-sans text-gray-300 hover:text-gold transition-colors"
-          >
-            Services
           </button>
           <button
             onClick={() => scrollToSection('contact')}

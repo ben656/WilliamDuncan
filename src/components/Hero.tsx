@@ -1,7 +1,35 @@
 import { useEffect, useRef, useState } from 'react'
 
+const services = [
+  {
+    title: 'Tax Planning',
+    summary: 'Strategic tax optimization and planning to minimize your liabilities while maximizing wealth creation opportunities.'
+  },
+  {
+    title: 'Business Advisory',
+    summary: 'Expert guidance for business growth, strategy, and operational efficiency tailored to your specific needs.'
+  },
+  {
+    title: 'Accounting Services',
+    summary: 'Comprehensive accounting solutions including bookkeeping, financial statements, and regulatory compliance.'
+  },
+  {
+    title: 'Mergers & Acquisitions',
+    summary: 'Expert guidance on mergers, acquisitions, due diligence, and business valuations to ensure successful transactions.'
+  },
+  {
+    title: 'Payroll & HR',
+    summary: 'Complete payroll management, employee benefits administration, and human resources compliance support.'
+  },
+  {
+    title: 'Wealth Management',
+    summary: 'Personalized wealth planning and investment strategies designed for long-term financial security.'
+  }
+]
+
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
+  const [hoveredService, setHoveredService] = useState<number | null>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   const scrollToSection = (id: string) => {
@@ -29,8 +57,8 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 flex flex-col lg:flex-row items-center gap-12">
-        <div className="flex-1 space-y-8">
+      <div className="relative z-10 w-full px-6 py-24">
+        <div className="max-w-2xl space-y-8">
           <div
             className={`transition-all duration-1000 transform ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -39,17 +67,12 @@ export default function Hero() {
             <div className="flex items-center gap-4 mb-6">
               <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-16 md:h-20" />
               <div>
-                <p className="text-gold font-sans text-sm font-semibold tracking-widest uppercase">Established 1924</p>
+                <p className="text-gold font-sans text-sm font-semibold tracking-widest uppercase">est 1924</p>
               </div>
             </div>
 
-            <h1 className="font-serif text-6xl md:text-7xl font-bold text-gray-100 leading-tight mb-6">
-              <span className="block">WD - Chartered</span>
-              <span className="block text-gold">Accountants</span>
-            </h1>
-
-            <p className="font-sans text-xl text-gray-300 mb-8">
-              Business & Tax Advisors
+            <p className="font-sans text-xl text-gold mb-8">
+              Chartered Accountants, Business & Tax Advisers
             </p>
           </div>
 
@@ -66,13 +89,43 @@ export default function Hero() {
                 </h2>
               </div>
 
-              <div className="space-y-4 text-gray-300 font-sans leading-relaxed">
-                <p className="text-lg">
-                  For more than a century, we have advised businesses, entrepreneurs and families with integrity, discretion and technical excellence.
-                </p>
-                <p className="text-lg">
-                  Our long-standing client relationships are built on trust and results. While our heritage defines us, our strategic and forward-thinking approach ensures our clients remain ahead in an evolving financial landscape.
-                </p>
+              <div className="space-y-0">
+                {services.map((service, index) => (
+                  <div
+                    key={index}
+                    className="relative cursor-pointer group"
+                    onMouseEnter={() => setHoveredService(index)}
+                    onMouseLeave={() => setHoveredService(null)}
+                  >
+                    <div className="flex items-center gap-3 py-1.5 px-2 -mx-2 rounded hover:bg-navy-dark/30 transition-all duration-200">
+                      <span className="text-gold text-xl font-bold">•</span>
+                      <div className="flex-1 flex items-center justify-between">
+                        <p className="font-sans text-lg text-gray-300 group-hover:text-gold transition-colors">
+                          {service.title}
+                        </p>
+                        <svg
+                          className="w-4 h-4 text-gold/50 group-hover:text-gold transition-all duration-200 group-hover:translate-x-1"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path d="M9 5l7 7-7 7"></path>
+                        </svg>
+                      </div>
+                    </div>
+
+                    {hoveredService === index && (
+                      <div className="absolute left-full top-0 ml-8 w-80 bg-navy-dark border-l-2 border-gold px-6 py-4 rounded shadow-2xl animate-slide-in z-50">
+                        <p className="font-sans text-sm text-gray-300 leading-relaxed">
+                          {service.summary}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-8">
@@ -81,12 +134,6 @@ export default function Hero() {
                   className="bg-gold hover:bg-gold-dark text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
                   Speak to an Adviser
-                </button>
-                <button
-                  onClick={() => scrollToSection('services')}
-                  className="border-2 border-gold text-gold hover:bg-gold hover:text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300"
-                >
-                  Our Services
                 </button>
               </div>
             </div>
