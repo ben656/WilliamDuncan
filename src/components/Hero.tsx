@@ -2,28 +2,16 @@ import { useEffect, useRef, useState } from 'react'
 
 const services = [
   {
-    title: 'Tax Planning',
-    summary: 'Strategic tax optimization and planning to minimize your liabilities while maximizing wealth creation opportunities.'
+    title: 'Accounts and Tax Planning',
+    summary: 'Comprehensive accounting services paired with strategic tax optimization to minimize liabilities and ensure full regulatory compliance.'
   },
   {
-    title: 'Business Advisory',
-    summary: 'Expert guidance for business growth, strategy, and operational efficiency tailored to your specific needs.'
+    title: 'Business and Tax Advisory',
+    summary: 'Expert guidance for business growth and operational excellence, combined with proactive tax strategies tailored to your specific needs.'
   },
   {
-    title: 'Accounting Services',
-    summary: 'Comprehensive accounting solutions including bookkeeping, financial statements, and regulatory compliance.'
-  },
-  {
-    title: 'Mergers & Acquisitions',
-    summary: 'Expert guidance on mergers, acquisitions, due diligence, and business valuations to ensure successful transactions.'
-  },
-  {
-    title: 'Payroll & HR',
-    summary: 'Complete payroll management, employee benefits administration, and human resources compliance support.'
-  },
-  {
-    title: 'Wealth Management',
-    summary: 'Personalized wealth planning and investment strategies designed for long-term financial security.'
+    title: 'Strategy Planning',
+    summary: 'Long-term business planning and development services to help you navigate challenges and capitalize on opportunities for sustainable growth.'
   }
 ]
 
@@ -92,21 +80,21 @@ export default function Hero() {
         </div>
 
         <div
-          className={`transition-all duration-1000 delay-500 transform w-full max-w-6xl ${
+          className={`transition-all duration-1000 delay-500 transform w-full max-w-4xl ${
             showOval ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="relative cursor-pointer group"
+                className="relative cursor-pointer group text-center"
                 onMouseEnter={() => setHoveredService(index)}
                 onMouseLeave={() => setHoveredService(null)}
               >
-                <div className="flex items-center gap-2 transition-all duration-300">
-                  <span className="text-gold text-xs md:text-sm">◆</span>
-                  <h3 className="font-sans text-sm md:text-base font-semibold text-gray-300 group-hover:text-gold transition-colors leading-tight">
+                <div className="flex flex-col items-center gap-2 transition-all duration-300">
+                  <span className="text-gold text-base md:text-lg">◆</span>
+                  <h3 className="font-sans text-base md:text-lg font-semibold text-gray-300 group-hover:text-gold transition-colors leading-tight">
                     {service.title}
                   </h3>
                 </div>
