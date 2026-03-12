@@ -47,14 +47,6 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-dark to-navy opacity-95" />
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `linear-gradient(to right, #C6A75E 1px, transparent 1px),
-                            linear-gradient(to bottom, #C6A75E 1px, transparent 1px)`,
-          backgroundSize: '100px 100px',
-        }}
-      />
 
       <div className="absolute top-8 left-6 z-20">
         <div
@@ -91,9 +83,9 @@ export default function Hero() {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-gold/20 via-gold/30 to-gold/20 backdrop-blur-sm"></div>
               <h1 className="relative z-10 font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-center">
-                <span className="text-gray-100">A Century of</span>
+                <span className="text-white">A Century of</span>
                 <br />
-                <span className="text-gold">Trusted Expertise</span>
+                <span className="text-white">Trusted Expertise</span>
               </h1>
             </div>
           </div>
