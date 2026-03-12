@@ -56,24 +56,6 @@ export default function Hero() {
         }}
       />
 
-      <div className="absolute top-8 left-6 z-20">
-        <div
-          className={`transition-all duration-1000 transform ${
-            showOval ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-          }`}
-        >
-          <div className="flex items-center gap-4 mb-3">
-            <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-14 md:h-16" />
-            <div>
-              <p className="text-gold font-sans text-xs md:text-sm font-semibold tracking-widest uppercase">est 1924</p>
-            </div>
-          </div>
-          <p className="font-sans text-base md:text-lg text-gold">
-            Chartered Accountants, Business & Tax Advisers
-          </p>
-        </div>
-      </div>
-
       <div className="relative z-10 w-full px-6 py-24 flex flex-col items-center">
         <div
           className={`transition-all duration-1000 transform ${
@@ -82,6 +64,14 @@ export default function Hero() {
         >
           <div className="relative flex items-center justify-center mb-16">
             <div className="relative bg-gradient-to-r from-gold/20 via-gold/30 to-gold/20 border-2 border-gold rounded-full px-16 py-12 md:px-24 md:py-16 shadow-2xl backdrop-blur-sm">
+              <div className="absolute -left-8 top-1/2 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32">
+                <img
+                  src="/Adobe_Express_-_file.png"
+                  alt="William Duncan"
+                  className="w-full h-full object-contain drop-shadow-2xl"
+                />
+              </div>
+
               <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-center">
                 <span className="text-gray-100">A Century of</span>
                 <br />
