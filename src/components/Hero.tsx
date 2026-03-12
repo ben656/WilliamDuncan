@@ -104,7 +104,8 @@ export default function Hero() {
                 onMouseEnter={() => setHoveredService(index)}
                 onMouseLeave={() => setHoveredService(null)}
               >
-                <div className="bg-navy-dark/50 border border-gold/30 hover:border-gold rounded-lg px-4 py-6 text-center transition-all duration-300 hover:bg-navy-dark hover:shadow-xl hover:scale-105">
+                <div className="flex items-center gap-2 transition-all duration-300">
+                  <span className="text-gold text-xs md:text-sm">◆</span>
                   <h3 className="font-sans text-sm md:text-base font-semibold text-gray-300 group-hover:text-gold transition-colors leading-tight">
                     {service.title}
                   </h3>
