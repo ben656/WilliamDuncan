@@ -35,7 +35,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowOval(true)
-    }, 1500)
+    }, 1000)
 
     return () => clearTimeout(timer)
   }, [])
