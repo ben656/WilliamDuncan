@@ -60,7 +60,7 @@ export default function Hero() {
               <p className="text-gold font-sans text-xs md:text-sm font-semibold tracking-widest uppercase">est 1924</p>
             </div>
           </div>
-          <p className="font-sans text-sm md:text-base text-gold">
+          <p className="font-sans text-xs md:text-sm text-gold -mt-1">
             Chartered Accountants, Business & Tax Advisers
           </p>
         </div>
