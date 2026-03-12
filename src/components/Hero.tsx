@@ -1,35 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
-const services = [
-  {
-    title: 'Tax Planning',
-    summary: 'Strategic tax optimization and planning to minimize your liabilities while maximizing wealth creation opportunities.'
-  },
-  {
-    title: 'Business Advisory',
-    summary: 'Expert guidance for business growth, strategy, and operational efficiency tailored to your specific needs.'
-  },
-  {
-    title: 'Accounting Services',
-    summary: 'Comprehensive accounting solutions including bookkeeping, financial statements, and regulatory compliance.'
-  },
-  {
-    title: 'Audit & Assurance',
-    summary: 'Independent audits and assurance services providing confidence in your financial reporting.'
-  },
-  {
-    title: 'Payroll & HR',
-    summary: 'Complete payroll management, employee benefits administration, and human resources compliance support.'
-  },
-  {
-    title: 'Wealth Management',
-    summary: 'Personalized wealth planning and investment strategies designed for long-term financial security.'
-  }
-]
-
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
-  const [hoveredService, setHoveredService] = useState<number | null>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   const scrollToSection = (id: string) => {
@@ -67,12 +39,17 @@ export default function Hero() {
             <div className="flex items-center gap-4 mb-6">
               <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-16 md:h-20" />
               <div>
-                <p className="text-gold font-sans text-sm font-semibold tracking-widest uppercase">est 1924</p>
+                <p className="text-gold font-sans text-sm font-semibold tracking-widest uppercase">Established 1924</p>
               </div>
             </div>
 
+            <h1 className="font-serif text-6xl md:text-7xl font-bold text-gray-100 leading-tight mb-6">
+              <span className="block">WD - Chartered</span>
+              <span className="block text-gold">Accountants</span>
+            </h1>
+
             <p className="font-sans text-xl text-gray-300 mb-8">
-              Chartered Accountants, Business & Tax Advisers
+              Business & Tax Advisors
             </p>
           </div>
 
@@ -89,29 +66,13 @@ export default function Hero() {
                 </h2>
               </div>
 
-              <div className="space-y-3">
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className="relative cursor-pointer group"
-                    onMouseEnter={() => setHoveredService(index)}
-                    onMouseLeave={() => setHoveredService(null)}
-                  >
-                    <div className="flex items-start gap-3 py-2">
-                      <span className="text-gold text-xl font-bold mt-1">•</span>
-                      <div className="flex-1">
-                        <p className="font-sans text-lg text-gray-300 group-hover:text-gold transition-colors">
-                          {service.title}
-                        </p>
-                        {hoveredService === index && (
-                          <p className="font-sans text-sm text-gray-400 mt-2 animate-fade-in">
-                            {service.summary}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              <div className="space-y-4 text-gray-300 font-sans leading-relaxed">
+                <p className="text-lg">
+                  For more than a century, we have advised businesses, entrepreneurs and families with integrity, discretion and technical excellence.
+                </p>
+                <p className="text-lg">
+                  Our long-standing client relationships are built on trust and results. While our heritage defines us, our strategic and forward-thinking approach ensures our clients remain ahead in an evolving financial landscape.
+                </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-8">
@@ -120,6 +81,12 @@ export default function Hero() {
                   className="bg-gold hover:bg-gold-dark text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
                   Speak to an Adviser
+                </button>
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="border-2 border-gold text-gold hover:bg-gold hover:text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300"
+                >
+                  Our Services
                 </button>
               </div>
             </div>

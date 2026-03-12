@@ -15,9 +15,7 @@ export default function Navbar({ scrolled }: NavbarProps) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="flex items-center gap-3">
-          <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-10 md:h-12" />
-        </div>
+        <div className="flex items-center gap-3"></div>
         <div className="hidden md:flex gap-8 items-center">
           <button
             onClick={() => scrollToSection('hero')}
@@ -29,7 +27,13 @@ export default function Navbar({ scrolled }: NavbarProps) {
             onClick={() => scrollToSection('heritage')}
             className="text-sm font-sans text-gray-300 hover:text-gold transition-colors"
           >
-            Heritage
+            About
+          </button>
+          <button
+            onClick={() => scrollToSection('services')}
+            className="text-sm font-sans text-gray-300 hover:text-gold transition-colors"
+          >
+            Services
           </button>
           <button
             onClick={() => scrollToSection('contact')}
