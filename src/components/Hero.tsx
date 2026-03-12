@@ -1,13 +1,50 @@
-export default function Hero() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
+import { useEffect, useRef, useState } from 'react'
+
+const services = [
+  {
+    title: 'Tax Planning',
+    summary: 'Strategic tax optimization and planning to minimize your liabilities while maximizing wealth creation opportunities.'
+  },
+  {
+    title: 'Business Advisory',
+    summary: 'Expert guidance for business growth, strategy, and operational efficiency tailored to your specific needs.'
+  },
+  {
+    title: 'Accounting Services',
+    summary: 'Comprehensive accounting solutions including bookkeeping, financial statements, and regulatory compliance.'
+  },
+  {
+    title: 'Mergers & Acquisitions',
+    summary: 'Expert guidance on mergers, acquisitions, due diligence, and business valuations to ensure successful transactions.'
+  },
+  {
+    title: 'Payroll & HR',
+    summary: 'Complete payroll management, employee benefits administration, and human resources compliance support.'
+  },
+  {
+    title: 'Wealth Management',
+    summary: 'Personalized wealth planning and investment strategies designed for long-term financial security.'
   }
+]
+
+export default function Hero() {
+  const [showOval, setShowOval] = useState(false)
+  const [hoveredService, setHoveredService] = useState<number | null>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowOval(true)
+    }, 3000)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      ref={sectionRef}
+      className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-dark to-navy opacity-95" />
       <div
@@ -19,41 +56,70 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 py-32 text-center">
-        <div className="space-y-8 animate-fade-in">
-          <div className="flex justify-center mb-8">
-            <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-20 md:h-24" />
+      <div className="absolute top-8 left-6 z-20">
+        <div
+          className={`transition-all duration-1000 transform ${
+            showOval ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+          }`}
+        >
+          <div className="flex items-center gap-4 mb-3">
+            <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-14 md:h-16" />
+            <div>
+              <p className="text-gold font-sans text-xs md:text-sm font-semibold tracking-widest uppercase">est 1924</p>
+            </div>
           </div>
-
-          <h1 className="font-serif text-5xl md:text-7xl font-bold text-gray-100 leading-tight">
-            Chartered Accountants &<br />
-            <span className="text-gold">Business Advisers</span>
-          </h1>
-
-          <p className="font-sans text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-            For over 100 years, we have proudly delivered Chartered accountancy
-            services to clients across the UK and beyond.
+          <p className="font-sans text-base md:text-lg text-gold">
+            Chartered Accountants, Business & Tax Advisers
           </p>
+        </div>
+      </div>
 
-          <p className="font-sans text-base md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Combining heritage, precision and forward-thinking strategy, we
-            deliver tailored financial solutions that protect wealth, support
-            growth, and create long-term value.
-          </p>
+      <div className="relative z-10 w-full px-6 py-24 flex flex-col items-center">
+        <div
+          className={`transition-all duration-1000 transform ${
+            showOval ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}
+        >
+          <div className="relative flex items-center justify-center mb-16">
+            <div className="relative bg-gradient-to-r from-gold/20 via-gold/30 to-gold/20 border-2 border-gold rounded-full px-16 py-12 md:px-24 md:py-16 shadow-2xl backdrop-blur-sm">
+              <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-center">
+                <span className="text-gray-100">A Century of</span>
+                <br />
+                <span className="text-gold">Trusted Expertise</span>
+              </h1>
+            </div>
+          </div>
+        </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="bg-gold hover:bg-gold-dark text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
-              Speak to an Adviser
-            </button>
-            <button
-              onClick={() => scrollToSection('services')}
-              className="border-2 border-gold text-gold hover:bg-gold hover:text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300"
-            >
-              Our Services
-            </button>
+        <div
+          className={`transition-all duration-1000 delay-500 transform w-full max-w-6xl ${
+            showOval ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="relative cursor-pointer group"
+                onMouseEnter={() => setHoveredService(index)}
+                onMouseLeave={() => setHoveredService(null)}
+              >
+                <div className="bg-navy-dark/50 border border-gold/30 hover:border-gold rounded-lg px-4 py-6 text-center transition-all duration-300 hover:bg-navy-dark hover:shadow-xl hover:scale-105">
+                  <h3 className="font-sans text-sm md:text-base font-semibold text-gray-300 group-hover:text-gold transition-colors leading-tight">
+                    {service.title}
+                  </h3>
+                </div>
+
+                {hoveredService === index && (
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 w-72 bg-navy-dark border-2 border-gold px-6 py-4 rounded-lg shadow-2xl animate-slide-in z-50">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-gold"></div>
+                    <p className="font-sans text-sm text-gray-300 leading-relaxed">
+                      {service.summary}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
