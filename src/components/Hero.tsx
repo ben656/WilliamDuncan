@@ -2,144 +2,115 @@ import { useEffect, useRef, useState } from 'react'
 
 const services = [
   {
-    title: 'Tax Planning',
-    summary: 'Strategic tax optimization and planning to minimize your liabilities while maximizing wealth creation opportunities.'
+    title: 'Accounts and Tax Planning',
+    summary: 'Comprehensive accounting services paired with strategic tax optimization to minimize liabilities and ensure full regulatory compliance.'
   },
   {
-    title: 'Business Advisory',
-    summary: 'Expert guidance for business growth, strategy, and operational efficiency tailored to your specific needs.'
+    title: 'Business and Tax Advisory',
+    summary: 'Expert guidance for business growth and operational excellence, combined with proactive tax strategies tailored to your specific needs.'
   },
   {
-    title: 'Accounting Services',
-    summary: 'Comprehensive accounting solutions including bookkeeping, financial statements, and regulatory compliance.'
-  },
-  {
-    title: 'Audit & Assurance',
-    summary: 'Independent audits and assurance services providing confidence in your financial reporting.'
-  },
-  {
-    title: 'Payroll & HR',
-    summary: 'Complete payroll management, employee benefits administration, and human resources compliance support.'
-  },
-  {
-    title: 'Wealth Management',
-    summary: 'Personalized wealth planning and investment strategies designed for long-term financial security.'
+    title: 'Strategy Planning',
+    summary: 'Long-term business planning and development services to help you navigate challenges and capitalize on opportunities for sustainable growth.'
   }
 ]
 
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [showOval, setShowOval] = useState(false)
   const [hoveredService, setHoveredService] = useState<number | null>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   useEffect(() => {
-    setIsVisible(true)
+    const timer = setTimeout(() => {
+      setShowOval(true)
+    }, 1000)
+
+    return () => clearTimeout(timer)
   }, [])
 
   return (
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-dark to-navy opacity-95" />
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `linear-gradient(to right, #C6A75E 1px, transparent 1px),
-                            linear-gradient(to bottom, #C6A75E 1px, transparent 1px)`,
-          backgroundSize: '100px 100px',
-        }}
-      />
 
-      <div className="relative z-10 w-full px-6 py-24">
-        <div className="max-w-2xl space-y-8">
-          <div
-            className={`transition-all duration-1000 transform ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-16 md:h-20" />
-              <div>
-                <p className="text-gold font-sans text-sm font-semibold tracking-widest uppercase">est 1924</p>
-              </div>
+      <div className="absolute top-8 left-6 z-20">
+        <div
+          className={`transition-all duration-1000 transform ${
+            showOval ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+          }`}
+        >
+          <div className="flex items-center gap-4 mb-3">
+            <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-14 md:h-16" />
+            <div>
+              <p className="text-gold font-sans text-xs md:text-sm font-semibold tracking-widest uppercase">est 1924</p>
             </div>
-
-            <p className="font-sans text-xl text-gold mb-8">
-              Chartered Accountants, Business & Tax Advisers
-            </p>
           </div>
+          <p className="font-sans text-xs md:text-sm text-platinum -mt-1">
+            Chartered Accountants, Business & Tax Advisers
+          </p>
+        </div>
+      </div>
 
-          <div
-            className={`transition-all duration-1000 delay-300 transform ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
-            <div className="space-y-6 border-l-4 border-gold pl-6">
-              <div>
-                <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-100 mb-4">
-                  A Century of<br />
-                  <span className="text-gold">Trusted Expertise</span>
-                </h2>
-              </div>
-
-              <div className="space-y-0">
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className="relative cursor-pointer group"
-                    onMouseEnter={() => setHoveredService(index)}
-                    onMouseLeave={() => setHoveredService(null)}
-                  >
-                    <div className="flex items-center gap-3 py-1.5 px-2 -mx-2 rounded hover:bg-navy-dark/30 transition-all duration-200">
-                      <span className="text-gold text-xl font-bold">•</span>
-                      <div className="flex-1 flex items-center justify-between">
-                        <p className="font-sans text-lg text-gray-300 group-hover:text-gold transition-colors">
-                          {service.title}
-                        </p>
-                        <svg
-                          className="w-4 h-4 text-gold/50 group-hover:text-gold transition-all duration-200 group-hover:translate-x-1"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path d="M9 5l7 7-7 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-
-                    {hoveredService === index && (
-                      <div className="absolute left-full top-0 ml-8 w-80 bg-navy-dark border-l-2 border-gold px-6 py-4 rounded shadow-2xl animate-slide-in z-50">
-                        <p className="font-sans text-sm text-gray-300 leading-relaxed">
-                          {service.summary}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-8">
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="bg-gold hover:bg-gold-dark text-navy font-sans font-semibold px-8 py-4 rounded transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  Speak to an Adviser
-                </button>
-              </div>
+      <div className="relative z-10 w-full px-6 py-24 flex flex-col items-center">
+        <div
+          className={`transition-all duration-1000 transform ${
+            showOval ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}
+        >
+          <div className="relative flex items-center justify-center mb-16">
+            <div
+              className="relative border-2 border-gold rounded-full px-16 py-12 md:px-24 md:py-16 shadow-2xl overflow-hidden"
+              style={{
+                backgroundImage: 'url(/2022-12-22.webp)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-gold/20 via-gold/30 to-gold/20 backdrop-blur-sm"></div>
+              <h1 className="relative z-10 font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-center">
+                <span className="text-white">A Century of</span>
+                <br />
+                <span className="text-white">Trusted Expertise</span>
+              </h1>
             </div>
           </div>
         </div>
 
+        <div
+          className={`transition-all duration-1000 delay-500 transform w-full max-w-4xl ${
+            showOval ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="relative cursor-pointer group text-center"
+                onMouseEnter={() => setHoveredService(index)}
+                onMouseLeave={() => setHoveredService(null)}
+              >
+                <div className="flex flex-col items-center gap-2 transition-all duration-300">
+                  <span className="text-gold text-base md:text-lg">◆</span>
+                  <h3 className="font-sans text-base md:text-lg font-semibold text-gray-300 group-hover:text-gold transition-colors leading-tight">
+                    {service.title}
+                  </h3>
+                </div>
+
+                {hoveredService === index && (
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 w-72 bg-navy-dark border-2 border-gold px-6 py-4 rounded-lg shadow-2xl animate-slide-in z-50">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-gold"></div>
+                    <p className="font-sans text-sm text-gray-300 leading-relaxed">
+                      {service.summary}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">

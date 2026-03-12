@@ -16,6 +16,11 @@ export default {
           light: '#D4BA7A',
           dark: '#B8964A',
         },
+        platinum: {
+          DEFAULT: '#E5E4E2',
+          light: '#F5F5F5',
+          dark: '#C9C8C6',
+        },
       },
       fontFamily: {
         serif: ['Playfair Display', 'serif'],
