@@ -59,6 +59,19 @@ export default function Hero() {
       <div className="absolute inset-0 diamond-pattern animate-pulse-subtle" />
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-navy-dark opacity-50" />
 
+      <div
+        className={`absolute top-8 left-8 z-30 transition-all duration-1000 transform ${
+          showOval ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-8 scale-95'
+        }`}
+      >
+        <div className="flex items-center gap-2 transform hover:scale-105 transition-transform duration-300">
+          <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-20 md:h-24 lg:h-28 filter drop-shadow-2xl" />
+          <div className="flex flex-col justify-end -ml-3 mb-2">
+            <p className="text-gold font-sans text-[8px] md:text-[9px] lg:text-[10px] font-light tracking-[0.25em] uppercase opacity-80">est 1924</p>
+          </div>
+        </div>
+      </div>
+
       <div className="relative z-10 w-full px-6 py-24 flex flex-col items-center justify-center min-h-screen">
         <div
           className={`transition-all duration-1200 ease-out transform ${
@@ -68,24 +81,6 @@ export default function Hero() {
           <div className="relative flex items-center justify-center flex-col">
             <div className="absolute inset-0 blur-2xl opacity-30">
               <div className="w-full h-full bg-gold/20 rounded-full"></div>
-            </div>
-
-            <div
-              className={`transition-all duration-1000 transform mb-12 ${
-                showOval ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-8 scale-95'
-              }`}
-            >
-              <div className="flex flex-col items-center relative">
-                <div className="flex items-center gap-2 mb-3 transform hover:scale-105 transition-transform duration-300">
-                  <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-20 md:h-24 lg:h-28 filter drop-shadow-2xl" />
-                  <div className="flex flex-col justify-end -ml-3 mb-2">
-                    <p className="text-gold font-sans text-[8px] md:text-[9px] lg:text-[10px] font-light tracking-[0.25em] uppercase opacity-80">est 1924</p>
-                  </div>
-                </div>
-                <p className="font-sans text-xl md:text-2xl lg:text-3xl font-bold text-platinum tracking-wide gradient-text text-shadow-luxury text-center">
-                  Chartered Accountants, Business & Tax Advisers
-                </p>
-              </div>
             </div>
 
             <div className="relative shimmer bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-10 md:px-20 md:py-14 lg:px-28 lg:py-16 shadow-2xl border border-gold/30">
@@ -106,9 +101,9 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-24 left-0 right-0 z-20 px-6">
-        <div className="w-full max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+      <div className="absolute bottom-12 left-0 right-0 z-20 px-6">
+        <div className="w-full max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -119,20 +114,20 @@ export default function Hero() {
                 onMouseEnter={() => setHoveredService(index)}
                 onMouseLeave={() => setHoveredService(null)}
               >
-                <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/85 to-navy-dark/95 backdrop-blur-md border border-gold/50 px-6 py-7 transition-all duration-500 shadow-2xl hover-lift overflow-hidden">
+                <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/85 to-navy-dark/95 backdrop-blur-md border border-gold/50 px-4 py-4 transition-all duration-500 shadow-2xl hover-lift overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                  <div className="absolute top-0 left-0 w-10 h-10 border-t border-l border-gold/70"></div>
-                  <div className="absolute bottom-0 right-0 w-10 h-10 border-b border-r border-gold/70"></div>
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-gold/70"></div>
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-gold/70"></div>
 
                   <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100"></div>
 
                   <div className="relative z-10">
-                    <div className="w-10 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mx-auto mb-3 opacity-70"></div>
-                    <h3 className="font-sans text-sm md:text-base font-semibold text-platinum leading-tight tracking-wide group-hover:text-platinum transition-colors duration-300">
+                    <div className="w-8 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mx-auto mb-2 opacity-70"></div>
+                    <h3 className="font-sans text-xs md:text-sm font-semibold text-platinum leading-tight tracking-wide group-hover:text-platinum transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <div className="w-10 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mx-auto mt-3 opacity-70"></div>
+                    <div className="w-8 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mx-auto mt-2 opacity-70"></div>
                   </div>
                 </div>
 
