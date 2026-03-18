@@ -23,8 +23,12 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
-        sans: ['Inter', 'sans-serif'],
+        serif: ['Cormorant Garamond', 'serif'],
+        sans: ['Montserrat', 'sans-serif'],
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gold-shimmer': 'linear-gradient(120deg, transparent 0%, rgba(198, 167, 94, 0.1) 50%, transparent 100%)',
       },
     },
   },
