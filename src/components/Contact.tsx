@@ -42,7 +42,7 @@ export default function Contact() {
 
             <div className="space-y-4">
               <div>
-                <h3 className="font-serif text-base font-bold text-gold mb-1">Email</h3>
+                <h3 className="font-serif text-base font-bold metallic-chrome mb-1">Email</h3>
                 <a
                   href="mailto:wmdadmin@williamduncan-ca.co.uk"
                   className="font-sans metallic-chrome hover:text-gold transition-colors text-sm"
@@ -52,7 +52,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <h3 className="font-serif text-base font-bold text-gold mb-1">Phone</h3>
+                <h3 className="font-serif text-base font-bold metallic-chrome mb-1">Phone</h3>
                 <a
                   href="tel:01698283103"
                   className="font-sans metallic-chrome hover:text-gold transition-colors text-sm"

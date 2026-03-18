@@ -43,13 +43,13 @@ export default function Heritage() {
               </h2>
             </div>
 
-            <div className="space-y-4 metallic-chrome font-sans leading-relaxed">
-              <p className="text-lg">
+            <div className="space-y-4 font-sans leading-relaxed">
+              <p className="text-lg metallic-chrome">
                 For more than a century, we have advised businesses,
                 entrepreneurs and families with integrity, discretion and
                 technical excellence.
               </p>
-              <p className="text-lg">
+              <p className="text-lg metallic-chrome">
                 Our long-standing client relationships are built on trust and
                 results. While our heritage defines us, our strategic and
                 forward-thinking approach ensures our clients remain ahead in an
