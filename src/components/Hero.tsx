@@ -44,9 +44,9 @@ export default function Hero() {
           }`}
         >
           <div className="flex flex-col relative">
-            <div className="flex items-center gap-6 mb-0">
+            <div className="flex items-center gap-1 mb-0">
               <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-10 md:h-12" />
-              <p className="text-gold font-sans text-[10px] font-semibold tracking-widest uppercase">est 1924</p>
+              <p className="text-gold font-sans text-[10px] font-semibold tracking-widest uppercase -ml-2">est 1924</p>
             </div>
             <p className="font-sans text-lg md:text-xl lg:text-2xl font-bold metallic-chrome -mt-2">
               Chartered Accountants, Business & Tax Advisers
