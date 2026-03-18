@@ -12,7 +12,7 @@ export default function Contact() {
     <section id="contact" className="py-24 bg-navy-dark">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-100 mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold metallic-chrome mb-4">
             <span className="text-gold">Contact Us</span>
           </h2>
           <div className="w-24 h-1 bg-gold mx-auto"></div>
@@ -33,8 +33,8 @@ export default function Contact() {
 
           <div className="flex flex-col justify-center space-y-6">
             <div>
-              <h3 className="font-serif text-xl font-bold text-gray-100 mb-2">Our Location</h3>
-              <p className="font-sans text-gray-300">
+              <h3 className="font-serif text-xl font-bold metallic-chrome mb-2">Our Location</h3>
+              <p className="font-sans metallic-chrome">
                 4D Auchingramont Rd<br />
                 Hamilton ML3 6JT
               </p>
@@ -45,7 +45,7 @@ export default function Contact() {
                 <h3 className="font-serif text-base font-bold text-gold mb-1">Email</h3>
                 <a
                   href="mailto:wmdadmin@williamduncan-ca.co.uk"
-                  className="font-sans text-gray-300 hover:text-gold transition-colors text-sm"
+                  className="font-sans metallic-chrome hover:text-gold transition-colors text-sm"
                 >
                   wmdadmin@williamduncan-ca.co.uk
                 </a>
@@ -55,27 +55,27 @@ export default function Contact() {
                 <h3 className="font-serif text-base font-bold text-gold mb-1">Phone</h3>
                 <a
                   href="tel:01698283103"
-                  className="font-sans text-gray-300 hover:text-gold transition-colors text-sm"
+                  className="font-sans metallic-chrome hover:text-gold transition-colors text-sm"
                 >
                   01698 283103
                 </a>
               </div>
             </div>
 
-            <p className="font-sans text-gray-400 text-sm leading-relaxed">
+            <p className="font-sans metallic-chrome text-sm leading-relaxed">
               We welcome confidential discussions with business owners, entrepreneurs and families seeking trusted financial guidance.
             </p>
           </div>
 
           <div className="flex flex-col justify-center">
-            <h3 className="font-serif text-xl font-bold text-gray-100 mb-6">
+            <h3 className="font-serif text-xl font-bold metallic-chrome mb-6">
               Why Clients <span className="text-gold">Trust Us</span>
             </h3>
             <div className="space-y-4">
               {reasons.map((reason, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-gold"></div>
-                  <p className="font-sans text-sm text-gray-300 leading-relaxed">
+                  <p className="font-sans text-sm metallic-chrome leading-relaxed">
                     {reason}
                   </p>
                 </div>

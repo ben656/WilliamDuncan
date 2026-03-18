@@ -35,7 +35,7 @@ export default function Heritage() {
         >
           <div className="space-y-6 max-w-2xl">
             <div className="inline-block">
-              <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-100 relative pb-2">
+              <h2 className="font-serif text-4xl md:text-5xl font-bold metallic-chrome relative pb-2">
                 A Century of
                 <br />
                 <span className="text-gold">Trusted Expertise</span>
@@ -43,7 +43,7 @@ export default function Heritage() {
               </h2>
             </div>
 
-            <div className="space-y-4 text-gray-300 font-sans leading-relaxed">
+            <div className="space-y-4 metallic-chrome font-sans leading-relaxed">
               <p className="text-lg">
                 For more than a century, we have advised businesses,
                 entrepreneurs and families with integrity, discretion and

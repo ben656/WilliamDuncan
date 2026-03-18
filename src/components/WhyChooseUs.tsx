@@ -44,7 +44,7 @@ export default function WhyChooseUs() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-100 mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold metallic-chrome mb-4">
             Why Clients <span className="text-gold">Trust Us</span>
           </h2>
           <div className="w-24 h-1 bg-gold mx-auto"></div>
@@ -62,7 +62,7 @@ export default function WhyChooseUs() {
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-gold"></div>
-              <p className="font-sans text-lg text-gray-300 leading-relaxed">
+              <p className="font-sans text-lg metallic-chrome leading-relaxed">
                 {reason}
               </p>
             </div>

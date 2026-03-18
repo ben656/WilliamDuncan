@@ -70,10 +70,10 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
           <path d="M12 2L16 12L12 22L8 12L12 2Z M12 2L22 12L12 12L2 12L12 2Z" />
         </svg>
         <div className="flex-1">
-          <h3 className="font-serif text-2xl font-semibold text-gray-100 mb-3">
+          <h3 className="font-serif text-2xl font-semibold metallic-chrome mb-3">
             {service.title}
           </h3>
-          <p className="font-sans text-gray-400 leading-relaxed">
+          <p className="font-sans metallic-chrome leading-relaxed">
             {service.description}
           </p>
         </div>
@@ -87,7 +87,7 @@ export default function Services() {
     <section id="services" className="py-24 bg-navy">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-100 mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold metallic-chrome mb-4">
             Our <span className="text-gold">Services</span>
           </h2>
           <div className="w-24 h-1 bg-gold mx-auto"></div>
