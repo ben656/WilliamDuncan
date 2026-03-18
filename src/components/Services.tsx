@@ -61,21 +61,21 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      <div className="flex items-start gap-4">
-        <svg
-          className="w-3 h-3 text-gold flex-shrink-0 mt-2"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-        >
-          <path d="M12 2L16 12L12 22L8 12L12 2Z M12 2L22 12L12 12L2 12L12 2Z" />
-        </svg>
-        <div className="flex-1">
-          <h3 className="font-serif text-2xl font-semibold metallic-chrome mb-3">
+      <div className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-platinum/40 px-8 py-10 transition-all duration-500 shadow-2xl hover:border-platinum/60 group">
+        <div className="absolute inset-0 bg-gradient-to-br from-platinum/5 via-transparent to-platinum/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-platinum/60"></div>
+        <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-platinum/60"></div>
+
+        <div className="relative z-10">
+          <div className="w-12 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mb-4 opacity-60"></div>
+          <h3 className="font-sans text-xl md:text-2xl font-bold text-platinum mb-3 tracking-wide">
             {service.title}
           </h3>
-          <p className="font-sans metallic-chrome leading-relaxed">
+          <p className="font-sans text-platinum/90 leading-relaxed">
             {service.description}
           </p>
+          <div className="w-12 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mt-4 opacity-60"></div>
         </div>
       </div>
     </div>
@@ -87,10 +87,23 @@ export default function Services() {
     <section id="services" className="py-24 bg-navy">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold metallic-chrome mb-4">
-            Our <span className="text-gold">Services</span>
-          </h2>
-          <div className="w-24 h-1 bg-gold mx-auto"></div>
+          <div className="relative inline-block">
+            <div className="absolute inset-0 blur-2xl opacity-30">
+              <div className="w-full h-full bg-gold/20 rounded-full"></div>
+            </div>
+            <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-8 shadow-2xl border border-gold/30">
+              <div className="absolute inset-0 border border-gold/10 m-3"></div>
+              <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-gold/50"></div>
+              <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-gold/50"></div>
+              <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-gold/50"></div>
+              <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-gold/50"></div>
+
+              <h2 className="relative font-sans text-4xl md:text-5xl font-light gradient-text text-shadow-luxury tracking-wide">
+                Our Services
+              </h2>
+              <div className="mt-4 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent opacity-60"></div>
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">

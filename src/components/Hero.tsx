@@ -73,7 +73,7 @@ export default function Hero() {
                 <div className="h-px w-12 bg-gradient-to-r from-gold to-transparent"></div>
               </div>
             </div>
-            <p className="font-sans text-lg md:text-xl lg:text-2xl font-bold text-platinum tracking-wide ml-4 gradient-text text-shadow-luxury">
+            <p className="font-sans text-lg md:text-xl lg:text-2xl font-bold text-platinum tracking-wide ml-8 gradient-text text-shadow-luxury">
               Chartered Accountants, Business & Tax Advisers
             </p>
           </div>
@@ -131,11 +131,11 @@ export default function Hero() {
                   <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100"></div>
 
                   <div className="relative z-10">
-                    <div className="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-4 opacity-60"></div>
-                    <h3 className="font-sans text-sm md:text-base font-semibold text-platinum leading-tight tracking-wide group-hover:text-gold-light transition-colors duration-300">
+                    <div className="w-12 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mx-auto mb-4 opacity-60"></div>
+                    <h3 className="font-sans text-sm md:text-base font-semibold text-platinum leading-tight tracking-wide group-hover:text-platinum transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <div className="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-4 opacity-60"></div>
+                    <div className="w-12 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mx-auto mt-4 opacity-60"></div>
                   </div>
                 </div>
 
