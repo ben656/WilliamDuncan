@@ -61,21 +61,21 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      <div className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-platinum/40 px-8 py-10 transition-all duration-500 shadow-2xl hover:border-platinum/60 group">
-        <div className="absolute inset-0 bg-gradient-to-br from-platinum/5 via-transparent to-platinum/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-steel/50 px-8 py-10 transition-all duration-500 shadow-2xl hover:border-steel-light/70 group">
+        <div className="absolute inset-0 bg-gradient-to-br from-steel/5 via-transparent to-steel-light/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-        <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-platinum/60"></div>
-        <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-platinum/60"></div>
+        <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-steel-light/70"></div>
+        <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-steel-light/70"></div>
 
         <div className="relative z-10">
-          <div className="w-12 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mb-4 opacity-60"></div>
-          <h3 className="font-sans text-xl md:text-2xl font-bold text-platinum mb-3 tracking-wide">
+          <div className="w-12 h-px bg-gradient-to-r from-transparent via-steel-light to-transparent mb-4 opacity-70"></div>
+          <h3 className="font-sans text-xl md:text-2xl font-bold steel-text steel-shadow mb-3 tracking-wide">
             {service.title}
           </h3>
-          <p className="font-sans text-platinum/90 leading-relaxed">
+          <p className="font-sans text-steel-light/95 leading-relaxed">
             {service.description}
           </p>
-          <div className="w-12 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mt-4 opacity-60"></div>
+          <div className="w-12 h-px bg-gradient-to-r from-transparent via-steel-light to-transparent mt-4 opacity-70"></div>
         </div>
       </div>
     </div>

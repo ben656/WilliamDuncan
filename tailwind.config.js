@@ -21,6 +21,11 @@ export default {
           light: '#F5F5F5',
           dark: '#C9C8C6',
         },
+        steel: {
+          DEFAULT: '#8B9DC3',
+          light: '#A8B5D1',
+          dark: '#6B7A9E',
+        },
       },
       fontFamily: {
         serif: ['Cormorant Garamond', 'serif'],
