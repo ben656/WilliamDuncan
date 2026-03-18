@@ -17,15 +17,29 @@ const services = [
 
 export default function Hero() {
   const [showOval, setShowOval] = useState(false)
+  const [showHeading, setShowHeading] = useState(false)
+  const [showServices, setShowServices] = useState(false)
   const [hoveredService, setHoveredService] = useState<number | null>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const ovalTimer = setTimeout(() => {
       setShowOval(true)
+    }, 500)
+
+    const headingTimer = setTimeout(() => {
+      setShowHeading(true)
     }, 1000)
 
-    return () => clearTimeout(timer)
+    const servicesTimer = setTimeout(() => {
+      setShowServices(true)
+    }, 1800)
+
+    return () => {
+      clearTimeout(ovalTimer)
+      clearTimeout(headingTimer)
+      clearTimeout(servicesTimer)
+    }
   }, [])
 
   return (
@@ -35,7 +49,7 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-dark to-navy opacity-95" />
-      <div className="absolute inset-0 diamond-pattern" />
+      <div className="absolute inset-0 diamond-pattern animate-pulse-subtle" />
 
       <div className="absolute top-8 left-6 z-20">
         <div
@@ -58,7 +72,7 @@ export default function Hero() {
       <div className="relative z-10 w-full px-6 py-24 flex flex-col items-center justify-center min-h-screen">
         <div
           className={`transition-all duration-1000 transform ${
-            showOval ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            showHeading ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
           <div className="relative flex items-center justify-center">
@@ -76,16 +90,15 @@ export default function Hero() {
       </div>
 
       <div className="absolute bottom-24 left-0 right-0 z-10 px-6">
-        <div
-          className={`transition-all duration-1000 delay-500 transform w-full max-w-5xl mx-auto ${
-            showOval ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <div className="w-full max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="relative cursor-pointer group text-center"
+                className={`relative cursor-pointer group text-center transition-all duration-700 transform ${
+                  showServices ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
                 onMouseEnter={() => setHoveredService(index)}
                 onMouseLeave={() => setHoveredService(null)}
               >
