@@ -48,34 +48,36 @@ export default function Hero() {
               <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-10 md:h-12" />
               <p className="text-gold font-sans text-[10px] font-semibold tracking-widest uppercase -ml-2">est 1924</p>
             </div>
-            <p className="font-sans text-lg md:text-xl lg:text-2xl font-bold metallic-chrome -mt-2">
+            <p className="font-sans text-lg md:text-xl lg:text-2xl font-bold text-platinum -mt-2">
               Chartered Accountants, Business & Tax Advisers
             </p>
           </div>
         </div>
       </div>
 
-      <div className="relative z-10 w-full px-6 py-24 flex flex-col items-center">
+      <div className="relative z-10 w-full px-6 py-24 flex flex-col items-center justify-center min-h-screen">
         <div
           className={`transition-all duration-1000 transform ${
             showOval ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
-          <div className="relative flex items-center justify-center mb-16">
+          <div className="relative flex items-center justify-center">
             <div className="relative border-4 border-gold bg-navy rounded-md px-16 py-12 md:px-24 md:py-16 shadow-2xl">
               <div className="absolute inset-0 border-2 border-gold/30 rounded-sm m-2"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/5"></div>
-              <h1 className="relative z-10 font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-center metallic-chrome leading-tight">
-                A Century of
+              <h1 className="relative z-10 font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-tight">
+                <span className="text-gold">A Century of</span>
                 <br />
-                Trusted Expertise
+                <span className="text-platinum">Trusted Expertise</span>
               </h1>
             </div>
           </div>
         </div>
+      </div>
 
+      <div className="absolute bottom-24 left-0 right-0 z-10 px-6">
         <div
-          className={`transition-all duration-1000 delay-500 transform w-full max-w-4xl ${
+          className={`transition-all duration-1000 delay-500 transform w-full max-w-5xl mx-auto ${
             showOval ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
@@ -87,10 +89,12 @@ export default function Hero() {
                 onMouseEnter={() => setHoveredService(index)}
                 onMouseLeave={() => setHoveredService(null)}
               >
-                <div className="relative border-3 border-gold bg-navy rounded px-6 py-6 transition-all duration-300 group-hover:shadow-xl group-hover:scale-105">
-                  <div className="absolute inset-0 border border-gold/30 rounded-sm m-1.5"></div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/5"></div>
-                  <h3 className="relative z-10 font-sans text-sm md:text-base font-semibold metallic-chrome group-hover:text-gold transition-colors leading-tight">
+                <div className="relative bg-gradient-to-b from-navy-dark to-navy border-4 border-gold/40 rounded-lg px-6 py-8 transition-all duration-300 shadow-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/20 rounded-lg"></div>
+                  <div className="absolute inset-2 border-2 border-gold/20 rounded"></div>
+                  <h3 className="relative z-10 font-sans text-sm md:text-base font-bold text-platinum leading-tight" style={{
+                    textShadow: '0 2px 4px rgba(0,0,0,0.5), 0 -1px 2px rgba(255,255,255,0.1), 1px 1px 2px rgba(0,0,0,0.3)'
+                  }}>
                     {service.title}
                   </h3>
                 </div>
@@ -98,7 +102,7 @@ export default function Hero() {
                 {hoveredService === index && (
                   <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 w-72 bg-navy-dark border-2 border-gold px-6 py-4 rounded-lg shadow-2xl animate-slide-in z-50">
                     <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-gold"></div>
-                    <p className="font-sans text-sm metallic-chrome leading-relaxed">
+                    <p className="font-sans text-sm text-platinum leading-relaxed">
                       {service.summary}
                     </p>
                   </div>
