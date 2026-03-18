@@ -33,7 +33,7 @@ export default function Hero() {
 
     const servicesTimer = setTimeout(() => {
       setShowServices(true)
-    }, 1800)
+    }, 2400)
 
     return () => {
       clearTimeout(ovalTimer)
@@ -71,12 +71,12 @@ export default function Hero() {
             </div>
 
             <div
-              className={`transition-all duration-1000 transform mb-8 ${
-                showOval ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+              className={`transition-all duration-1000 transform mb-12 ${
+                showOval ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-8 scale-95'
               }`}
             >
               <div className="flex flex-col items-center relative">
-                <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center gap-2 mb-3 transform hover:scale-105 transition-transform duration-300">
                   <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-20 md:h-24 lg:h-28 filter drop-shadow-2xl" />
                   <div className="flex flex-col justify-end -ml-3 mb-2">
                     <p className="text-gold font-sans text-[8px] md:text-[9px] lg:text-[10px] font-light tracking-[0.25em] uppercase opacity-80">est 1924</p>
@@ -106,33 +106,33 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-24 left-0 right-0 z-10 px-6">
-        <div className="w-full max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      <div className="absolute bottom-24 left-0 right-0 z-20 px-6">
+        <div className="w-full max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
             {services.map((service, index) => (
               <div
                 key={index}
                 className={`relative cursor-pointer group text-center transition-all duration-700 transform ${
-                  showServices ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  showServices ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
                 }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
+                style={{ transitionDelay: `${index * 250}ms` }}
                 onMouseEnter={() => setHoveredService(index)}
                 onMouseLeave={() => setHoveredService(null)}
               >
-                <div className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-gold/40 px-8 py-10 transition-all duration-500 shadow-2xl hover-lift overflow-hidden">
+                <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/85 to-navy-dark/95 backdrop-blur-md border border-gold/50 px-6 py-7 transition-all duration-500 shadow-2xl hover-lift overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                  <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-gold/60"></div>
-                  <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/60"></div>
+                  <div className="absolute top-0 left-0 w-10 h-10 border-t border-l border-gold/70"></div>
+                  <div className="absolute bottom-0 right-0 w-10 h-10 border-b border-r border-gold/70"></div>
 
                   <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100"></div>
 
                   <div className="relative z-10">
-                    <div className="w-12 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mx-auto mb-4 opacity-60"></div>
+                    <div className="w-10 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mx-auto mb-3 opacity-70"></div>
                     <h3 className="font-sans text-sm md:text-base font-semibold text-platinum leading-tight tracking-wide group-hover:text-platinum transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <div className="w-12 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mx-auto mt-4 opacity-60"></div>
+                    <div className="w-10 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mx-auto mt-3 opacity-70"></div>
                   </div>
                 </div>
 
