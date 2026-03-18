@@ -25,36 +25,102 @@ export default function Heritage() {
     <section
       id="heritage"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b from-navy-dark to-navy"
+      className="py-32 bg-gradient-to-br from-[#0a1628] via-[#0f1e3a] to-[#1a2847] relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gold rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div
           className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="space-y-6 max-w-2xl">
-            <div className="inline-block">
-              <h2 className="font-serif text-4xl md:text-5xl font-bold metallic-chrome relative pb-2">
-                A Century of
-                <br />
-                <span className="text-gold">Trusted Expertise</span>
-                <div className="absolute bottom-0 left-0 w-24 h-1 bg-gold"></div>
-              </h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="inline-block">
+                <h2 className="font-serif text-5xl md:text-6xl font-bold text-white leading-tight relative pb-4">
+                  A Century of
+                  <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-300 to-gold">
+                    Trusted Expertise
+                  </span>
+                  <div className="absolute bottom-0 left-0 w-32 h-1 bg-gradient-to-r from-gold to-transparent"></div>
+                </h2>
+              </div>
+
+              <div className="space-y-6 font-sans leading-relaxed">
+                <p className="text-xl text-gray-200 font-light">
+                  For more than a century, we have advised businesses,
+                  entrepreneurs and families with integrity, discretion and
+                  technical excellence.
+                </p>
+                <p className="text-lg text-gray-300 font-light leading-loose">
+                  Our long-standing client relationships are built on trust and
+                  results. While our heritage defines us, our strategic and
+                  forward-thinking approach ensures our clients remain ahead in an
+                  evolving financial landscape.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-3 gap-6 pt-8">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-gold mb-2">100+</div>
+                  <div className="text-sm text-gray-400 uppercase tracking-wider">Years of Service</div>
+                </div>
+                <div className="text-center border-x border-gray-700">
+                  <div className="text-4xl font-bold text-gold mb-2">500+</div>
+                  <div className="text-sm text-gray-400 uppercase tracking-wider">Clients Served</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-gold mb-2">3</div>
+                  <div className="text-sm text-gray-400 uppercase tracking-wider">Generations</div>
+                </div>
+              </div>
             </div>
 
-            <div className="space-y-4 font-sans leading-relaxed">
-              <p className="text-lg metallic-chrome">
-                For more than a century, we have advised businesses,
-                entrepreneurs and families with integrity, discretion and
-                technical excellence.
-              </p>
-              <p className="text-lg metallic-chrome">
-                Our long-standing client relationships are built on trust and
-                results. While our heritage defines us, our strategic and
-                forward-thinking approach ensures our clients remain ahead in an
-                evolving financial landscape.
-              </p>
+            <div className="relative">
+              <div className="bg-gradient-to-br from-[#1a2847]/60 to-[#0a1628]/60 backdrop-blur-sm border border-gold/20 rounded-2xl p-8 shadow-2xl">
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
+                      <span className="text-gold text-xl">✓</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white text-lg mb-2">Enduring Relationships</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Multi-generational partnerships built on mutual respect and consistent delivery
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
+                      <span className="text-gold text-xl">✓</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white text-lg mb-2">Technical Excellence</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Deep expertise across accounting, advisory and tax disciplines
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
+                      <span className="text-gold text-xl">✓</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white text-lg mb-2">Forward-Thinking Approach</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        Innovation and strategic foresight to navigate evolving markets
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
