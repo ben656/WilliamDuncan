@@ -2,15 +2,15 @@ import { useEffect, useRef, useState } from 'react'
 
 const services = [
   {
-    title: 'Accounts and Tax Planning',
+    title: 'Dynamic Accounting',
     summary: 'Comprehensive accounting services paired with strategic tax optimization to minimize liabilities and ensure full regulatory compliance.'
   },
   {
-    title: 'Business and Tax Advisory',
+    title: 'Impactful Business Advisory',
     summary: 'Expert guidance for business growth and operational excellence, combined with proactive tax strategies tailored to your specific needs.'
   },
   {
-    title: 'Strategy Planning',
+    title: 'Integrated Tax & Financial Planning',
     summary: 'Long-term business planning and development services to help you navigate challenges and capitalize on opportunities for sustainable growth.'
   }
 ]
@@ -64,11 +64,16 @@ export default function Hero() {
           showOval ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-8 scale-95'
         }`}
       >
-        <div className="flex items-center gap-2 transform hover:scale-105 transition-transform duration-300">
-          <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-20 md:h-24 lg:h-28 filter drop-shadow-2xl" />
-          <div className="flex flex-col justify-end -ml-3 mb-2">
-            <p className="text-gold font-sans text-[8px] md:text-[9px] lg:text-[10px] font-light tracking-[0.25em] uppercase opacity-80">est 1924</p>
+        <div className="flex flex-col">
+          <div className="flex items-center gap-2 transform hover:scale-105 transition-transform duration-300">
+            <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-20 md:h-24 lg:h-28 filter drop-shadow-2xl" />
+            <div className="flex flex-col justify-end -ml-3 mb-2">
+              <p className="text-gold font-sans text-[8px] md:text-[9px] lg:text-[10px] font-light tracking-[0.25em] uppercase opacity-80">est 1924</p>
+            </div>
           </div>
+          <p className="font-sans text-sm md:text-base lg:text-lg font-semibold text-platinum tracking-wide gradient-text text-shadow-luxury mt-2 ml-[3.2rem] md:ml-[3.8rem] lg:ml-[4.4rem]">
+            Chartered Accountants, Business & Tax Advisers
+          </p>
         </div>
       </div>
 
