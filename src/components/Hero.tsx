@@ -42,13 +42,11 @@ export default function Hero() {
             showOval ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}
         >
-          <div className="flex items-center gap-4 mb-3">
+          <div className="flex items-center gap-6 mb-2">
             <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-14 md:h-16" />
-            <div>
-              <p className="text-gold font-sans text-xs md:text-sm font-semibold tracking-widest uppercase">est 1924</p>
-            </div>
+            <p className="text-gold font-sans text-xs md:text-sm font-semibold tracking-widest uppercase">est 1924</p>
           </div>
-          <p className="font-sans text-xs md:text-sm text-platinum -mt-1">
+          <p className="font-sans text-xs md:text-sm text-platinum">
             Chartered Accountants, Business & Tax Advisers
           </p>
         </div>
