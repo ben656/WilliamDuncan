@@ -64,7 +64,7 @@ export default function Hero() {
             <div
               className="relative border-2 border-gold rounded-full px-16 py-12 md:px-24 md:py-16 shadow-2xl overflow-hidden"
               style={{
-                backgroundImage: 'url(/2022-12-22.webp)',
+                backgroundImage: 'url(/pexels-mohamed-hamdi-510308652-16282306.jpg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
