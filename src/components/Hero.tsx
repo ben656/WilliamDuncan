@@ -59,35 +59,33 @@ export default function Hero() {
       <div className="absolute inset-0 diamond-pattern animate-pulse-subtle" />
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-navy-dark opacity-50" />
 
-      <div className="absolute top-8 left-6 z-20">
-        <div
-          className={`transition-all duration-1000 transform ${
-            showOval ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-          }`}
-        >
-          <div className="flex flex-col relative">
-            <div className="flex items-center gap-1 mb-1">
-              <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-12 md:h-14 filter drop-shadow-lg" />
-              <div className="flex flex-col justify-end -ml-2 mb-1">
-                <p className="text-gold font-sans text-[6px] md:text-[7px] font-light tracking-[0.25em] uppercase opacity-80">est 1924</p>
-              </div>
-            </div>
-            <p className="font-sans text-lg md:text-xl lg:text-2xl font-bold text-platinum tracking-wide ml-8 gradient-text text-shadow-luxury">
-              Chartered Accountants, Business & Tax Advisers
-            </p>
-          </div>
-        </div>
-      </div>
-
       <div className="relative z-10 w-full px-6 py-24 flex flex-col items-center justify-center min-h-screen">
         <div
           className={`transition-all duration-1200 ease-out transform ${
             showHeading ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex items-center justify-center flex-col">
             <div className="absolute inset-0 blur-2xl opacity-30">
               <div className="w-full h-full bg-gold/20 rounded-full"></div>
+            </div>
+
+            <div
+              className={`transition-all duration-1000 transform mb-8 ${
+                showOval ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+              }`}
+            >
+              <div className="flex flex-col items-center relative">
+                <div className="flex items-center gap-2 mb-3">
+                  <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-20 md:h-24 lg:h-28 filter drop-shadow-2xl" />
+                  <div className="flex flex-col justify-end -ml-3 mb-2">
+                    <p className="text-gold font-sans text-[8px] md:text-[9px] lg:text-[10px] font-light tracking-[0.25em] uppercase opacity-80">est 1924</p>
+                  </div>
+                </div>
+                <p className="font-sans text-xl md:text-2xl lg:text-3xl font-bold text-platinum tracking-wide gradient-text text-shadow-luxury text-center">
+                  Chartered Accountants, Business & Tax Advisers
+                </p>
+              </div>
             </div>
 
             <div className="relative shimmer bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-10 md:px-20 md:py-14 lg:px-28 lg:py-16 shadow-2xl border border-gold/30">
