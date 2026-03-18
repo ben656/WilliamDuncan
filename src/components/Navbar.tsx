@@ -14,7 +14,7 @@ export default function Navbar({ scrolled }: NavbarProps) {
           href="#contact"
           className="border-2 border-gold metallic-chrome px-6 py-2 rounded font-sans text-sm font-semibold hover:bg-gold hover:text-navy transition-all duration-300"
         >
-          Contact Us
+          Enquiries
         </a>
       </div>
     </nav>
