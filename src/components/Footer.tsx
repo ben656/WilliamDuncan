@@ -4,11 +4,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center gap-6">
           <div className="text-center">
-            <p className="font-sans text-sm text-gray-400">
+            <p className="font-sans text-sm metallic-chrome">
               &copy; {new Date().getFullYear()} William Duncan & Co. All rights
               reserved.
             </p>
-            <p className="font-sans text-xs text-gray-500 mt-1">
+            <p className="font-sans text-xs metallic-chrome mt-1">
               Chartered Accountants & Business Advisers
             </p>
           </div>
