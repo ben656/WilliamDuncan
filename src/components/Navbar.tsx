@@ -12,7 +12,7 @@ export default function Navbar({ scrolled }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-end items-center">
         <a
           href="#contact"
-          className="border-2 border-platinum text-platinum px-6 py-2 rounded font-sans text-sm font-semibold hover:bg-platinum hover:text-navy transition-all duration-300"
+          className="text-gold px-6 py-2 font-sans text-sm font-semibold hover:text-gold/80 transition-all duration-300"
         >
           Enquiries
         </a>

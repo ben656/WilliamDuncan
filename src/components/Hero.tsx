@@ -66,11 +66,10 @@ export default function Hero() {
           }`}
         >
           <div className="flex flex-col relative">
-            <div className="flex items-center gap-2 mb-1">
+            <div className="flex items-center gap-1 mb-1">
               <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-12 md:h-14 filter drop-shadow-lg" />
-              <div className="flex flex-col -ml-1">
-                <p className="text-gold font-sans text-[9px] md:text-[10px] font-semibold tracking-[0.3em] uppercase">est 1924</p>
-                <div className="h-px w-12 bg-gradient-to-r from-gold to-transparent"></div>
+              <div className="flex flex-col justify-end -ml-2 mb-1">
+                <p className="text-gold font-sans text-[6px] md:text-[7px] font-light tracking-[0.25em] uppercase opacity-80">est 1924</p>
               </div>
             </div>
             <p className="font-sans text-lg md:text-xl lg:text-2xl font-bold text-platinum tracking-wide ml-8 gradient-text text-shadow-luxury">
