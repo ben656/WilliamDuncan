@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 const services = [
   {
     title: 'Accounts & Tax Compliance',
-    summary: 'Comprehensive accounting services paired with strategic tax optimization to minimize liabilities and ensure full regulatory compliance.'
+    summary: 'Comprehensive accounting services paired with strategic tax optimization to maximise wealth and ensure full regulatory compliance.'
   },
   {
     title: 'Business Support & Advisory',
