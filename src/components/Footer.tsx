@@ -1,27 +1,46 @@
-const bannerPhrases = [
-  'A Century of Trusted Expertise',
+import { useEffect, useState } from 'react'
+
+const taglinePhrases = [
   'Dynamic Solutions for Valued Clients',
   'Intrinsic Relationships for Evolving Strategy',
 ]
 
 export default function Footer() {
   const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=4d+Auchingramont+Rd+Hamilton+ML3+6JT'
+  const [phraseIndex, setPhraseIndex] = useState(0)
+  const [visible, setVisible] = useState(false)
+  const [fading, setFading] = useState(false)
 
-  const items = [...bannerPhrases, ...bannerPhrases]
+  useEffect(() => {
+    const showTimer = setTimeout(() => setVisible(true), 3000)
+    return () => clearTimeout(showTimer)
+  }, [])
+
+  useEffect(() => {
+    if (!visible) return
+    const interval = setInterval(() => {
+      setFading(true)
+      setTimeout(() => {
+        setPhraseIndex(i => (i + 1) % taglinePhrases.length)
+        setFading(false)
+      }, 700)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [visible])
 
   return (
     <footer className="bg-gradient-to-b from-[#0a1628] to-[#050d1a] border-t border-gold/10">
-      <div className="overflow-hidden border-b border-gold/10 py-1.5">
-        <div className="flex animate-marquee whitespace-nowrap" style={{ width: 'max-content' }}>
-          {items.map((phrase, i) => (
-            <span key={i} className="inline-flex items-center gap-4">
-              <span className="text-[10px] font-light tracking-[0.2em] uppercase text-gold/60 px-8">
-                {phrase}
-              </span>
-              <span className="text-gold/30 text-[8px]">&#9670;</span>
-            </span>
-          ))}
-        </div>
+      <div className="border-b border-gold/10 py-3 flex items-center justify-center min-h-[2.5rem]">
+        <p
+          className="font-serif text-[11px] tracking-[0.22em] uppercase text-center transition-opacity duration-700"
+          style={{
+            opacity: visible && !fading ? 1 : 0,
+            color: 'rgba(198,167,94,0.65)',
+            letterSpacing: '0.2em',
+          }}
+        >
+          {taglinePhrases[phraseIndex]}
+        </p>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-2 h-9 flex items-center">

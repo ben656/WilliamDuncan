@@ -1,17 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 
-const cyclingPhrases = [
-  { line1: 'Dynamic Solutions for', line2: 'Valued Clients' },
-  { line1: 'Intrinsic Relationships for', line2: 'Evolving Strategy' },
-]
-
 export default function Hero() {
   const [showOval, setShowOval] = useState(false)
   const [showHeading, setShowHeading] = useState(false)
   const [showWhyClients, setShowWhyClients] = useState(false)
   const [isHoveringMain, setIsHoveringMain] = useState(false)
-  const [cycleIndex, setCycleIndex] = useState(-1)
-  const [fadingOut, setFadingOut] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -32,24 +25,6 @@ export default function Hero() {
   useEffect(() => {
     if (isHoveringMain) setShowWhyClients(true)
   }, [isHoveringMain])
-
-  useEffect(() => {
-    const startDelay = setTimeout(() => {
-      const interval = setInterval(() => {
-        setFadingOut(true)
-        setTimeout(() => {
-          setCycleIndex(i => (i + 1) % cyclingPhrases.length)
-          setFadingOut(false)
-        }, 600)
-      }, 3600)
-      setCycleIndex(0)
-      return () => clearInterval(interval)
-    }, 2000)
-    return () => clearTimeout(startDelay)
-  }, [])
-
-  const isMainHeading = cycleIndex === -1
-  const currentPhrase = cycleIndex >= 0 ? cyclingPhrases[cycleIndex] : null
 
   return (
     <section
@@ -95,61 +70,35 @@ export default function Hero() {
           onMouseLeave={() => setIsHoveringMain(false)}
         >
           <div
-            className="px-10 py-6 md:px-16 md:py-8 text-center"
+            className="shimmer px-10 py-6 md:px-16 md:py-8 text-center relative overflow-hidden"
             style={{
-              border: '1px solid rgba(198,167,94,0.55)',
-              boxShadow: '0 0 32px rgba(198,167,94,0.12), inset 0 0 24px rgba(0,0,0,0.35)',
-              background: 'rgba(5,13,26,0.45)',
+              border: '1px solid rgba(198,167,94,0.5)',
+              boxShadow:
+                '0 0 40px rgba(198,167,94,0.1), inset 0 0 30px rgba(0,0,0,0.4), 0 0 1px rgba(198,167,94,0.3)',
+              background:
+                'linear-gradient(135deg, rgba(5,13,26,0.55) 0%, rgba(10,22,42,0.5) 50%, rgba(5,13,26,0.55) 100%)',
             }}
           >
-            <div
-              className="transition-opacity duration-500"
-              style={{ opacity: fadingOut ? 0 : 1 }}
-            >
-              {isMainHeading ? (
-                <h1 className="font-serif leading-tight whitespace-nowrap">
-                  <span
-                    className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-4xl md:text-6xl lg:text-7xl"
-                    style={{
-                      textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 -1px 0 rgba(218,165,32,0.4), 2px 2px 8px rgba(0,0,0,0.8)',
-                      filter: 'drop-shadow(0 1px 2px rgba(198,167,94,0.3))',
-                    }}
-                  >
-                    A Century of
-                  </span>
-                  <span
-                    className="block text-platinum font-light tracking-widest text-4xl md:text-6xl lg:text-7xl"
-                    style={{
-                      textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 -1px 0 rgba(255,255,255,0.15), 2px 2px 8px rgba(0,0,0,0.8)',
-                      filter: 'drop-shadow(0 1px 3px rgba(255,255,255,0.1))',
-                    }}
-                  >
-                    Trusted Expertise
-                  </span>
-                </h1>
-              ) : (
-                <h2 className="font-serif leading-tight whitespace-nowrap">
-                  <span
-                    className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-4xl md:text-6xl lg:text-7xl"
-                    style={{
-                      textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 -1px 0 rgba(218,165,32,0.4), 2px 2px 8px rgba(0,0,0,0.8)',
-                      filter: 'drop-shadow(0 1px 2px rgba(198,167,94,0.3))',
-                    }}
-                  >
-                    {currentPhrase?.line1}
-                  </span>
-                  <span
-                    className="block text-platinum font-light tracking-widest text-4xl md:text-6xl lg:text-7xl"
-                    style={{
-                      textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 -1px 0 rgba(255,255,255,0.15), 2px 2px 8px rgba(0,0,0,0.8)',
-                      filter: 'drop-shadow(0 1px 3px rgba(255,255,255,0.1))',
-                    }}
-                  >
-                    {currentPhrase?.line2}
-                  </span>
-                </h2>
-              )}
-            </div>
+            <h1 className="font-serif leading-tight whitespace-nowrap">
+              <span
+                className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-4xl md:text-6xl lg:text-7xl"
+                style={{
+                  textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 -1px 0 rgba(218,165,32,0.4), 2px 2px 8px rgba(0,0,0,0.8)',
+                  filter: 'drop-shadow(0 1px 2px rgba(198,167,94,0.3))',
+                }}
+              >
+                A Century of
+              </span>
+              <span
+                className="block text-platinum font-light tracking-widest text-4xl md:text-6xl lg:text-7xl"
+                style={{
+                  textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 -1px 0 rgba(255,255,255,0.15), 2px 2px 8px rgba(0,0,0,0.8)',
+                  filter: 'drop-shadow(0 1px 3px rgba(255,255,255,0.1))',
+                }}
+              >
+                Trusted Expertise
+              </span>
+            </h1>
           </div>
         </div>
       </div>

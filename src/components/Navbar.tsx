@@ -9,10 +9,10 @@ export default function Navbar({ scrolled }: NavbarProps) {
         scrolled ? 'bg-navy shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-end justify-end" style={{ height: '7rem' }}>
+      <div className="max-w-7xl mx-auto px-8 flex items-start justify-end pt-7">
         <a
           href="#"
-          className="font-sans text-[10px] font-light tracking-widest uppercase text-[#a8a8b0] hover:text-[#c8c8d0] transition-colors duration-300 pb-2"
+          className="font-sans text-[10px] font-light tracking-widest uppercase text-[#a8a8b0] hover:text-[#c8c8d0] transition-colors duration-300"
         >
           Clients &nbsp;&#124;&nbsp; News &amp; Guidance
         </a>
