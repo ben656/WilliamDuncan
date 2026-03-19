@@ -16,7 +16,7 @@ export default function Navbar({ scrolled }: NavbarProps) {
           href="#"
           className="font-sans text-[10px] font-light tracking-widest uppercase text-[#a8a8b0] hover:text-[#c8c8d0] transition-colors duration-300"
         >
-          Clients &nbsp;&#124;&nbsp; News &amp; Guidance
+          Clients &nbsp;&#124;&nbsp; News &amp; Guidance &nbsp;&#124;&nbsp; Contact
         </a>
 
         <div className="flex items-center gap-3 mt-[1px]">

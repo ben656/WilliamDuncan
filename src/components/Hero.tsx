@@ -13,19 +13,22 @@ const rightBullets = [
 ]
 
 export default function Hero() {
-  const [showOval, setShowOval] = useState(false)
+  const [showLogo, setShowLogo] = useState(false)
   const [showHeading, setShowHeading] = useState(false)
+  const [transition, setTransition] = useState(false)
   const [showBullets, setShowBullets] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const t1 = setTimeout(() => setShowOval(true), 500)
-    const t2 = setTimeout(() => setShowHeading(true), 1000)
-    const t3 = setTimeout(() => setShowBullets(true), 5000)
+    const t1 = setTimeout(() => setShowLogo(true), 400)
+    const t2 = setTimeout(() => setShowHeading(true), 900)
+    const t3 = setTimeout(() => setTransition(true), 4500)
+    const t4 = setTimeout(() => setShowBullets(true), 4800)
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
       clearTimeout(t3)
+      clearTimeout(t4)
     }
   }, [])
 
@@ -48,7 +51,7 @@ export default function Hero() {
 
       <div
         className={`absolute top-6 left-6 z-30 transition-all duration-1000 transform ${
-          showOval ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-8 scale-95'
+          showLogo ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-8 scale-95'
         }`}
       >
         <div className="flex flex-col">
@@ -64,61 +67,43 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 flex-1 flex flex-col justify-between">
-        <div className="flex-1 flex items-center justify-center px-0">
+      <div className="relative z-10 flex-1 flex flex-col">
+
+        <div className="flex-1 flex items-center justify-center px-8">
           <div
-            className={`w-full transition-all duration-1000 ease-out transform ${
-              showHeading ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            className={`w-full text-center transition-all duration-700 ease-in-out transform ${
+              showHeading && !transition ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-6 scale-95 pointer-events-none'
             }`}
           >
-            <div
-              className="w-full text-center relative py-10 md:py-14"
-              style={{
-                background: 'linear-gradient(160deg, rgba(5,13,26,0.0) 0%, rgba(198,167,94,0.06) 50%, rgba(5,13,26,0.0) 100%)',
-              }}
-            >
-              <div
-                className="absolute inset-x-0 top-0 h-px"
-                style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(198,167,94,0.25) 15%, rgba(198,167,94,0.55) 50%, rgba(198,167,94,0.25) 85%, transparent 100%)' }}
-              />
-              <div
-                className="absolute inset-x-0 bottom-0 h-px"
-                style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(198,167,94,0.25) 15%, rgba(198,167,94,0.55) 50%, rgba(198,167,94,0.25) 85%, transparent 100%)' }}
-              />
-
-              <h1 className="font-serif leading-tight">
-                <span
-                  className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-6xl md:text-8xl lg:text-9xl"
-                  style={{
-                    textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(198,167,94,0.25), 0 2px 4px rgba(0,0,0,0.9)',
-                    filter: 'drop-shadow(0 2px 6px rgba(198,167,94,0.2))',
-                  }}
-                >
-                  A Century of
-                </span>
-                <span
-                  className="block font-light tracking-widest text-6xl md:text-8xl lg:text-9xl"
-                  style={{
-                    color: '#e8e4dc',
-                    textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 60px rgba(198,167,94,0.15), 0 2px 4px rgba(0,0,0,0.9)',
-                    filter: 'drop-shadow(0 1px 4px rgba(255,255,255,0.08))',
-                  }}
-                >
-                  Trusted Expertise
-                </span>
-              </h1>
-            </div>
+            <h1 className="font-serif leading-tight">
+              <span
+                className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-6xl md:text-8xl lg:text-9xl"
+                style={{
+                  textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(198,167,94,0.25), 0 2px 4px rgba(0,0,0,0.9)',
+                  filter: 'drop-shadow(0 2px 6px rgba(198,167,94,0.2))',
+                }}
+              >
+                A Century of
+              </span>
+              <span
+                className="block font-light tracking-widest text-6xl md:text-8xl lg:text-9xl"
+                style={{
+                  color: '#e8e4dc',
+                  textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 60px rgba(198,167,94,0.15), 0 2px 4px rgba(0,0,0,0.9)',
+                }}
+              >
+                Trusted Expertise
+              </span>
+            </h1>
           </div>
-        </div>
 
-        <div className="pb-10 px-8">
           <div
-            className={`transition-all duration-1000 transform ${
-              showBullets ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`absolute w-full px-8 text-center transition-all duration-700 ease-in-out transform ${
+              showBullets ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6 pointer-events-none'
             }`}
           >
             <div className="grid grid-cols-2 gap-x-10 max-w-3xl mx-auto">
-              <div className="flex flex-col gap-2.5 items-center text-center">
+              <div className="flex flex-col gap-3 items-center text-center">
                 {leftBullets.map((text, i) => (
                   <div key={i} className="flex items-center gap-2 justify-center">
                     <span
@@ -138,8 +123,7 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
-
-              <div className="flex flex-col gap-2.5 items-center text-center">
+              <div className="flex flex-col gap-3 items-center text-center">
                 {rightBullets.map((text, i) => (
                   <div key={i} className="flex items-center gap-2 justify-center">
                     <span
@@ -160,6 +144,32 @@ export default function Hero() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+
+        <div
+          className={`w-full transition-all duration-700 ease-in-out ${
+            showBullets ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          <div
+            className="w-full py-5 text-center"
+            style={{
+              borderTop: '1px solid rgba(198,167,94,0.45)',
+              borderBottom: '1px solid rgba(198,167,94,0.45)',
+              background: 'linear-gradient(90deg, transparent 0%, rgba(198,167,94,0.04) 50%, transparent 100%)',
+            }}
+          >
+            <p
+              className="font-serif tracking-[0.25em] uppercase"
+              style={{
+                color: 'rgba(198,167,94,0.55)',
+                fontSize: '0.65rem',
+                letterSpacing: '0.3em',
+              }}
+            >
+              A Century of Trusted Expertise
+            </p>
           </div>
         </div>
       </div>
