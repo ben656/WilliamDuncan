@@ -113,6 +113,7 @@ export default function Hero() {
       <div className="absolute inset-0 diamond-pattern animate-pulse-subtle" />
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-navy-dark opacity-50" />
 
+      {/* Top header bar */}
       <div
         className="absolute left-0 right-0 top-0 z-20"
         style={{
@@ -124,17 +125,15 @@ export default function Hero() {
         }}
       />
 
+      {/* Logo — top left, no EST 1924 */}
       <div
         className={`absolute top-6 left-6 z-30 transition-all duration-1000 transform ${
           showLogo ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-8 scale-95'
         }`}
       >
         <div className="flex flex-col">
-          <div className="flex items-center gap-2 transform hover:scale-105 transition-transform duration-300">
+          <div className="flex items-center transform hover:scale-105 transition-transform duration-300">
             <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-16 md:h-20 lg:h-24 filter drop-shadow-2xl" />
-            <div className="flex flex-col justify-end -ml-3 mb-2">
-              <p className="font-sans text-[7px] md:text-[8px] lg:text-[9px] font-light tracking-[0.25em] uppercase" style={{ color: '#a8a8b0' }}>est 1924</p>
-            </div>
           </div>
           <p className="font-sans text-xs md:text-sm lg:text-base font-light tracking-wide mt-2 ml-[2.8rem] md:ml-[3.2rem] lg:ml-[3.8rem]" style={{ color: '#a8a8b0' }}>
             Chartered Accountants, Business &amp; Tax Advisers
@@ -142,7 +141,48 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-8">
+      {/* Top right — "A Century of Trusted Expertise" mini badge */}
+      <div
+        className={`absolute top-6 right-6 z-30 transition-all duration-700 ${
+          showLogo ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+        }`}
+      >
+        <div
+          className="flex flex-col items-center justify-center px-6 py-4"
+          style={{
+            border: '1px solid rgba(198,167,94,0.22)',
+            borderRadius: '50%',
+            width: '130px',
+            height: '130px',
+            background: 'radial-gradient(circle, rgba(10,15,30,0.45) 0%, transparent 100%)',
+            backdropFilter: 'blur(4px)',
+            boxShadow: '0 0 30px rgba(198,167,94,0.06), inset 0 0 20px rgba(198,167,94,0.03)',
+          }}
+        >
+          <p
+            className="gradient-text font-serif font-semibold text-center"
+            style={{ fontSize: '11px', letterSpacing: '0.06em', lineHeight: 1.4 }}
+          >
+            A Century of
+          </p>
+          <p
+            className="font-serif font-light text-center"
+            style={{ fontSize: '10px', letterSpacing: '0.05em', color: '#e8e4dc', lineHeight: 1.4 }}
+          >
+            Trusted Expertise
+          </p>
+          <div style={{ width: '40px', height: '1px', background: 'rgba(198,167,94,0.3)', margin: '6px 0' }} />
+          <p
+            className="font-sans text-center"
+            style={{ fontSize: '7px', letterSpacing: '0.2em', color: '#a8a8b0' }}
+          >
+            EST 1924
+          </p>
+        </div>
+      </div>
+
+      {/* Main centre content */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-8" style={{ paddingTop: '172px' }}>
 
         {phase !== 'bullets' && (
           <div className="flex flex-col items-center text-center">
@@ -153,7 +193,7 @@ export default function Hero() {
                 borderRadius: '50%',
                 boxShadow: showOval ? '0 0 40px rgba(198,167,94,0.08), inset 0 0 40px rgba(198,167,94,0.04)' : 'none',
                 opacity: shrinkOval ? 0 : 1,
-                transform: shrinkOval ? 'scale(0.18) translateY(60vh) translateX(35vw)' : 'scale(1)',
+                transform: shrinkOval ? 'scale(0.15) translateY(-40vh) translateX(40vw)' : 'scale(1)',
                 transition: shrinkOval
                   ? 'transform 0.85s cubic-bezier(0.4,0,0.2,1), opacity 0.85s ease'
                   : 'border 0.5s ease, box-shadow 0.5s ease',
@@ -227,15 +267,60 @@ export default function Hero() {
 
       </div>
 
+      {/* Bottom left — Client Access */}
+      <div
+        className={`fixed z-40 transition-all duration-700`}
+        style={{
+          opacity: showMiniLogo ? 1 : 0,
+          transform: showMiniLogo ? 'scale(1)' : 'scale(0.5)',
+          bottom: '24px',
+          left: '24px',
+        }}
+      >
+        <a
+          href="#"
+          title="Client Access"
+          className="flex flex-col items-center gap-1 group"
+          style={{
+            border: '1px solid rgba(126,184,212,0.2)',
+            borderRadius: '50%',
+            width: '90px',
+            height: '90px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'radial-gradient(circle, rgba(10,15,30,0.55) 0%, rgba(10,15,30,0.2) 100%)',
+            backdropFilter: 'blur(6px)',
+            boxShadow: '0 0 30px rgba(126,184,212,0.06)',
+            textDecoration: 'none',
+            transition: 'border-color 0.3s, box-shadow 0.3s',
+          }}
+          onMouseEnter={e => {
+            (e.currentTarget as HTMLElement).style.borderColor = 'rgba(126,184,212,0.45)'
+            ;(e.currentTarget as HTMLElement).style.boxShadow = '0 0 30px rgba(126,184,212,0.15)'
+          }}
+          onMouseLeave={e => {
+            (e.currentTarget as HTMLElement).style.borderColor = 'rgba(126,184,212,0.2)'
+            ;(e.currentTarget as HTMLElement).style.boxShadow = '0 0 30px rgba(126,184,212,0.06)'
+          }}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-[#7eb8d4] group-hover:text-[#a8d8ee] transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+          </svg>
+          <span className="font-sans text-[7px] font-light tracking-[0.18em] uppercase text-[#7eb8d4] group-hover:text-[#a8d8ee] transition-colors duration-300 whitespace-nowrap">Client Access</span>
+        </a>
+      </div>
+
+      {/* Bottom right — Enquiries circle */}
       <div
         className="fixed z-40 transition-all duration-700"
         style={{
           opacity: showMiniLogo ? 1 : 0,
           transform: showMiniLogo ? 'scale(1)' : 'scale(0.5)',
-          bottom: '-120px',
-          right: '-120px',
-          width: '420px',
-          height: '420px',
+          bottom: '-100px',
+          right: '-100px',
+          width: '360px',
+          height: '360px',
         }}
       >
         <div
@@ -247,24 +332,18 @@ export default function Hero() {
             background: 'radial-gradient(circle, rgba(10,15,30,0.55) 0%, rgba(10,15,30,0.2) 70%, transparent 100%)',
             backdropFilter: 'blur(6px)',
             gap: '10px',
-            paddingBottom: '100px',
-            paddingRight: '80px',
+            paddingBottom: '80px',
+            paddingRight: '70px',
           }}
         >
           <p
             className="gradient-text font-serif font-semibold text-center"
-            style={{ fontSize: '13px', letterSpacing: '0.08em', lineHeight: 1.5 }}
+            style={{ fontSize: '13px', letterSpacing: '0.1em', lineHeight: 1.5 }}
           >
-            A Century of
-          </p>
-          <p
-            className="font-serif font-light text-center"
-            style={{ fontSize: '11px', letterSpacing: '0.06em', color: '#e8e4dc', lineHeight: 1.5 }}
-          >
-            Trusted Expertise
+            Enquiries
           </p>
 
-          <div style={{ width: '60px', height: '1px', background: 'rgba(198,167,94,0.25)', margin: '4px 0' }} />
+          <div style={{ width: '50px', height: '1px', background: 'rgba(198,167,94,0.25)', margin: '2px 0' }} />
 
           <div className="flex items-center gap-5">
             <a
@@ -308,13 +387,6 @@ export default function Hero() {
               </svg>
             </a>
           </div>
-
-          <p
-            className="font-sans text-center"
-            style={{ fontSize: '8px', letterSpacing: '0.2em', color: '#a8a8b0', marginTop: '4px' }}
-          >
-            EST 1924
-          </p>
         </div>
       </div>
 
