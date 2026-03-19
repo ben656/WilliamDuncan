@@ -17,7 +17,7 @@ export default function Hero() {
 
     const whyClientsTimer = setTimeout(() => {
       setShowWhyClients(true)
-    }, 2400)
+    }, 3200)
 
     return () => {
       clearTimeout(ovalTimer)
@@ -110,7 +110,7 @@ export default function Hero() {
               <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/60"></div>
 
               <div className="relative z-10">
-                <h3 className="font-serif text-xl md:text-2xl text-gold font-medium tracking-wide text-center mb-6">Why Clients Trust Us</h3>
+                <h3 className="font-serif text-xl md:text-2xl text-gold font-medium tracking-wide text-center mb-6">Accounts & Tax Compliance * Business Support & Advisory * Strategic Planning</h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
                   <div className="flex items-start">
