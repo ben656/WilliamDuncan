@@ -110,7 +110,7 @@ export default function Hero() {
               <div className="mt-6 md:mt-8 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent opacity-60"></div>
 
               {showMainHeadingPopup && (
-                <div className="absolute right-0 top-0 w-[420px] max-w-[calc(100vw-3rem)] bg-gradient-to-br from-navy-dark/98 via-navy/95 to-navy-dark/98 backdrop-blur-md border-2 border-gold/70 px-8 py-6 shadow-2xl animate-slide-in z-[100]">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[420px] max-w-[calc(100vw-3rem)] bg-gradient-to-br from-navy-dark/98 via-navy/95 to-navy-dark/98 backdrop-blur-md border-2 border-gold/70 px-8 py-6 shadow-2xl animate-slide-in z-[100]">
                   <div className="absolute inset-0 border border-gold/20 m-2"></div>
                   <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-gold/70"></div>
                   <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-gold/70"></div>
