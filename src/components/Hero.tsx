@@ -69,10 +69,10 @@ export default function Hero() {
 
       <div className="relative z-10 flex-1 flex flex-col">
 
-        <div className="flex-1 flex items-center justify-center px-8">
+        <div className="flex-1 flex items-end justify-center px-8 pb-28">
           <div
             className={`w-full text-center transition-all duration-700 ease-in-out transform ${
-              showHeading && !transition ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-6 scale-95 pointer-events-none'
+              showHeading && !transition ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-95 pointer-events-none'
             }`}
           >
             <h1 className="font-serif leading-tight">
@@ -148,29 +148,19 @@ export default function Hero() {
         </div>
 
         <div
-          className={`w-full transition-all duration-700 ease-in-out ${
+          className={`w-full px-8 pb-10 text-center transition-all duration-700 ease-in-out ${
             showBullets ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          <div
-            className="w-full py-5 text-center"
+          <p
+            className="font-serif font-light tracking-[0.3em] uppercase"
             style={{
-              borderTop: '1px solid rgba(198,167,94,0.45)',
-              borderBottom: '1px solid rgba(198,167,94,0.45)',
-              background: 'linear-gradient(90deg, transparent 0%, rgba(198,167,94,0.04) 50%, transparent 100%)',
+              color: 'rgba(198,167,94,0.45)',
+              fontSize: '0.6rem',
             }}
           >
-            <p
-              className="font-serif tracking-[0.25em] uppercase"
-              style={{
-                color: 'rgba(198,167,94,0.55)',
-                fontSize: '0.65rem',
-                letterSpacing: '0.3em',
-              }}
-            >
-              A Century of Trusted Expertise
-            </p>
-          </div>
+            A Century of Trusted Expertise
+          </p>
         </div>
       </div>
     </section>
