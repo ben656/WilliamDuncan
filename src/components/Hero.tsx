@@ -116,7 +116,7 @@ export default function Hero() {
       <div
         className="absolute left-0 right-0 top-0 z-20"
         style={{
-          height: '33.333%',
+          height: '172px',
           background: 'rgba(6,10,22,0.55)',
           borderBottom: '1px solid rgba(198,167,94,0.18)',
           boxShadow: '0 4px 40px rgba(198,167,94,0.07), inset 0 -1px 0 rgba(198,167,94,0.1)',
