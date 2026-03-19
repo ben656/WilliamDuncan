@@ -4,6 +4,7 @@ export default function Hero() {
   const [showOval, setShowOval] = useState(false)
   const [showHeading, setShowHeading] = useState(false)
   const [showWhyClients, setShowWhyClients] = useState(false)
+  const [isHoveringMain, setIsHoveringMain] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -19,12 +20,20 @@ export default function Hero() {
       setShowWhyClients(true)
     }, 3200)
 
+    const popupInterval = setInterval(() => {
+      if (!isHoveringMain) {
+        setShowWhyClients(false)
+        setTimeout(() => setShowWhyClients(true), 100)
+      }
+    }, 30000)
+
     return () => {
       clearTimeout(ovalTimer)
       clearTimeout(headingTimer)
       clearTimeout(whyClientsTimer)
+      clearInterval(popupInterval)
     }
-  }, [])
+  }, [isHoveringMain])
 
   return (
     <section
@@ -66,13 +75,15 @@ export default function Hero() {
           className={`transition-all duration-1200 ease-out transform ${
             showHeading ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
+          onMouseEnter={() => setIsHoveringMain(true)}
+          onMouseLeave={() => setIsHoveringMain(false)}
         >
           <div className="relative flex items-center justify-center flex-col overflow-visible">
             <div className="absolute inset-0 blur-2xl opacity-30">
               <div className="w-full h-full bg-gold/20 rounded-full"></div>
             </div>
 
-            <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-10 md:px-20 md:py-14 lg:px-28 lg:py-16 shadow-2xl border border-gold/30 transition-all duration-500 hover:border-gold/50 hover:shadow-3xl">
+            <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-10 md:px-20 md:py-14 lg:px-28 lg:py-16 shadow-2xl border border-gold/30 transition-all duration-500 hover:border-gold/50 hover:shadow-3xl rotate-45 overflow-hidden">
               <div className="absolute inset-0 border border-gold/10 m-3 overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-gold/10 to-transparent animate-shimmer-slide"></div>
               </div>
@@ -81,12 +92,12 @@ export default function Hero() {
               <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-gold/50"></div>
               <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-gold/50"></div>
 
-              <h1 className="relative z-10 font-serif text-4xl md:text-6xl lg:text-7xl font-light text-center leading-tight">
+              <h1 className="relative z-10 font-serif text-4xl md:text-6xl lg:text-7xl font-light text-center leading-tight -rotate-45">
                 <span className="block gradient-text text-shadow-luxury font-medium mb-2 md:mb-3 tracking-wide">A Century of</span>
                 <span className="block text-platinum text-shadow-luxury font-light tracking-wider">Trusted Expertise</span>
               </h1>
 
-              <div className="mt-6 md:mt-8 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent opacity-60"></div>
+              <div className="mt-6 md:mt-8 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent opacity-60 -rotate-45"></div>
             </div>
           </div>
         </div>
@@ -96,7 +107,7 @@ export default function Hero() {
         <div className="w-full max-w-5xl mx-auto">
           <div
             className={`relative transition-all duration-1000 transform ${
-              showWhyClients ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              showWhyClients || isHoveringMain ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
             <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-md border border-gold/40 px-6 py-6 md:px-10 md:py-8 shadow-2xl">
@@ -110,12 +121,10 @@ export default function Hero() {
               <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/60"></div>
 
               <div className="relative z-10">
-                <h3 className="font-serif text-lg md:text-xl text-gold font-medium tracking-wide text-center mb-5">Dynamic Solutions for our Valued Clients</h3>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2.5">
                   <div className="flex items-start">
                     <span className="text-gold mr-3 mt-0.5">•</span>
-                    <span className="font-sans text-xs md:text-sm text-platinum/90 leading-relaxed">Over 100 years of professional expertise</span>
+                    <span className="font-sans text-xs md:text-sm text-gold leading-relaxed">Over 100 years of professional expertise</span>
                   </div>
                   <div className="flex items-start">
                     <span className="text-gold mr-3 mt-0.5">•</span>
@@ -123,7 +132,7 @@ export default function Hero() {
                   </div>
                   <div className="flex items-start">
                     <span className="text-gold mr-3 mt-0.5">•</span>
-                    <span className="font-sans text-xs md:text-sm text-platinum/90 leading-relaxed">Strategic thinking with practical delivery</span>
+                    <span className="font-sans text-xs md:text-sm text-gold leading-relaxed">Strategic thinking with practical delivery</span>
                   </div>
                   <div className="flex items-start">
                     <span className="text-gold mr-3 mt-0.5">•</span>
@@ -131,7 +140,7 @@ export default function Hero() {
                   </div>
                   <div className="flex items-start">
                     <span className="text-gold mr-3 mt-0.5">•</span>
-                    <span className="font-sans text-xs md:text-sm text-platinum/90 leading-relaxed">UK-wide expertise with international perspective</span>
+                    <span className="font-sans text-xs md:text-sm text-gold leading-relaxed">UK-wide expertise with international perspective</span>
                   </div>
                   <div className="flex items-start">
                     <span className="text-gold mr-3 mt-0.5">•</span>
