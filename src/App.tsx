@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Footer from './components/Footer'
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
@@ -18,7 +17,6 @@ function App() {
     <div className="min-h-screen">
       <Navbar scrolled={scrolled} />
       <Hero />
-      <Footer />
     </div>
   )
 }

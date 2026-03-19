@@ -33,7 +33,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative h-[calc(100vh-3rem)] flex flex-col justify-center items-center overflow-hidden"
+      className="relative h-screen flex flex-col overflow-hidden"
     >
       <div className="absolute inset-0">
         <img
@@ -64,99 +64,102 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 w-full px-6 flex flex-col items-center justify-center">
-        <div
-          className={`transition-all duration-1000 ease-out transform ${
-            showHeading ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-          }`}
-        >
+      <div className="relative z-10 flex-1 flex flex-col justify-between">
+        <div className="flex-1 flex items-center justify-center px-0">
           <div
-            className="shimmer px-10 py-6 md:px-16 md:py-8 text-center relative overflow-hidden"
-            style={{
-              background: 'linear-gradient(160deg, rgba(5,13,26,0.0) 0%, rgba(198,167,94,0.07) 50%, rgba(5,13,26,0.0) 100%)',
-              boxShadow: '0 0 80px rgba(198,167,94,0.08), 0 0 30px rgba(0,0,0,0.5)',
-            }}
+            className={`w-full transition-all duration-1000 ease-out transform ${
+              showHeading ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
           >
             <div
-              className="absolute inset-x-0 bottom-0 h-px"
-              style={{ background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.3) 30%, rgba(198,167,94,0.5) 50%, rgba(198,167,94,0.3) 70%, transparent)' }}
-            />
-            <div
-              className="absolute inset-x-0 top-0 h-px"
-              style={{ background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.3) 30%, rgba(198,167,94,0.5) 50%, rgba(198,167,94,0.3) 70%, transparent)' }}
-            />
+              className="w-full text-center relative py-10 md:py-14"
+              style={{
+                background: 'linear-gradient(160deg, rgba(5,13,26,0.0) 0%, rgba(198,167,94,0.06) 50%, rgba(5,13,26,0.0) 100%)',
+              }}
+            >
+              <div
+                className="absolute inset-x-0 top-0 h-px"
+                style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(198,167,94,0.25) 15%, rgba(198,167,94,0.55) 50%, rgba(198,167,94,0.25) 85%, transparent 100%)' }}
+              />
+              <div
+                className="absolute inset-x-0 bottom-0 h-px"
+                style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(198,167,94,0.25) 15%, rgba(198,167,94,0.55) 50%, rgba(198,167,94,0.25) 85%, transparent 100%)' }}
+              />
 
-            <h1 className="font-serif leading-tight whitespace-nowrap">
-              <span
-                className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-4xl md:text-6xl lg:text-7xl"
-                style={{
-                  textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(198,167,94,0.25), 0 2px 4px rgba(0,0,0,0.9)',
-                  filter: 'drop-shadow(0 2px 6px rgba(198,167,94,0.2))',
-                }}
-              >
-                A Century of
-              </span>
-              <span
-                className="block font-light tracking-widest text-4xl md:text-6xl lg:text-7xl"
-                style={{
-                  color: '#e8e4dc',
-                  textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 60px rgba(198,167,94,0.15), 0 2px 4px rgba(0,0,0,0.9)',
-                  filter: 'drop-shadow(0 1px 4px rgba(255,255,255,0.08))',
-                }}
-              >
-                Trusted Expertise
-              </span>
-            </h1>
+              <h1 className="font-serif leading-tight">
+                <span
+                  className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-6xl md:text-8xl lg:text-9xl"
+                  style={{
+                    textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(198,167,94,0.25), 0 2px 4px rgba(0,0,0,0.9)',
+                    filter: 'drop-shadow(0 2px 6px rgba(198,167,94,0.2))',
+                  }}
+                >
+                  A Century of
+                </span>
+                <span
+                  className="block font-light tracking-widest text-6xl md:text-8xl lg:text-9xl"
+                  style={{
+                    color: '#e8e4dc',
+                    textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 60px rgba(198,167,94,0.15), 0 2px 4px rgba(0,0,0,0.9)',
+                    filter: 'drop-shadow(0 1px 4px rgba(255,255,255,0.08))',
+                  }}
+                >
+                  Trusted Expertise
+                </span>
+              </h1>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-8 left-8 z-20">
-        <div
-          className={`transition-all duration-1000 transform ${
-            showBullets ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-          }`}
-        >
-          <div className="flex flex-col gap-2.5">
-            {leftBullets.map((text, i) => (
-              <div key={i} className="flex items-start gap-2">
-                <span
-                  className="mt-[2px] w-3.5 h-px flex-shrink-0"
-                  style={{ background: 'rgba(198,167,94,0.55)', marginTop: '0.55em' }}
-                />
-                <span
-                  className="font-serif text-[9px] md:text-[10px] tracking-[0.2em] uppercase leading-relaxed"
-                  style={{ color: 'rgba(198,167,94,0.65)' }}
-                >
-                  {text}
-                </span>
+        <div className="pb-10 px-8">
+          <div
+            className={`transition-all duration-1000 transform ${
+              showBullets ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`}
+          >
+            <div className="grid grid-cols-2 gap-x-10 max-w-3xl mx-auto">
+              <div className="flex flex-col gap-2.5 items-center text-center">
+                {leftBullets.map((text, i) => (
+                  <div key={i} className="flex items-center gap-2 justify-center">
+                    <span
+                      className="w-3.5 h-px flex-shrink-0"
+                      style={{ background: 'rgba(198,167,94,0.55)', marginTop: '0.1em' }}
+                    />
+                    <span
+                      className="font-serif text-[9px] md:text-[10px] tracking-[0.2em] uppercase leading-relaxed"
+                      style={{ color: 'rgba(198,167,94,0.65)' }}
+                    >
+                      {text}
+                    </span>
+                    <span
+                      className="w-3.5 h-px flex-shrink-0"
+                      style={{ background: 'rgba(198,167,94,0.55)', marginTop: '0.1em' }}
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
-      <div className="absolute top-28 right-8 z-20">
-        <div
-          className={`transition-all duration-1000 transform ${
-            showBullets ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-          }`}
-        >
-          <div className="flex flex-col gap-2.5">
-            {rightBullets.map((text, i) => (
-              <div key={i} className="flex items-start gap-2">
-                <span
-                  className="w-3.5 h-px flex-shrink-0"
-                  style={{ background: 'rgba(198,167,94,0.55)', marginTop: '0.55em' }}
-                />
-                <span
-                  className="font-serif text-[9px] md:text-[10px] tracking-[0.2em] uppercase leading-relaxed"
-                  style={{ color: 'rgba(198,167,94,0.65)' }}
-                >
-                  {text}
-                </span>
+              <div className="flex flex-col gap-2.5 items-center text-center">
+                {rightBullets.map((text, i) => (
+                  <div key={i} className="flex items-center gap-2 justify-center">
+                    <span
+                      className="w-3.5 h-px flex-shrink-0"
+                      style={{ background: 'rgba(198,167,94,0.55)', marginTop: '0.1em' }}
+                    />
+                    <span
+                      className="font-serif text-[9px] md:text-[10px] tracking-[0.2em] uppercase leading-relaxed"
+                      style={{ color: 'rgba(198,167,94,0.65)' }}
+                    >
+                      {text}
+                    </span>
+                    <span
+                      className="w-3.5 h-px flex-shrink-0"
+                      style={{ background: 'rgba(198,167,94,0.55)', marginTop: '0.1em' }}
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
