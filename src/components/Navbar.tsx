@@ -12,9 +12,9 @@ export default function Navbar({ scrolled }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-6 py-2 flex justify-end">
         <a
           href="#"
-          className="font-sans text-xs font-semibold tracking-widest uppercase text-gold border border-gold/50 px-4 py-2 hover:bg-gold/10 hover:border-gold transition-all duration-300"
+          className="font-sans text-[10px] font-light tracking-widest uppercase text-[#a8a8b0] hover:text-[#c8c8d0] transition-colors duration-300"
         >
-          Client Guides
+          Client updated news &amp; guidance
         </a>
       </div>
     </nav>
