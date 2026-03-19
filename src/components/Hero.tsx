@@ -18,20 +18,25 @@ export default function Hero() {
 
     const whyClientsTimer = setTimeout(() => {
       setShowWhyClients(true)
-    }, 3200)
+    }, 5000)
 
-    const popupInterval = setInterval(() => {
+    const hideTimer = setTimeout(() => {
       if (!isHoveringMain) {
         setShowWhyClients(false)
-        setTimeout(() => setShowWhyClients(true), 100)
       }
-    }, 30000)
+    }, 35000)
 
     return () => {
       clearTimeout(ovalTimer)
       clearTimeout(headingTimer)
       clearTimeout(whyClientsTimer)
-      clearInterval(popupInterval)
+      clearTimeout(hideTimer)
+    }
+  }, [isHoveringMain])
+
+  useEffect(() => {
+    if (isHoveringMain) {
+      setShowWhyClients(true)
     }
   }, [isHoveringMain])
 
@@ -83,7 +88,7 @@ export default function Hero() {
               <div className="w-full h-full bg-gold/20 rounded-full"></div>
             </div>
 
-            <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-10 md:px-20 md:py-14 lg:px-28 lg:py-16 shadow-2xl border border-gold/30 transition-all duration-500 hover:border-gold/50 hover:shadow-3xl rotate-45 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-[#1a1f2e]/98 via-[#151921]/95 to-[#0f1218]/98 backdrop-blur-sm px-16 py-12 md:px-32 md:py-16 lg:px-40 lg:py-20 shadow-2xl border border-gold/30 transition-all duration-500 hover:border-gold/50 hover:shadow-3xl rotate-45 overflow-hidden">
               <div className="absolute inset-0 border border-gold/10 m-3 overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-gold/10 to-transparent animate-shimmer-slide"></div>
               </div>
@@ -92,7 +97,7 @@ export default function Hero() {
               <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-gold/50"></div>
               <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-gold/50"></div>
 
-              <h1 className="relative z-10 font-serif text-4xl md:text-6xl lg:text-7xl font-light text-center leading-tight -rotate-45">
+              <h1 className="relative z-10 font-serif text-3xl md:text-5xl lg:text-6xl font-light text-center leading-tight -rotate-45 whitespace-nowrap">
                 <span className="block gradient-text text-shadow-luxury font-medium mb-2 md:mb-3 tracking-wide">A Century of</span>
                 <span className="block text-platinum text-shadow-luxury font-light tracking-wider">Trusted Expertise</span>
               </h1>
@@ -110,16 +115,7 @@ export default function Hero() {
               showWhyClients || isHoveringMain ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-md border border-gold/40 px-6 py-6 md:px-10 md:py-8 shadow-2xl">
-              <div className="absolute inset-0 border border-gold/10 m-3 overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-gold/10 to-transparent animate-shimmer-slide"></div>
-              </div>
-
-              <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-gold/60"></div>
-              <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-gold/60"></div>
-              <div className="absolute bottom-0 left-0 w-12 h-12 border-b border-l border-gold/60"></div>
-              <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/60"></div>
-
+            <div className="relative px-6 py-6 md:px-10 md:py-8">
               <div className="relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2.5">
                   <div className="flex items-start">
@@ -128,11 +124,11 @@ export default function Hero() {
                   </div>
                   <div className="flex items-start">
                     <span className="text-gold mr-3 mt-0.5">•</span>
-                    <span className="font-sans text-xs md:text-sm text-platinum/90 leading-relaxed">Partner-led, relationship-driven service</span>
+                    <span className="font-sans text-xs md:text-sm text-gold leading-relaxed">Partner-led, relationship-driven service</span>
                   </div>
                   <div className="flex items-start">
                     <span className="text-gold mr-3 mt-0.5">•</span>
-                    <span className="font-sans text-xs md:text-sm text-gold leading-relaxed">Strategic thinking with practical delivery</span>
+                    <span className="font-sans text-xs md:text-sm text-platinum/90 leading-relaxed">Strategic thinking with practical delivery</span>
                   </div>
                   <div className="flex items-start">
                     <span className="text-gold mr-3 mt-0.5">•</span>
@@ -144,7 +140,7 @@ export default function Hero() {
                   </div>
                   <div className="flex items-start">
                     <span className="text-gold mr-3 mt-0.5">•</span>
-                    <span className="font-sans text-xs md:text-sm text-platinum/90 leading-relaxed">[Content to follow]</span>
+                    <span className="font-sans text-xs md:text-sm text-gold leading-relaxed">[Content to follow]</span>
                   </div>
                 </div>
               </div>
