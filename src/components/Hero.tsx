@@ -1,26 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 
-const services = [
-  {
-    title: 'Accounts & Tax Compliance',
-    summary: 'Comprehensive accounting services paired with strategic tax optimization to maximise wealth and ensure full regulatory compliance.'
-  },
-  {
-    title: 'Business Support & Advisory',
-    summary: 'Expert guidance for business growth and operational excellence, combined with proactive tax strategies tailored to your specific needs.'
-  },
-  {
-    title: 'Integrated Finance Planning',
-    summary: 'Regular & evolving solutions and development services to help you navigate challenges and capitalize on opportunities for sustainable growth and legacy wealth.'
-  }
-]
-
 export default function Hero() {
   const [showOval, setShowOval] = useState(false)
   const [showHeading, setShowHeading] = useState(false)
-  const [showServices, setShowServices] = useState(false)
-  const [hoveredService, setHoveredService] = useState<number | null>(null)
-  const [showMainHeadingPopup, setShowMainHeadingPopup] = useState(false)
+  const [showWhyClients, setShowWhyClients] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -32,14 +15,14 @@ export default function Hero() {
       setShowHeading(true)
     }, 1000)
 
-    const servicesTimer = setTimeout(() => {
-      setShowServices(true)
+    const whyClientsTimer = setTimeout(() => {
+      setShowWhyClients(true)
     }, 2400)
 
     return () => {
       clearTimeout(ovalTimer)
       clearTimeout(headingTimer)
-      clearTimeout(servicesTimer)
+      clearTimeout(whyClientsTimer)
     }
   }, [])
 
@@ -89,11 +72,7 @@ export default function Hero() {
               <div className="w-full h-full bg-gold/20 rounded-full"></div>
             </div>
 
-            <div
-              className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-10 md:px-20 md:py-14 lg:px-28 lg:py-16 shadow-2xl border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold/50 hover:shadow-3xl"
-              onMouseEnter={() => setShowMainHeadingPopup(true)}
-              onMouseLeave={() => setShowMainHeadingPopup(false)}
-            >
+            <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-10 md:px-20 md:py-14 lg:px-28 lg:py-16 shadow-2xl border border-gold/30 transition-all duration-500 hover:border-gold/50 hover:shadow-3xl">
               <div className="absolute inset-0 border border-gold/10 m-3 overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-gold/10 to-transparent animate-shimmer-slide"></div>
               </div>
@@ -108,88 +87,59 @@ export default function Hero() {
               </h1>
 
               <div className="mt-6 md:mt-8 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent opacity-60"></div>
-
-              {showMainHeadingPopup && (
-                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[420px] max-w-[calc(100vw-3rem)] bg-gradient-to-br from-navy-dark/98 via-navy/95 to-navy-dark/98 backdrop-blur-md border-2 border-gold/70 px-8 py-6 shadow-2xl animate-slide-in z-[100]">
-                  <div className="absolute inset-0 border border-gold/20 m-2"></div>
-                  <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-gold/70"></div>
-                  <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-gold/70"></div>
-                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-gold/70"></div>
-                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-gold/70"></div>
-
-                  <div className="relative space-y-3">
-                    <h3 className="font-serif text-lg text-gold font-medium tracking-wide text-center mb-4">Why Clients Trust Us</h3>
-                    <ul className="font-sans text-sm text-platinum/90 leading-relaxed space-y-2">
-                      <li className="flex items-start">
-                        <span className="text-gold mr-2">•</span>
-                        <span>Over 100 years of professional expertise</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-gold mr-2">•</span>
-                        <span>Partner-led, relationship-driven service</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-gold mr-2">•</span>
-                        <span>Strategic thinking with practical delivery</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-gold mr-2">•</span>
-                        <span>Discreet advisers to businesses and families</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-gold mr-2">•</span>
-                        <span>UK-wide expertise with international perspective</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>
       </div>
 
       <div className="absolute bottom-12 left-0 right-0 z-20 px-6">
-        <div className="w-full max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className={`relative cursor-pointer group text-center transition-all duration-700 transform ${
-                  showServices ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
-                }`}
-                style={{ transitionDelay: `${index * 250}ms` }}
-                onMouseEnter={() => setHoveredService(index)}
-                onMouseLeave={() => setHoveredService(null)}
-              >
-                <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/85 to-navy-dark/95 backdrop-blur-md border border-gold/50 px-4 py-4 transition-all duration-500 shadow-2xl hover-lift overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="w-full max-w-5xl mx-auto">
+          <div
+            className={`relative transition-all duration-1000 transform ${
+              showWhyClients ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-md border border-gold/40 px-8 py-8 md:px-12 md:py-10 shadow-2xl">
+              <div className="absolute inset-0 border border-gold/10 m-3 overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-gold/10 to-transparent animate-shimmer-slide"></div>
+              </div>
 
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-gold/70"></div>
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-gold/70"></div>
+              <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-gold/60"></div>
+              <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-gold/60"></div>
+              <div className="absolute bottom-0 left-0 w-12 h-12 border-b border-l border-gold/60"></div>
+              <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/60"></div>
 
-                  <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100"></div>
+              <div className="relative z-10">
+                <h3 className="font-serif text-xl md:text-2xl text-gold font-medium tracking-wide text-center mb-6">Why Clients Trust Us</h3>
 
-                  <div className="relative z-10">
-                    <div className="w-8 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mx-auto mb-2 opacity-70"></div>
-                    <h3 className="font-sans text-xs md:text-sm font-semibold text-platinum leading-tight tracking-wide group-hover:text-platinum transition-colors duration-300">
-                      {service.title}
-                    </h3>
-                    <div className="w-8 h-px bg-gradient-to-r from-transparent via-platinum to-transparent mx-auto mt-2 opacity-70"></div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+                  <div className="flex items-start">
+                    <span className="text-gold mr-3 mt-1">•</span>
+                    <span className="font-sans text-sm text-platinum/90 leading-relaxed">Over 100 years of professional expertise</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-gold mr-3 mt-1">•</span>
+                    <span className="font-sans text-sm text-platinum/90 leading-relaxed">Partner-led, relationship-driven service</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-gold mr-3 mt-1">•</span>
+                    <span className="font-sans text-sm text-platinum/90 leading-relaxed">Strategic thinking with practical delivery</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-gold mr-3 mt-1">•</span>
+                    <span className="font-sans text-sm text-platinum/90 leading-relaxed">Discreet advisers to businesses and families</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-gold mr-3 mt-1">•</span>
+                    <span className="font-sans text-sm text-platinum/90 leading-relaxed">UK-wide expertise with international perspective</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-gold mr-3 mt-1">•</span>
+                    <span className="font-sans text-sm text-platinum/90 leading-relaxed">[Content to follow]</span>
                   </div>
                 </div>
-
-                {hoveredService === index && (
-                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-6 w-80 bg-gradient-to-br from-navy-dark via-navy to-navy-dark backdrop-blur-md border border-gold/50 px-6 py-5 shadow-2xl animate-slide-in z-50">
-                    <div className="absolute inset-0 border border-gold/20 m-2"></div>
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px w-0 h-0 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent border-t-gold/50"></div>
-                    <p className="relative font-sans text-sm text-platinum/90 leading-relaxed">
-                      {service.summary}
-                    </p>
-                  </div>
-                )}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
