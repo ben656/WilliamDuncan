@@ -69,32 +69,42 @@ export default function Hero() {
 
       <div className="relative z-10 flex-1 flex flex-col">
 
-        <div className="flex-1 flex items-end justify-center px-8 pb-28">
+        <div className="flex-1 flex items-end justify-center px-8 pb-24">
+
           <div
-            className={`w-full text-center transition-all duration-700 ease-in-out transform ${
+            className={`w-full flex justify-center transition-all duration-700 ease-in-out transform ${
               showHeading && !transition ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-95 pointer-events-none'
             }`}
           >
-            <h1 className="font-serif leading-tight">
-              <span
-                className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-6xl md:text-8xl lg:text-9xl"
-                style={{
-                  textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(198,167,94,0.25), 0 2px 4px rgba(0,0,0,0.9)',
-                  filter: 'drop-shadow(0 2px 6px rgba(198,167,94,0.2))',
-                }}
-              >
-                A Century of
-              </span>
-              <span
-                className="block font-light tracking-widest text-6xl md:text-8xl lg:text-9xl"
-                style={{
-                  color: '#e8e4dc',
-                  textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 60px rgba(198,167,94,0.15), 0 2px 4px rgba(0,0,0,0.9)',
-                }}
-              >
-                Trusted Expertise
-              </span>
-            </h1>
+            <div
+              className="inline-flex items-center justify-center px-16 py-8 md:px-24 md:py-10 text-center"
+              style={{
+                border: '1px solid rgba(198,167,94,0.35)',
+                borderRadius: '50%',
+                boxShadow: '0 0 40px rgba(198,167,94,0.08), inset 0 0 40px rgba(198,167,94,0.04)',
+              }}
+            >
+              <h1 className="font-serif leading-tight">
+                <span
+                  className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-6xl md:text-8xl lg:text-9xl"
+                  style={{
+                    textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(198,167,94,0.25), 0 2px 4px rgba(0,0,0,0.9)',
+                    filter: 'drop-shadow(0 2px 6px rgba(198,167,94,0.2))',
+                  }}
+                >
+                  A Century of
+                </span>
+                <span
+                  className="block font-light tracking-widest text-6xl md:text-8xl lg:text-9xl"
+                  style={{
+                    color: '#e8e4dc',
+                    textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 60px rgba(198,167,94,0.15), 0 2px 4px rgba(0,0,0,0.9)',
+                  }}
+                >
+                  Trusted Expertise
+                </span>
+              </h1>
+            </div>
           </div>
 
           <div
