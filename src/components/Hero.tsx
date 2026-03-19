@@ -47,7 +47,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center"
     >
       <div className="absolute inset-0">
         <img
@@ -108,13 +108,13 @@ export default function Hero() {
               <div className="mt-6 md:mt-8 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent opacity-60"></div>
 
               {showMainHeadingPopup && (
-                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-8 w-96 bg-gradient-to-br from-navy-dark via-navy to-navy-dark backdrop-blur-md border border-gold/50 px-8 py-6 shadow-2xl animate-slide-in z-50">
+                <div className="absolute left-1/2 -translate-x-1/2 top-full mt-8 w-96 max-w-[calc(100vw-3rem)] bg-gradient-to-br from-navy-dark via-navy to-navy-dark backdrop-blur-md border border-gold/50 px-8 py-6 shadow-2xl animate-slide-in z-50">
                   <div className="absolute inset-0 border border-gold/20 m-2"></div>
                   <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-gold/70"></div>
                   <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-gold/70"></div>
                   <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-gold/70"></div>
                   <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-gold/70"></div>
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px w-0 h-0 border-l-[12px] border-r-[12px] border-t-[12px] border-l-transparent border-r-transparent border-t-gold/50"></div>
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-px w-0 h-0 border-l-[12px] border-r-[12px] border-b-[12px] border-l-transparent border-r-transparent border-b-gold/50"></div>
 
                   <div className="relative space-y-3">
                     <h3 className="font-serif text-lg text-gold font-medium tracking-wide text-center mb-4">Why Clients Trust Us</h3>
