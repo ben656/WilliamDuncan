@@ -92,14 +92,14 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-12 left-0 right-0 z-20 px-6">
+      <div className="absolute bottom-4 left-0 right-0 z-20 px-6">
         <div className="w-full max-w-5xl mx-auto">
           <div
             className={`relative transition-all duration-1000 transform ${
               showWhyClients ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-md border border-gold/40 px-8 py-8 md:px-12 md:py-10 shadow-2xl">
+            <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-md border border-gold/40 px-6 py-6 md:px-10 md:py-8 shadow-2xl">
               <div className="absolute inset-0 border border-gold/10 m-3 overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-gold/10 to-transparent animate-shimmer-slide"></div>
               </div>
@@ -110,32 +110,32 @@ export default function Hero() {
               <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/60"></div>
 
               <div className="relative z-10">
-                <h3 className="font-serif text-xl md:text-2xl text-gold font-medium tracking-wide text-center mb-6">Accounts & Tax Compliance * Business Support & Advisory * Strategic Planning</h3>
+                <h3 className="font-serif text-lg md:text-xl text-gold font-medium tracking-wide text-center mb-5">Dynamic Solutions for our Valued Clients</h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2.5">
                   <div className="flex items-start">
-                    <span className="text-gold mr-3 mt-1">•</span>
-                    <span className="font-sans text-sm text-platinum/90 leading-relaxed">Over 100 years of professional expertise</span>
+                    <span className="text-gold mr-3 mt-0.5">•</span>
+                    <span className="font-sans text-xs md:text-sm text-platinum/90 leading-relaxed">Over 100 years of professional expertise</span>
                   </div>
                   <div className="flex items-start">
-                    <span className="text-gold mr-3 mt-1">•</span>
-                    <span className="font-sans text-sm text-platinum/90 leading-relaxed">Partner-led, relationship-driven service</span>
+                    <span className="text-gold mr-3 mt-0.5">•</span>
+                    <span className="font-sans text-xs md:text-sm text-platinum/90 leading-relaxed">Partner-led, relationship-driven service</span>
                   </div>
                   <div className="flex items-start">
-                    <span className="text-gold mr-3 mt-1">•</span>
-                    <span className="font-sans text-sm text-platinum/90 leading-relaxed">Strategic thinking with practical delivery</span>
+                    <span className="text-gold mr-3 mt-0.5">•</span>
+                    <span className="font-sans text-xs md:text-sm text-platinum/90 leading-relaxed">Strategic thinking with practical delivery</span>
                   </div>
                   <div className="flex items-start">
-                    <span className="text-gold mr-3 mt-1">•</span>
-                    <span className="font-sans text-sm text-platinum/90 leading-relaxed">Discreet advisers to businesses and families</span>
+                    <span className="text-gold mr-3 mt-0.5">•</span>
+                    <span className="font-sans text-xs md:text-sm text-platinum/90 leading-relaxed">Discreet advisers to businesses and families</span>
                   </div>
                   <div className="flex items-start">
-                    <span className="text-gold mr-3 mt-1">•</span>
-                    <span className="font-sans text-sm text-platinum/90 leading-relaxed">UK-wide expertise with international perspective</span>
+                    <span className="text-gold mr-3 mt-0.5">•</span>
+                    <span className="font-sans text-xs md:text-sm text-platinum/90 leading-relaxed">UK-wide expertise with international perspective</span>
                   </div>
                   <div className="flex items-start">
-                    <span className="text-gold mr-3 mt-1">•</span>
-                    <span className="font-sans text-sm text-platinum/90 leading-relaxed">[Content to follow]</span>
+                    <span className="text-gold mr-3 mt-0.5">•</span>
+                    <span className="font-sans text-xs md:text-sm text-platinum/90 leading-relaxed">[Content to follow]</span>
                   </div>
                 </div>
               </div>
