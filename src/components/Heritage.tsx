@@ -1,7 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 
+const trustReasons = [
+  'Over 100 years of professional expertise',
+  'Partner-led, relationship-driven service',
+  'Strategic thinking with practical delivery',
+  'Discreet advisers to businesses and families',
+  'UK-wide expertise with international perspective',
+]
+
 export default function Heritage() {
   const [isVisible, setIsVisible] = useState(false)
+  const [showPopup, setShowPopup] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -40,8 +49,12 @@ export default function Heritage() {
         >
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="inline-block">
-                <h2 className="font-serif text-5xl md:text-6xl font-bold text-white leading-tight relative pb-4">
+              <div
+                className="inline-block relative group cursor-pointer"
+                onMouseEnter={() => setShowPopup(true)}
+                onMouseLeave={() => setShowPopup(false)}
+              >
+                <h2 className="font-serif text-5xl md:text-6xl font-bold text-white leading-tight relative pb-4 transition-transform duration-300 group-hover:scale-105">
                   A Century of
                   <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-300 to-gold">
@@ -49,6 +62,24 @@ export default function Heritage() {
                   </span>
                   <div className="absolute bottom-0 left-0 w-32 h-1 bg-gradient-to-r from-gold to-transparent"></div>
                 </h2>
+
+                {showPopup && (
+                  <div className="absolute top-full left-0 mt-6 w-96 bg-gradient-to-br from-[#1a2847] to-[#0a1628] border border-gold/30 rounded-xl p-6 shadow-2xl z-50 animate-fadeIn">
+                    <h3 className="font-serif text-xl font-bold text-white mb-4">
+                      Why Clients <span className="text-gold">Trust Us</span>
+                    </h3>
+                    <div className="space-y-3">
+                      {trustReasons.map((reason, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-gold"></div>
+                          <p className="font-sans text-sm text-gray-200 leading-relaxed">
+                            {reason}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="space-y-6 font-sans leading-relaxed">
