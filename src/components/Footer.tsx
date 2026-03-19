@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-[#0a1628] to-[#050d1a] border-t border-gold/10 py-8">
+    <footer className="bg-gradient-to-b from-[#0a1628] to-[#050d1a] border-t border-gold/10 py-4">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-wrap justify-center items-center gap-3 text-xs text-gray-400">
           <span className="font-semibold text-white">William Duncan & Co.</span>
