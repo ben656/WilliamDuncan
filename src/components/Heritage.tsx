@@ -47,10 +47,10 @@ export default function Heritage() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center md:overflow-visible">
+            <div className="space-y-8 md:overflow-visible">
               <div
-                className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-gold/50 px-8 py-10 transition-all duration-500 shadow-2xl hover:border-gold/70 group cursor-pointer"
+                className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-gold/50 px-8 py-10 transition-all duration-500 shadow-2xl hover:border-gold/70 group cursor-pointer overflow-visible"
                 onMouseEnter={() => setShowPopup(true)}
                 onMouseLeave={() => setShowPopup(false)}
               >
@@ -75,7 +75,7 @@ export default function Heritage() {
                 </div>
 
                 <div
-                  className={`absolute left-full ml-8 top-0 w-80 bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm border border-gold/60 px-6 py-8 shadow-2xl transition-all duration-500 ${
+                  className={`absolute left-full ml-8 top-0 w-80 bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm border border-gold/60 px-6 py-8 shadow-2xl transition-all duration-500 z-50 ${
                     showPopup ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 -translate-x-4 pointer-events-none'
                   } hidden md:block`}
                 >
@@ -105,7 +105,7 @@ export default function Heritage() {
                 </div>
 
                 <div
-                  className={`absolute left-0 right-0 top-full mt-4 bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm border border-gold/60 px-6 py-6 shadow-2xl transition-all duration-500 ${
+                  className={`absolute left-0 right-0 top-full mt-4 bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm border border-gold/60 px-6 py-6 shadow-2xl transition-all duration-500 z-50 ${
                     showPopup ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'
                   } md:hidden`}
                 >
