@@ -88,7 +88,7 @@ export default function Hero() {
               <div className="w-full h-full bg-gold/20 rounded-full"></div>
             </div>
 
-            <div className="relative bg-gradient-to-br from-[#1a1f2e]/98 via-[#151921]/95 to-[#0f1218]/98 backdrop-blur-sm px-48 py-10 md:px-64 md:py-12 lg:px-80 lg:py-14 shadow-2xl border border-gold/30 transition-all duration-500 hover:border-gold/50 hover:shadow-3xl rotate-45 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-[#1a1f2e]/98 via-[#151921]/95 to-[#0f1218]/98 backdrop-blur-sm px-56 py-8 md:px-72 md:py-10 lg:px-96 lg:py-12 shadow-2xl border border-gold/30 transition-all duration-500 hover:border-gold/50 hover:shadow-3xl rotate-45 overflow-hidden">
               <div className="absolute inset-0 border border-gold/10 m-3 overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-gold/10 to-transparent animate-shimmer-slide"></div>
               </div>
@@ -97,12 +97,12 @@ export default function Hero() {
               <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-gold/50"></div>
               <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-gold/50"></div>
 
-              <h1 className="relative z-10 font-serif text-2xl md:text-4xl lg:text-5xl font-light text-center leading-tight -rotate-45 whitespace-nowrap">
-                <span className="block gradient-text text-shadow-luxury font-medium mb-2 md:mb-3 tracking-wide">A Century of</span>
-                <span className="block text-platinum text-shadow-luxury font-light tracking-wider">Trusted Expertise</span>
+              <h1 className="relative z-10 font-serif text-4xl md:text-6xl lg:text-7xl font-light text-center leading-tight -rotate-45 whitespace-nowrap" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(255,255,255,0.1), 1px 1px 0px rgba(0,0,0,0.9)' }}>
+                <span className="block gradient-text font-medium mb-3 md:mb-4 tracking-wide" style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.9), -2px -2px 3px rgba(218,165,32,0.3), 2px 2px 0px rgba(0,0,0,0.95), inset 0 0 10px rgba(218,165,32,0.5)' }}>A Century of</span>
+                <span className="block text-platinum font-light tracking-wider" style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.9), -2px -2px 3px rgba(255,255,255,0.2), 2px 2px 0px rgba(0,0,0,0.95)' }}>Trusted Expertise</span>
               </h1>
 
-              <div className="mt-4 md:mt-6 h-px w-20 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent opacity-60 -rotate-45"></div>
+              <div className="mt-5 md:mt-7 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent opacity-60 -rotate-45"></div>
             </div>
           </div>
         </div>
