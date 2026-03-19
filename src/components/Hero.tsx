@@ -1,12 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 
-const leftBullets = [
+const allBullets = [
   'OVER 100 YEARS OF PROFESSIONAL EXPERTISE',
   'PARTNER-LED, RELATIONSHIP-DRIVEN SERVICE',
   'STRATEGIC THINKING WITH PRACTICAL DELIVERY',
-]
-
-const rightBullets = [
   'DISCREET ADVISERS TO BUSINESSES AND FAMILIES',
   'UK-WIDE EXPERTISE WITH INTERNATIONAL PERSPECTIVE',
   'TRUSTED ACROSS GENERATIONS',
@@ -15,20 +12,23 @@ const rightBullets = [
 export default function Hero() {
   const [showLogo, setShowLogo] = useState(false)
   const [showHeading, setShowHeading] = useState(false)
-  const [transition, setTransition] = useState(false)
-  const [showBullets, setShowBullets] = useState(false)
+  const [visibleBullets, setVisibleBullets] = useState<number[]>([])
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const t1 = setTimeout(() => setShowLogo(true), 400)
     const t2 = setTimeout(() => setShowHeading(true), 900)
-    const t3 = setTimeout(() => setTransition(true), 4500)
-    const t4 = setTimeout(() => setShowBullets(true), 4800)
+
+    const bulletTimers = allBullets.map((_, i) =>
+      setTimeout(() => {
+        setVisibleBullets(prev => [...prev, i])
+      }, 4800 + i * 400)
+    )
+
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
-      clearTimeout(t3)
-      clearTimeout(t4)
+      bulletTimers.forEach(clearTimeout)
     }
   }, [])
 
@@ -67,111 +67,86 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 flex-1 flex flex-col">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center">
 
-        <div className="flex-1 flex items-end justify-center px-8 pb-24">
-
-          <div
-            className={`w-full flex justify-center transition-all duration-700 ease-in-out transform ${
-              showHeading && !transition ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-95 pointer-events-none'
-            }`}
-          >
-            <div
-              className="inline-flex items-center justify-center px-16 py-8 md:px-24 md:py-10 text-center"
-              style={{
-                border: '1px solid rgba(198,167,94,0.35)',
-                borderRadius: '50%',
-                boxShadow: '0 0 40px rgba(198,167,94,0.08), inset 0 0 40px rgba(198,167,94,0.04)',
-              }}
-            >
-              <h1 className="font-serif leading-tight">
-                <span
-                  className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-6xl md:text-8xl lg:text-9xl"
-                  style={{
-                    textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(198,167,94,0.25), 0 2px 4px rgba(0,0,0,0.9)',
-                    filter: 'drop-shadow(0 2px 6px rgba(198,167,94,0.2))',
-                  }}
-                >
-                  A Century of
-                </span>
-                <span
-                  className="block font-light tracking-widest text-6xl md:text-8xl lg:text-9xl"
-                  style={{
-                    color: '#e8e4dc',
-                    textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 60px rgba(198,167,94,0.15), 0 2px 4px rgba(0,0,0,0.9)',
-                  }}
-                >
-                  Trusted Expertise
-                </span>
-              </h1>
-            </div>
-          </div>
+        <div className="relative flex flex-col items-center">
 
           <div
-            className={`absolute w-full px-8 text-center transition-all duration-700 ease-in-out transform ${
-              showBullets ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6 pointer-events-none'
+            className={`inline-flex items-center justify-center px-16 py-8 md:px-24 md:py-10 text-center transition-all duration-700 ease-in-out transform ${
+              showHeading ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-95'
             }`}
-          >
-            <div className="grid grid-cols-2 gap-x-10 max-w-3xl mx-auto">
-              <div className="flex flex-col gap-3 items-center text-center">
-                {leftBullets.map((text, i) => (
-                  <div key={i} className="flex items-center gap-2 justify-center">
-                    <span
-                      className="w-3.5 h-px flex-shrink-0"
-                      style={{ background: 'rgba(198,167,94,0.55)', marginTop: '0.1em' }}
-                    />
-                    <span
-                      className="font-serif text-[9px] md:text-[10px] tracking-[0.2em] uppercase leading-relaxed"
-                      style={{ color: 'rgba(198,167,94,0.65)' }}
-                    >
-                      {text}
-                    </span>
-                    <span
-                      className="w-3.5 h-px flex-shrink-0"
-                      style={{ background: 'rgba(198,167,94,0.55)', marginTop: '0.1em' }}
-                    />
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-col gap-3 items-center text-center">
-                {rightBullets.map((text, i) => (
-                  <div key={i} className="flex items-center gap-2 justify-center">
-                    <span
-                      className="w-3.5 h-px flex-shrink-0"
-                      style={{ background: 'rgba(198,167,94,0.55)', marginTop: '0.1em' }}
-                    />
-                    <span
-                      className="font-serif text-[9px] md:text-[10px] tracking-[0.2em] uppercase leading-relaxed"
-                      style={{ color: 'rgba(198,167,94,0.65)' }}
-                    >
-                      {text}
-                    </span>
-                    <span
-                      className="w-3.5 h-px flex-shrink-0"
-                      style={{ background: 'rgba(198,167,94,0.55)', marginTop: '0.1em' }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          className={`w-full px-8 pb-10 text-center transition-all duration-700 ease-in-out ${
-            showBullets ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-        >
-          <p
-            className="font-serif font-light tracking-[0.3em] uppercase"
             style={{
-              color: 'rgba(198,167,94,0.45)',
-              fontSize: '0.6rem',
+              border: '1px solid rgba(198,167,94,0.35)',
+              borderRadius: '50%',
+              boxShadow: '0 0 40px rgba(198,167,94,0.08), inset 0 0 40px rgba(198,167,94,0.04)',
             }}
           >
-            A Century of Trusted Expertise
-          </p>
+            <h1 className="font-serif leading-tight">
+              <span
+                className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-6xl md:text-8xl lg:text-9xl"
+                style={{
+                  textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(198,167,94,0.25), 0 2px 4px rgba(0,0,0,0.9)',
+                  filter: 'drop-shadow(0 2px 6px rgba(198,167,94,0.2))',
+                }}
+              >
+                A Century of
+              </span>
+              <span
+                className="block font-light tracking-widest text-6xl md:text-8xl lg:text-9xl"
+                style={{
+                  color: '#e8e4dc',
+                  textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 60px rgba(198,167,94,0.15), 0 2px 4px rgba(0,0,0,0.9)',
+                }}
+              >
+                Trusted Expertise
+              </span>
+            </h1>
+          </div>
+
+          <div className="flex flex-col items-center gap-2 -mt-4 z-10">
+            {allBullets.map((text, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2 justify-center transition-all duration-500 ease-out"
+                style={{
+                  opacity: visibleBullets.includes(i) ? 1 : 0,
+                  transform: visibleBullets.includes(i) ? 'translateY(0)' : 'translateY(10px)',
+                }}
+              >
+                <span
+                  className="w-3.5 h-px flex-shrink-0"
+                  style={{ background: 'rgba(198,167,94,0.55)', marginTop: '0.1em' }}
+                />
+                <span
+                  className="font-serif text-[9px] md:text-[10px] tracking-[0.2em] uppercase leading-relaxed"
+                  style={{ color: 'rgba(198,167,94,0.65)' }}
+                >
+                  {text}
+                </span>
+                <span
+                  className="w-3.5 h-px flex-shrink-0"
+                  style={{ background: 'rgba(198,167,94,0.55)', marginTop: '0.1em' }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
+
+      </div>
+
+      <div
+        className="w-full px-8 pb-10 text-center transition-all duration-700 ease-in-out"
+        style={{ opacity: visibleBullets.length === allBullets.length ? 1 : 0 }}
+      >
+        <p
+          className="font-serif font-light tracking-[0.3em] uppercase"
+          style={{
+            color: 'rgba(198,167,94,0.45)',
+            fontSize: '0.6rem',
+          }}
+        >
+          A Century of Trusted Expertise
+        </p>
       </div>
     </section>
   )
