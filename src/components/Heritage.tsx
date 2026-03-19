@@ -10,7 +10,6 @@ const trustReasons = [
 
 export default function Heritage() {
   const [isVisible, setIsVisible] = useState(false)
-  const [showPopup, setShowPopup] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -49,37 +48,42 @@ export default function Heritage() {
         >
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div
-                className="inline-block relative group cursor-pointer"
-                onMouseEnter={() => setShowPopup(true)}
-                onMouseLeave={() => setShowPopup(false)}
-              >
-                <h2 className="font-serif text-5xl md:text-6xl font-bold text-white leading-tight relative pb-4 transition-transform duration-300 group-hover:scale-105">
-                  A Century of
-                  <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-300 to-gold">
-                    Trusted Expertise
-                  </span>
-                  <div className="absolute bottom-0 left-0 w-32 h-1 bg-gradient-to-r from-gold to-transparent"></div>
-                </h2>
+              <div className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-gold/50 px-8 py-10 transition-all duration-500 shadow-2xl hover:border-gold/70 group">
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                {showPopup && (
-                  <div className="absolute top-full left-0 mt-6 w-80 sm:w-96 bg-gradient-to-br from-[#1a2847] to-[#0a1628] border-2 border-gold/40 rounded-xl p-6 shadow-2xl z-50 animate-fadeIn">
-                    <h3 className="font-serif text-xl font-bold text-white mb-4">
-                      Why Clients <span className="text-gold">Trust Us</span>
-                    </h3>
-                    <div className="space-y-3">
-                      {trustReasons.map((reason, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-gold"></div>
-                          <p className="font-sans text-sm text-gray-200 leading-relaxed">
-                            {reason}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
+                <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-gold/70"></div>
+                <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/70"></div>
+
+                <div className="relative z-10">
+                  <div className="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mb-6 opacity-70"></div>
+
+                  <h2 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mb-2">
+                    A Century of
+                  </h2>
+                  <h2 className="font-serif text-4xl md:text-5xl font-bold leading-tight mb-6">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-300 to-gold">
+                      Trusted Expertise
+                    </span>
+                  </h2>
+
+                  <div className="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mb-6 opacity-70"></div>
+
+                  <h3 className="font-serif text-xl font-bold text-white mb-4">
+                    Why Clients <span className="text-gold">Trust Us</span>
+                  </h3>
+                  <div className="space-y-3">
+                    {trustReasons.map((reason, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-gold"></div>
+                        <p className="font-sans text-sm text-slate-300 leading-relaxed">
+                          {reason}
+                        </p>
+                      </div>
+                    ))}
                   </div>
-                )}
+
+                  <div className="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mt-6 opacity-70"></div>
+                </div>
               </div>
 
               <div className="space-y-6 font-sans leading-relaxed">
