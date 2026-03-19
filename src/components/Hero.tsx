@@ -47,7 +47,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col justify-center items-center"
+      className="relative min-h-screen flex flex-col justify-center items-center overflow-visible"
     >
       <div className="absolute inset-0">
         <img
@@ -90,11 +90,13 @@ export default function Hero() {
             </div>
 
             <div
-              className="relative shimmer bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-10 md:px-20 md:py-14 lg:px-28 lg:py-16 shadow-2xl border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold/50 hover:shadow-3xl overflow-visible"
+              className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-10 md:px-20 md:py-14 lg:px-28 lg:py-16 shadow-2xl border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold/50 hover:shadow-3xl"
               onMouseEnter={() => setShowMainHeadingPopup(true)}
               onMouseLeave={() => setShowMainHeadingPopup(false)}
             >
-              <div className="absolute inset-0 border border-gold/10 m-3"></div>
+              <div className="absolute inset-0 border border-gold/10 m-3 overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-gold/10 to-transparent animate-shimmer-slide"></div>
+              </div>
               <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-gold/50"></div>
               <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-gold/50"></div>
               <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-gold/50"></div>

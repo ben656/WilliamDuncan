@@ -172,4 +172,17 @@
     animation: fadeIn 0.3s ease-out forwards;
   }
 
+  @keyframes shimmer-slide {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shimmer-slide {
+    animation: shimmer-slide 3s infinite;
+  }
+
 }
