@@ -10,6 +10,7 @@ const trustReasons = [
 
 export default function Heritage() {
   const [isVisible, setIsVisible] = useState(false)
+  const [showPopup, setShowPopup] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -48,7 +49,11 @@ export default function Heritage() {
         >
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-gold/50 px-8 py-10 transition-all duration-500 shadow-2xl hover:border-gold/70 group">
+              <div
+                className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-gold/50 px-8 py-10 transition-all duration-500 shadow-2xl hover:border-gold/70 group cursor-pointer"
+                onMouseEnter={() => setShowPopup(true)}
+                onMouseLeave={() => setShowPopup(false)}
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-gold/70"></div>
@@ -66,23 +71,63 @@ export default function Heritage() {
                     </span>
                   </h2>
 
-                  <div className="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mb-6 opacity-70"></div>
+                  <div className="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-70"></div>
+                </div>
 
-                  <h3 className="font-serif text-xl font-bold text-white mb-4">
-                    Why Clients <span className="text-gold">Trust Us</span>
-                  </h3>
-                  <div className="space-y-3">
-                    {trustReasons.map((reason, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-gold"></div>
-                        <p className="font-sans text-sm text-slate-300 leading-relaxed">
-                          {reason}
-                        </p>
-                      </div>
-                    ))}
+                <div
+                  className={`absolute left-full ml-8 top-0 w-80 bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm border border-gold/60 px-6 py-8 shadow-2xl transition-all duration-500 ${
+                    showPopup ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 -translate-x-4 pointer-events-none'
+                  } hidden md:block`}
+                >
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-gold/70"></div>
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-gold/70"></div>
+
+                  <div className="relative z-10">
+                    <div className="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mb-4 opacity-70"></div>
+
+                    <h3 className="font-serif text-xl font-bold text-white mb-4">
+                      Why Clients <span className="text-gold">Trust Us</span>
+                    </h3>
+
+                    <div className="space-y-3">
+                      {trustReasons.map((reason, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-gold"></div>
+                          <p className="font-sans text-sm text-slate-300 leading-relaxed">
+                            {reason}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mt-4 opacity-70"></div>
                   </div>
+                </div>
 
-                  <div className="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mt-6 opacity-70"></div>
+                <div
+                  className={`absolute left-0 right-0 top-full mt-4 bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm border border-gold/60 px-6 py-6 shadow-2xl transition-all duration-500 ${
+                    showPopup ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'
+                  } md:hidden`}
+                >
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-gold/70"></div>
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-gold/70"></div>
+
+                  <div className="relative z-10">
+                    <h3 className="font-serif text-lg font-bold text-white mb-3">
+                      Why Clients <span className="text-gold">Trust Us</span>
+                    </h3>
+
+                    <div className="space-y-2">
+                      {trustReasons.map((reason, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-gold"></div>
+                          <p className="font-sans text-sm text-slate-300 leading-relaxed">
+                            {reason}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
 
