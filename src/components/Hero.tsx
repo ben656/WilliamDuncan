@@ -78,19 +78,19 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 w-full px-6 py-24 flex flex-col items-center justify-center min-h-screen">
+      <div className="relative z-10 w-full px-6 py-24 flex flex-col items-center justify-center min-h-screen overflow-visible">
         <div
           className={`transition-all duration-1200 ease-out transform ${
             showHeading ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
-          <div className="relative flex items-center justify-center flex-col">
+          <div className="relative flex items-center justify-center flex-col overflow-visible">
             <div className="absolute inset-0 blur-2xl opacity-30">
               <div className="w-full h-full bg-gold/20 rounded-full"></div>
             </div>
 
             <div
-              className="relative shimmer bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-10 md:px-20 md:py-14 lg:px-28 lg:py-16 shadow-2xl border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold/50 hover:shadow-3xl"
+              className="relative shimmer bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-10 md:px-20 md:py-14 lg:px-28 lg:py-16 shadow-2xl border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold/50 hover:shadow-3xl overflow-visible"
               onMouseEnter={() => setShowMainHeadingPopup(true)}
               onMouseLeave={() => setShowMainHeadingPopup(false)}
             >
@@ -108,7 +108,7 @@ export default function Hero() {
               <div className="mt-6 md:mt-8 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent opacity-60"></div>
 
               {showMainHeadingPopup && (
-                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-8 w-96 max-w-[calc(100vw-3rem)] bg-gradient-to-br from-navy-dark via-navy to-navy-dark backdrop-blur-md border border-gold/50 px-8 py-6 shadow-2xl animate-slide-in z-50">
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-8 w-96 max-w-[calc(100vw-3rem)] bg-gradient-to-br from-navy-dark/98 via-navy/95 to-navy-dark/98 backdrop-blur-md border-2 border-gold/70 px-8 py-6 shadow-2xl animate-slide-in z-[100]">
                   <div className="absolute inset-0 border border-gold/20 m-2"></div>
                   <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-gold/70"></div>
                   <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-gold/70"></div>
