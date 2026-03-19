@@ -11,7 +11,7 @@ const services = [
   },
   {
     title: 'Integrated Finance Planning',
-    summary: 'Long-term business planning and development services to help you navigate challenges and capitalize on opportunities for sustainable growth.'
+    summary: 'Regular & evolving solutions and development services to help you navigate challenges and capitalize on opportunities for sustainable growth and legacy wealth.'
   }
 ]
 
