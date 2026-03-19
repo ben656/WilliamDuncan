@@ -34,9 +34,9 @@ export default function Heritage() {
     <section
       id="heritage"
       ref={sectionRef}
-      className="py-32 bg-gradient-to-br from-[#0a1628] via-[#0f1e3a] to-[#1a2847] relative overflow-hidden"
+      className="py-32 bg-gradient-to-br from-[#0a1628] via-[#0f1e3a] to-[#1a2847] relative"
     >
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-5 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
       </div>
@@ -64,7 +64,7 @@ export default function Heritage() {
                 </h2>
 
                 {showPopup && (
-                  <div className="absolute top-full left-0 mt-6 w-96 bg-gradient-to-br from-[#1a2847] to-[#0a1628] border border-gold/30 rounded-xl p-6 shadow-2xl z-50 animate-fadeIn">
+                  <div className="absolute top-full left-0 mt-6 w-80 sm:w-96 bg-gradient-to-br from-[#1a2847] to-[#0a1628] border-2 border-gold/40 rounded-xl p-6 shadow-2xl z-50 animate-fadeIn">
                     <h3 className="font-serif text-xl font-bold text-white mb-4">
                       Why Clients <span className="text-gold">Trust Us</span>
                     </h3>
