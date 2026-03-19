@@ -36,19 +36,19 @@ export default function Heritage() {
       ref={sectionRef}
       className="py-32 bg-gradient-to-br from-[#0a1628] via-[#0f1e3a] to-[#1a2847] relative"
     >
-      <div className="absolute inset-0 opacity-5 overflow-hidden">
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 overflow-visible">
         <div
-          className={`transition-all duration-1000 ${
+          className={`transition-all duration-1000 overflow-visible ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="grid md:grid-cols-2 gap-12 items-center md:overflow-visible">
-            <div className="space-y-8 md:overflow-visible">
+          <div className="grid md:grid-cols-2 gap-12 items-center overflow-visible">
+            <div className="space-y-8 overflow-visible">
               <div
                 className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-gold/50 px-8 py-10 transition-all duration-500 shadow-2xl hover:border-gold/70 group cursor-pointer overflow-visible"
                 onMouseEnter={() => setShowPopup(true)}
