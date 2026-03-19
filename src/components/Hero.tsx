@@ -114,39 +114,31 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-navy-dark opacity-50" />
 
       <div
-        className={`absolute z-30 transition-all duration-1000 transform ${
+        className="absolute left-0 right-0 top-0 z-20"
+        style={{
+          height: '33.333%',
+          background: 'rgba(6,10,22,0.55)',
+          borderBottom: '1px solid rgba(198,167,94,0.18)',
+          boxShadow: '0 4px 40px rgba(198,167,94,0.07), inset 0 -1px 0 rgba(198,167,94,0.1)',
+          backdropFilter: 'blur(4px)',
+        }}
+      />
+
+      <div
+        className={`absolute top-6 left-6 z-30 transition-all duration-1000 transform ${
           showLogo ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-8 scale-95'
         }`}
-        style={{
-          top: '-130px',
-          left: '-130px',
-          width: '480px',
-          height: '480px',
-        }}
       >
-        <div
-          className="w-full h-full flex flex-col items-center justify-center"
-          style={{
-            border: '1px solid rgba(198,167,94,0.12)',
-            borderRadius: '50%',
-            boxShadow: '0 0 80px rgba(198,167,94,0.06), inset 0 0 60px rgba(198,167,94,0.03)',
-            background: 'radial-gradient(circle, rgba(10,15,30,0.55) 0%, rgba(10,15,30,0.2) 70%, transparent 100%)',
-            backdropFilter: 'blur(6px)',
-            paddingTop: '110px',
-            paddingLeft: '90px',
-          }}
-        >
-          <div className="flex flex-col">
-            <div className="flex items-center gap-2 transform hover:scale-105 transition-transform duration-300">
-              <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-16 md:h-20 lg:h-24 filter drop-shadow-2xl" />
-              <div className="flex flex-col justify-end -ml-3 mb-2">
-                <p className="font-sans text-[7px] md:text-[8px] lg:text-[9px] font-light tracking-[0.25em] uppercase" style={{ color: '#a8a8b0' }}>est 1924</p>
-              </div>
+        <div className="flex flex-col">
+          <div className="flex items-center gap-2 transform hover:scale-105 transition-transform duration-300">
+            <img src="/Adobe_Express_-_file.png" alt="William Duncan" className="h-16 md:h-20 lg:h-24 filter drop-shadow-2xl" />
+            <div className="flex flex-col justify-end -ml-3 mb-2">
+              <p className="font-sans text-[7px] md:text-[8px] lg:text-[9px] font-light tracking-[0.25em] uppercase" style={{ color: '#a8a8b0' }}>est 1924</p>
             </div>
-            <p className="font-sans text-xs md:text-sm lg:text-base font-light tracking-wide mt-2 ml-[2.8rem] md:ml-[3.2rem] lg:ml-[3.8rem]" style={{ color: '#a8a8b0' }}>
-              Chartered Accountants, Business &amp; Tax Advisers
-            </p>
           </div>
+          <p className="font-sans text-xs md:text-sm lg:text-base font-light tracking-wide mt-2 ml-[2.8rem] md:ml-[3.2rem] lg:ml-[3.8rem]" style={{ color: '#a8a8b0' }}>
+            Chartered Accountants, Business &amp; Tax Advisers
+          </p>
         </div>
       </div>
 
