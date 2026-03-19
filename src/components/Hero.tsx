@@ -2,15 +2,15 @@ import { useEffect, useRef, useState } from 'react'
 
 const services = [
   {
-    title: 'Dynamic Accounting',
+    title: 'Accounts & Tax Compliance',
     summary: 'Comprehensive accounting services paired with strategic tax optimization to minimize liabilities and ensure full regulatory compliance.'
   },
   {
-    title: 'Impactful Business Advisory',
+    title: 'Business Support & Advisory',
     summary: 'Expert guidance for business growth and operational excellence, combined with proactive tax strategies tailored to your specific needs.'
   },
   {
-    title: 'Integrated Tax & Financial Planning',
+    title: 'Integrated Finance Planning',
     summary: 'Long-term business planning and development services to help you navigate challenges and capitalize on opportunities for sustainable growth.'
   }
 ]
