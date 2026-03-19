@@ -88,7 +88,7 @@ export default function Hero() {
               <div className="w-full h-full bg-gold/20 rounded-full"></div>
             </div>
 
-            <div className="relative bg-gradient-to-br from-[#1a1f2e]/98 via-[#151921]/95 to-[#0f1218]/98 backdrop-blur-sm px-56 py-8 md:px-72 md:py-10 lg:px-96 lg:py-12 shadow-2xl border border-gold/30 transition-all duration-500 hover:border-gold/50 hover:shadow-3xl rotate-45 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-[#1a1f2e]/98 via-[#151921]/95 to-[#0f1218]/98 backdrop-blur-sm px-[38vw] py-[22vw] md:px-[40vw] md:py-[24vw] lg:px-[42vw] lg:py-[26vw] shadow-2xl border border-gold/30 transition-all duration-500 hover:border-gold/50 hover:shadow-3xl rotate-45 overflow-hidden">
               <div className="absolute inset-0 border border-gold/10 m-3 overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-gold/10 to-transparent animate-shimmer-slide"></div>
               </div>
