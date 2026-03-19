@@ -20,6 +20,7 @@ export default function Hero() {
   const [showHeading, setShowHeading] = useState(false)
   const [showServices, setShowServices] = useState(false)
   const [hoveredService, setHoveredService] = useState<number | null>(null)
+  const [showMainHeadingPopup, setShowMainHeadingPopup] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -88,7 +89,11 @@ export default function Hero() {
               <div className="w-full h-full bg-gold/20 rounded-full"></div>
             </div>
 
-            <div className="relative shimmer bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-10 md:px-20 md:py-14 lg:px-28 lg:py-16 shadow-2xl border border-gold/30">
+            <div
+              className="relative shimmer bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-10 md:px-20 md:py-14 lg:px-28 lg:py-16 shadow-2xl border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold/50 hover:shadow-3xl"
+              onMouseEnter={() => setShowMainHeadingPopup(true)}
+              onMouseLeave={() => setShowMainHeadingPopup(false)}
+            >
               <div className="absolute inset-0 border border-gold/10 m-3"></div>
               <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-gold/50"></div>
               <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-gold/50"></div>
@@ -101,6 +106,27 @@ export default function Hero() {
               </h1>
 
               <div className="mt-6 md:mt-8 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent opacity-60"></div>
+
+              {showMainHeadingPopup && (
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-8 w-96 bg-gradient-to-br from-navy-dark via-navy to-navy-dark backdrop-blur-md border border-gold/50 px-8 py-6 shadow-2xl animate-slide-in z-50">
+                  <div className="absolute inset-0 border border-gold/20 m-2"></div>
+                  <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-gold/70"></div>
+                  <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-gold/70"></div>
+                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-gold/70"></div>
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-gold/70"></div>
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px w-0 h-0 border-l-[12px] border-r-[12px] border-t-[12px] border-l-transparent border-r-transparent border-t-gold/50"></div>
+
+                  <div className="relative space-y-3">
+                    <h3 className="font-serif text-lg text-gold font-medium tracking-wide text-center mb-4">Why Clients Trust Us</h3>
+                    <p className="font-sans text-sm text-platinum/90 leading-relaxed">
+                      Since 1924, William Duncan & Co. has built a reputation on unwavering integrity, personalized service, and expert guidance through every business challenge.
+                    </p>
+                    <p className="font-sans text-sm text-platinum/90 leading-relaxed">
+                      Our clients trust us because we combine a century of proven expertise with modern solutions, ensuring their financial success across generations.
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
