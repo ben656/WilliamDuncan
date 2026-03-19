@@ -110,7 +110,7 @@ export default function Hero() {
               <div className="mt-6 md:mt-8 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent opacity-60"></div>
 
               {showMainHeadingPopup && (
-                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-8 w-96 max-w-[calc(100vw-3rem)] bg-gradient-to-br from-navy-dark/98 via-navy/95 to-navy-dark/98 backdrop-blur-md border-2 border-gold/70 px-8 py-6 shadow-2xl animate-slide-in z-[100]">
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-8 w-[420px] max-w-[calc(100vw-3rem)] bg-gradient-to-br from-navy-dark/98 via-navy/95 to-navy-dark/98 backdrop-blur-md border-2 border-gold/70 px-8 py-6 shadow-2xl animate-slide-in z-[100]">
                   <div className="absolute inset-0 border border-gold/20 m-2"></div>
                   <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-gold/70"></div>
                   <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-gold/70"></div>
@@ -120,12 +120,28 @@ export default function Hero() {
 
                   <div className="relative space-y-3">
                     <h3 className="font-serif text-lg text-gold font-medium tracking-wide text-center mb-4">Why Clients Trust Us</h3>
-                    <p className="font-sans text-sm text-platinum/90 leading-relaxed">
-                      Since 1924, William Duncan & Co. has built a reputation on unwavering integrity, personalized service, and expert guidance through every business challenge.
-                    </p>
-                    <p className="font-sans text-sm text-platinum/90 leading-relaxed">
-                      Our clients trust us because we combine a century of proven expertise with modern solutions, ensuring their financial success across generations.
-                    </p>
+                    <ul className="font-sans text-sm text-platinum/90 leading-relaxed space-y-2">
+                      <li className="flex items-start">
+                        <span className="text-gold mr-2">•</span>
+                        <span>Over 100 years of professional expertise</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-gold mr-2">•</span>
+                        <span>Partner-led, relationship-driven service</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-gold mr-2">•</span>
+                        <span>Strategic thinking with practical delivery</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-gold mr-2">•</span>
+                        <span>Discreet advisers to businesses and families</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-gold mr-2">•</span>
+                        <span>UK-wide expertise with international perspective</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               )}
