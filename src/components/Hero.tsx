@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-const headlines = [
-  { line1: 'A Century of', line2: 'Trusted Expertise' },
+const cyclingPhrases = [
   { line1: 'Dynamic Solutions for', line2: 'Valued Clients' },
   { line1: 'Intrinsic Relationships for', line2: 'Evolving Strategy' },
 ]
@@ -11,8 +10,8 @@ export default function Hero() {
   const [showHeading, setShowHeading] = useState(false)
   const [showWhyClients, setShowWhyClients] = useState(false)
   const [isHoveringMain, setIsHoveringMain] = useState(false)
-  const [headlineIndex, setHeadlineIndex] = useState(0)
-  const [headlineFade, setHeadlineFade] = useState(true)
+  const [cycleIndex, setCycleIndex] = useState(-1)
+  const [fadingOut, setFadingOut] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -22,7 +21,6 @@ export default function Hero() {
     const hideTimer = setTimeout(() => {
       if (!isHoveringMain) setShowWhyClients(false)
     }, 35000)
-
     return () => {
       clearTimeout(ovalTimer)
       clearTimeout(headingTimer)
@@ -36,17 +34,22 @@ export default function Hero() {
   }, [isHoveringMain])
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setHeadlineFade(false)
-      setTimeout(() => {
-        setHeadlineIndex(i => (i + 1) % headlines.length)
-        setHeadlineFade(true)
-      }, 600)
-    }, 3600)
-    return () => clearInterval(interval)
+    const startDelay = setTimeout(() => {
+      const interval = setInterval(() => {
+        setFadingOut(true)
+        setTimeout(() => {
+          setCycleIndex(i => (i + 1) % cyclingPhrases.length)
+          setFadingOut(false)
+        }, 600)
+      }, 3600)
+      setCycleIndex(0)
+      return () => clearInterval(interval)
+    }, 2000)
+    return () => clearTimeout(startDelay)
   }, [])
 
-  const current = headlines[headlineIndex]
+  const isMainHeading = cycleIndex === -1
+  const currentPhrase = cycleIndex >= 0 ? cyclingPhrases[cycleIndex] : null
 
   return (
     <section
@@ -85,39 +88,68 @@ export default function Hero() {
 
       <div className="relative z-10 w-full px-6 flex flex-col items-center justify-center">
         <div
-          className={`transition-all duration-1200 ease-out transform ${
+          className={`transition-all duration-1000 ease-out transform ${
             showHeading ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
           onMouseEnter={() => setIsHoveringMain(true)}
           onMouseLeave={() => setIsHoveringMain(false)}
         >
-          <div className="flex flex-col items-center gap-5">
-            <div className="w-48 md:w-64 h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-70" />
-
+          <div
+            className="px-10 py-6 md:px-16 md:py-8 text-center"
+            style={{
+              border: '1px solid rgba(198,167,94,0.55)',
+              boxShadow: '0 0 32px rgba(198,167,94,0.12), inset 0 0 24px rgba(0,0,0,0.35)',
+              background: 'rgba(5,13,26,0.45)',
+            }}
+          >
             <div
-              className="text-center transition-opacity duration-500"
-              style={{ opacity: headlineFade ? 1 : 0 }}
+              className="transition-opacity duration-500"
+              style={{ opacity: fadingOut ? 0 : 1 }}
             >
-              <h1
-                className="font-serif font-light leading-tight whitespace-nowrap"
-                style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
-              >
-                <span
-                  className="block gradient-text font-medium mb-2 md:mb-3 tracking-wide text-3xl md:text-5xl lg:text-6xl"
-                  style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.9), -2px -2px 3px rgba(218,165,32,0.3)' }}
-                >
-                  {current.line1}
-                </span>
-                <span
-                  className="block text-platinum font-light tracking-wider text-3xl md:text-5xl lg:text-6xl"
-                  style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.9), -2px -2px 3px rgba(255,255,255,0.2)' }}
-                >
-                  {current.line2}
-                </span>
-              </h1>
+              {isMainHeading ? (
+                <h1 className="font-serif leading-tight whitespace-nowrap">
+                  <span
+                    className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-4xl md:text-6xl lg:text-7xl"
+                    style={{
+                      textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 -1px 0 rgba(218,165,32,0.4), 2px 2px 8px rgba(0,0,0,0.8)',
+                      filter: 'drop-shadow(0 1px 2px rgba(198,167,94,0.3))',
+                    }}
+                  >
+                    A Century of
+                  </span>
+                  <span
+                    className="block text-platinum font-light tracking-widest text-4xl md:text-6xl lg:text-7xl"
+                    style={{
+                      textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 -1px 0 rgba(255,255,255,0.15), 2px 2px 8px rgba(0,0,0,0.8)',
+                      filter: 'drop-shadow(0 1px 3px rgba(255,255,255,0.1))',
+                    }}
+                  >
+                    Trusted Expertise
+                  </span>
+                </h1>
+              ) : (
+                <h2 className="font-serif leading-tight whitespace-nowrap">
+                  <span
+                    className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-4xl md:text-6xl lg:text-7xl"
+                    style={{
+                      textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 -1px 0 rgba(218,165,32,0.4), 2px 2px 8px rgba(0,0,0,0.8)',
+                      filter: 'drop-shadow(0 1px 2px rgba(198,167,94,0.3))',
+                    }}
+                  >
+                    {currentPhrase?.line1}
+                  </span>
+                  <span
+                    className="block text-platinum font-light tracking-widest text-4xl md:text-6xl lg:text-7xl"
+                    style={{
+                      textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 -1px 0 rgba(255,255,255,0.15), 2px 2px 8px rgba(0,0,0,0.8)',
+                      filter: 'drop-shadow(0 1px 3px rgba(255,255,255,0.1))',
+                    }}
+                  >
+                    {currentPhrase?.line2}
+                  </span>
+                </h2>
+              )}
             </div>
-
-            <div className="w-48 md:w-64 h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-70" />
           </div>
         </div>
       </div>

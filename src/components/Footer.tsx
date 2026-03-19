@@ -1,9 +1,30 @@
+const bannerPhrases = [
+  'A Century of Trusted Expertise',
+  'Dynamic Solutions for Valued Clients',
+  'Intrinsic Relationships for Evolving Strategy',
+]
+
 export default function Footer() {
   const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=4d+Auchingramont+Rd+Hamilton+ML3+6JT'
 
+  const items = [...bannerPhrases, ...bannerPhrases]
+
   return (
-    <footer className="bg-gradient-to-b from-[#0a1628] to-[#050d1a] border-t border-gold/10 py-3 h-12">
-      <div className="max-w-7xl mx-auto px-6 h-full flex items-center">
+    <footer className="bg-gradient-to-b from-[#0a1628] to-[#050d1a] border-t border-gold/10">
+      <div className="overflow-hidden border-b border-gold/10 py-1.5">
+        <div className="flex animate-marquee whitespace-nowrap" style={{ width: 'max-content' }}>
+          {items.map((phrase, i) => (
+            <span key={i} className="inline-flex items-center gap-4">
+              <span className="text-[10px] font-light tracking-[0.2em] uppercase text-gold/60 px-8">
+                {phrase}
+              </span>
+              <span className="text-gold/30 text-[8px]">&#9670;</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-2 h-9 flex items-center">
         <div className="flex flex-wrap justify-center items-center gap-3 text-[9px] text-gray-400 w-full">
           <span className="font-semibold text-white">William Duncan CA</span>
 
