@@ -17,7 +17,7 @@ type Phase =
   | 'typing1'
   | 'typing2'
   | 'pause'
-  | 'shrinking'
+  | 'fading'
   | 'bullets'
 
 export default function Hero() {
@@ -25,10 +25,10 @@ export default function Hero() {
   const [phase, setPhase] = useState<Phase>('idle')
   const [typed1, setTyped1] = useState('')
   const [typed2, setTyped2] = useState('')
-  const [showOval, setShowOval] = useState(false)
-  const [shrinkOval, setShrinkOval] = useState(false)
+  const [fadeText, setFadeText] = useState(false)
   const [showMiniLogo, setShowMiniLogo] = useState(false)
   const [visibleBullets, setVisibleBullets] = useState<number[]>([])
+  const [clientHovered, setClientHovered] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -58,10 +58,7 @@ export default function Hero() {
         const t = setTimeout(() => setTyped2(fullText2.slice(0, typed2.length + 1)), 60)
         return () => clearTimeout(t)
       } else {
-        const t = setTimeout(() => {
-          setShowOval(true)
-          setPhase('pause')
-        }, 300)
+        const t = setTimeout(() => setPhase('pause'), 300)
         return () => clearTimeout(t)
       }
     }
@@ -70,20 +67,20 @@ export default function Hero() {
   useEffect(() => {
     if (phase === 'pause') {
       const t = setTimeout(() => {
-        setPhase('shrinking')
-        setShrinkOval(true)
+        setPhase('fading')
+        setFadeText(true)
       }, 2200)
       return () => clearTimeout(t)
     }
   }, [phase])
 
   useEffect(() => {
-    if (phase === 'shrinking') {
-      const t1 = setTimeout(() => {
+    if (phase === 'fading') {
+      const t = setTimeout(() => {
         setShowMiniLogo(true)
         setPhase('bullets')
-      }, 900)
-      return () => clearTimeout(t1)
+      }, 700)
+      return () => clearTimeout(t)
     }
   }, [phase])
 
@@ -125,7 +122,7 @@ export default function Hero() {
         }}
       />
 
-      {/* Logo — top left, no EST 1924 */}
+      {/* Logo — top left */}
       <div
         className={`absolute top-6 left-6 z-30 transition-all duration-1000 transform ${
           showLogo ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-8 scale-95'
@@ -185,58 +182,53 @@ export default function Hero() {
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-8" style={{ paddingTop: '172px' }}>
 
         {phase !== 'bullets' && (
-          <div className="flex flex-col items-center text-center">
-            <div
-              className="inline-flex items-center justify-center px-16 py-8 md:px-24 md:py-10 text-center transition-all duration-700 ease-in-out"
-              style={{
-                border: showOval ? '1px solid rgba(198,167,94,0.35)' : '1px solid transparent',
-                borderRadius: '50%',
-                boxShadow: showOval ? '0 0 40px rgba(198,167,94,0.08), inset 0 0 40px rgba(198,167,94,0.04)' : 'none',
-                opacity: shrinkOval ? 0 : 1,
-                transform: shrinkOval ? 'scale(0.15) translateY(-40vh) translateX(40vw)' : 'scale(1)',
-                transition: shrinkOval
-                  ? 'transform 0.85s cubic-bezier(0.4,0,0.2,1), opacity 0.85s ease'
-                  : 'border 0.5s ease, box-shadow 0.5s ease',
-              }}
-            >
-              <h1 className="font-serif leading-tight text-center">
-                <span
-                  className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide text-6xl md:text-8xl lg:text-9xl"
-                  style={{
-                    textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(198,167,94,0.25), 0 2px 4px rgba(0,0,0,0.9)',
-                    filter: 'drop-shadow(0 2px 6px rgba(198,167,94,0.2))',
-                    minHeight: '1.2em',
-                  }}
-                >
-                  {typed1}
-                  {phase === 'typing1' && (
-                    <span className="inline-block w-[3px] h-[0.85em] bg-gold ml-1 align-middle animate-pulse" />
-                  )}
-                </span>
-                <span
-                  className="block font-light tracking-widest text-6xl md:text-8xl lg:text-9xl"
-                  style={{
-                    color: '#e8e4dc',
-                    textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 60px rgba(198,167,94,0.15), 0 2px 4px rgba(0,0,0,0.9)',
-                    minHeight: '1.2em',
-                  }}
-                >
-                  {typed2}
-                  {phase === 'typing2' && (
-                    <span className="inline-block w-[3px] h-[0.85em] bg-gold ml-1 align-middle animate-pulse" />
-                  )}
-                </span>
-              </h1>
-            </div>
+          <div
+            className="flex flex-col items-center text-center"
+            style={{
+              opacity: fadeText ? 0 : 1,
+              transform: fadeText ? 'translateY(-16px)' : 'translateY(0)',
+              transition: 'opacity 0.65s ease, transform 0.65s ease',
+            }}
+          >
+            <h1 className="font-serif leading-tight text-center">
+              <span
+                className="block gradient-text font-semibold mb-2 md:mb-3 tracking-wide"
+                style={{
+                  fontSize: 'clamp(4rem, 10vw, 9rem)',
+                  textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(198,167,94,0.25), 0 2px 4px rgba(0,0,0,0.9)',
+                  filter: 'drop-shadow(0 2px 6px rgba(198,167,94,0.2))',
+                  minHeight: '1.2em',
+                }}
+              >
+                {typed1}
+                {phase === 'typing1' && (
+                  <span className="inline-block w-[3px] h-[0.85em] bg-gold ml-1 align-middle animate-pulse" />
+                )}
+              </span>
+              <span
+                className="block font-light tracking-widest"
+                style={{
+                  fontSize: 'clamp(4rem, 10vw, 9rem)',
+                  color: '#e8e4dc',
+                  textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 0 60px rgba(198,167,94,0.15), 0 2px 4px rgba(0,0,0,0.9)',
+                  minHeight: '1.2em',
+                }}
+              >
+                {typed2}
+                {phase === 'typing2' && (
+                  <span className="inline-block w-[3px] h-[0.85em] bg-gold ml-1 align-middle animate-pulse" />
+                )}
+              </span>
+            </h1>
           </div>
         )}
 
         {phase === 'bullets' && (
-          <div className="flex flex-col items-center gap-4 text-center w-full max-w-2xl">
+          <div className="flex flex-col items-center gap-5 text-center w-full max-w-3xl">
             {bullets.map((text, i) => (
               <div
                 key={i}
-                className="flex items-center gap-3 justify-center transition-all duration-500 ease-out"
+                className="flex items-center gap-4 justify-center transition-all duration-500 ease-out"
                 style={{
                   opacity: visibleBullets.includes(i) ? 1 : 0,
                   transform: visibleBullets.includes(i) ? 'translateY(0)' : 'translateY(14px)',
@@ -244,13 +236,13 @@ export default function Hero() {
               >
                 <span
                   className="flex-shrink-0"
-                  style={{ width: '20px', height: '1px', background: 'rgba(198,167,94,0.55)' }}
+                  style={{ width: '24px', height: '1px', background: 'rgba(198,167,94,0.55)' }}
                 />
                 <span
                   className="font-serif tracking-[0.22em] uppercase"
                   style={{
-                    color: 'rgba(198,167,94,0.8)',
-                    fontSize: '0.7rem',
+                    color: 'rgba(198,167,94,0.85)',
+                    fontSize: '0.85rem',
                     lineHeight: '1.8',
                   }}
                 >
@@ -258,7 +250,7 @@ export default function Hero() {
                 </span>
                 <span
                   className="flex-shrink-0"
-                  style={{ width: '20px', height: '1px', background: 'rgba(198,167,94,0.55)' }}
+                  style={{ width: '24px', height: '1px', background: 'rgba(198,167,94,0.55)' }}
                 />
               </div>
             ))}
@@ -267,12 +259,13 @@ export default function Hero() {
 
       </div>
 
-      {/* Bottom left — Client Access */}
+      {/* Bottom left — Client Access (small dot, expands on hover) */}
       <div
-        className={`fixed z-40 transition-all duration-700`}
+        className="fixed z-40"
         style={{
           opacity: showMiniLogo ? 1 : 0,
           transform: showMiniLogo ? 'scale(1)' : 'scale(0.5)',
+          transition: 'opacity 0.7s ease, transform 0.7s ease',
           bottom: '24px',
           left: '24px',
         }}
@@ -280,34 +273,61 @@ export default function Hero() {
         <a
           href="#"
           title="Client Access"
-          className="flex flex-col items-center gap-1 group"
+          onMouseEnter={() => setClientHovered(true)}
+          onMouseLeave={() => setClientHovered(false)}
           style={{
-            border: '1px solid rgba(126,184,212,0.2)',
+            border: clientHovered ? '1px solid rgba(126,184,212,0.5)' : '1px solid rgba(126,184,212,0.25)',
             borderRadius: '50%',
-            width: '90px',
-            height: '90px',
+            width: clientHovered ? '100px' : '46px',
+            height: clientHovered ? '100px' : '46px',
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            background: 'radial-gradient(circle, rgba(10,15,30,0.55) 0%, rgba(10,15,30,0.2) 100%)',
-            backdropFilter: 'blur(6px)',
-            boxShadow: '0 0 30px rgba(126,184,212,0.06)',
+            gap: clientHovered ? '4px' : '0',
+            background: 'radial-gradient(circle, rgba(10,15,30,0.7) 0%, rgba(10,15,30,0.3) 100%)',
+            backdropFilter: 'blur(8px)',
+            boxShadow: clientHovered
+              ? '0 0 40px rgba(126,184,212,0.18), inset 0 0 20px rgba(126,184,212,0.06)'
+              : '0 0 20px rgba(126,184,212,0.06)',
             textDecoration: 'none',
-            transition: 'border-color 0.3s, box-shadow 0.3s',
-          }}
-          onMouseEnter={e => {
-            (e.currentTarget as HTMLElement).style.borderColor = 'rgba(126,184,212,0.45)'
-            ;(e.currentTarget as HTMLElement).style.boxShadow = '0 0 30px rgba(126,184,212,0.15)'
-          }}
-          onMouseLeave={e => {
-            (e.currentTarget as HTMLElement).style.borderColor = 'rgba(126,184,212,0.2)'
-            ;(e.currentTarget as HTMLElement).style.boxShadow = '0 0 30px rgba(126,184,212,0.06)'
+            transition: 'width 0.4s cubic-bezier(0.34,1.56,0.64,1), height 0.4s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s ease, box-shadow 0.3s ease, gap 0.3s ease',
+            overflow: 'hidden',
           }}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-[#7eb8d4] group-hover:text-[#a8d8ee] transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={1.5}
+            style={{
+              width: clientHovered ? '22px' : '18px',
+              height: clientHovered ? '22px' : '18px',
+              color: clientHovered ? '#a8d8ee' : '#7eb8d4',
+              transition: 'width 0.3s ease, height 0.3s ease, color 0.3s ease',
+              flexShrink: 0,
+            }}
+          >
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
           </svg>
-          <span className="font-sans text-[7px] font-light tracking-[0.18em] uppercase text-[#7eb8d4] group-hover:text-[#a8d8ee] transition-colors duration-300 whitespace-nowrap">Client Access</span>
+          <span
+            style={{
+              fontFamily: 'sans-serif',
+              fontSize: '7px',
+              fontWeight: 300,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: clientHovered ? '#a8d8ee' : '#7eb8d4',
+              whiteSpace: 'nowrap',
+              opacity: clientHovered ? 1 : 0,
+              maxHeight: clientHovered ? '20px' : '0px',
+              overflow: 'hidden',
+              transition: 'opacity 0.25s ease 0.1s, max-height 0.3s ease, color 0.3s ease',
+            }}
+          >
+            Client Access
+          </span>
         </a>
       </div>
 
