@@ -9,17 +9,17 @@ const reasons = [
 export default function Contact() {
 
   return (
-    <section id="contact" className="py-24 bg-navy-dark">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold metallic-chrome mb-4">
+    <section id="contact" className="py-16 sm:py-24 bg-navy-dark">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold metallic-chrome mb-4">
             <span className="text-gold">Contact Us</span>
           </h2>
           <div className="w-24 h-1 bg-gold mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div className="rounded-lg overflow-hidden shadow-xl h-64">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="rounded-lg overflow-hidden shadow-xl h-56 sm:h-64">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2220.7453456789!2d-3.67!3d55.78!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x488641fa2f00f6fb%3A0x6b00f00f6b00f6b!2s4D%20Auchingramont%20Rd%2C%20Hamilton%20ML3%206JT!5e0!3m2!1sen!2suk!4v1234567890"
               width="100%"

@@ -33,18 +33,18 @@ export default function WhyChooseUs() {
     <section
       id="why-choose-us"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b from-navy-dark to-navy relative"
+      className="py-16 sm:py-24 bg-gradient-to-b from-navy-dark to-navy relative"
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
 
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div
           className={`text-center mb-16 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold metallic-chrome mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold metallic-chrome mb-4">
             Why Clients <span className="text-gold">Trust Us</span>
           </h2>
           <div className="w-24 h-1 bg-gold mx-auto"></div>

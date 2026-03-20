@@ -34,23 +34,23 @@ export default function Heritage() {
     <section
       id="heritage"
       ref={sectionRef}
-      className="py-32 bg-gradient-to-br from-[#0a1628] via-[#0f1e3a] to-[#1a2847] relative"
+      className="py-16 sm:py-24 md:py-32 bg-gradient-to-br from-[#0a1628] via-[#0f1e3a] to-[#1a2847] relative"
     >
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 overflow-visible">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 overflow-visible">
         <div
           className={`transition-all duration-1000 overflow-visible ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="grid md:grid-cols-2 gap-12 items-center overflow-visible">
-            <div className="space-y-8 overflow-visible">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center overflow-visible">
+            <div className="space-y-6 md:space-y-8 overflow-visible">
               <div
-                className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-gold/50 px-8 py-10 transition-all duration-500 shadow-2xl hover:border-gold/70 group cursor-pointer overflow-visible"
+                className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-gold/50 px-5 sm:px-8 py-7 sm:py-10 transition-all duration-500 shadow-2xl hover:border-gold/70 group cursor-pointer overflow-visible"
                 onMouseEnter={() => setShowPopup(true)}
                 onMouseLeave={() => setShowPopup(false)}
               >
@@ -62,10 +62,10 @@ export default function Heritage() {
                 <div className="relative z-10">
                   <div className="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mb-6 opacity-70"></div>
 
-                  <h2 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mb-2">
+                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-2">
                     A Century of
                   </h2>
-                  <h2 className="font-serif text-4xl md:text-5xl font-bold leading-tight mb-6">
+                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-300 to-gold">
                       Trusted Expertise
                     </span>
@@ -131,13 +131,13 @@ export default function Heritage() {
                 </div>
               </div>
 
-              <div className="space-y-6 font-sans leading-relaxed">
-                <p className="text-xl text-gray-200 font-light">
+              <div className="space-y-4 font-sans leading-relaxed">
+                <p className="text-base sm:text-xl text-gray-200 font-light">
                   For more than a century, we have advised businesses,
                   entrepreneurs and families with integrity, discretion and
                   technical excellence.
                 </p>
-                <p className="text-lg text-gray-300 font-light leading-loose">
+                <p className="text-sm sm:text-lg text-gray-300 font-light leading-loose">
                   Our long-standing client relationships are built on trust and
                   results. While our heritage defines us, our strategic and
                   forward-thinking approach ensures our clients remain ahead in an
@@ -145,24 +145,24 @@ export default function Heritage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-6 pt-8">
+              <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-4 sm:pt-8">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-gold mb-2">100+</div>
-                  <div className="text-sm text-gray-400 uppercase tracking-wider">Years of Service</div>
+                  <div className="text-2xl sm:text-4xl font-bold text-gold mb-1 sm:mb-2">100+</div>
+                  <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Years of Service</div>
                 </div>
                 <div className="text-center border-x border-gray-700">
-                  <div className="text-4xl font-bold text-gold mb-2">500+</div>
-                  <div className="text-sm text-gray-400 uppercase tracking-wider">Clients Served</div>
+                  <div className="text-2xl sm:text-4xl font-bold text-gold mb-1 sm:mb-2">500+</div>
+                  <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Clients Served</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-gold mb-2">3</div>
-                  <div className="text-sm text-gray-400 uppercase tracking-wider">Generations</div>
+                  <div className="text-2xl sm:text-4xl font-bold text-gold mb-1 sm:mb-2">3</div>
+                  <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Generations</div>
                 </div>
               </div>
             </div>
 
-            <div className="relative">
-              <div className="bg-gradient-to-br from-[#1a2847]/60 to-[#0a1628]/60 backdrop-blur-sm border border-gold/20 rounded-2xl p-8 shadow-2xl">
+            <div className="relative mt-2 md:mt-0">
+              <div className="bg-gradient-to-br from-[#1a2847]/60 to-[#0a1628]/60 backdrop-blur-sm border border-gold/20 rounded-2xl p-5 sm:p-8 shadow-2xl">
                 <div className="space-y-6">
                   <div className="flex items-start gap-4 group">
                     <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">

@@ -61,7 +61,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      <div className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-sky-500/50 px-8 py-10 transition-all duration-500 shadow-2xl hover:border-sky-400/70 group">
+      <div className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-sky-500/50 px-5 sm:px-8 py-7 sm:py-10 transition-all duration-500 shadow-2xl hover:border-sky-400/70 group">
         <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 via-transparent to-sky-400/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
         <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-sky-400/70"></div>
@@ -69,7 +69,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 
         <div className="relative z-10">
           <div className="w-12 h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent mb-4 opacity-70"></div>
-          <h3 className="font-serif text-2xl md:text-3xl font-light text-sky-400 mb-3 tracking-wide drop-shadow-lg">
+          <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-light text-sky-400 mb-3 tracking-wide drop-shadow-lg">
             {service.title}
           </h3>
           <p className="font-sans text-slate-300 leading-relaxed">
@@ -84,21 +84,21 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-navy">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="services" className="py-16 sm:py-24 bg-navy">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <div className="relative inline-block">
             <div className="absolute inset-0 blur-2xl opacity-30">
               <div className="w-full h-full bg-gold/20 rounded-full"></div>
             </div>
-            <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-12 py-8 shadow-2xl border border-gold/30">
+            <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-6 sm:px-12 py-6 sm:py-8 shadow-2xl border border-gold/30">
               <div className="absolute inset-0 border border-gold/10 m-3"></div>
               <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-gold/50"></div>
               <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-gold/50"></div>
               <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-gold/50"></div>
               <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-gold/50"></div>
 
-              <h2 className="relative font-sans text-4xl md:text-5xl font-light gradient-text text-shadow-luxury tracking-wide">
+              <h2 className="relative font-sans text-3xl sm:text-4xl md:text-5xl font-light gradient-text text-shadow-luxury tracking-wide">
                 Our Services
               </h2>
               <div className="mt-4 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent opacity-60"></div>
