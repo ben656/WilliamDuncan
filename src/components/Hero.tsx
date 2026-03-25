@@ -267,9 +267,9 @@ export default function Hero() {
           {/* Subtitle row — with Est 1924 bottom-right */}
           <div style={{ position: 'relative' }}>
             <p
-              className="font-sans font-bold"
+              className="font-sans font-light"
               style={{
-                fontSize: 'clamp(0.55rem, 1.3vw, 0.75rem)',
+                fontSize: 'clamp(0.48rem, 1.1vw, 0.65rem)',
                 letterSpacing: '0.26em',
                 color: '#C6A75E',
                 textTransform: 'uppercase',
@@ -294,15 +294,14 @@ export default function Hero() {
             >
               <div style={{ width: '14px', height: '1px', background: 'rgba(198,167,94,0.35)' }} />
               <span
-                className="font-sans font-bold"
+                className="font-sans font-light"
                 style={{
-                  fontSize: '7px',
+                  fontSize: '9px',
                   letterSpacing: '0.32em',
-                  color: '#C6A75E',
+                  color: 'rgba(229,228,226,0.7)',
                   textTransform: 'uppercase',
                   whiteSpace: 'nowrap',
-                  textShadow: '0 1px 0 rgba(0,0,0,0.8), 0 -1px 0 rgba(255,255,255,0.04)',
-                  opacity: 0.8,
+                  textShadow: '0 1px 0 rgba(0,0,0,0.8), 0 -1px 0 rgba(255,255,255,0.06)',
                 }}
               >
                 Est&nbsp;1924
