@@ -1,11 +1,5 @@
 import { useEffect, useState } from 'react'
 
-const bulletPairs = [
-  ['PARTNER-LED', 'AUTHENTIC PASSION'],
-  ['UNWAVERING CLIENT SUPPORT', 'DYNAMIC PROFESSIONAL SOLUTIONS'],
-  ['AUTHENTIC RELATIONSHIPS', 'EVOLUTIONARY ADVICE'],
-]
-
 const tickerItems = [
   'Making Tax Digital — ensure your VAT records are fully compliant before the next filing deadline',
   'Self Assessment 2024/25 — early preparation avoids January penalties and maximises relief claims',
@@ -16,6 +10,8 @@ const tickerItems = [
   'Business Succession — early planning protects value and reduces inheritance tax exposure',
   'Pension Contributions — utilise carry-forward allowances before the annual allowance resets',
 ]
+
+const pillars = ['Authentic Support', 'Dynamic Solutions', 'Evolutionary Advice']
 
 export default function Hero() {
   const [phase, setPhase] = useState(0)
@@ -61,6 +57,47 @@ export default function Hero() {
         }}
       />
 
+      {/* Client Guidance download — top left */}
+      <div
+        className="absolute top-0 left-0 z-30 flex items-center"
+        style={{
+          height: '80px',
+          paddingLeft: 'clamp(16px, 3vw, 40px)',
+          opacity: phase >= 1 ? 1 : 0,
+          transform: phase >= 1 ? 'translateY(0)' : 'translateY(-12px)',
+          transition: 'opacity 0.7s ease, transform 0.7s ease',
+        }}
+      >
+        <a
+          href="/client-guidance.pdf"
+          download
+          title="Download Client Guidance"
+          className="flex items-center gap-2 group"
+          style={{ textDecoration: 'none' }}
+        >
+          <svg
+            width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}
+            style={{ color: 'rgba(198,167,94,0.7)', flexShrink: 0, transition: 'color 0.2s ease' }}
+            className="group-hover:stroke-gold"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
+          <span
+            className="font-sans font-light whitespace-nowrap"
+            style={{
+              fontSize: '9px',
+              letterSpacing: '0.28em',
+              color: 'rgba(198,167,94,0.75)',
+              textTransform: 'uppercase',
+              transition: 'color 0.2s ease',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = '#C6A75E')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(198,167,94,0.75)')}
+          >
+            Client Guidance
+          </span>
+        </a>
+      </div>
 
       {/* Contact icons — top right */}
       <div
@@ -198,7 +235,7 @@ export default function Hero() {
           />
 
           {/* Eyebrow */}
-          <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '10px' }}>
+          <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '18px' }}>
             <div style={{ width: '36px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.5))' }} />
             <span
               className="font-sans font-light"
@@ -209,22 +246,10 @@ export default function Hero() {
             <div style={{ width: '36px', height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.5))' }} />
           </div>
 
-          {/* Est 1924 — incorporated into plaque */}
-          <div className="flex items-center justify-center gap-2" style={{ marginBottom: '14px' }}>
-            <div style={{ width: '22px', height: '1px', background: 'rgba(229,228,226,0.25)' }} />
-            <span
-              className="font-sans font-light"
-              style={{ fontSize: '9px', letterSpacing: '0.35em', color: 'rgba(229,228,226,0.65)', textTransform: 'uppercase' }}
-            >
-              Est&nbsp;1924
-            </span>
-            <div style={{ width: '22px', height: '1px', background: 'rgba(229,228,226,0.25)' }} />
-          </div>
-
           {/* Divider */}
           <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.2), transparent)', marginBottom: '24px' }} />
 
-          {/* Logo replacing heading */}
+          {/* Logo */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
             <img
               src="/Adobe_Express_-_file.png"
@@ -239,18 +264,51 @@ export default function Hero() {
           {/* Divider */}
           <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.2), transparent)', marginBottom: '18px' }} />
 
-          {/* Subtitle */}
-          <p
-            className="font-sans font-light"
-            style={{
-              fontSize: 'clamp(0.65rem, 1.6vw, 0.95rem)',
-              letterSpacing: '0.22em',
-              color: '#C6A75E',
-              textTransform: 'uppercase',
-            }}
-          >
-            Chartered Accountants, Business &amp; Tax Advisers
-          </p>
+          {/* Subtitle row — with Est 1924 bottom-right */}
+          <div style={{ position: 'relative' }}>
+            <p
+              className="font-sans font-light"
+              style={{
+                fontSize: 'clamp(0.65rem, 1.6vw, 0.95rem)',
+                letterSpacing: '0.22em',
+                color: '#C6A75E',
+                textTransform: 'uppercase',
+                textAlign: 'center',
+              }}
+            >
+              Chartered Accountants, Business &amp; Tax Advisers
+            </p>
+
+            {/* Est 1924 — bottom-right, under 'Advisers' */}
+            <div
+              style={{
+                position: 'absolute',
+                right: 0,
+                top: '100%',
+                marginTop: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+              }}
+            >
+              <div style={{ width: '16px', height: '1px', background: 'rgba(229,228,226,0.22)' }} />
+              <span
+                className="font-sans font-light"
+                style={{
+                  fontSize: '8px',
+                  letterSpacing: '0.32em',
+                  color: 'rgba(229,228,226,0.55)',
+                  textTransform: 'uppercase',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                Est&nbsp;1924
+              </span>
+            </div>
+          </div>
+
+          {/* Spacer for the Est 1924 that sits below the subtitle line */}
+          <div style={{ height: '28px' }} />
         </div>
 
         {/* Gold rule */}
@@ -260,63 +318,72 @@ export default function Hero() {
             height: '1px',
             background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.65), transparent)',
             transition: 'width 0.8s ease 0.1s',
-            marginBottom: '44px',
+            marginBottom: '36px',
           }}
         />
 
-        {/* Bullet pairs — two-column grid aligned to plaque width */}
+        {/* Hero headline */}
         <div
           style={{
-            width: 'min(100%, clamp(320px, 60vw, 680px))',
             opacity: phase >= 4 ? 1 : 0,
             transform: phase >= 4 ? 'translateY(0)' : 'translateY(16px)',
             transition: 'opacity 0.7s ease, transform 0.7s ease',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 'clamp(8px, 1.4vh, 16px)',
+            marginBottom: '22px',
           }}
         >
-          {bulletPairs.map(([left, right], i) => (
-            <div
-              key={i}
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr auto 1fr',
-                alignItems: 'center',
-                gap: '0',
-                opacity: phase >= 5 ? 1 : 0,
-                transform: phase >= 5 ? 'translateY(0)' : 'translateY(8px)',
-                transition: `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s`,
-              }}
-            >
+          <p
+            className="font-sans font-light"
+            style={{
+              fontSize: 'clamp(0.7rem, 2vw, 1.05rem)',
+              letterSpacing: 'clamp(0.14em, 1vw, 0.28em)',
+              color: 'rgba(160,192,220,0.82)',
+              textTransform: 'uppercase',
+              fontWeight: 300,
+            }}
+          >
+            Partner Led Professional Services
+          </p>
+        </div>
+
+        {/* Three pillars */}
+        <div
+          style={{
+            opacity: phase >= 5 ? 1 : 0,
+            transform: phase >= 5 ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'opacity 0.6s ease, transform 0.6s ease',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+          }}
+        >
+          {pillars.map((label, i) => (
+            <span key={i} className="inline-flex items-center">
               <span
-                className="font-sans text-right"
+                className="font-sans font-light"
                 style={{
-                  fontSize: 'clamp(0.52rem, 1.3vw, 0.7rem)',
-                  letterSpacing: 'clamp(0.08em, 0.6vw, 0.18em)',
-                  color: 'rgba(229,228,226,0.6)',
-                  fontWeight: 300,
+                  fontSize: 'clamp(0.5rem, 1.2vw, 0.66rem)',
+                  letterSpacing: 'clamp(0.1em, 0.7vw, 0.2em)',
+                  color: 'rgba(160,192,220,0.55)',
                   textTransform: 'uppercase',
-                  paddingRight: '14px',
+                  fontWeight: 300,
                 }}
               >
-                {left}
+                {label}
               </span>
-              <span style={{ color: 'rgba(198,167,94,0.55)', fontSize: '6px', flexShrink: 0 }}>◆</span>
-              <span
-                className="font-sans text-left"
-                style={{
-                  fontSize: 'clamp(0.52rem, 1.3vw, 0.7rem)',
-                  letterSpacing: 'clamp(0.08em, 0.6vw, 0.18em)',
-                  color: 'rgba(229,228,226,0.6)',
-                  fontWeight: 300,
-                  textTransform: 'uppercase',
-                  paddingLeft: '14px',
-                }}
-              >
-                {right}
-              </span>
-            </div>
+              {i < pillars.length - 1 && (
+                <span
+                  style={{
+                    margin: '0 clamp(10px, 2vw, 20px)',
+                    color: 'rgba(198,167,94,0.4)',
+                    fontSize: '5px',
+                  }}
+                >
+                  ◆
+                </span>
+              )}
+            </span>
           ))}
         </div>
 
@@ -336,25 +403,7 @@ export default function Hero() {
           transition: 'opacity 0.7s ease 0.8s',
         }}
       >
-        {/* Label pill */}
-        <div
-          className="flex-shrink-0 z-10 flex items-center"
-          style={{
-            padding: '0 16px 0 clamp(16px, 3vw, 32px)',
-            background: 'rgba(6,10,22,0.6)',
-            height: '100%',
-            borderRight: '1px solid rgba(198,167,94,0.15)',
-          }}
-        >
-          <span
-            className="font-sans font-light whitespace-nowrap"
-            style={{ fontSize: '9px', letterSpacing: '0.28em', color: '#C6A75E', textTransform: 'uppercase' }}
-          >
-            Client Guidance
-          </span>
-        </div>
-
-        {/* Scrolling track */}
+        {/* Scrolling track — full width */}
         <div className="flex-1 overflow-hidden relative">
           {/* Fade edges */}
           <div style={{
