@@ -79,14 +79,14 @@ export default function Hero() {
         }}
       >
         <div className="flex items-center gap-2">
-          <div style={{ width: '28px', height: '1px', background: 'rgba(198,167,94,0.4)' }} />
+          <div style={{ width: '28px', height: '1px', background: 'rgba(229,228,226,0.3)' }} />
           <span
             className="font-sans font-light text-center"
-            style={{ fontSize: '10px', letterSpacing: '0.32em', color: 'rgba(198,167,94,0.7)', textTransform: 'uppercase' }}
+            style={{ fontSize: '10px', letterSpacing: '0.32em', color: 'rgba(229,228,226,0.7)', textTransform: 'uppercase' }}
           >
             Est&nbsp;1924
           </span>
-          <div style={{ width: '28px', height: '1px', background: 'rgba(198,167,94,0.4)' }} />
+          <div style={{ width: '28px', height: '1px', background: 'rgba(229,228,226,0.3)' }} />
         </div>
       </div>
 
@@ -191,7 +191,7 @@ export default function Hero() {
               fontWeight: 700,
               letterSpacing: '-0.01em',
               marginBottom: '14px',
-              color: '#d4b97a',
+              color: 'rgba(229,228,226,0.88)',
               textShadow: [
                 '0 1px 0 rgba(255,255,255,0.12)',
                 '0 -1px 0 rgba(0,0,0,0.8)',
