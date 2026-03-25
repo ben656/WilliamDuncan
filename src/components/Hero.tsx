@@ -190,12 +190,20 @@ export default function Hero() {
             style={{
               fontSize: 'clamp(3.2rem, 9vw, 9.5rem)',
               lineHeight: 0.92,
-              fontWeight: 300,
+              fontWeight: 700,
               letterSpacing: '-0.01em',
               marginBottom: '14px',
+              color: '#d4b97a',
+              textShadow: [
+                '0 1px 0 rgba(255,255,255,0.12)',
+                '0 -1px 0 rgba(0,0,0,0.8)',
+                '0 2px 4px rgba(0,0,0,0.7)',
+                '0 4px 12px rgba(0,0,0,0.5)',
+                'inset 0 1px 0 rgba(255,255,255,0.15)',
+              ].join(', '),
             }}
           >
-            <span style={{ color: '#ffffff', fontWeight: 300 }}>William Duncan</span>
+            William Duncan
           </h1>
 
           {/* Divider */}
