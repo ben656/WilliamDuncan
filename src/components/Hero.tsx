@@ -98,60 +98,122 @@ export default function Hero() {
         style={{ paddingTop: '80px' }}
       >
 
-        {/* Eyebrow */}
+        {/* Plaque */}
         <div
           style={{
             opacity: phase >= 2 ? 1 : 0,
-            transform: phase >= 2 ? 'translateY(0)' : 'translateY(16px)',
-            transition: 'opacity 0.7s ease, transform 0.7s ease',
-            marginBottom: '20px',
+            transform: phase >= 2 ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.9s ease, transform 0.9s ease',
+            marginBottom: '44px',
+            position: 'relative',
+            overflow: 'hidden',
+            borderRadius: '3px',
+            padding: 'clamp(28px, 4vw, 48px) clamp(32px, 6vw, 72px)',
+            background: 'linear-gradient(160deg, rgba(14,20,36,0.97) 0%, rgba(10,15,28,0.99) 50%, rgba(16,22,38,0.97) 100%)',
+            boxShadow: '0 8px 48px rgba(0,0,0,0.7), 0 2px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(198,167,94,0.18), inset 0 -1px 0 rgba(198,167,94,0.08)',
+            border: '1px solid rgba(198,167,94,0.22)',
           }}
         >
-          <div className="flex items-center gap-3 justify-center">
-            <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.55))' }} />
+          {/* Inner inset border */}
+          <div style={{
+            position: 'absolute',
+            inset: '5px',
+            border: '1px solid rgba(198,167,94,0.10)',
+            borderRadius: '2px',
+            pointerEvents: 'none',
+          }} />
+
+          {/* Corner ornaments */}
+          {[
+            { top: '10px', left: '10px' },
+            { top: '10px', right: '10px' },
+            { bottom: '10px', left: '10px' },
+            { bottom: '10px', right: '10px' },
+          ].map((pos, i) => (
+            <span
+              key={i}
+              style={{
+                position: 'absolute',
+                ...pos,
+                color: 'rgba(198,167,94,0.35)',
+                fontSize: '7px',
+                lineHeight: 1,
+              }}
+            >◆</span>
+          ))}
+
+          {/* Shine sweep — once on load */}
+          <div
+            className="plaque-shine-sweep"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '40%',
+              height: '100%',
+              background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 40%, rgba(198,167,94,0.12) 50%, rgba(255,255,255,0.06) 60%, transparent 100%)',
+              pointerEvents: 'none',
+            }}
+          />
+          {/* Shine loop */}
+          <div
+            className="plaque-shine-loop"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '40%',
+              height: '100%',
+              background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 40%, rgba(198,167,94,0.10) 50%, rgba(255,255,255,0.05) 60%, transparent 100%)',
+              pointerEvents: 'none',
+            }}
+          />
+
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '18px' }}>
+            <div style={{ width: '36px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.5))' }} />
             <span
               className="font-sans font-light"
-              style={{ fontSize: '10px', letterSpacing: '0.4em', color: 'rgba(198,167,94,0.75)', textTransform: 'uppercase' }}
+              style={{ fontSize: '10px', letterSpacing: '0.4em', color: 'rgba(198,167,94,0.7)', textTransform: 'uppercase' }}
             >
               A Century of Trusted Expertise
             </span>
-            <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.55))' }} />
+            <div style={{ width: '36px', height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.5))' }} />
           </div>
+
+          {/* Divider */}
+          <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.2), transparent)', marginBottom: '18px' }} />
+
+          {/* Primary heading */}
+          <h1
+            className="font-serif"
+            style={{
+              fontSize: 'clamp(3.2rem, 9vw, 9.5rem)',
+              lineHeight: 0.92,
+              fontWeight: 300,
+              letterSpacing: '-0.01em',
+              marginBottom: '14px',
+            }}
+          >
+            <span style={{ color: '#ffffff', fontWeight: 300 }}>William Duncan</span>
+          </h1>
+
+          {/* Divider */}
+          <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.2), transparent)', marginBottom: '18px' }} />
+
+          {/* Subtitle */}
+          <p
+            className="font-sans font-light"
+            style={{
+              fontSize: 'clamp(0.65rem, 1.6vw, 0.95rem)',
+              letterSpacing: '0.22em',
+              color: '#C6A75E',
+              textTransform: 'uppercase',
+            }}
+          >
+            Chartered Accountants, Business &amp; Tax Advisers
+          </p>
         </div>
-
-        {/* Primary heading */}
-        <h1
-          className="font-serif"
-          style={{
-            fontSize: 'clamp(3.2rem, 9vw, 9.5rem)',
-            lineHeight: 0.92,
-            fontWeight: 300,
-            letterSpacing: '-0.01em',
-            opacity: phase >= 2 ? 1 : 0,
-            transform: phase >= 2 ? 'translateY(0)' : 'translateY(24px)',
-            transition: 'opacity 0.8s ease 0.1s, transform 0.8s ease 0.1s',
-            marginBottom: '12px',
-          }}
-        >
-          <span style={{ color: '#ffffff', fontWeight: 300 }}>William Duncan</span>
-        </h1>
-
-        {/* Subtitle */}
-        <p
-          className="font-sans font-light"
-          style={{
-            fontSize: 'clamp(0.65rem, 1.6vw, 0.95rem)',
-            letterSpacing: '0.22em',
-            color: '#C6A75E',
-            textTransform: 'uppercase',
-            opacity: phase >= 3 ? 1 : 0,
-            transform: phase >= 3 ? 'translateY(0)' : 'translateY(14px)',
-            transition: 'opacity 0.7s ease, transform 0.7s ease',
-            marginBottom: '40px',
-          }}
-        >
-          Chartered Accountants, Business &amp; Tax Advisers
-        </p>
 
         {/* Gold rule */}
         <div

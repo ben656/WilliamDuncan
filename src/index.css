@@ -194,4 +194,28 @@
     animation: marquee 18s linear infinite;
   }
 
+  @keyframes plaque-shine {
+    0% { transform: translateX(-150%) skewX(-20deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateX(250%) skewX(-20deg); opacity: 0; }
+  }
+
+  .plaque-shine-sweep {
+    animation: plaque-shine 2.2s ease-in-out forwards;
+    animation-delay: 1.6s;
+  }
+
+  @keyframes plaque-shine-loop {
+    0%, 100% { transform: translateX(-150%) skewX(-20deg); opacity: 0; }
+    5%, 45% { opacity: 1; }
+    50% { transform: translateX(250%) skewX(-20deg); opacity: 0; }
+    51%, 99% { transform: translateX(-150%) skewX(-20deg); opacity: 0; }
+  }
+
+  .plaque-shine-loop {
+    animation: plaque-shine-loop 7s ease-in-out infinite;
+    animation-delay: 3.8s;
+  }
+
 }
