@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 
 const bullets = [
-  'OVER 100 YEARS OF PROFESSIONAL EXPERTISE',
   'PARTNER-LED, RELATIONSHIP-DRIVEN SERVICE',
   'STRATEGIC THINKING WITH PRACTICAL DELIVERY',
-  'DISCREET ADVISERS TO BUSINESSES AND FAMILIES',
   'UK-WIDE EXPERTISE WITH INTERNATIONAL PERSPECTIVE',
   'TRUSTED ACROSS GENERATIONS',
 ]
@@ -135,8 +133,7 @@ export default function Hero() {
             marginBottom: '12px',
           }}
         >
-          <span className="gradient-text" style={{ fontWeight: 600, display: 'block' }}>William</span>
-          <span style={{ color: '#e8e4dc', display: 'block', fontWeight: 300 }}>Duncan</span>
+          <span style={{ color: '#ffffff', fontWeight: 300 }}>William Duncan</span>
         </h1>
 
         {/* Subtitle */}
@@ -145,7 +142,7 @@ export default function Hero() {
           style={{
             fontSize: 'clamp(0.65rem, 1.6vw, 0.95rem)',
             letterSpacing: '0.22em',
-            color: 'rgba(168,168,176,0.85)',
+            color: '#C6A75E',
             textTransform: 'uppercase',
             opacity: phase >= 3 ? 1 : 0,
             transform: phase >= 3 ? 'translateY(0)' : 'translateY(14px)',
