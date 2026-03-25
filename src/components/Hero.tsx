@@ -271,7 +271,7 @@ export default function Hero() {
               style={{
                 fontSize: 'clamp(0.65rem, 1.6vw, 0.95rem)',
                 letterSpacing: '0.22em',
-                color: 'rgba(160,192,220,0.82)',
+                color: 'rgba(229,228,226,0.72)',
                 textTransform: 'uppercase',
                 textAlign: 'center',
               }}
@@ -297,7 +297,7 @@ export default function Hero() {
                 style={{
                   fontSize: '8px',
                   letterSpacing: '0.32em',
-                  color: 'rgba(160,192,220,0.6)',
+                  color: 'rgba(229,228,226,0.45)',
                   textTransform: 'uppercase',
                   whiteSpace: 'nowrap',
                 }}
@@ -330,9 +330,8 @@ export default function Hero() {
             transition: 'opacity 0.6s ease, transform 0.6s ease',
             display: 'flex',
             alignItems: 'center',
-            gap: '0',
-            flexWrap: 'wrap',
             justifyContent: 'center',
+            maxWidth: 'clamp(260px, 50vw, 480px)',
           }}
         >
           {pillars.map((label, i) => (
@@ -340,11 +339,12 @@ export default function Hero() {
               <span
                 className="font-sans font-light"
                 style={{
-                  fontSize: 'clamp(0.7rem, 2vw, 1.05rem)',
-                  letterSpacing: 'clamp(0.14em, 1vw, 0.28em)',
-                  color: 'rgba(160,192,220,0.82)',
+                  fontSize: 'clamp(0.48rem, 1.1vw, 0.62rem)',
+                  letterSpacing: '0.22em',
+                  color: 'rgba(229,228,226,0.45)',
                   textTransform: 'uppercase',
                   fontWeight: 300,
+                  whiteSpace: 'nowrap',
                 }}
               >
                 {label}
@@ -352,9 +352,9 @@ export default function Hero() {
               {i < pillars.length - 1 && (
                 <span
                   style={{
-                    margin: '0 clamp(10px, 2vw, 20px)',
-                    color: 'rgba(198,167,94,0.4)',
-                    fontSize: '5px',
+                    margin: '0 clamp(8px, 1.5vw, 16px)',
+                    color: 'rgba(198,167,94,0.3)',
+                    fontSize: '4px',
                   }}
                 >
                   ◆
