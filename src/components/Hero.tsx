@@ -77,7 +77,7 @@ export default function Hero() {
         >
           <svg
             width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}
-            style={{ color: 'rgba(198,167,94,0.7)', flexShrink: 0, transition: 'color 0.2s ease' }}
+            style={{ color: 'rgba(229,228,226,0.75)', flexShrink: 0, transition: 'color 0.2s ease' }}
             className="group-hover:stroke-gold"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
@@ -87,12 +87,12 @@ export default function Hero() {
             style={{
               fontSize: '9px',
               letterSpacing: '0.28em',
-              color: 'rgba(198,167,94,0.75)',
+              color: 'rgba(229,228,226,0.75)',
               textTransform: 'uppercase',
               transition: 'color 0.2s ease',
             }}
             onMouseEnter={e => (e.currentTarget.style.color = '#C6A75E')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(198,167,94,0.75)')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(229,228,226,0.75)')}
           >
             Client Guidance
           </span>
