@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 
-const bullets = [
-  'PARTNER-LED WITH AUTHENTIC PASSION ...',
-  'UNWAVERING CLIENT SUPPORT AND DYNAMIC PROFESSIONAL SOLUTIONS',
-  'AUTHENTIC RELATIONSHIPS AND EVOLUTIONARY ADVICE',
+const bulletPairs = [
+  ['PARTNER-LED', 'AUTHENTIC PASSION'],
+  ['UNWAVERING CLIENT SUPPORT', 'DYNAMIC PROFESSIONAL SOLUTIONS'],
+  ['AUTHENTIC RELATIONSHIPS', 'EVOLUTIONARY ADVICE'],
 ]
 
 const tickerItems = [
@@ -61,28 +61,6 @@ export default function Hero() {
         }}
       />
 
-      {/* EST badge — top left */}
-      <div
-        className="absolute top-0 left-0 z-30 flex items-center justify-center"
-        style={{
-          height: '80px',
-          paddingLeft: 'clamp(16px, 3vw, 40px)',
-          opacity: phase >= 1 ? 1 : 0,
-          transform: phase >= 1 ? 'translateY(0)' : 'translateY(-12px)',
-          transition: 'opacity 0.7s ease, transform 0.7s ease',
-        }}
-      >
-        <div className="flex items-center gap-2">
-          <div style={{ width: '28px', height: '1px', background: 'rgba(229,228,226,0.3)' }} />
-          <span
-            className="font-sans font-light text-center"
-            style={{ fontSize: '10px', letterSpacing: '0.32em', color: 'rgba(229,228,226,0.7)', textTransform: 'uppercase' }}
-          >
-            Est&nbsp;1924
-          </span>
-          <div style={{ width: '28px', height: '1px', background: 'rgba(229,228,226,0.3)' }} />
-        </div>
-      </div>
 
       {/* Contact icons — top right */}
       <div
@@ -220,7 +198,7 @@ export default function Hero() {
           />
 
           {/* Eyebrow */}
-          <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '18px' }}>
+          <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '10px' }}>
             <div style={{ width: '36px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.5))' }} />
             <span
               className="font-sans font-light"
@@ -229,6 +207,18 @@ export default function Hero() {
               A Century of Trusted Expertise
             </span>
             <div style={{ width: '36px', height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.5))' }} />
+          </div>
+
+          {/* Est 1924 — incorporated into plaque */}
+          <div className="flex items-center justify-center gap-2" style={{ marginBottom: '14px' }}>
+            <div style={{ width: '22px', height: '1px', background: 'rgba(229,228,226,0.25)' }} />
+            <span
+              className="font-sans font-light"
+              style={{ fontSize: '9px', letterSpacing: '0.35em', color: 'rgba(229,228,226,0.65)', textTransform: 'uppercase' }}
+            >
+              Est&nbsp;1924
+            </span>
+            <div style={{ width: '22px', height: '1px', background: 'rgba(229,228,226,0.25)' }} />
           </div>
 
           {/* Divider */}
@@ -274,42 +264,58 @@ export default function Hero() {
           }}
         />
 
-        {/* Bullet points */}
+        {/* Bullet pairs — two-column grid aligned to plaque width */}
         <div
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 'clamp(6px, 1.2vh, 14px)',
+            width: 'min(100%, clamp(320px, 60vw, 680px))',
             opacity: phase >= 4 ? 1 : 0,
             transform: phase >= 4 ? 'translateY(0)' : 'translateY(16px)',
             transition: 'opacity 0.7s ease, transform 0.7s ease',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'clamp(8px, 1.4vh, 16px)',
           }}
         >
-          {bullets.map((text, i) => (
+          {bulletPairs.map(([left, right], i) => (
             <div
               key={i}
-              className="flex items-center justify-center gap-3"
               style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr auto 1fr',
+                alignItems: 'center',
+                gap: '0',
                 opacity: phase >= 5 ? 1 : 0,
                 transform: phase >= 5 ? 'translateY(0)' : 'translateY(8px)',
-                transition: `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s`,
+                transition: `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s`,
               }}
             >
-              <span style={{ color: 'rgba(198,167,94,0.45)', fontSize: '6px', flexShrink: 0 }}>◆</span>
               <span
-                className="font-sans"
+                className="font-sans text-right"
                 style={{
-                  fontSize: 'clamp(0.54rem, 1.4vw, 0.72rem)',
-                  letterSpacing: 'clamp(0.1em, 0.8vw, 0.2em)',
+                  fontSize: 'clamp(0.52rem, 1.3vw, 0.7rem)',
+                  letterSpacing: 'clamp(0.08em, 0.6vw, 0.18em)',
                   color: 'rgba(229,228,226,0.6)',
                   fontWeight: 300,
                   textTransform: 'uppercase',
+                  paddingRight: '14px',
                 }}
               >
-                {text}
+                {left}
               </span>
-              <span style={{ color: 'rgba(198,167,94,0.45)', fontSize: '6px', flexShrink: 0 }}>◆</span>
+              <span style={{ color: 'rgba(198,167,94,0.55)', fontSize: '6px', flexShrink: 0 }}>◆</span>
+              <span
+                className="font-sans text-left"
+                style={{
+                  fontSize: 'clamp(0.52rem, 1.3vw, 0.7rem)',
+                  letterSpacing: 'clamp(0.08em, 0.6vw, 0.18em)',
+                  color: 'rgba(229,228,226,0.6)',
+                  fontWeight: 300,
+                  textTransform: 'uppercase',
+                  paddingLeft: '14px',
+                }}
+              >
+                {right}
+              </span>
             </div>
           ))}
         </div>
