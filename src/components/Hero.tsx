@@ -239,7 +239,7 @@ export default function Hero() {
             <div style={{ width: '36px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.5))' }} />
             <span
               className="font-sans font-light"
-              style={{ fontSize: '10px', letterSpacing: '0.4em', color: 'rgba(198,167,94,0.7)', textTransform: 'uppercase' }}
+              style={{ fontSize: '10px', letterSpacing: '0.4em', color: 'rgba(229,228,226,0.75)', textTransform: 'uppercase' }}
             >
               A Century of Trusted Expertise
             </span>
@@ -347,6 +347,7 @@ export default function Hero() {
                   textTransform: 'uppercase',
                   fontWeight: 300,
                   whiteSpace: 'nowrap',
+                  textShadow: '0 1px 0 rgba(0,0,0,0.6)',
                 }}
               >
                 {label}
