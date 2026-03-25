@@ -83,7 +83,7 @@ export default function Hero() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
           </svg>
           <span
-            className="font-sans font-light whitespace-nowrap"
+            className="font-sans font-semibold whitespace-nowrap"
             style={{
               fontSize: '9px',
               letterSpacing: '0.28em',
@@ -271,7 +271,7 @@ export default function Hero() {
               style={{
                 fontSize: 'clamp(0.65rem, 1.6vw, 0.95rem)',
                 letterSpacing: '0.22em',
-                color: '#C6A75E',
+                color: 'rgba(160,192,220,0.82)',
                 textTransform: 'uppercase',
                 textAlign: 'center',
               }}
@@ -297,7 +297,7 @@ export default function Hero() {
                 style={{
                   fontSize: '8px',
                   letterSpacing: '0.32em',
-                  color: 'rgba(229,228,226,0.55)',
+                  color: 'rgba(160,192,220,0.6)',
                   textTransform: 'uppercase',
                   whiteSpace: 'nowrap',
                 }}
@@ -322,34 +322,11 @@ export default function Hero() {
           }}
         />
 
-        {/* Hero headline */}
-        <div
-          style={{
-            opacity: phase >= 4 ? 1 : 0,
-            transform: phase >= 4 ? 'translateY(0)' : 'translateY(16px)',
-            transition: 'opacity 0.7s ease, transform 0.7s ease',
-            marginBottom: '22px',
-          }}
-        >
-          <p
-            className="font-sans font-light"
-            style={{
-              fontSize: 'clamp(0.7rem, 2vw, 1.05rem)',
-              letterSpacing: 'clamp(0.14em, 1vw, 0.28em)',
-              color: 'rgba(160,192,220,0.82)',
-              textTransform: 'uppercase',
-              fontWeight: 300,
-            }}
-          >
-            Partner Led Professional Services
-          </p>
-        </div>
-
         {/* Three pillars */}
         <div
           style={{
-            opacity: phase >= 5 ? 1 : 0,
-            transform: phase >= 5 ? 'translateY(0)' : 'translateY(10px)',
+            opacity: phase >= 4 ? 1 : 0,
+            transform: phase >= 4 ? 'translateY(0)' : 'translateY(10px)',
             transition: 'opacity 0.6s ease, transform 0.6s ease',
             display: 'flex',
             alignItems: 'center',
@@ -363,9 +340,9 @@ export default function Hero() {
               <span
                 className="font-sans font-light"
                 style={{
-                  fontSize: 'clamp(0.5rem, 1.2vw, 0.66rem)',
-                  letterSpacing: 'clamp(0.1em, 0.7vw, 0.2em)',
-                  color: 'rgba(160,192,220,0.55)',
+                  fontSize: 'clamp(0.7rem, 2vw, 1.05rem)',
+                  letterSpacing: 'clamp(0.14em, 1vw, 0.28em)',
+                  color: 'rgba(160,192,220,0.82)',
                   textTransform: 'uppercase',
                   fontWeight: 300,
                 }}
