@@ -194,6 +194,12 @@
     animation: marquee 60s linear infinite;
   }
 
+  @media (max-width: 640px) {
+    .animate-marquee {
+      animation: marquee 28s linear infinite;
+    }
+  }
+
   @keyframes plaque-shine {
     0% { transform: translateX(-150%) skewX(-20deg); opacity: 0; }
     10% { opacity: 1; }

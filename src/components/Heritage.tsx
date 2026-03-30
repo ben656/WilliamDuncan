@@ -53,6 +53,7 @@ export default function Heritage() {
                 className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-gold/50 px-5 sm:px-8 py-7 sm:py-10 transition-all duration-500 shadow-2xl hover:border-gold/70 group cursor-pointer overflow-visible"
                 onMouseEnter={() => setShowPopup(true)}
                 onMouseLeave={() => setShowPopup(false)}
+                onClick={() => setShowPopup(p => !p)}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-gold/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -105,13 +106,10 @@ export default function Heritage() {
                 </div>
 
                 <div
-                  className={`absolute left-0 right-0 top-full mt-4 bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm border border-gold/60 px-6 py-6 shadow-2xl transition-all duration-500 z-50 ${
-                    showPopup ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'
+                  className={`mt-4 bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 border border-gold/60 px-5 py-5 shadow-xl transition-all duration-500 ${
+                    showPopup ? 'opacity-100 max-h-96 pointer-events-auto' : 'opacity-0 max-h-0 overflow-hidden pointer-events-none'
                   } md:hidden`}
                 >
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-gold/70"></div>
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-gold/70"></div>
-
                   <div className="relative z-10">
                     <h3 className="font-serif text-lg font-bold text-white mb-3">
                       Why Clients <span className="text-gold">Trust Us</span>

@@ -62,7 +62,7 @@ export default function Hero() {
         className="absolute top-0 left-0 z-30 flex items-center"
         style={{
           height: '80px',
-          paddingLeft: 'clamp(16px, 3vw, 40px)',
+          paddingLeft: 'clamp(12px, 3vw, 40px)',
           opacity: phase >= 1 ? 1 : 0,
           transform: phase >= 1 ? 'translateY(0)' : 'translateY(-12px)',
           transition: 'opacity 0.7s ease, transform 0.7s ease',
@@ -83,7 +83,7 @@ export default function Hero() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
           </svg>
           <span
-            className="font-sans font-semibold whitespace-nowrap"
+            className="font-sans font-semibold whitespace-nowrap hidden sm:inline"
             style={{
               fontSize: '9px',
               letterSpacing: '0.28em',
@@ -104,8 +104,8 @@ export default function Hero() {
         className="absolute top-0 right-0 z-30 flex items-center"
         style={{
           height: '80px',
-          paddingRight: 'clamp(16px, 3vw, 40px)',
-          gap: '20px',
+          paddingRight: 'clamp(12px, 3vw, 40px)',
+          gap: '14px',
           opacity: phase >= 1 ? 1 : 0,
           transform: phase >= 1 ? 'translateY(0)' : 'translateY(-12px)',
           transition: 'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s',
@@ -159,7 +159,7 @@ export default function Hero() {
 
       {/* Main content */}
       <div
-        className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-6"
+        className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4 sm:px-6"
         style={{ paddingTop: '80px' }}
       >
 
@@ -169,14 +169,16 @@ export default function Hero() {
             opacity: phase >= 2 ? 1 : 0,
             transform: phase >= 2 ? 'translateY(0)' : 'translateY(20px)',
             transition: 'opacity 0.9s ease, transform 0.9s ease',
-            marginBottom: '44px',
+            marginBottom: '32px',
             position: 'relative',
             overflow: 'hidden',
             borderRadius: '3px',
-            padding: 'clamp(28px, 4vw, 48px) clamp(32px, 6vw, 72px)',
+            padding: 'clamp(20px, 4vw, 48px) clamp(20px, 6vw, 72px)',
             background: 'linear-gradient(160deg, rgba(14,20,36,0.97) 0%, rgba(10,15,28,0.99) 50%, rgba(16,22,38,0.97) 100%)',
             boxShadow: '0 8px 48px rgba(0,0,0,0.7), 0 2px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(198,167,94,0.18), inset 0 -1px 0 rgba(198,167,94,0.08)',
             border: '1px solid rgba(198,167,94,0.22)',
+            width: '100%',
+            maxWidth: 'clamp(280px, 90vw, 600px)',
           }}
         >
           {/* Inner inset border */}
@@ -235,15 +237,15 @@ export default function Hero() {
           />
 
           {/* Eyebrow */}
-          <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '18px' }}>
-            <div style={{ width: '36px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.5))' }} />
+          <div className="flex items-center gap-2 justify-center" style={{ marginBottom: '14px' }}>
+            <div style={{ width: '20px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.5))', flexShrink: 0 }} />
             <span
               className="font-sans font-light"
-              style={{ fontSize: '10px', letterSpacing: '0.4em', color: 'rgba(229,228,226,0.75)', textTransform: 'uppercase' }}
+              style={{ fontSize: 'clamp(8px, 2vw, 10px)', letterSpacing: '0.3em', color: 'rgba(229,228,226,0.75)', textTransform: 'uppercase', textAlign: 'center' }}
             >
               A Century of Trusted Expertise
             </span>
-            <div style={{ width: '36px', height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.5))' }} />
+            <div style={{ width: '20px', height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.5))', flexShrink: 0 }} />
           </div>
 
           {/* Divider */}
@@ -269,8 +271,8 @@ export default function Hero() {
             <p
               className="font-sans font-light"
               style={{
-                fontSize: 'clamp(0.48rem, 1.1vw, 0.65rem)',
-                letterSpacing: '0.26em',
+                fontSize: 'clamp(0.52rem, 2vw, 0.65rem)',
+                letterSpacing: '0.18em',
                 color: '#C6A75E',
                 textTransform: 'uppercase',
                 textAlign: 'center',
@@ -286,18 +288,18 @@ export default function Hero() {
                 position: 'absolute',
                 right: 0,
                 top: '100%',
-                marginTop: '10px',
+                marginTop: '8px',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '6px',
+                gap: '5px',
               }}
             >
-              <div style={{ width: '14px', height: '1px', background: 'rgba(198,167,94,0.35)' }} />
+              <div style={{ width: '12px', height: '1px', background: 'rgba(198,167,94,0.35)' }} />
               <span
                 className="font-sans font-light"
                 style={{
-                  fontSize: '9px',
-                  letterSpacing: '0.32em',
+                  fontSize: 'clamp(7px, 1.8vw, 9px)',
+                  letterSpacing: '0.28em',
                   color: 'rgba(229,228,226,0.7)',
                   textTransform: 'uppercase',
                   whiteSpace: 'nowrap',
@@ -310,7 +312,7 @@ export default function Hero() {
           </div>
 
           {/* Spacer for the Est 1924 that sits below the subtitle line */}
-          <div style={{ height: '28px' }} />
+          <div style={{ height: '24px' }} />
         </div>
 
         {/* Gold rule */}
@@ -326,14 +328,14 @@ export default function Hero() {
 
         {/* Three pillars */}
         <div
+          className="hidden sm:flex"
           style={{
             opacity: phase >= 4 ? 1 : 0,
             transform: phase >= 4 ? 'translateY(0)' : 'translateY(10px)',
             transition: 'opacity 0.6s ease, transform 0.6s ease',
-            display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            maxWidth: 'clamp(260px, 50vw, 480px)',
+            maxWidth: '480px',
           }}
         >
           {pillars.map((label, i) => (
@@ -355,7 +357,7 @@ export default function Hero() {
               {i < pillars.length - 1 && (
                 <span
                   style={{
-                    margin: '0 clamp(8px, 1.5vw, 16px)',
+                    margin: '0 12px',
                     color: 'rgba(198,167,94,0.3)',
                     fontSize: '4px',
                   }}
@@ -363,6 +365,34 @@ export default function Hero() {
                   ◆
                 </span>
               )}
+            </span>
+          ))}
+        </div>
+
+        {/* Three pillars — mobile: stacked */}
+        <div
+          className="flex sm:hidden flex-col items-center"
+          style={{
+            opacity: phase >= 4 ? 1 : 0,
+            transform: phase >= 4 ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'opacity 0.6s ease, transform 0.6s ease',
+            gap: '8px',
+          }}
+        >
+          {pillars.map((label, i) => (
+            <span
+              key={i}
+              className="font-sans font-light"
+              style={{
+                fontSize: '0.6rem',
+                letterSpacing: '0.22em',
+                color: 'rgba(229,228,226,0.75)',
+                textTransform: 'uppercase',
+                fontWeight: 300,
+                textShadow: '0 1px 0 rgba(0,0,0,0.6)',
+              }}
+            >
+              {label}
             </span>
           ))}
         </div>
