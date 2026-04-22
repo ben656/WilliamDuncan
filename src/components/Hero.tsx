@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const tickerItems = [
-  { text: 'MTD for Income Tax — mandatory from April 2026. Non-compliance carries automatic penalties with no grace period. Are you ready?', cta: true },
+  { text: 'MTD for Income Tax — mandatory from April 2026. Are you ready?', cta: true },
   { text: 'Quarterly digital submissions replace your annual Self Assessment return. Miss a single deadline and penalty points accumulate rapidly.', cta: true },
   { text: 'MTD for ITSA applies to sole traders and landlords earning over £50,000 from April 2026 — and drops to £30,000 twelve months later.' },
   { text: 'Compatible software is now a legal requirement under MTD. Spreadsheets alone will no longer satisfy HMRC\'s digital records mandate.', cta: true },
@@ -270,7 +270,7 @@ export default function Hero() {
             height: '1px',
             background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.5), transparent)',
             transition: 'width 0.8s ease 0.1s',
-            marginBottom: '24px',
+            marginBottom: '112px',
           }}
         />
 
