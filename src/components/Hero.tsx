@@ -163,7 +163,7 @@ export default function Hero() {
         style={{ paddingTop: '80px' }}
       >
 
-        {/* Plaque */}
+        {/* Plaque — Layer 1: outer surround, darkest slate */}
         <div
           style={{
             opacity: phase >= 2 ? 1 : 0,
@@ -171,184 +171,171 @@ export default function Hero() {
             transition: 'opacity 1s ease, transform 1s ease',
             marginBottom: '28px',
             position: 'relative',
-            overflow: 'hidden',
-            borderRadius: '3px',
-            padding: 'clamp(18px, 3.5vw, 44px) clamp(18px, 5vw, 60px)',
-            background: 'linear-gradient(170deg, rgba(18,25,42,0.98) 0%, rgba(8,12,22,1) 45%, rgba(16,22,38,0.98) 75%, rgba(22,30,48,0.97) 100%)',
+            borderRadius: '4px',
+            padding: 'clamp(10px, 2vw, 18px)',
+            background: 'linear-gradient(160deg, rgba(12,18,32,1) 0%, rgba(6,9,18,1) 50%, rgba(14,20,34,1) 100%)',
             boxShadow: [
-              '0 0 0 1px rgba(198,167,94,0.22)',
-              '0 0 0 2px rgba(0,0,0,0.8)',
-              '0 0 0 3px rgba(198,167,94,0.06)',
-              '0 20px 80px rgba(0,0,0,0.85)',
-              '0 8px 30px rgba(0,0,0,0.6)',
-              '0 2px 8px rgba(0,0,0,0.5)',
-              'inset 0 1px 0 rgba(198,167,94,0.20)',
-              'inset 0 -1px 0 rgba(198,167,94,0.07)',
+              '0 0 0 1px rgba(198,167,94,0.18)',
+              '0 0 0 2px rgba(4,6,14,0.9)',
+              '0 0 0 3px rgba(198,167,94,0.07)',
+              '0 28px 90px rgba(0,0,0,0.9)',
+              '0 10px 35px rgba(0,0,0,0.65)',
+              'inset 0 1px 0 rgba(198,167,94,0.14)',
+              'inset 0 -1px 0 rgba(0,0,0,0.8)',
             ].join(', '),
-            border: 'none',
             width: '100%',
-            maxWidth: 'clamp(280px, 90vw, 580px)',
+            maxWidth: 'clamp(280px, 90vw, 590px)',
           }}
         >
-          {/* Inner inset border */}
-          <div style={{
-            position: 'absolute',
-            inset: '5px',
-            border: '1px solid rgba(198,167,94,0.10)',
-            borderRadius: '2px',
-            pointerEvents: 'none',
-          }} />
-
-          {/* Corner ornaments */}
+          {/* Outer corner L-brackets */}
           {[
-            { top: '10px', left: '10px' },
-            { top: '10px', right: '10px' },
-            { bottom: '10px', left: '10px' },
-            { bottom: '10px', right: '10px' },
-          ].map((pos, i) => (
-            <span
-              key={i}
-              style={{
-                position: 'absolute',
-                ...pos,
-                color: 'rgba(198,167,94,0.35)',
-                fontSize: '7px',
-                lineHeight: 1,
-              }}
-            >◆</span>
+            { top: '6px', left: '6px', borderTop: '1px solid rgba(198,167,94,0.3)', borderLeft: '1px solid rgba(198,167,94,0.3)' },
+            { top: '6px', right: '6px', borderTop: '1px solid rgba(198,167,94,0.3)', borderRight: '1px solid rgba(198,167,94,0.3)' },
+            { bottom: '6px', left: '6px', borderBottom: '1px solid rgba(198,167,94,0.3)', borderLeft: '1px solid rgba(198,167,94,0.3)' },
+            { bottom: '6px', right: '6px', borderBottom: '1px solid rgba(198,167,94,0.3)', borderRight: '1px solid rgba(198,167,94,0.3)' },
+          ].map((s, i) => (
+            <div key={i} style={{ position: 'absolute', width: '12px', height: '12px', ...s }} />
           ))}
 
-          {/* Eyebrow */}
-          <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '20px' }}>
-            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.4))' }} />
-            <span
-              className="font-sans font-light"
-              style={{ fontSize: 'clamp(7.5px, 1.8vw, 9.5px)', letterSpacing: '0.38em', color: 'rgba(229,228,226,0.6)', textTransform: 'uppercase', textAlign: 'center', whiteSpace: 'nowrap' }}
-            >
-              Est. 1924
-            </span>
-            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.4))' }} />
-          </div>
+          {/* Plaque — Layer 2: mid panel, warm charcoal-bronze tone */}
+          <div style={{
+            position: 'relative',
+            borderRadius: '2px',
+            padding: 'clamp(16px, 3vw, 36px) clamp(14px, 4vw, 48px)',
+            background: 'linear-gradient(168deg, rgba(28,22,16,0.98) 0%, rgba(20,16,10,1) 30%, rgba(24,20,14,0.99) 60%, rgba(32,26,18,0.97) 100%)',
+            boxShadow: [
+              '0 0 0 1px rgba(198,167,94,0.24)',
+              'inset 0 1px 0 rgba(198,167,94,0.18)',
+              'inset 0 -1px 0 rgba(0,0,0,0.7)',
+              'inset 1px 0 0 rgba(198,167,94,0.08)',
+              'inset -1px 0 0 rgba(198,167,94,0.08)',
+              '0 4px 20px rgba(0,0,0,0.6)',
+            ].join(', '),
+          }}>
 
-          {/* Logo wordmark — constrained by width so it never stretches */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0', marginBottom: '0' }}>
+            {/* Mid-panel corner diamonds */}
+            {[
+              { top: '8px', left: '8px' },
+              { top: '8px', right: '8px' },
+              { bottom: '8px', left: '8px' },
+              { bottom: '8px', right: '8px' },
+            ].map((pos, i) => (
+              <span key={i} style={{ position: 'absolute', ...pos, color: 'rgba(198,167,94,0.40)', fontSize: '6px', lineHeight: 1 }}>◆</span>
+            ))}
 
-            {/* Outer glow ring */}
+            {/* Mid-panel inner hairline */}
             <div style={{
-              position: 'relative',
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-              {/* Ambient glow behind logo */}
+              position: 'absolute', inset: '5px',
+              border: '1px solid rgba(198,167,94,0.07)',
+              borderRadius: '1px', pointerEvents: 'none',
+            }} />
+
+            {/* Eyebrow */}
+            <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '18px' }}>
+              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.35))' }} />
+              <span
+                className="font-sans font-light"
+                style={{ fontSize: 'clamp(7px, 1.7vw, 9px)', letterSpacing: '0.42em', color: 'rgba(229,214,180,0.55)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}
+              >
+                Est. 1924
+              </span>
+              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.35))' }} />
+            </div>
+
+            {/* Plaque — Layer 3: logo frame, deep navy jewel box */}
+            <div style={{ position: 'relative', width: '100%' }}>
+              {/* Ambient bloom */}
               <div style={{
-                position: 'absolute',
-                inset: '-12px -20px',
-                background: 'radial-gradient(ellipse 80% 70% at 50% 50%, rgba(198,167,94,0.13) 0%, rgba(198,167,94,0.04) 55%, transparent 100%)',
-                pointerEvents: 'none',
-                filter: 'blur(4px)',
+                position: 'absolute', inset: '-16px -24px',
+                background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(198,167,94,0.12) 0%, rgba(198,167,94,0.03) 60%, transparent 100%)',
+                pointerEvents: 'none', filter: 'blur(6px)',
               }} />
 
-              {/* Logo frame */}
               <div style={{
                 position: 'relative',
-                padding: 'clamp(14px, 3vw, 24px) clamp(16px, 4vw, 32px)',
-                background: 'linear-gradient(175deg, rgba(24,32,52,0.95) 0%, rgba(8,12,24,1) 40%, rgba(20,28,46,0.98) 100%)',
-                border: '1px solid rgba(198,167,94,0.28)',
-                borderRadius: '2px',
+                padding: 'clamp(12px, 2.5vw, 22px) clamp(14px, 3.5vw, 28px)',
+                background: 'linear-gradient(175deg, rgba(7,12,26,1) 0%, rgba(4,7,16,1) 40%, rgba(8,13,28,1) 80%, rgba(10,16,32,1) 100%)',
                 boxShadow: [
-                  '0 0 0 4px rgba(8,12,24,0.95)',
-                  '0 0 0 5px rgba(198,167,94,0.12)',
-                  '0 12px 60px rgba(0,0,0,0.85)',
-                  '0 4px 20px rgba(0,0,0,0.6)',
-                  'inset 0 1px 0 rgba(198,167,94,0.22)',
-                  'inset 0 -1px 0 rgba(198,167,94,0.08)',
-                  'inset 1px 0 0 rgba(198,167,94,0.06)',
-                  'inset -1px 0 0 rgba(198,167,94,0.06)',
+                  '0 0 0 1px rgba(198,167,94,0.32)',
+                  '0 0 0 3px rgba(4,6,14,0.95)',
+                  '0 0 0 4px rgba(198,167,94,0.10)',
+                  '0 8px 40px rgba(0,0,0,0.85)',
+                  'inset 0 1px 0 rgba(198,167,94,0.24)',
+                  'inset 0 -1px 0 rgba(198,167,94,0.06)',
                 ].join(', '),
-                width: '100%',
+                borderRadius: '2px',
               }}>
-                {/* Inner border */}
+                {/* Logo frame inner hairline */}
                 <div style={{
-                  position: 'absolute',
-                  inset: '4px',
-                  border: '1px solid rgba(198,167,94,0.08)',
-                  borderRadius: '1px',
-                  pointerEvents: 'none',
+                  position: 'absolute', inset: '4px',
+                  border: '1px solid rgba(198,167,94,0.09)',
+                  borderRadius: '1px', pointerEvents: 'none',
                 }} />
 
-                {/* Corner L-brackets */}
+                {/* Logo frame corner L-brackets — brightest */}
                 {[
-                  { top: '7px', left: '7px', borderTop: '1.5px solid rgba(198,167,94,0.55)', borderLeft: '1.5px solid rgba(198,167,94,0.55)' },
-                  { top: '7px', right: '7px', borderTop: '1.5px solid rgba(198,167,94,0.55)', borderRight: '1.5px solid rgba(198,167,94,0.55)' },
-                  { bottom: '7px', left: '7px', borderBottom: '1.5px solid rgba(198,167,94,0.55)', borderLeft: '1.5px solid rgba(198,167,94,0.55)' },
-                  { bottom: '7px', right: '7px', borderBottom: '1.5px solid rgba(198,167,94,0.55)', borderRight: '1.5px solid rgba(198,167,94,0.55)' },
+                  { top: '6px', left: '6px', borderTop: '1.5px solid rgba(198,167,94,0.65)', borderLeft: '1.5px solid rgba(198,167,94,0.65)' },
+                  { top: '6px', right: '6px', borderTop: '1.5px solid rgba(198,167,94,0.65)', borderRight: '1.5px solid rgba(198,167,94,0.65)' },
+                  { bottom: '6px', left: '6px', borderBottom: '1.5px solid rgba(198,167,94,0.65)', borderLeft: '1.5px solid rgba(198,167,94,0.65)' },
+                  { bottom: '6px', right: '6px', borderBottom: '1.5px solid rgba(198,167,94,0.65)', borderRight: '1.5px solid rgba(198,167,94,0.65)' },
                 ].map((s, i) => (
-                  <div key={i} style={{ position: 'absolute', width: '14px', height: '14px', ...s }} />
+                  <div key={i} style={{ position: 'absolute', width: '13px', height: '13px', ...s }} />
                 ))}
 
-                {/* Shine sweep on load */}
+                {/* Shine sweep */}
                 <div className="plaque-shine-sweep" style={{
-                  position: 'absolute', top: 0, left: 0, width: '45%', height: '100%',
-                  background: 'linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.04) 45%, rgba(198,167,94,0.14) 50%, rgba(255,255,255,0.04) 55%, transparent 70%)',
+                  position: 'absolute', top: 0, left: 0, width: '50%', height: '100%', borderRadius: '2px',
+                  background: 'linear-gradient(108deg, transparent 25%, rgba(255,255,255,0.03) 42%, rgba(198,167,94,0.13) 50%, rgba(255,255,255,0.03) 58%, transparent 75%)',
                   pointerEvents: 'none',
                 }} />
-                {/* Shine loop */}
                 <div className="plaque-shine-loop" style={{
-                  position: 'absolute', top: 0, left: 0, width: '45%', height: '100%',
-                  background: 'linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.03) 45%, rgba(198,167,94,0.10) 50%, rgba(255,255,255,0.03) 55%, transparent 70%)',
+                  position: 'absolute', top: 0, left: 0, width: '50%', height: '100%', borderRadius: '2px',
+                  background: 'linear-gradient(108deg, transparent 25%, rgba(255,255,255,0.02) 42%, rgba(198,167,94,0.09) 50%, rgba(255,255,255,0.02) 58%, transparent 75%)',
                   pointerEvents: 'none',
                 }} />
 
-                {/* The actual logo — width-constrained, never height-constrained */}
+                {/* Logo */}
                 <img
                   src="/Adobe_Express_-_file.png"
                   alt="William Duncan"
                   style={{
-                    display: 'block',
-                    width: '100%',
-                    maxWidth: '100%',
-                    height: 'auto',
-                    position: 'relative',
-                    zIndex: 1,
+                    display: 'block', width: '100%', maxWidth: '100%', height: 'auto',
+                    position: 'relative', zIndex: 1,
                     filter: [
-                      'drop-shadow(0 1px 0 rgba(198,167,94,0.25))',
-                      'drop-shadow(0 -1px 0 rgba(0,0,0,0.6))',
-                      'drop-shadow(0 3px 12px rgba(0,0,0,0.7))',
-                      'drop-shadow(0 0 20px rgba(198,167,94,0.08))',
+                      'drop-shadow(0 1px 0 rgba(198,167,94,0.3))',
+                      'drop-shadow(0 -1px 0 rgba(0,0,0,0.8))',
+                      'drop-shadow(0 3px 14px rgba(0,0,0,0.75))',
+                      'drop-shadow(0 0 22px rgba(198,167,94,0.10))',
                     ].join(' '),
                   }}
                 />
               </div>
             </div>
 
-            {/* Gold rule under frame */}
-            <div style={{ width: '40%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.45), transparent)', margin: '14px 0 0' }} />
-          </div>
+            {/* Rule below logo frame */}
+            <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.3), transparent)', margin: '16px 0 14px' }} />
 
-          {/* Subtitle + Est row */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '16px' }}>
-            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.15))' }} />
-            <p
-              className="font-sans font-light"
-              style={{
-                fontSize: 'clamp(0.5rem, 1.8vw, 0.62rem)',
-                letterSpacing: '0.2em',
-                color: 'rgba(198,167,94,0.75)',
-                textTransform: 'uppercase',
-                textAlign: 'center',
-                margin: '0 12px',
-                whiteSpace: 'nowrap',
-                textShadow: '0 1px 0 rgba(0,0,0,0.9)',
-              }}
-            >
-              Chartered Accountants&nbsp;&nbsp;·&nbsp;&nbsp;Business &amp; Tax Advisers
-            </p>
-            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.15))' }} />
+            {/* Subtitle */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.18))' }} />
+              <p
+                className="font-sans font-light"
+                style={{
+                  fontSize: 'clamp(0.48rem, 1.6vw, 0.6rem)',
+                  letterSpacing: '0.22em',
+                  color: 'rgba(214,192,140,0.7)',
+                  textTransform: 'uppercase',
+                  textAlign: 'center',
+                  margin: 0,
+                  whiteSpace: 'nowrap',
+                  textShadow: '0 1px 2px rgba(0,0,0,0.9)',
+                }}
+              >
+                Chartered Accountants&nbsp;&nbsp;·&nbsp;&nbsp;Business &amp; Tax Advisers
+              </p>
+              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.18))' }} />
+            </div>
           </div>
-
-          <div style={{ height: '6px' }} />
         </div>
 
         {/* Gold rule */}
