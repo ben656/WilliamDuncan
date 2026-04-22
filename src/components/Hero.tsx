@@ -198,12 +198,12 @@ export default function Hero() {
             <div key={i} style={{ position: 'absolute', width: '12px', height: '12px', ...s }} />
           ))}
 
-          {/* Plaque — Layer 2: mid panel, warm charcoal-bronze tone */}
+          {/* Plaque — Layer 2: mid panel, navy */}
           <div style={{
             position: 'relative',
             borderRadius: '2px',
             padding: 'clamp(16px, 3vw, 36px) clamp(14px, 4vw, 48px)',
-            background: 'linear-gradient(168deg, rgba(28,22,16,0.98) 0%, rgba(20,16,10,1) 30%, rgba(24,20,14,0.99) 60%, rgba(32,26,18,0.97) 100%)',
+            background: 'linear-gradient(170deg, rgba(14,22,40,0.99) 0%, rgba(7,11,22,1) 45%, rgba(12,19,36,0.99) 75%, rgba(16,24,42,0.98) 100%)',
             boxShadow: [
               '0 0 0 1px rgba(198,167,94,0.24)',
               'inset 0 1px 0 rgba(198,167,94,0.18)',
@@ -236,7 +236,7 @@ export default function Hero() {
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.35))' }} />
               <span
                 className="font-sans font-light"
-                style={{ fontSize: 'clamp(7px, 1.7vw, 9px)', letterSpacing: '0.42em', color: 'rgba(229,214,180,0.55)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}
+                style={{ fontSize: 'clamp(7px, 1.7vw, 9px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.55)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}
               >
                 Est. 1924
               </span>
@@ -324,7 +324,7 @@ export default function Hero() {
                 style={{
                   fontSize: 'clamp(0.48rem, 1.6vw, 0.6rem)',
                   letterSpacing: '0.22em',
-                  color: 'rgba(214,192,140,0.7)',
+                  color: 'rgba(198,167,94,0.75)',
                   textTransform: 'uppercase',
                   textAlign: 'center',
                   margin: 0,
