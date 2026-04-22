@@ -175,7 +175,7 @@ export default function Hero() {
             padding: 'clamp(10px, 2vw, 18px)',
             background: 'linear-gradient(160deg, rgba(218,217,215,0.96) 0%, rgba(195,194,192,0.98) 35%, rgba(210,209,207,0.97) 65%, rgba(225,224,222,0.95) 100%)',
             boxShadow: [
-              '0 0 0 1px rgba(180,178,175,0.12)',
+              '0 0 0 1px rgba(198,196,193,0.18)',
               '0 28px 90px rgba(0,0,0,0.85)',
               '0 10px 35px rgba(0,0,0,0.6)',
               'inset 0 1px 0 rgba(255,255,255,0.6)',
@@ -263,12 +263,6 @@ export default function Hero() {
                 ].join(', '),
                 borderRadius: '2px',
               }}>
-                {/* Logo frame inner hairline */}
-                <div style={{
-                  position: 'absolute', inset: '4px',
-                  border: '1px solid rgba(198,167,94,0.09)',
-                  borderRadius: '1px', pointerEvents: 'none',
-                }} />
 
                 {/* Logo frame corner L-brackets — brightest */}
                 {[
