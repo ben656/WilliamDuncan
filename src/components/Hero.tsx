@@ -167,18 +167,27 @@ export default function Hero() {
         <div
           style={{
             opacity: phase >= 2 ? 1 : 0,
-            transform: phase >= 2 ? 'translateY(0)' : 'translateY(20px)',
-            transition: 'opacity 0.9s ease, transform 0.9s ease',
-            marginBottom: '32px',
+            transform: phase >= 2 ? 'translateY(0) scale(1)' : 'translateY(24px) scale(0.98)',
+            transition: 'opacity 1s ease, transform 1s ease',
+            marginBottom: '28px',
             position: 'relative',
             overflow: 'hidden',
             borderRadius: '3px',
-            padding: 'clamp(20px, 4vw, 48px) clamp(20px, 6vw, 72px)',
-            background: 'linear-gradient(160deg, rgba(14,20,36,0.97) 0%, rgba(10,15,28,0.99) 50%, rgba(16,22,38,0.97) 100%)',
-            boxShadow: '0 8px 48px rgba(0,0,0,0.7), 0 2px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(198,167,94,0.18), inset 0 -1px 0 rgba(198,167,94,0.08)',
-            border: '1px solid rgba(198,167,94,0.22)',
+            padding: 'clamp(18px, 3.5vw, 44px) clamp(18px, 5vw, 60px)',
+            background: 'linear-gradient(170deg, rgba(18,25,42,0.98) 0%, rgba(8,12,22,1) 45%, rgba(16,22,38,0.98) 75%, rgba(22,30,48,0.97) 100%)',
+            boxShadow: [
+              '0 0 0 1px rgba(198,167,94,0.22)',
+              '0 0 0 2px rgba(0,0,0,0.8)',
+              '0 0 0 3px rgba(198,167,94,0.06)',
+              '0 20px 80px rgba(0,0,0,0.85)',
+              '0 8px 30px rgba(0,0,0,0.6)',
+              '0 2px 8px rgba(0,0,0,0.5)',
+              'inset 0 1px 0 rgba(198,167,94,0.20)',
+              'inset 0 -1px 0 rgba(198,167,94,0.07)',
+            ].join(', '),
+            border: 'none',
             width: '100%',
-            maxWidth: 'clamp(280px, 90vw, 600px)',
+            maxWidth: 'clamp(280px, 90vw, 580px)',
           }}
         >
           {/* Inner inset border */}
@@ -209,110 +218,137 @@ export default function Hero() {
             >◆</span>
           ))}
 
-          {/* Shine sweep — once on load */}
-          <div
-            className="plaque-shine-sweep"
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '40%',
-              height: '100%',
-              background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 40%, rgba(198,167,94,0.12) 50%, rgba(255,255,255,0.06) 60%, transparent 100%)',
-              pointerEvents: 'none',
-            }}
-          />
-          {/* Shine loop */}
-          <div
-            className="plaque-shine-loop"
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '40%',
-              height: '100%',
-              background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 40%, rgba(198,167,94,0.10) 50%, rgba(255,255,255,0.05) 60%, transparent 100%)',
-              pointerEvents: 'none',
-            }}
-          />
-
           {/* Eyebrow */}
-          <div className="flex items-center gap-2 justify-center" style={{ marginBottom: '14px' }}>
-            <div style={{ width: '20px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.5))', flexShrink: 0 }} />
+          <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '20px' }}>
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.4))' }} />
             <span
               className="font-sans font-light"
-              style={{ fontSize: 'clamp(8px, 2vw, 10px)', letterSpacing: '0.3em', color: 'rgba(229,228,226,0.75)', textTransform: 'uppercase', textAlign: 'center' }}
+              style={{ fontSize: 'clamp(7.5px, 1.8vw, 9.5px)', letterSpacing: '0.38em', color: 'rgba(229,228,226,0.6)', textTransform: 'uppercase', textAlign: 'center', whiteSpace: 'nowrap' }}
             >
-              A Century of Trusted Expertise
+              Est. 1924
             </span>
-            <div style={{ width: '20px', height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.5))', flexShrink: 0 }} />
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.4))' }} />
           </div>
 
-          {/* Divider */}
-          <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.2), transparent)', marginBottom: '24px' }} />
+          {/* Logo wordmark — constrained by width so it never stretches */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0', marginBottom: '0' }}>
 
-          {/* Logo */}
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
-            <img
-              src="/Adobe_Express_-_file.png"
-              alt="William Duncan"
-              style={{
-                height: 'clamp(80px, 14vw, 180px)',
-                filter: 'drop-shadow(0 2px 16px rgba(0,0,0,0.6)) drop-shadow(0 4px 24px rgba(0,0,0,0.4))',
-              }}
-            />
+            {/* Outer glow ring */}
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+              {/* Ambient glow behind logo */}
+              <div style={{
+                position: 'absolute',
+                inset: '-12px -20px',
+                background: 'radial-gradient(ellipse 80% 70% at 50% 50%, rgba(198,167,94,0.13) 0%, rgba(198,167,94,0.04) 55%, transparent 100%)',
+                pointerEvents: 'none',
+                filter: 'blur(4px)',
+              }} />
+
+              {/* Logo frame */}
+              <div style={{
+                position: 'relative',
+                padding: 'clamp(14px, 3vw, 24px) clamp(16px, 4vw, 32px)',
+                background: 'linear-gradient(175deg, rgba(24,32,52,0.95) 0%, rgba(8,12,24,1) 40%, rgba(20,28,46,0.98) 100%)',
+                border: '1px solid rgba(198,167,94,0.28)',
+                borderRadius: '2px',
+                boxShadow: [
+                  '0 0 0 4px rgba(8,12,24,0.95)',
+                  '0 0 0 5px rgba(198,167,94,0.12)',
+                  '0 12px 60px rgba(0,0,0,0.85)',
+                  '0 4px 20px rgba(0,0,0,0.6)',
+                  'inset 0 1px 0 rgba(198,167,94,0.22)',
+                  'inset 0 -1px 0 rgba(198,167,94,0.08)',
+                  'inset 1px 0 0 rgba(198,167,94,0.06)',
+                  'inset -1px 0 0 rgba(198,167,94,0.06)',
+                ].join(', '),
+                width: '100%',
+              }}>
+                {/* Inner border */}
+                <div style={{
+                  position: 'absolute',
+                  inset: '4px',
+                  border: '1px solid rgba(198,167,94,0.08)',
+                  borderRadius: '1px',
+                  pointerEvents: 'none',
+                }} />
+
+                {/* Corner L-brackets */}
+                {[
+                  { top: '7px', left: '7px', borderTop: '1.5px solid rgba(198,167,94,0.55)', borderLeft: '1.5px solid rgba(198,167,94,0.55)' },
+                  { top: '7px', right: '7px', borderTop: '1.5px solid rgba(198,167,94,0.55)', borderRight: '1.5px solid rgba(198,167,94,0.55)' },
+                  { bottom: '7px', left: '7px', borderBottom: '1.5px solid rgba(198,167,94,0.55)', borderLeft: '1.5px solid rgba(198,167,94,0.55)' },
+                  { bottom: '7px', right: '7px', borderBottom: '1.5px solid rgba(198,167,94,0.55)', borderRight: '1.5px solid rgba(198,167,94,0.55)' },
+                ].map((s, i) => (
+                  <div key={i} style={{ position: 'absolute', width: '14px', height: '14px', ...s }} />
+                ))}
+
+                {/* Shine sweep on load */}
+                <div className="plaque-shine-sweep" style={{
+                  position: 'absolute', top: 0, left: 0, width: '45%', height: '100%',
+                  background: 'linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.04) 45%, rgba(198,167,94,0.14) 50%, rgba(255,255,255,0.04) 55%, transparent 70%)',
+                  pointerEvents: 'none',
+                }} />
+                {/* Shine loop */}
+                <div className="plaque-shine-loop" style={{
+                  position: 'absolute', top: 0, left: 0, width: '45%', height: '100%',
+                  background: 'linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.03) 45%, rgba(198,167,94,0.10) 50%, rgba(255,255,255,0.03) 55%, transparent 70%)',
+                  pointerEvents: 'none',
+                }} />
+
+                {/* The actual logo — width-constrained, never height-constrained */}
+                <img
+                  src="/Adobe_Express_-_file.png"
+                  alt="William Duncan"
+                  style={{
+                    display: 'block',
+                    width: '100%',
+                    maxWidth: '100%',
+                    height: 'auto',
+                    position: 'relative',
+                    zIndex: 1,
+                    filter: [
+                      'drop-shadow(0 1px 0 rgba(198,167,94,0.25))',
+                      'drop-shadow(0 -1px 0 rgba(0,0,0,0.6))',
+                      'drop-shadow(0 3px 12px rgba(0,0,0,0.7))',
+                      'drop-shadow(0 0 20px rgba(198,167,94,0.08))',
+                    ].join(' '),
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Gold rule under frame */}
+            <div style={{ width: '40%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.45), transparent)', margin: '14px 0 0' }} />
           </div>
 
-          {/* Divider */}
-          <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.2), transparent)', marginBottom: '18px' }} />
-
-          {/* Subtitle row — with Est 1924 bottom-right */}
-          <div style={{ position: 'relative' }}>
+          {/* Subtitle + Est row */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '16px' }}>
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.15))' }} />
             <p
               className="font-sans font-light"
               style={{
-                fontSize: 'clamp(0.52rem, 2vw, 0.65rem)',
-                letterSpacing: '0.18em',
-                color: '#C6A75E',
+                fontSize: 'clamp(0.5rem, 1.8vw, 0.62rem)',
+                letterSpacing: '0.2em',
+                color: 'rgba(198,167,94,0.75)',
                 textTransform: 'uppercase',
                 textAlign: 'center',
-                textShadow: '0 1px 0 rgba(0,0,0,0.8), 0 -1px 0 rgba(255,255,255,0.04), 0 2px 6px rgba(0,0,0,0.6)',
+                margin: '0 12px',
+                whiteSpace: 'nowrap',
+                textShadow: '0 1px 0 rgba(0,0,0,0.9)',
               }}
             >
-              Chartered Accountants, Business &amp; Tax Advisers
+              Chartered Accountants&nbsp;&nbsp;·&nbsp;&nbsp;Business &amp; Tax Advisers
             </p>
-
-            {/* Est 1924 — bottom-right, under 'Advisers' */}
-            <div
-              style={{
-                position: 'absolute',
-                right: 0,
-                top: '100%',
-                marginTop: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '5px',
-              }}
-            >
-              <div style={{ width: '12px', height: '1px', background: 'rgba(198,167,94,0.35)' }} />
-              <span
-                className="font-sans font-light"
-                style={{
-                  fontSize: 'clamp(7px, 1.8vw, 9px)',
-                  letterSpacing: '0.28em',
-                  color: 'rgba(229,228,226,0.7)',
-                  textTransform: 'uppercase',
-                  whiteSpace: 'nowrap',
-                  textShadow: '0 1px 0 rgba(0,0,0,0.8), 0 -1px 0 rgba(255,255,255,0.06)',
-                }}
-              >
-                Est&nbsp;1924
-              </span>
-            </div>
+            <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.15))' }} />
           </div>
 
-          {/* Spacer for the Est 1924 that sits below the subtitle line */}
-          <div style={{ height: '24px' }} />
+          <div style={{ height: '6px' }} />
         </div>
 
         {/* Gold rule */}
@@ -320,9 +356,9 @@ export default function Hero() {
           style={{
             width: phase >= 3 ? 'clamp(60px, 10vw, 120px)' : '0px',
             height: '1px',
-            background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.65), transparent)',
+            background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.5), transparent)',
             transition: 'width 0.8s ease 0.1s',
-            marginBottom: '36px',
+            marginBottom: '24px',
           }}
         />
 
