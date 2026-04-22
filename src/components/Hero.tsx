@@ -163,7 +163,7 @@ export default function Hero() {
         style={{ paddingTop: '80px' }}
       >
 
-        {/* Plaque — Layer 1: outer surround, platinum silver mount */}
+        {/* Plaque wrapper */}
         <div
           style={{
             opacity: phase >= 2 ? 1 : 0,
@@ -171,28 +171,10 @@ export default function Hero() {
             transition: 'opacity 1s ease, transform 1s ease',
             marginBottom: '28px',
             position: 'relative',
-            borderRadius: '4px',
-            padding: 'clamp(10px, 2vw, 18px)',
-            background: 'linear-gradient(160deg, rgba(218,217,215,0.96) 0%, rgba(195,194,192,0.98) 35%, rgba(210,209,207,0.97) 65%, rgba(225,224,222,0.95) 100%)',
-            boxShadow: [
-                            '0 28px 90px rgba(0,0,0,0.85)',
-              '0 10px 35px rgba(0,0,0,0.6)',
-              'inset 0 1px 0 rgba(255,255,255,0.6)',
-              'inset 0 -1px 0 rgba(120,118,115,0.2)',
-            ].join(', '),
             width: '100%',
             maxWidth: 'clamp(280px, 90vw, 590px)',
           }}
         >
-          {/* Outer corner L-brackets — dark on platinum */}
-          {[
-            { top: '6px', left: '6px', borderTop: '1px solid rgba(160,158,155,0.15)', borderLeft: '1px solid rgba(160,158,155,0.15)' },
-            { top: '6px', right: '6px', borderTop: '1px solid rgba(160,158,155,0.15)', borderRight: '1px solid rgba(160,158,155,0.15)' },
-            { bottom: '6px', left: '6px', borderBottom: '1px solid rgba(160,158,155,0.15)', borderLeft: '1px solid rgba(160,158,155,0.15)' },
-            { bottom: '6px', right: '6px', borderBottom: '1px solid rgba(160,158,155,0.15)', borderRight: '1px solid rgba(160,158,155,0.15)' },
-          ].map((s, i) => (
-            <div key={i} style={{ position: 'absolute', width: '12px', height: '12px', ...s }} />
-          ))}
 
           {/* Plaque — Layer 2: mid panel, navy */}
           <div style={{
@@ -206,7 +188,8 @@ export default function Hero() {
               'inset 0 -1px 0 rgba(0,0,0,0.7)',
               'inset 1px 0 0 rgba(198,167,94,0.08)',
               'inset -1px 0 0 rgba(198,167,94,0.08)',
-              '0 4px 20px rgba(0,0,0,0.6)',
+              '0 28px 90px rgba(0,0,0,0.85)',
+              '0 10px 35px rgba(0,0,0,0.6)',
             ].join(', '),
           }}>
 
