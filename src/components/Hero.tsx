@@ -228,8 +228,8 @@ export default function Hero() {
                   display: 'block', width: '100%', maxWidth: '100%', height: 'auto',
                   position: 'relative', zIndex: 1,
                   filter: [
-                    'brightness(0) invert(1) sepia(0.08)',
-                    'drop-shadow(0 1px 0 rgba(198,167,94,0.25))',
+                    'drop-shadow(0 1px 0 rgba(198,167,94,0.3))',
+                    'drop-shadow(0 -1px 0 rgba(0,0,0,0.8))',
                     'drop-shadow(0 3px 14px rgba(0,0,0,0.75))',
                     'drop-shadow(0 0 22px rgba(198,167,94,0.10))',
                   ].join(' '),
