@@ -231,59 +231,21 @@ export default function Hero() {
                 pointerEvents: 'none', filter: 'blur(6px)',
               }} />
 
-              <div style={{
-                position: 'relative',
-                padding: 'clamp(12px, 2.5vw, 22px) clamp(14px, 3.5vw, 28px)',
-                background: 'linear-gradient(175deg, rgba(7,12,26,1) 0%, rgba(4,7,16,1) 40%, rgba(8,13,28,1) 80%, rgba(10,16,32,1) 100%)',
-                boxShadow: [
-                  '0 0 0 1px rgba(198,167,94,0.32)',
-                  '0 0 0 3px rgba(4,6,14,0.95)',
-                  '0 0 0 4px rgba(198,167,94,0.10)',
-                  '0 8px 40px rgba(0,0,0,0.85)',
-                  'inset 0 1px 0 rgba(198,167,94,0.24)',
-                  'inset 0 -1px 0 rgba(198,167,94,0.06)',
-                ].join(', '),
-                borderRadius: '2px',
-              }}>
-
-                {/* Logo frame corner L-brackets — brightest */}
-                {[
-                  { top: '6px', left: '6px', borderTop: '1.5px solid rgba(198,167,94,0.65)', borderLeft: '1.5px solid rgba(198,167,94,0.65)' },
-                  { top: '6px', right: '6px', borderTop: '1.5px solid rgba(198,167,94,0.65)', borderRight: '1.5px solid rgba(198,167,94,0.65)' },
-                  { bottom: '6px', left: '6px', borderBottom: '1.5px solid rgba(198,167,94,0.65)', borderLeft: '1.5px solid rgba(198,167,94,0.65)' },
-                  { bottom: '6px', right: '6px', borderBottom: '1.5px solid rgba(198,167,94,0.65)', borderRight: '1.5px solid rgba(198,167,94,0.65)' },
-                ].map((s, i) => (
-                  <div key={i} style={{ position: 'absolute', width: '13px', height: '13px', ...s }} />
-                ))}
-
-                {/* Shine sweep */}
-                <div className="plaque-shine-sweep" style={{
-                  position: 'absolute', top: 0, left: 0, width: '50%', height: '100%', borderRadius: '2px',
-                  background: 'linear-gradient(108deg, transparent 25%, rgba(255,255,255,0.03) 42%, rgba(198,167,94,0.13) 50%, rgba(255,255,255,0.03) 58%, transparent 75%)',
-                  pointerEvents: 'none',
-                }} />
-                <div className="plaque-shine-loop" style={{
-                  position: 'absolute', top: 0, left: 0, width: '50%', height: '100%', borderRadius: '2px',
-                  background: 'linear-gradient(108deg, transparent 25%, rgba(255,255,255,0.02) 42%, rgba(198,167,94,0.09) 50%, rgba(255,255,255,0.02) 58%, transparent 75%)',
-                  pointerEvents: 'none',
-                }} />
-
-                {/* Logo */}
-                <img
-                  src="/Adobe_Express_-_file.png"
-                  alt="William Duncan"
-                  style={{
-                    display: 'block', width: '100%', maxWidth: '100%', height: 'auto',
-                    position: 'relative', zIndex: 1,
-                    filter: [
-                      'drop-shadow(0 1px 0 rgba(198,167,94,0.3))',
-                      'drop-shadow(0 -1px 0 rgba(0,0,0,0.8))',
-                      'drop-shadow(0 3px 14px rgba(0,0,0,0.75))',
-                      'drop-shadow(0 0 22px rgba(198,167,94,0.10))',
-                    ].join(' '),
-                  }}
-                />
-              </div>
+              {/* Logo */}
+              <img
+                src="/Adobe_Express_-_file.png"
+                alt="William Duncan"
+                style={{
+                  display: 'block', width: '100%', maxWidth: '100%', height: 'auto',
+                  position: 'relative', zIndex: 1,
+                  filter: [
+                    'drop-shadow(0 1px 0 rgba(198,167,94,0.3))',
+                    'drop-shadow(0 -1px 0 rgba(0,0,0,0.8))',
+                    'drop-shadow(0 3px 14px rgba(0,0,0,0.75))',
+                    'drop-shadow(0 0 22px rgba(198,167,94,0.10))',
+                  ].join(' '),
+                }}
+              />
             </div>
 
             {/* Rule below logo frame */}
