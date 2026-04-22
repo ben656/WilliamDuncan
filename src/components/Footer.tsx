@@ -28,7 +28,7 @@ export default function Footer() {
   }, [visible])
 
   return (
-    <footer className="bg-gradient-to-b from-[#1a1814] to-[#111009] border-t border-gold/10">
+    <footer className="bg-gradient-to-b from-[#1a1814] to-[#111009] border-t border-gold/10" style={{ background: 'linear-gradient(to bottom, #1a1814, #111009)' }}>
       <div className="border-b border-gold/10 py-3 flex items-center justify-center min-h-[2.5rem]">
         <p
           className="font-serif text-[11px] tracking-[0.22em] uppercase text-center transition-opacity duration-700"

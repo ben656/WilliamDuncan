@@ -41,7 +41,7 @@ export default function Hero() {
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(to bottom, rgba(20,28,40,0.2) 0%, transparent 40%, rgba(20,28,40,0.85) 100%)',
+          background: 'linear-gradient(to bottom, rgba(17,16,9,0.2) 0%, transparent 40%, rgba(17,16,9,0.85) 100%)',
         }}
       />
 
@@ -189,13 +189,13 @@ export default function Hero() {
               { bottom: '8px', left: '8px' },
               { bottom: '8px', right: '8px' },
             ].map((pos, i) => (
-              <span key={i} style={{ position: 'absolute', ...pos, color: 'rgba(160,130,65,0.65)', fontSize: '6px', lineHeight: 1 }}>◆</span>
+              <span key={i} style={{ position: 'absolute', ...pos, color: 'rgba(198,167,94,0.40)', fontSize: '6px', lineHeight: 1 }}>◆</span>
             ))}
 
             {/* Mid-panel inner hairline */}
             <div style={{
               position: 'absolute', inset: '5px',
-              border: '1px solid rgba(198,167,94,0.18)',
+              border: '1px solid rgba(198,167,94,0.07)',
               borderRadius: '1px', pointerEvents: 'none',
             }} />
 
@@ -204,7 +204,7 @@ export default function Hero() {
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.35))' }} />
               <span
                 className="font-sans font-light"
-                style={{ fontSize: 'clamp(7px, 1.7vw, 9px)', letterSpacing: '0.42em', color: 'rgba(44,62,85,0.65)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}
+                style={{ fontSize: 'clamp(7px, 1.7vw, 9px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.55)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}
               >
                 Est. 1924
               </span>
@@ -228,9 +228,10 @@ export default function Hero() {
                   display: 'block', width: '100%', maxWidth: '100%', height: 'auto',
                   position: 'relative', zIndex: 1,
                   filter: [
-                    'drop-shadow(0 1px 0 rgba(198,167,94,0.25))',
-                    'drop-shadow(0 2px 8px rgba(0,0,0,0.18))',
-                    'drop-shadow(0 0 18px rgba(198,167,94,0.08))',
+                    'drop-shadow(0 1px 0 rgba(198,167,94,0.3))',
+                    'drop-shadow(0 -1px 0 rgba(0,0,0,0.8))',
+                    'drop-shadow(0 3px 14px rgba(0,0,0,0.75))',
+                    'drop-shadow(0 0 22px rgba(198,167,94,0.10))',
                   ].join(' '),
                 }}
               />
@@ -247,12 +248,12 @@ export default function Hero() {
                 style={{
                   fontSize: 'clamp(0.48rem, 1.6vw, 0.6rem)',
                   letterSpacing: '0.22em',
-                  color: 'rgba(160,130,65,1)',
+                  color: 'rgba(198,167,94,0.75)',
                   textTransform: 'uppercase',
                   textAlign: 'center',
                   margin: 0,
                   whiteSpace: 'nowrap',
-                  textShadow: '0 1px 0 rgba(255,255,255,0.4)',
+                  textShadow: '0 1px 2px rgba(0,0,0,0.9)',
                 }}
               >
                 Chartered Accountants&nbsp;&nbsp;·&nbsp;&nbsp;Business &amp; Tax Advisers
