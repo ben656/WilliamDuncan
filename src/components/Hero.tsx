@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 
 const tickerItems = [
   { text: 'MTD for Income Tax — mandatory from April 2026. Non-compliance carries automatic penalties with no grace period. Are you ready?', cta: true },
-  { text: 'HMRC\'s Making Tax Digital programme is not optional — failure to file digitally will trigger surcharges from day one of the new regime.' },
   { text: 'Quarterly digital submissions replace your annual Self Assessment return. Miss a single deadline and penalty points accumulate rapidly.', cta: true },
   { text: 'MTD for ITSA applies to sole traders and landlords earning over £50,000 from April 2026 — and drops to £30,000 twelve months later.' },
   { text: 'Compatible software is now a legal requirement under MTD. Spreadsheets alone will no longer satisfy HMRC\'s digital records mandate.', cta: true },
@@ -35,14 +34,14 @@ export default function Hero() {
       <div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(198,167,94,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(198,167,94,0.07) 0%, transparent 70%)',
         }}
       />
       <div className="absolute inset-0 diamond-pattern" style={{ opacity: 0.4 }} />
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(to bottom, rgba(7,15,26,0.2) 0%, transparent 40%, rgba(7,15,26,0.85) 100%)',
+          background: 'linear-gradient(to bottom, rgba(17,16,9,0.2) 0%, transparent 40%, rgba(17,16,9,0.85) 100%)',
         }}
       />
 
@@ -51,7 +50,7 @@ export default function Hero() {
         className="absolute left-0 right-0 top-0 z-20"
         style={{
           height: '80px',
-          background: 'rgba(6,10,22,0.55)',
+          background: 'rgba(14,12,8,0.55)',
           borderBottom: '1px solid rgba(198,167,94,0.14)',
           backdropFilter: 'blur(8px)',
         }}
@@ -160,7 +159,7 @@ export default function Hero() {
       {/* Main content */}
       <div
         className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4 sm:px-6"
-        style={{ paddingTop: '80px' }}
+        style={{ paddingTop: '80px', paddingBottom: '80px' }}
       >
 
         {/* Plaque wrapper */}
@@ -353,7 +352,7 @@ export default function Hero() {
         className="relative z-20 w-full overflow-hidden"
         style={{
           borderTop: '1px solid rgba(198,167,94,0.12)',
-          background: 'rgba(6,10,22,0.6)',
+          background: 'rgba(14,12,8,0.6)',
           backdropFilter: 'blur(8px)',
           height: '48px',
           display: 'flex',

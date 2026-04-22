@@ -233,7 +233,7 @@
   }
 
   .plaque-mid-panel {
-    background: linear-gradient(160deg, rgba(58,76,110,1) 0%, rgba(38,52,82,1) 40%, rgba(48,64,96,1) 75%, rgba(54,72,106,1) 100%);
+    background: linear-gradient(160deg, rgba(52,46,36,1) 0%, rgba(34,30,22,1) 40%, rgba(44,38,28,1) 75%, rgba(50,44,34,1) 100%);
     box-shadow:
       0 0 0 1px rgba(198,167,94,0.28),
       inset 0 1px 0 rgba(198,167,94,0.20),
@@ -251,7 +251,7 @@
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    background: radial-gradient(ellipse 55% 50% at 50% 50%, rgba(255,255,255,0.13) 0%, rgba(180,210,255,0.07) 40%, transparent 100%);
+    background: radial-gradient(ellipse 55% 50% at 50% 50%, rgba(255,240,200,0.14) 0%, rgba(198,167,94,0.06) 45%, transparent 100%);
     animation: plaque-light 8s ease-in-out infinite;
   }
 
