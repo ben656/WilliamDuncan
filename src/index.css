@@ -224,4 +224,35 @@
     animation-delay: 3.8s;
   }
 
+  @keyframes plaque-glow {
+    0%, 100% {
+      background: linear-gradient(170deg, rgba(14,22,40,0.99) 0%, rgba(7,11,22,1) 45%, rgba(12,19,36,0.99) 75%, rgba(16,24,42,0.98) 100%);
+      box-shadow:
+        0 0 0 1px rgba(198,167,94,0.24),
+        inset 0 1px 0 rgba(198,167,94,0.18),
+        inset 0 -1px 0 rgba(0,0,0,0.7),
+        inset 1px 0 0 rgba(198,167,94,0.08),
+        inset -1px 0 0 rgba(198,167,94,0.08),
+        0 28px 90px rgba(0,0,0,0.85),
+        0 10px 35px rgba(0,0,0,0.6);
+    }
+    50% {
+      background: linear-gradient(170deg, rgba(18,32,58,0.99) 0%, rgba(10,20,42,1) 45%, rgba(14,26,52,0.99) 75%, rgba(20,34,62,0.98) 100%);
+      box-shadow:
+        0 0 0 1px rgba(198,167,94,0.32),
+        inset 0 1px 0 rgba(198,167,94,0.22),
+        inset 0 -1px 0 rgba(0,0,0,0.7),
+        inset 1px 0 0 rgba(100,160,220,0.08),
+        inset -1px 0 0 rgba(100,160,220,0.08),
+        0 28px 90px rgba(0,0,0,0.85),
+        0 10px 35px rgba(0,0,0,0.6),
+        0 0 60px rgba(60,110,180,0.18),
+        0 0 120px rgba(40,80,150,0.10);
+    }
+  }
+
+  .plaque-mid-panel {
+    animation: plaque-glow 6s ease-in-out infinite;
+  }
+
 }

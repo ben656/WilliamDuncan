@@ -177,20 +177,10 @@ export default function Hero() {
         >
 
           {/* Plaque — Layer 2: mid panel, navy */}
-          <div style={{
+          <div className="plaque-mid-panel" style={{
             position: 'relative',
             borderRadius: '2px',
             padding: 'clamp(16px, 3vw, 36px) clamp(14px, 4vw, 48px)',
-            background: 'linear-gradient(170deg, rgba(14,22,40,0.99) 0%, rgba(7,11,22,1) 45%, rgba(12,19,36,0.99) 75%, rgba(16,24,42,0.98) 100%)',
-            boxShadow: [
-              '0 0 0 1px rgba(198,167,94,0.24)',
-              'inset 0 1px 0 rgba(198,167,94,0.18)',
-              'inset 0 -1px 0 rgba(0,0,0,0.7)',
-              'inset 1px 0 0 rgba(198,167,94,0.08)',
-              'inset -1px 0 0 rgba(198,167,94,0.08)',
-              '0 28px 90px rgba(0,0,0,0.85)',
-              '0 10px 35px rgba(0,0,0,0.6)',
-            ].join(', '),
           }}>
 
             {/* Mid-panel corner diamonds */}
