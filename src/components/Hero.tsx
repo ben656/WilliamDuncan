@@ -175,7 +175,7 @@ export default function Hero() {
             padding: 'clamp(10px, 2vw, 18px)',
             background: 'linear-gradient(160deg, rgba(218,217,215,0.96) 0%, rgba(195,194,192,0.98) 35%, rgba(210,209,207,0.97) 65%, rgba(225,224,222,0.95) 100%)',
             boxShadow: [
-              '0 0 0 1px rgba(180,178,175,0.3)',
+              '0 0 0 1px rgba(180,178,175,0.12)',
               '0 28px 90px rgba(0,0,0,0.85)',
               '0 10px 35px rgba(0,0,0,0.6)',
               'inset 0 1px 0 rgba(255,255,255,0.6)',
@@ -187,10 +187,10 @@ export default function Hero() {
         >
           {/* Outer corner L-brackets — dark on platinum */}
           {[
-            { top: '6px', left: '6px', borderTop: '1px solid rgba(160,158,155,0.3)', borderLeft: '1px solid rgba(160,158,155,0.3)' },
-            { top: '6px', right: '6px', borderTop: '1px solid rgba(160,158,155,0.3)', borderRight: '1px solid rgba(160,158,155,0.3)' },
-            { bottom: '6px', left: '6px', borderBottom: '1px solid rgba(160,158,155,0.3)', borderLeft: '1px solid rgba(160,158,155,0.3)' },
-            { bottom: '6px', right: '6px', borderBottom: '1px solid rgba(160,158,155,0.3)', borderRight: '1px solid rgba(160,158,155,0.3)' },
+            { top: '6px', left: '6px', borderTop: '1px solid rgba(160,158,155,0.15)', borderLeft: '1px solid rgba(160,158,155,0.15)' },
+            { top: '6px', right: '6px', borderTop: '1px solid rgba(160,158,155,0.15)', borderRight: '1px solid rgba(160,158,155,0.15)' },
+            { bottom: '6px', left: '6px', borderBottom: '1px solid rgba(160,158,155,0.15)', borderLeft: '1px solid rgba(160,158,155,0.15)' },
+            { bottom: '6px', right: '6px', borderBottom: '1px solid rgba(160,158,155,0.15)', borderRight: '1px solid rgba(160,158,155,0.15)' },
           ].map((s, i) => (
             <div key={i} style={{ position: 'absolute', width: '12px', height: '12px', ...s }} />
           ))}
