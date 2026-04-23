@@ -43,12 +43,13 @@ export default function Hero() {
         }}
       />
 
-      {/* Client Guidance — top left */}
+      {/* Top left — Client Guidance download */}
       <div
-        className="absolute top-0 left-0 z-30 flex items-center"
+        className="absolute top-0 left-0 z-30 flex flex-col justify-center"
         style={{
           height: '100px',
           paddingLeft: 'clamp(12px, 3vw, 40px)',
+          gap: '6px',
           opacity: phase >= 1 ? 1 : 0,
           transform: phase >= 1 ? 'translateY(0)' : 'translateY(-12px)',
           transition: 'opacity 0.7s ease, transform 0.7s ease',
@@ -86,7 +87,7 @@ export default function Hero() {
         </a>
       </div>
 
-      {/* Contact icons + trusted line — top right */}
+      {/* Top right — contact icons */}
       <div
         className="absolute top-0 right-0 z-30 flex items-center"
         style={{
@@ -98,21 +99,6 @@ export default function Hero() {
           transition: 'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s',
         }}
       >
-        <span
-          className="font-serif hidden sm:inline"
-          style={{
-            fontSize: 'clamp(0.55rem, 1.3vw, 0.72rem)',
-            letterSpacing: '0.12em',
-            color: 'rgba(198,167,94,0.72)',
-            fontStyle: 'italic',
-            whiteSpace: 'nowrap',
-            textShadow: '0 1px 6px rgba(0,0,0,0.8)',
-          }}
-        >
-          Trusted by clients for a century
-        </span>
-
-        <div style={{ width: '1px', height: '14px', background: 'rgba(229,228,226,0.15)', flexShrink: 0 }} className="hidden sm:block" />
         <a
           href="mailto:wmdadmin@williamduncan-ca.co.uk"
           title="Email us"
@@ -162,16 +148,44 @@ export default function Hero() {
       {/* Main content */}
       <div
         className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4 sm:px-6"
-        style={{ paddingTop: '160px', paddingBottom: '80px' }}
+        style={{ paddingTop: '120px', paddingBottom: '24px' }}
       >
 
-        {/* Plaque wrapper — enlarged and centred */}
+        {/* Top-left trusted tagline — mirrors bottom-right */}
+        <div
+          className="hidden sm:flex items-center gap-2 self-start"
+          style={{
+            maxWidth: 'clamp(320px, 88vw, 780px)',
+            width: '100%',
+            justifyContent: 'flex-start',
+            opacity: phase >= 4 ? 1 : 0,
+            transform: phase >= 4 ? 'translateY(0)' : 'translateY(-8px)',
+            transition: 'opacity 0.8s ease, transform 0.8s ease',
+            paddingLeft: '4px',
+            marginBottom: '8px',
+          }}
+        >
+          <span
+            className="font-serif"
+            style={{
+              fontSize: 'clamp(7.5px, 1.5vw, 10px)',
+              letterSpacing: '0.18em',
+              color: 'rgba(198,167,94,0.7)',
+              fontStyle: 'italic',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Trusted by clients for a century
+          </span>
+        </div>
+
+        {/* Plaque wrapper */}
         <div
           style={{
             opacity: phase >= 2 ? 1 : 0,
             transform: phase >= 2 ? 'translateY(0) scale(1)' : 'translateY(24px) scale(0.98)',
             transition: 'opacity 1s ease, transform 1s ease',
-            marginBottom: '32px',
+            marginBottom: '20px',
             position: 'relative',
             width: '100%',
             maxWidth: 'clamp(320px, 88vw, 780px)',
@@ -264,12 +278,51 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* Bottom-right hero phrases */}
+        <div
+          className="hidden sm:flex items-center gap-2 self-end"
+          style={{
+            maxWidth: 'clamp(320px, 88vw, 780px)',
+            width: '100%',
+            justifyContent: 'flex-end',
+            opacity: phase >= 4 ? 1 : 0,
+            transform: phase >= 4 ? 'translateY(0)' : 'translateY(8px)',
+            transition: 'opacity 0.8s ease, transform 0.8s ease',
+            paddingRight: '4px',
+          }}
+        >
+          <span
+            className="font-serif"
+            style={{
+              fontSize: 'clamp(7.5px, 1.5vw, 10px)',
+              letterSpacing: '0.18em',
+              color: 'rgba(198,167,94,0.7)',
+              fontStyle: 'italic',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Authentic Relations
+          </span>
+          <span style={{ color: 'rgba(198,167,94,0.3)', fontSize: '8px' }}>|</span>
+          <span
+            className="font-serif"
+            style={{
+              fontSize: 'clamp(7.5px, 1.5vw, 10px)',
+              letterSpacing: '0.18em',
+              color: 'rgba(198,167,94,0.7)',
+              fontStyle: 'italic',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Dynamic Solutions
+          </span>
+        </div>
 
       </div>
 
-      {/* Alert bar — static */}
+      {/* Alert bar — centred, boxed */}
       <div
-        className="relative z-20 w-full flex items-center"
+        className="relative z-20 w-full flex items-center justify-center"
         style={{
           background: 'rgba(8,14,26,0.97)',
           backdropFilter: 'blur(8px)',
@@ -279,44 +332,43 @@ export default function Hero() {
           padding: '0 32px',
         }}
       >
-        {/* Left: ACT NOW button + message */}
-        <div className="flex items-center gap-4 flex-1">
-          <a
-            href="/wd-hub-client-alert.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-sans"
+        <a
+          href="/wd-hub-client-alert.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-sans flex items-center gap-4"
+          style={{
+            textDecoration: 'none',
+            border: '1px solid rgba(140,31,46,0.45)',
+            borderRadius: '2px',
+            padding: '8px 20px',
+            transition: 'border-color 0.2s, background 0.2s',
+          }}
+          onMouseEnter={e => {
+            const el = e.currentTarget as HTMLAnchorElement
+            el.style.borderColor = 'rgba(140,31,46,0.8)'
+            el.style.background = 'rgba(140,31,46,0.06)'
+          }}
+          onMouseLeave={e => {
+            const el = e.currentTarget as HTMLAnchorElement
+            el.style.borderColor = 'rgba(140,31,46,0.45)'
+            el.style.background = 'transparent'
+          }}
+        >
+          <span
             style={{
               fontSize: 'clamp(8px, 1.6vw, 10px)',
-              letterSpacing: '0.24em',
-              fontWeight: 600,
+              letterSpacing: '0.26em',
+              fontWeight: 700,
               color: '#8c1f2e',
               textTransform: 'uppercase',
-              textDecoration: 'none',
-              border: '1px solid rgba(140,31,46,0.5)',
-              borderRadius: '2px',
-              padding: '4px 12px',
               whiteSpace: 'nowrap',
-              transition: 'color 0.2s, border-color 0.2s, background 0.2s',
-            }}
-            onMouseEnter={e => {
-              const el = e.currentTarget as HTMLAnchorElement
-              el.style.color = '#b02535'
-              el.style.borderColor = 'rgba(140,31,46,0.85)'
-              el.style.background = 'rgba(140,31,46,0.08)'
-            }}
-            onMouseLeave={e => {
-              const el = e.currentTarget as HTMLAnchorElement
-              el.style.color = '#8c1f2e'
-              el.style.borderColor = 'rgba(140,31,46,0.5)'
-              el.style.background = 'transparent'
             }}
           >
             Act Now
-          </a>
-          <span style={{ color: 'rgba(140,31,46,0.4)', fontSize: '10px' }}>◆</span>
+          </span>
+          <span style={{ color: 'rgba(140,31,46,0.4)', fontSize: '9px' }}>◆</span>
           <span
-            className="font-sans"
             style={{
               fontSize: 'clamp(8.5px, 1.8vw, 10.5px)',
               letterSpacing: '0.16em',
@@ -327,36 +379,7 @@ export default function Hero() {
           >
             HMRC digital enforcement is growing
           </span>
-        </div>
-
-        {/* Right: hero phrases in gold */}
-        <div className="hidden sm:flex items-center gap-2 flex-shrink-0">
-          <span
-            className="font-serif"
-            style={{
-              fontSize: 'clamp(7px, 1.4vw, 9px)',
-              letterSpacing: '0.18em',
-              color: 'rgba(198,167,94,0.75)',
-              fontStyle: 'italic',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Authentic Relations
-          </span>
-          <span style={{ color: 'rgba(198,167,94,0.35)', fontSize: '8px' }}>|</span>
-          <span
-            className="font-serif"
-            style={{
-              fontSize: 'clamp(7px, 1.4vw, 9px)',
-              letterSpacing: '0.18em',
-              color: 'rgba(198,167,94,0.75)',
-              fontStyle: 'italic',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Dynamic Solutions
-          </span>
-        </div>
+        </a>
       </div>
 
     </section>
