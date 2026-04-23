@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-
 const phrases = [
   'Authentic relations, entrenched client support',
   'Dynamic solutions to every challenge faced',
@@ -7,39 +5,25 @@ const phrases = [
 ]
 
 export default function Footer() {
-  const [index, setIndex] = useState(0)
-  const [visible, setVisible] = useState(true)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVisible(false)
-      setTimeout(() => {
-        setIndex(i => (i + 1) % phrases.length)
-        setVisible(true)
-      }, 250)
-    }, 2800)
-    return () => clearInterval(interval)
-  }, [])
-
   return (
     <footer className="border-t border-gold/10" style={{ background: 'linear-gradient(to bottom, #1a1814, #111009)' }}>
 
-      <div className="border-b border-gold/10 flex items-center justify-center" style={{ height: '42px' }}>
-        <p
-          className="font-serif text-center"
-          style={{
-            fontSize: 'clamp(0.5rem, 1.4vw, 0.68rem)',
-            letterSpacing: '0.18em',
-            color: 'rgba(198,167,94,0.68)',
-            fontStyle: 'italic',
-            opacity: visible ? 1 : 0,
-            transition: 'opacity 0.25s ease',
-            margin: 0,
-            padding: '0 16px',
-          }}
-        >
-          {phrases[index]}
-        </p>
+      <div className="border-b border-gold/10 flex flex-col items-center justify-center gap-1" style={{ padding: '10px 16px' }}>
+        {phrases.map((phrase, i) => (
+          <p
+            key={i}
+            className="font-serif text-center"
+            style={{
+              fontSize: 'clamp(0.48rem, 1.2vw, 0.62rem)',
+              letterSpacing: '0.16em',
+              color: 'rgba(198,167,94,0.62)',
+              fontStyle: 'italic',
+              margin: 0,
+            }}
+          >
+            {phrase}
+          </p>
+        ))}
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-2 h-9 flex items-center">
