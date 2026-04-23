@@ -37,7 +37,7 @@ export default function Hero() {
       <div
         className="absolute left-0 right-0 top-0 z-20"
         style={{
-          height: '80px',
+          height: '100px',
           background: 'rgba(8,14,26,0.97)',
           backdropFilter: 'blur(8px)',
         }}
@@ -47,7 +47,7 @@ export default function Hero() {
       <div
         className="absolute top-0 left-0 z-30 flex items-center"
         style={{
-          height: '80px',
+          height: '100px',
           paddingLeft: 'clamp(12px, 3vw, 40px)',
           opacity: phase >= 1 ? 1 : 0,
           transform: phase >= 1 ? 'translateY(0)' : 'translateY(-12px)',
@@ -90,7 +90,7 @@ export default function Hero() {
       <div
         className="absolute top-0 right-0 z-30 flex items-center"
         style={{
-          height: '80px',
+          height: '100px',
           paddingRight: 'clamp(12px, 3vw, 40px)',
           gap: '14px',
           opacity: phase >= 1 ? 1 : 0,
@@ -273,34 +273,21 @@ export default function Hero() {
         style={{
           background: 'rgba(8,14,26,0.97)',
           backdropFilter: 'blur(8px)',
-          height: '48px',
+          height: '64px',
           opacity: phase >= 5 ? 1 : 0,
           transition: 'opacity 0.9s ease',
-          padding: '0 24px',
+          padding: '0 32px',
         }}
       >
-        {/* Left: message + ACT NOW button */}
+        {/* Left: ACT NOW button + message */}
         <div className="flex items-center gap-4 flex-1">
-          <span
-            className="font-sans"
-            style={{
-              fontSize: 'clamp(8.5px, 1.8vw, 10.5px)',
-              letterSpacing: '0.16em',
-              color: '#8c1f2e',
-              fontWeight: 400,
-              whiteSpace: 'nowrap',
-            }}
-          >
-            HMRC digital enforcement is growing
-          </span>
-          <span style={{ color: 'rgba(140,31,46,0.4)', fontSize: '10px' }}>◆</span>
           <a
             href="/wd-hub-client-alert.html"
             target="_blank"
             rel="noopener noreferrer"
             className="font-sans"
             style={{
-              fontSize: 'clamp(7.5px, 1.5vw, 9px)',
+              fontSize: 'clamp(8px, 1.6vw, 10px)',
               letterSpacing: '0.24em',
               fontWeight: 600,
               color: '#8c1f2e',
@@ -308,7 +295,7 @@ export default function Hero() {
               textDecoration: 'none',
               border: '1px solid rgba(140,31,46,0.5)',
               borderRadius: '2px',
-              padding: '3px 10px',
+              padding: '4px 12px',
               whiteSpace: 'nowrap',
               transition: 'color 0.2s, border-color 0.2s, background 0.2s',
             }}
@@ -327,6 +314,19 @@ export default function Hero() {
           >
             Act Now
           </a>
+          <span style={{ color: 'rgba(140,31,46,0.4)', fontSize: '10px' }}>◆</span>
+          <span
+            className="font-sans"
+            style={{
+              fontSize: 'clamp(8.5px, 1.8vw, 10.5px)',
+              letterSpacing: '0.16em',
+              color: '#8c1f2e',
+              fontWeight: 400,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            HMRC digital enforcement is growing
+          </span>
         </div>
 
         {/* Right: hero phrases in gold */}
