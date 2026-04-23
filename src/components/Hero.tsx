@@ -354,7 +354,7 @@ export default function Hero() {
             align-items: center;
             gap: 80px;
             white-space: nowrap;
-            animation: ticker 28s linear infinite;
+            animation: ticker 55s linear infinite;
             will-change: transform;
           }
           .ticker-track:hover { animation-play-state: paused; }
