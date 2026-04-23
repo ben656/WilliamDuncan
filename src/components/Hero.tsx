@@ -71,48 +71,6 @@ export default function Hero() {
         </a>
       </div>
 
-      {/* Header centre — Act Now alert */}
-      <div
-        className="absolute top-0 left-0 right-0 z-30 flex items-center justify-center pointer-events-none"
-        style={{
-          height: '100px',
-          opacity: phase >= 5 ? 1 : 0,
-          transition: 'opacity 0.9s ease',
-        }}
-      >
-        <a
-          href="/wd-hub-client-alert.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-sans flex items-center gap-3 pointer-events-auto"
-          style={{
-            textDecoration: 'none',
-            border: '1px solid rgba(140,31,46,0.45)',
-            borderRadius: '2px',
-            padding: '6px 16px',
-            transition: 'border-color 0.2s, background 0.2s',
-          }}
-          onMouseEnter={e => {
-            const el = e.currentTarget as HTMLAnchorElement
-            el.style.borderColor = 'rgba(140,31,46,0.8)'
-            el.style.background = 'rgba(140,31,46,0.06)'
-          }}
-          onMouseLeave={e => {
-            const el = e.currentTarget as HTMLAnchorElement
-            el.style.borderColor = 'rgba(140,31,46,0.45)'
-            el.style.background = 'transparent'
-          }}
-        >
-          <span style={{ fontSize: 'clamp(7px, 1.4vw, 9px)', letterSpacing: '0.28em', fontWeight: 700, color: '#8c1f2e', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
-            Act Now
-          </span>
-          <span style={{ color: 'rgba(140,31,46,0.35)', fontSize: '7px' }}>◆</span>
-          <span style={{ fontSize: 'clamp(7px, 1.4vw, 9.5px)', letterSpacing: '0.14em', color: '#8c1f2e', fontWeight: 400, whiteSpace: 'nowrap' }}>
-            HMRC digital enforcement is growing
-          </span>
-        </a>
-      </div>
-
       {/* Top right — contact icons */}
       <div
         className="absolute top-0 right-0 z-30 flex items-center"
@@ -170,7 +128,7 @@ export default function Hero() {
       {/* Main content — centred column, items constrained to plaque width */}
       <div
         className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4 sm:px-6"
-        style={{ paddingTop: '120px', paddingBottom: '24px' }}
+        style={{ paddingTop: '130px', paddingBottom: '40px' }}
       >
 
         {/* "Trusted by clients" — left-aligned to plaque edge */}
@@ -181,12 +139,12 @@ export default function Hero() {
             opacity: phase >= 4 ? 1 : 0,
             transform: phase >= 4 ? 'translateY(0)' : 'translateY(-8px)',
             transition: 'opacity 0.8s ease, transform 0.8s ease',
-            marginBottom: '8px',
+            marginBottom: '12px',
           }}
         >
           <span
             className="font-serif"
-            style={{ fontSize: 'clamp(9px, 1.8vw, 12px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.7)', fontStyle: 'italic', whiteSpace: 'nowrap' }}
+            style={{ fontSize: 'clamp(10px, 2vw, 13px)', letterSpacing: '0.20em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic', whiteSpace: 'nowrap' }}
           >
             Trusted by clients for a century
           </span>
@@ -204,7 +162,7 @@ export default function Hero() {
             maxWidth: 'clamp(320px, 88vw, 780px)',
           }}
         >
-          <div className="plaque-mid-panel" style={{ position: 'relative', borderRadius: '2px', padding: 'clamp(20px, 4vw, 52px) clamp(20px, 5vw, 64px)' }}>
+          <div className="plaque-mid-panel" style={{ position: 'relative', borderRadius: '2px', padding: 'clamp(28px, 5vw, 68px) clamp(24px, 6vw, 80px)' }}>
 
             {[
               { top: '10px', left: '10px' },
@@ -280,15 +238,15 @@ export default function Hero() {
             opacity: phase >= 4 ? 1 : 0,
             transform: phase >= 4 ? 'translateY(0)' : 'translateY(8px)',
             transition: 'opacity 0.8s ease, transform 0.8s ease',
-            marginTop: '8px',
+            marginTop: '12px',
           }}
         >
-          <div className="flex items-center gap-2">
-            <span className="font-serif" style={{ fontSize: 'clamp(9px, 1.8vw, 12px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.7)', fontStyle: 'italic', whiteSpace: 'nowrap' }}>
+          <div className="flex items-center gap-3">
+            <span className="font-serif" style={{ fontSize: 'clamp(10px, 2vw, 13px)', letterSpacing: '0.20em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic', whiteSpace: 'nowrap' }}>
               Authentic Relations
             </span>
-            <span style={{ color: 'rgba(198,167,94,0.3)', fontSize: '8px' }}>|</span>
-            <span className="font-serif" style={{ fontSize: 'clamp(9px, 1.8vw, 12px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.7)', fontStyle: 'italic', whiteSpace: 'nowrap' }}>
+            <span style={{ color: 'rgba(198,167,94,0.28)', fontSize: '9px' }}>|</span>
+            <span className="font-serif" style={{ fontSize: 'clamp(10px, 2vw, 13px)', letterSpacing: '0.20em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic', whiteSpace: 'nowrap' }}>
               Dynamic Solutions
             </span>
           </div>
