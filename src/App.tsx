@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+// Footer content merged into Hero header
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
