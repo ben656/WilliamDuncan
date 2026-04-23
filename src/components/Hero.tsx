@@ -205,23 +205,6 @@ export default function Hero() {
               borderRadius: '1px', pointerEvents: 'none',
             }} />
 
-            {/* Trusted line — above Est. 1924 */}
-            <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '12px' }}>
-              <span
-                className="font-serif"
-                style={{
-                  fontSize: 'clamp(0.65rem, 1.8vw, 0.88rem)',
-                  letterSpacing: '0.12em',
-                  color: 'rgba(198,167,94,0.80)',
-                  fontStyle: 'italic',
-                  whiteSpace: 'nowrap',
-                  textShadow: '0 1px 6px rgba(0,0,0,0.9)',
-                }}
-              >
-                Trusted by clients for a century
-              </span>
-            </div>
-
             {/* Eyebrow */}
             <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '22px' }}>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.35))' }} />
@@ -279,6 +262,23 @@ export default function Hero() {
                 Chartered Accountants&nbsp;&nbsp;·&nbsp;&nbsp;Business &amp; Tax Advisers
               </p>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.18))' }} />
+            </div>
+
+            {/* Trusted line — below subtitle */}
+            <div className="flex items-center justify-center" style={{ marginTop: '14px' }}>
+              <span
+                className="font-serif"
+                style={{
+                  fontSize: 'clamp(0.65rem, 1.8vw, 0.88rem)',
+                  letterSpacing: '0.12em',
+                  color: 'rgba(229,228,226,0.82)',
+                  fontStyle: 'italic',
+                  whiteSpace: 'nowrap',
+                  textShadow: '0 1px 6px rgba(0,0,0,0.9)',
+                }}
+              >
+                Trusted by clients for a century
+              </span>
             </div>
           </div>
         </div>
@@ -370,8 +370,8 @@ export default function Hero() {
             gap: '8px',
           }}
         >
-          <span style={{ color: '#8c1f2e', fontWeight: 700, letterSpacing: '0.12em' }}>HMRC: Making Tax Digital</span>
-          <span style={{ color: 'rgba(229,228,226,0.82)', fontWeight: 300 }}>&nbsp;&mdash;&nbsp;enquiries and enforcement are real&hellip; and are here to stay.</span>
+          <span style={{ color: '#8c1f2e', fontWeight: 600 }}>HMRC Making Tax Digital</span>
+          <span style={{ color: '#8c1f2e', fontWeight: 300 }}>&nbsp;enquiries and enforcement are real&hellip; and are here to stay.</span>
           <span style={{ color: 'rgba(198,167,94,0.7)', fontSize: '6px', lineHeight: 1 }}>◆</span>
         </span>
 
