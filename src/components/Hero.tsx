@@ -1,19 +1,11 @@
 import { useEffect, useState } from 'react'
 
-const tickerItems = [
-  { text: 'MTD for Income Tax — mandatory from April 2026. Are you ready?', cta: true },
-  { text: 'Quarterly digital submissions replace your annual Self Assessment return. Miss a single deadline and penalty points accumulate rapidly.', cta: true },
-  { text: 'MTD for ITSA applies to sole traders and landlords earning over £50,000 from April 2026 — and drops to £30,000 twelve months later.' },
-  { text: 'Compatible software is now a legal requirement under MTD. Spreadsheets alone will no longer satisfy HMRC\'s digital records mandate.', cta: true },
-  { text: 'Penalty points under the new MTD regime do not reset automatically — accumulated points lead to fixed financial penalties and potential investigation.' },
-  { text: 'HMRC have confirmed there will be no further MTD deferrals. The clock is running. Unprepared businesses face compounding compliance risk.', cta: true },
-  { text: 'MTD affects your bookkeeping, your software, your accountant relationship, and your cash flow cycle — all simultaneously. Act now.' },
-]
-
 const pillars = ['Authentic Support', 'Dynamic Solutions', 'Evolutionary Advice']
 
 export default function Hero() {
   const [phase, setPhase] = useState(0)
+  const [pillarIndex, setPillarIndex] = useState(0)
+  const [pillarVisible, setPillarVisible] = useState(true)
 
   useEffect(() => {
     const timers = [
@@ -25,6 +17,18 @@ export default function Hero() {
     ]
     return () => timers.forEach(clearTimeout)
   }, [])
+
+  useEffect(() => {
+    if (phase < 4) return
+    const interval = setInterval(() => {
+      setPillarVisible(false)
+      setTimeout(() => {
+        setPillarIndex(i => (i + 1) % pillars.length)
+        setPillarVisible(true)
+      }, 500)
+    }, 3200)
+    return () => clearInterval(interval)
+  }, [phase])
 
   return (
     <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
@@ -56,7 +60,7 @@ export default function Hero() {
         }}
       />
 
-      {/* Client Guidance download — top left */}
+      {/* Client Guidance — top left */}
       <div
         className="absolute top-0 left-0 z-30 flex items-center"
         style={{
@@ -163,65 +167,62 @@ export default function Hero() {
         style={{ paddingTop: '80px', paddingBottom: '80px' }}
       >
 
-        {/* Plaque wrapper */}
+        {/* Plaque wrapper — enlarged and centred */}
         <div
           style={{
             opacity: phase >= 2 ? 1 : 0,
             transform: phase >= 2 ? 'translateY(0) scale(1)' : 'translateY(24px) scale(0.98)',
             transition: 'opacity 1s ease, transform 1s ease',
-            marginBottom: '28px',
+            marginBottom: '32px',
             position: 'relative',
             width: '100%',
-            maxWidth: 'clamp(280px, 90vw, 590px)',
+            maxWidth: 'clamp(320px, 88vw, 780px)',
           }}
         >
 
-          {/* Plaque — Layer 2: mid panel, navy */}
+          {/* Plaque mid panel */}
           <div className="plaque-mid-panel" style={{
             position: 'relative',
             borderRadius: '2px',
-            padding: 'clamp(16px, 3vw, 36px) clamp(14px, 4vw, 48px)',
+            padding: 'clamp(20px, 4vw, 52px) clamp(20px, 5vw, 64px)',
           }}>
 
-            {/* Mid-panel corner diamonds */}
+            {/* Corner diamonds */}
             {[
-              { top: '8px', left: '8px' },
-              { top: '8px', right: '8px' },
-              { bottom: '8px', left: '8px' },
-              { bottom: '8px', right: '8px' },
+              { top: '10px', left: '10px' },
+              { top: '10px', right: '10px' },
+              { bottom: '10px', left: '10px' },
+              { bottom: '10px', right: '10px' },
             ].map((pos, i) => (
-              <span key={i} style={{ position: 'absolute', ...pos, color: 'rgba(198,167,94,0.40)', fontSize: '6px', lineHeight: 1 }}>◆</span>
+              <span key={i} style={{ position: 'absolute', ...pos, color: 'rgba(198,167,94,0.40)', fontSize: '7px', lineHeight: 1 }}>◆</span>
             ))}
 
-            {/* Mid-panel inner hairline */}
+            {/* Inner hairline */}
             <div style={{
-              position: 'absolute', inset: '5px',
+              position: 'absolute', inset: '6px',
               border: '1px solid rgba(198,167,94,0.07)',
               borderRadius: '1px', pointerEvents: 'none',
             }} />
 
             {/* Eyebrow */}
-            <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '18px' }}>
+            <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '22px' }}>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.35))' }} />
               <span
                 className="font-sans font-light"
-                style={{ fontSize: 'clamp(7px, 1.7vw, 9px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.55)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}
+                style={{ fontSize: 'clamp(7px, 1.7vw, 10px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.55)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}
               >
                 Est. 1924
               </span>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.35))' }} />
             </div>
 
-            {/* Plaque — Layer 3: logo frame, deep navy jewel box */}
+            {/* Logo frame */}
             <div style={{ position: 'relative', width: '100%' }}>
-              {/* Ambient bloom */}
               <div style={{
-                position: 'absolute', inset: '-16px -24px',
+                position: 'absolute', inset: '-20px -30px',
                 background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(198,167,94,0.12) 0%, rgba(198,167,94,0.03) 60%, transparent 100%)',
                 pointerEvents: 'none', filter: 'blur(6px)',
               }} />
-
-              {/* Logo */}
               <img
                 src="/Adobe_Express_-_file.png"
                 alt="William Duncan"
@@ -238,8 +239,8 @@ export default function Hero() {
               />
             </div>
 
-            {/* Rule below logo frame */}
-            <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.3), transparent)', margin: '16px 0 14px' }} />
+            {/* Rule */}
+            <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.3), transparent)', margin: '20px 0 18px' }} />
 
             {/* Subtitle */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -247,7 +248,7 @@ export default function Hero() {
               <p
                 className="font-sans font-light"
                 style={{
-                  fontSize: 'clamp(0.48rem, 1.6vw, 0.6rem)',
+                  fontSize: 'clamp(0.5rem, 1.6vw, 0.65rem)',
                   letterSpacing: '0.22em',
                   color: 'rgba(198,167,94,0.75)',
                   textTransform: 'uppercase',
@@ -271,161 +272,121 @@ export default function Hero() {
             height: '1px',
             background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.5), transparent)',
             transition: 'width 0.8s ease 0.1s',
-            marginBottom: '112px',
+            marginBottom: '28px',
           }}
         />
 
-        {/* Three pillars */}
+        {/* Rotating single pillar */}
         <div
-          className="hidden sm:flex"
           style={{
             opacity: phase >= 4 ? 1 : 0,
-            transform: phase >= 4 ? 'translateY(0)' : 'translateY(10px)',
-            transition: 'opacity 0.6s ease, transform 0.6s ease',
+            transition: 'opacity 0.6s ease',
+            height: '20px',
+            display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            maxWidth: '480px',
           }}
         >
-          {pillars.map((label, i) => (
-            <span key={i} className="inline-flex items-center">
-              <span
-                className="font-sans font-light"
-                style={{
-                  fontSize: 'clamp(0.48rem, 1.1vw, 0.62rem)',
-                  letterSpacing: '0.22em',
-                  color: 'rgba(229,228,226,0.75)',
-                  textTransform: 'uppercase',
-                  fontWeight: 300,
-                  whiteSpace: 'nowrap',
-                  textShadow: '0 1px 0 rgba(0,0,0,0.6)',
-                }}
-              >
-                {label}
-              </span>
-              {i < pillars.length - 1 && (
-                <span
-                  style={{
-                    margin: '0 12px',
-                    color: 'rgba(198,167,94,0.3)',
-                    fontSize: '4px',
-                  }}
-                >
-                  ◆
-                </span>
-              )}
-            </span>
-          ))}
-        </div>
-
-        {/* Three pillars — mobile: stacked */}
-        <div
-          className="flex sm:hidden flex-col items-center"
-          style={{
-            opacity: phase >= 4 ? 1 : 0,
-            transform: phase >= 4 ? 'translateY(0)' : 'translateY(10px)',
-            transition: 'opacity 0.6s ease, transform 0.6s ease',
-            gap: '8px',
-          }}
-        >
-          {pillars.map((label, i) => (
-            <span
-              key={i}
-              className="font-sans font-light"
-              style={{
-                fontSize: '0.6rem',
-                letterSpacing: '0.22em',
-                color: 'rgba(229,228,226,0.75)',
-                textTransform: 'uppercase',
-                fontWeight: 300,
-                textShadow: '0 1px 0 rgba(0,0,0,0.6)',
-              }}
-            >
-              {label}
-            </span>
-          ))}
+          <span
+            className="font-sans font-light"
+            style={{
+              fontSize: 'clamp(0.5rem, 1.3vw, 0.65rem)',
+              letterSpacing: '0.30em',
+              color: 'rgba(229,228,226,0.75)',
+              textTransform: 'uppercase',
+              fontWeight: 300,
+              whiteSpace: 'nowrap',
+              textShadow: '0 1px 0 rgba(0,0,0,0.6)',
+              opacity: pillarVisible ? 1 : 0,
+              transition: 'opacity 0.5s ease',
+            }}
+          >
+            {pillars[pillarIndex]}
+          </span>
         </div>
 
       </div>
 
-      {/* Bottom ticker bar */}
+      {/* Act Now alert bar */}
       <div
-        className="relative z-20 w-full overflow-hidden"
+        className="relative z-20 w-full"
         style={{
-          borderTop: '1px solid rgba(198,167,94,0.12)',
-          background: 'rgba(14,12,8,0.6)',
+          borderTop: '1px solid rgba(180,30,30,0.35)',
+          background: 'rgba(12,6,6,0.82)',
           backdropFilter: 'blur(8px)',
           height: '48px',
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'center',
+          gap: '16px',
           opacity: phase >= 5 ? 1 : 0,
           transition: 'opacity 0.7s ease 0.8s',
         }}
       >
-        {/* Scrolling track — full width */}
-        <div className="flex-1 overflow-hidden relative">
-          {/* Fade edges */}
-          <div style={{
-            position: 'absolute', left: 0, top: 0, bottom: 0, width: '48px',
-            background: 'linear-gradient(to right, rgba(6,10,22,0.9), transparent)',
-            zIndex: 1, pointerEvents: 'none',
+        {/* Pulsing red dot */}
+        <span style={{ position: 'relative', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+          <span style={{
+            display: 'block', width: '7px', height: '7px', borderRadius: '50%',
+            background: '#c0272d',
+            boxShadow: '0 0 0 0 rgba(192,39,45,0.5)',
+            animation: 'alertPulse 1.6s ease-in-out infinite',
           }} />
-          <div style={{
-            position: 'absolute', right: 0, top: 0, bottom: 0, width: '48px',
-            background: 'linear-gradient(to left, rgba(6,10,22,0.9), transparent)',
-            zIndex: 1, pointerEvents: 'none',
-          }} />
+        </span>
 
-          <div className="animate-marquee flex items-center whitespace-nowrap" style={{ height: '48px' }}>
-            {[...tickerItems, ...tickerItems].map((item, i) => (
-              <span key={i} className="inline-flex items-center">
-                <span
-                  className="font-sans"
-                  style={{
-                    fontSize: '10px',
-                    letterSpacing: '0.13em',
-                    color: 'rgba(198,167,94,0.82)',
-                    fontWeight: 300,
-                  }}
-                >
-                  {item.text}
-                </span>
-                {item.cta && (
-                  <a
-                    href="/wd-hub-client-alert.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      marginLeft: '14px',
-                      fontSize: '8.5px',
-                      letterSpacing: '0.2em',
-                      fontWeight: 600,
-                      color: 'rgba(229,228,226,0.85)',
-                      textTransform: 'uppercase',
-                      textDecoration: 'none',
-                      border: '1px solid rgba(229,228,226,0.25)',
-                      borderRadius: '2px',
-                      padding: '2px 8px',
-                      whiteSpace: 'nowrap',
-                      transition: 'color 0.2s, border-color 0.2s',
-                    }}
-                    onMouseEnter={e => {
-                      (e.currentTarget as HTMLAnchorElement).style.color = '#C6A75E'
-                      ;(e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(198,167,94,0.5)'
-                    }}
-                    onMouseLeave={e => {
-                      (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(229,228,226,0.85)'
-                      ;(e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(229,228,226,0.25)'
-                    }}
-                  >
-                    Client Guidance
-                  </a>
-                )}
-                <span style={{ margin: '0 36px', color: 'rgba(198,167,94,0.25)', fontSize: '5px' }}>◆</span>
-              </span>
-            ))}
-          </div>
-        </div>
+        <span
+          className="font-sans"
+          style={{
+            fontSize: 'clamp(8.5px, 1.8vw, 10.5px)',
+            letterSpacing: '0.16em',
+            color: 'rgba(229,220,210,0.82)',
+            fontWeight: 300,
+            whiteSpace: 'nowrap',
+          }}
+        >
+          HMRC enforcement is escalating &mdash; every client is now in scope.
+        </span>
+
+        <div style={{ width: '1px', height: '14px', background: 'rgba(198,167,94,0.2)', flexShrink: 0 }} />
+
+        <a
+          href="/wd-hub-client-alert.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-sans font-semibold"
+          style={{
+            fontSize: 'clamp(7.5px, 1.5vw, 9px)',
+            letterSpacing: '0.28em',
+            color: '#c0272d',
+            textTransform: 'uppercase',
+            textDecoration: 'none',
+            border: '1px solid rgba(192,39,45,0.45)',
+            borderRadius: '2px',
+            padding: '3px 10px',
+            whiteSpace: 'nowrap',
+            transition: 'color 0.2s, border-color 0.2s, background 0.2s',
+          }}
+          onMouseEnter={e => {
+            const el = e.currentTarget as HTMLAnchorElement
+            el.style.color = '#e8d5b0'
+            el.style.borderColor = 'rgba(198,167,94,0.6)'
+            el.style.background = 'rgba(192,39,45,0.12)'
+          }}
+          onMouseLeave={e => {
+            const el = e.currentTarget as HTMLAnchorElement
+            el.style.color = '#c0272d'
+            el.style.borderColor = 'rgba(192,39,45,0.45)'
+            el.style.background = 'transparent'
+          }}
+        >
+          Act Now
+        </a>
+
+        <style>{`
+          @keyframes alertPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(192,39,45,0.55); }
+            50% { box-shadow: 0 0 0 5px rgba(192,39,45,0); }
+          }
+        `}</style>
       </div>
 
     </section>
