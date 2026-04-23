@@ -1,43 +1,67 @@
-const phrases = [
+import { useEffect, useState } from 'react'
+
+const statements = [
   'Authentic relations, entrenched client support',
   'Dynamic solutions to every challenge faced',
   'Intrinsic and evolving advice tailored to our valued clients',
+  'Over a century of trusted expertise',
+  'Partner-led. Discreet. Results-driven.',
 ]
 
 export default function Footer() {
+  const [current, setCurrent] = useState(0)
+  const [visible, setVisible] = useState(true)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false)
+      setTimeout(() => {
+        setCurrent(c => (c + 1) % statements.length)
+        setVisible(true)
+      }, 600)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
-    <footer className="border-t border-gold/10" style={{ background: '#080e1a' }}>
+    <footer style={{ background: '#080e1a', borderTop: '1px solid rgba(198,167,94,0.08)' }}>
 
-      {/* Italic phrases */}
-      <div className="border-b border-gold/10 flex flex-col items-start justify-center gap-2" style={{ padding: '18px 24px' }}>
-        {phrases.map((phrase, i) => (
-          <p
-            key={i}
-            className="font-serif text-left"
-            style={{
-              fontSize: 'clamp(0.6rem, 1.5vw, 0.78rem)',
-              letterSpacing: '0.16em',
-              color: 'rgba(198,167,94,0.62)',
-              fontStyle: 'italic',
-              margin: 0,
-            }}
-          >
-            {phrase}
-          </p>
-        ))}
-      </div>
-
-      {/* Copyright row */}
-      <div className="px-6 h-12 flex items-center justify-end border-b border-gold/5">
-        <div className="flex items-center gap-4 text-[10px]">
-          <span className="font-semibold text-white tracking-widest text-xs">William Duncan CA</span>
-          <span style={{ color: 'rgba(229,228,226,0.15)' }}>|</span>
-          <span style={{ color: 'rgba(229,228,226,0.35)' }}>&copy; {new Date().getFullYear()} All rights reserved.</span>
+      {/* Rotating statement — centre aligned */}
+      <div
+        style={{
+          padding: 'clamp(20px, 3vh, 36px) 24px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '12px',
+          borderBottom: '1px solid rgba(198,167,94,0.06)',
+          minHeight: '80px',
+          justifyContent: 'center',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', width: '100%', maxWidth: '600px' }}>
+          <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.2))' }} />
+          <span style={{ color: 'rgba(198,167,94,0.3)', fontSize: '6px' }}>◆</span>
+          <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.2))' }} />
         </div>
+        <p
+          className="font-serif text-center"
+          style={{
+            fontSize: 'clamp(0.62rem, 1.5vw, 0.82rem)',
+            letterSpacing: '0.18em',
+            color: 'rgba(198,167,94,0.75)',
+            fontStyle: 'italic',
+            margin: 0,
+            opacity: visible ? 1 : 0,
+            transition: 'opacity 0.6s ease',
+          }}
+        >
+          {statements[current]}
+        </p>
       </div>
 
-      {/* Bottom row — client alert left */}
-      <div className="px-6 h-12 flex items-center">
+      {/* Bottom row — client alert left only */}
+      <div style={{ padding: '0 24px', height: '52px', display: 'flex', alignItems: 'center' }}>
         <a
           href="/wd-hub-client-alert.html"
           target="_blank"
