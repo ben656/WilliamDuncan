@@ -264,7 +264,7 @@ export default function Hero() {
             </div>
 
             {/* Trusted line — below subtitle */}
-            <div className="flex items-center justify-center" style={{ marginTop: '14px' }}>
+            <div className="flex items-center justify-center" style={{ marginTop: '28px' }}>
               <span
                 className="font-serif"
                 style={{
@@ -286,7 +286,7 @@ export default function Hero() {
         <div style={{ flex: 1 }} />
 
         {/* Gold rule + rotating pillar — centred in remaining space */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', flex: 1, justifyContent: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', flex: 1, justifyContent: 'center', paddingTop: '40px' }}>
           <div
             style={{
               width: phase >= 3 ? 'clamp(60px, 10vw, 120px)' : '0px',
@@ -359,7 +359,7 @@ export default function Hero() {
           }}
         >
           <span style={{ color: '#8c1f2e' }}>HMRC</span>
-          <span style={{ color: 'rgba(229,228,226,0.55)' }}>&nbsp;Making Tax Digital enquiries and enforcement power are real&hellip; and are here to stay.</span>
+          <span style={{ color: 'rgba(229,228,226,0.55)' }}>&nbsp;digital power is growing.</span>
         </span>
 
         <div style={{ width: '1px', height: '14px', background: 'rgba(229,228,226,0.2)', flexShrink: 0 }} />
