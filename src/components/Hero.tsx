@@ -68,9 +68,10 @@ export default function Hero() {
         }}
       >
         <a
-          href="/client-guidance.pdf"
-          download
-          title="Download Client Guidance"
+          href="/wd-hub-client-alert.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Client Guidance"
           className="flex items-center gap-2 group"
           style={{ textDecoration: 'none' }}
         >
@@ -391,8 +392,9 @@ export default function Hero() {
                 </span>
                 {item.cta && (
                   <a
-                    href="/client-guidance.pdf"
-                    download
+                    href="/wd-hub-client-alert.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       marginLeft: '14px',
                       fontSize: '8.5px',
