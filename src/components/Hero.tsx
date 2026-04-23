@@ -165,7 +165,7 @@ export default function Hero() {
       {/* Main content */}
       <div
         className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4 sm:px-6"
-        style={{ paddingTop: '80px', paddingBottom: '80px' }}
+        style={{ paddingTop: '120px', paddingBottom: '80px' }}
       >
 
         {/* Plaque wrapper — enlarged and centred */}
@@ -212,10 +212,10 @@ export default function Hero() {
                 style={{
                   fontSize: 'clamp(0.65rem, 1.8vw, 0.88rem)',
                   letterSpacing: '0.12em',
-                  color: 'rgba(229,228,226,0.92)',
+                  color: 'rgba(198,167,94,0.80)',
                   fontStyle: 'italic',
                   whiteSpace: 'nowrap',
-                  textShadow: '0 1px 6px rgba(0,0,0,0.9), 0 0 20px rgba(198,167,94,0.12)',
+                  textShadow: '0 1px 6px rgba(0,0,0,0.9)',
                 }}
               >
                 Trusted by clients for a century
@@ -370,7 +370,8 @@ export default function Hero() {
             gap: '8px',
           }}
         >
-          Making Tax Digital:&nbsp;<span style={{ color: '#7a1c28', fontWeight: 600 }}>MTD</span>&nbsp;scope, mandate and enforcement is scaling up.
+          <span style={{ color: '#8c1f2e', fontWeight: 700, letterSpacing: '0.12em' }}>HMRC: Making Tax Digital</span>
+          <span style={{ color: 'rgba(229,228,226,0.82)', fontWeight: 300 }}>&nbsp;&mdash;&nbsp;enquiries and enforcement are real&hellip; and are here to stay.</span>
           <span style={{ color: 'rgba(198,167,94,0.7)', fontSize: '6px', lineHeight: 1 }}>◆</span>
         </span>
 
