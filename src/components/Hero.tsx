@@ -373,7 +373,7 @@ export default function Hero() {
             whiteSpace: 'nowrap',
           }}
         >
-          HMRC enforcement is escalating &mdash; MTD scope widens.
+          HMRC MTD scope, mandate and enforcement is scaling up.
         </span>
 
         <div style={{ width: '1px', height: '14px', background: 'rgba(148,122,60,0.25)', flexShrink: 0 }} />
