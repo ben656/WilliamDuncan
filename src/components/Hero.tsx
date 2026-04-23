@@ -343,7 +343,7 @@ export default function Hero() {
             whiteSpace: 'nowrap',
           }}
         >
-          HMRC enforcement is escalating &mdash; every client is now in scope.
+          HMRC enforcement is escalating &mdash; MTD scope widens.
         </span>
 
         <div style={{ width: '1px', height: '14px', background: 'rgba(198,167,94,0.2)', flexShrink: 0 }} />
@@ -378,7 +378,7 @@ export default function Hero() {
             el.style.background = 'transparent'
           }}
         >
-          Act Now
+          Our Guided Support &mdash; Act Now
         </a>
 
         <style>{`
