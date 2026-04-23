@@ -71,6 +71,48 @@ export default function Hero() {
         </a>
       </div>
 
+      {/* Header centre — Act Now alert */}
+      <div
+        className="absolute top-0 left-0 right-0 z-30 flex items-center justify-center pointer-events-none"
+        style={{
+          height: '100px',
+          opacity: phase >= 5 ? 1 : 0,
+          transition: 'opacity 0.9s ease',
+        }}
+      >
+        <a
+          href="/wd-hub-client-alert.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-sans flex items-center gap-3 pointer-events-auto"
+          style={{
+            textDecoration: 'none',
+            border: '1px solid rgba(140,31,46,0.45)',
+            borderRadius: '2px',
+            padding: '6px 16px',
+            transition: 'border-color 0.2s, background 0.2s',
+          }}
+          onMouseEnter={e => {
+            const el = e.currentTarget as HTMLAnchorElement
+            el.style.borderColor = 'rgba(140,31,46,0.8)'
+            el.style.background = 'rgba(140,31,46,0.06)'
+          }}
+          onMouseLeave={e => {
+            const el = e.currentTarget as HTMLAnchorElement
+            el.style.borderColor = 'rgba(140,31,46,0.45)'
+            el.style.background = 'transparent'
+          }}
+        >
+          <span style={{ fontSize: 'clamp(7px, 1.4vw, 9px)', letterSpacing: '0.28em', fontWeight: 700, color: '#8c1f2e', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+            Act Now
+          </span>
+          <span style={{ color: 'rgba(140,31,46,0.35)', fontSize: '7px' }}>◆</span>
+          <span style={{ fontSize: 'clamp(7px, 1.4vw, 9.5px)', letterSpacing: '0.14em', color: '#8c1f2e', fontWeight: 400, whiteSpace: 'nowrap' }}>
+            HMRC digital enforcement is growing
+          </span>
+        </a>
+      </div>
+
       {/* Top right — contact icons */}
       <div
         className="absolute top-0 right-0 z-30 flex items-center"
@@ -144,7 +186,7 @@ export default function Hero() {
         >
           <span
             className="font-serif"
-            style={{ fontSize: 'clamp(7.5px, 1.5vw, 10px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.7)', fontStyle: 'italic', whiteSpace: 'nowrap' }}
+            style={{ fontSize: 'clamp(9px, 1.8vw, 12px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.7)', fontStyle: 'italic', whiteSpace: 'nowrap' }}
           >
             Trusted by clients for a century
           </span>
@@ -177,7 +219,7 @@ export default function Hero() {
 
             <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '22px' }}>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.35))' }} />
-              <span className="font-sans font-light" style={{ fontSize: 'clamp(7px, 1.7vw, 10px)', letterSpacing: '0.42em', color: 'rgba(198,167,94,0.75)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+              <span className="font-sans font-light" style={{ fontSize: 'clamp(7px, 1.7vw, 10px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.88)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
                 Est. 1924
               </span>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.35))' }} />
@@ -214,7 +256,7 @@ export default function Hero() {
                 style={{
                   fontSize: 'clamp(0.5rem, 1.6vw, 0.65rem)',
                   letterSpacing: '0.22em',
-                  color: 'rgba(198,167,94,0.75)',
+                  color: 'rgba(229,228,226,0.88)',
                   textTransform: 'uppercase',
                   textAlign: 'center',
                   margin: 0,
@@ -242,11 +284,11 @@ export default function Hero() {
           }}
         >
           <div className="flex items-center gap-2">
-            <span className="font-serif" style={{ fontSize: 'clamp(7.5px, 1.5vw, 10px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.7)', fontStyle: 'italic', whiteSpace: 'nowrap' }}>
+            <span className="font-serif" style={{ fontSize: 'clamp(9px, 1.8vw, 12px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.7)', fontStyle: 'italic', whiteSpace: 'nowrap' }}>
               Authentic Relations
             </span>
             <span style={{ color: 'rgba(198,167,94,0.3)', fontSize: '8px' }}>|</span>
-            <span className="font-serif" style={{ fontSize: 'clamp(7.5px, 1.5vw, 10px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.7)', fontStyle: 'italic', whiteSpace: 'nowrap' }}>
+            <span className="font-serif" style={{ fontSize: 'clamp(9px, 1.8vw, 12px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.7)', fontStyle: 'italic', whiteSpace: 'nowrap' }}>
               Dynamic Solutions
             </span>
           </div>
@@ -254,50 +296,6 @@ export default function Hero() {
 
       </div>
 
-      {/* Alert bar — centred, boxed */}
-      <div
-        className="relative z-20 w-full flex items-center justify-center"
-        style={{
-          background: 'rgba(8,14,26,0.97)',
-          backdropFilter: 'blur(8px)',
-          height: '64px',
-          opacity: phase >= 5 ? 1 : 0,
-          transition: 'opacity 0.9s ease',
-          padding: '0 32px',
-        }}
-      >
-        <a
-          href="/wd-hub-client-alert.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-sans flex items-center gap-4"
-          style={{
-            textDecoration: 'none',
-            border: '1px solid rgba(140,31,46,0.45)',
-            borderRadius: '2px',
-            padding: '8px 20px',
-            transition: 'border-color 0.2s, background 0.2s',
-          }}
-          onMouseEnter={e => {
-            const el = e.currentTarget as HTMLAnchorElement
-            el.style.borderColor = 'rgba(140,31,46,0.8)'
-            el.style.background = 'rgba(140,31,46,0.06)'
-          }}
-          onMouseLeave={e => {
-            const el = e.currentTarget as HTMLAnchorElement
-            el.style.borderColor = 'rgba(140,31,46,0.45)'
-            el.style.background = 'transparent'
-          }}
-        >
-          <span style={{ fontSize: 'clamp(8px, 1.6vw, 10px)', letterSpacing: '0.26em', fontWeight: 700, color: '#8c1f2e', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
-            Act Now
-          </span>
-          <span style={{ color: 'rgba(140,31,46,0.4)', fontSize: '9px' }}>◆</span>
-          <span style={{ fontSize: 'clamp(8.5px, 1.8vw, 10.5px)', letterSpacing: '0.16em', color: '#8c1f2e', fontWeight: 400, whiteSpace: 'nowrap' }}>
-            HMRC digital enforcement is growing
-          </span>
-        </a>
-      </div>
 
     </section>
   )
