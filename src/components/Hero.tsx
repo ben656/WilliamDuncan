@@ -1,5 +1,20 @@
 import { useEffect, useState } from 'react'
 
+const leftCredentials = [
+  { label: 'Est.', value: '1924' },
+  { label: 'Years', value: '100+' },
+  { label: 'Clients', value: '500+' },
+  { label: 'Generations', value: '3' },
+]
+
+const rightPillars = [
+  'Partner-led service',
+  'Chartered Accountants',
+  'Tax & Wealth Planning',
+  'Discreet Advisory',
+  'UK-wide expertise',
+]
+
 export default function Hero() {
   const [phase, setPhase] = useState(0)
 
@@ -9,33 +24,27 @@ export default function Hero() {
       setTimeout(() => setPhase(2), 1000),
       setTimeout(() => setPhase(3), 1800),
       setTimeout(() => setPhase(4), 2600),
-      setTimeout(() => setPhase(5), 3200),
     ]
     return () => timers.forEach(clearTimeout)
   }, [])
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden" style={{ background: '#080e1a' }}>
 
-      {/* Background layers */}
-      <div className="absolute inset-0 bg-navy-dark" />
+      {/* Background texture */}
       <div
         className="absolute inset-0"
-        style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(198,167,94,0.07) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(198,167,94,0.06) 0%, transparent 70%)' }}
       />
-      <div className="absolute inset-0 diamond-pattern" style={{ opacity: 0.4 }} />
-      <div
-        className="absolute inset-0"
-        style={{ background: 'linear-gradient(to bottom, rgba(8,14,26,0.2) 0%, transparent 40%, rgba(8,14,26,0.85) 100%)' }}
-      />
+      <div className="absolute inset-0 diamond-pattern" style={{ opacity: 0.35 }} />
 
       {/* Header bar */}
       <div
         className="absolute left-0 right-0 top-0 z-20"
-        style={{ height: '100px', background: 'rgba(8,14,26,0.97)', backdropFilter: 'blur(8px)' }}
+        style={{ height: '100px', background: 'rgba(8,14,26,0.97)', backdropFilter: 'blur(8px)', borderBottom: '1px solid rgba(198,167,94,0.08)' }}
       />
 
-      {/* Top left — Client Guidance download */}
+      {/* Top left — Client Guidance | HMRC Alert */}
       <div
         className="absolute top-0 left-0 z-30 flex items-center"
         style={{
@@ -56,14 +65,14 @@ export default function Hero() {
         >
           <svg
             width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}
-            style={{ color: 'rgba(229,228,226,0.75)', flexShrink: 0, transition: 'color 0.2s ease' }}
+            style={{ color: 'rgba(229,228,226,0.75)', flexShrink: 0 }}
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
           </svg>
           <span className="font-sans whitespace-nowrap hidden sm:inline" style={{ fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase' }}>
-            <span style={{ fontWeight: 600, color: 'rgba(229,228,226,0.75)', transition: 'color 0.2s ease' }}>Client Guidance</span>
+            <span style={{ fontSize: '9px', fontWeight: 600, color: 'rgba(229,228,226,0.75)' }}>Client Guidance</span>
             <span style={{ color: 'rgba(229,228,226,0.2)', margin: '0 6px' }}>|</span>
-            <span style={{ fontWeight: 700, color: '#8c1f2e' }}>HMRC Alert</span>
+            <span style={{ fontSize: '9px', fontWeight: 700, color: '#8c1f2e' }}>HMRC Alert</span>
           </span>
         </a>
       </div>
@@ -122,135 +131,175 @@ export default function Hero() {
         </a>
       </div>
 
-      {/* Main content — centred column, items constrained to plaque width */}
+      {/* Main content — three columns */}
       <div
-        className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4 sm:px-6"
-        style={{ paddingTop: '130px', paddingBottom: '40px' }}
+        className="relative z-10 flex-1 flex items-center justify-center px-4 sm:px-8"
+        style={{ paddingTop: '110px', paddingBottom: '48px' }}
       >
+        <div className="w-full max-w-7xl flex items-center gap-6 lg:gap-10">
 
-        {/* "Trusted by clients" — left-aligned to plaque edge */}
-        <div
-          className="hidden sm:flex w-full justify-start"
-          style={{
-            maxWidth: 'clamp(320px, 88vw, 780px)',
-            opacity: phase >= 4 ? 1 : 0,
-            transform: phase >= 4 ? 'translateY(0)' : 'translateY(-8px)',
-            transition: 'opacity 0.8s ease, transform 0.8s ease',
-            marginBottom: '12px',
-          }}
-        >
-          <span
-            className="font-serif"
-            style={{ fontSize: 'clamp(10px, 2vw, 13px)', letterSpacing: '0.20em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic', whiteSpace: 'nowrap' }}
+          {/* Left column — credentials */}
+          <div
+            className="hidden lg:flex flex-col gap-5 flex-shrink-0"
+            style={{
+              width: '160px',
+              opacity: phase >= 3 ? 1 : 0,
+              transform: phase >= 3 ? 'translateX(0)' : 'translateX(-20px)',
+              transition: 'opacity 0.9s ease, transform 0.9s ease',
+            }}
           >
-            Trusted by clients for a century
-          </span>
-        </div>
+            {/* Italic tagline above stats */}
+            <span
+              className="font-serif"
+              style={{ fontSize: 'clamp(9px, 1.2vw, 11px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic' }}
+            >
+              Trusted by clients for a century
+            </span>
 
-        {/* Plaque wrapper */}
-        <div
-          style={{
-            opacity: phase >= 2 ? 1 : 0,
-            transform: phase >= 2 ? 'translateY(0) scale(1)' : 'translateY(24px) scale(0.98)',
-            transition: 'opacity 1s ease, transform 1s ease',
-            marginBottom: '8px',
-            position: 'relative',
-            width: '100%',
-            maxWidth: 'clamp(320px, 88vw, 780px)',
-          }}
-        >
-          <div className="plaque-mid-panel" style={{ position: 'relative', borderRadius: '2px', padding: 'clamp(28px, 5vw, 68px) clamp(24px, 6vw, 80px)' }}>
+            <div style={{ height: '1px', background: 'linear-gradient(to right, rgba(198,167,94,0.3), transparent)' }} />
 
-            {[
-              { top: '10px', left: '10px' },
-              { top: '10px', right: '10px' },
-              { bottom: '10px', left: '10px' },
-              { bottom: '10px', right: '10px' },
-            ].map((pos, i) => (
-              <span key={i} style={{ position: 'absolute', ...pos, color: 'rgba(198,167,94,0.40)', fontSize: '7px', lineHeight: 1 }}>◆</span>
+            {leftCredentials.map(({ label, value }) => (
+              <div key={label}>
+                <div
+                  className="font-sans font-light"
+                  style={{ fontSize: 'clamp(22px, 3vw, 32px)', color: 'rgba(198,167,94,0.85)', letterSpacing: '0.04em', lineHeight: 1 }}
+                >
+                  {value}
+                </div>
+                <div
+                  className="font-sans"
+                  style={{ fontSize: '8px', letterSpacing: '0.32em', textTransform: 'uppercase', color: 'rgba(229,228,226,0.35)', marginTop: '4px' }}
+                >
+                  {label}
+                </div>
+              </div>
             ))}
 
-            <div style={{ position: 'absolute', inset: '6px', border: '1px solid rgba(198,167,94,0.07)', borderRadius: '1px', pointerEvents: 'none' }} />
-
-            <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '22px' }}>
-              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.35))' }} />
-              <span className="font-sans font-light" style={{ fontSize: 'clamp(7px, 1.7vw, 10px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.88)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
-                Est. 1924
-              </span>
-              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.35))' }} />
-            </div>
-
-            <div style={{ position: 'relative', width: '100%' }}>
-              <div style={{
-                position: 'absolute', inset: '-20px -30px',
-                background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(198,167,94,0.12) 0%, rgba(198,167,94,0.03) 60%, transparent 100%)',
-                pointerEvents: 'none', filter: 'blur(6px)',
-              }} />
-              <img
-                src="/Adobe_Express_-_file.png"
-                alt="William Duncan"
-                style={{
-                  display: 'block', width: '100%', maxWidth: '100%', height: 'auto',
-                  position: 'relative', zIndex: 1,
-                  filter: [
-                    'drop-shadow(0 1px 0 rgba(198,167,94,0.3))',
-                    'drop-shadow(0 -1px 0 rgba(0,0,0,0.8))',
-                    'drop-shadow(0 3px 14px rgba(0,0,0,0.75))',
-                    'drop-shadow(0 0 22px rgba(198,167,94,0.10))',
-                  ].join(' '),
-                }}
-              />
-            </div>
-
-            <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.3), transparent)', margin: '20px 0 18px' }} />
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.18))' }} />
-              <p
-                className="font-sans font-light"
-                style={{
-                  fontSize: 'clamp(0.5rem, 1.6vw, 0.65rem)',
-                  letterSpacing: '0.22em',
-                  color: 'rgba(229,228,226,0.88)',
-                  textTransform: 'uppercase',
-                  textAlign: 'center',
-                  margin: 0,
-                  whiteSpace: 'nowrap',
-                  textShadow: '0 1px 0 rgba(255,255,255,0.08), 0 -1px 0 rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)',
-                }}
-              >
-                Chartered Accountants · Business &amp; Tax Advisers
-              </p>
-              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.18))' }} />
-            </div>
-
+            <div style={{ height: '1px', background: 'linear-gradient(to right, rgba(198,167,94,0.3), transparent)' }} />
           </div>
-        </div>
 
-        {/* "Authentic Relations" — right-aligned to plaque edge */}
-        <div
-          className="hidden sm:flex w-full justify-end"
-          style={{
-            maxWidth: 'clamp(320px, 88vw, 780px)',
-            opacity: phase >= 4 ? 1 : 0,
-            transform: phase >= 4 ? 'translateY(0)' : 'translateY(8px)',
-            transition: 'opacity 0.8s ease, transform 0.8s ease',
-            marginTop: '12px',
-          }}
-        >
-          <div className="flex items-center gap-3">
-            <span className="font-serif" style={{ fontSize: 'clamp(10px, 2vw, 13px)', letterSpacing: '0.20em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic', whiteSpace: 'nowrap' }}>
+          {/* Centre — plaque */}
+          <div
+            className="flex-1 flex flex-col items-center"
+            style={{
+              opacity: phase >= 2 ? 1 : 0,
+              transform: phase >= 2 ? 'translateY(0) scale(1)' : 'translateY(24px) scale(0.98)',
+              transition: 'opacity 1s ease, transform 1s ease',
+              maxWidth: '660px',
+              margin: '0 auto',
+            }}
+          >
+            <div className="plaque-mid-panel w-full" style={{ position: 'relative', borderRadius: '2px', padding: 'clamp(28px, 5vw, 68px) clamp(24px, 6vw, 80px)' }}>
+
+              {[
+                { top: '10px', left: '10px' },
+                { top: '10px', right: '10px' },
+                { bottom: '10px', left: '10px' },
+                { bottom: '10px', right: '10px' },
+              ].map((pos, i) => (
+                <span key={i} style={{ position: 'absolute', ...pos, color: 'rgba(198,167,94,0.40)', fontSize: '7px', lineHeight: 1 }}>◆</span>
+              ))}
+
+              <div style={{ position: 'absolute', inset: '6px', border: '1px solid rgba(198,167,94,0.07)', borderRadius: '1px', pointerEvents: 'none' }} />
+
+              <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '22px' }}>
+                <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.35))' }} />
+                <span className="font-sans font-light" style={{ fontSize: 'clamp(7px, 1.7vw, 10px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.88)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+                  Est. 1924
+                </span>
+                <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.35))' }} />
+              </div>
+
+              <div style={{ position: 'relative', width: '100%' }}>
+                <div style={{
+                  position: 'absolute', inset: '-20px -30px',
+                  background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(198,167,94,0.12) 0%, rgba(198,167,94,0.03) 60%, transparent 100%)',
+                  pointerEvents: 'none', filter: 'blur(6px)',
+                }} />
+                <img
+                  src="/Adobe_Express_-_file.png"
+                  alt="William Duncan"
+                  style={{
+                    display: 'block', width: '100%', maxWidth: '100%', height: 'auto',
+                    position: 'relative', zIndex: 1,
+                    filter: [
+                      'drop-shadow(0 1px 0 rgba(198,167,94,0.3))',
+                      'drop-shadow(0 -1px 0 rgba(0,0,0,0.8))',
+                      'drop-shadow(0 3px 14px rgba(0,0,0,0.75))',
+                      'drop-shadow(0 0 22px rgba(198,167,94,0.10))',
+                    ].join(' '),
+                  }}
+                />
+              </div>
+
+              <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.3), transparent)', margin: '20px 0 18px' }} />
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.18))' }} />
+                <p
+                  className="font-sans font-light"
+                  style={{
+                    fontSize: 'clamp(0.5rem, 1.6vw, 0.65rem)',
+                    letterSpacing: '0.22em',
+                    color: 'rgba(229,228,226,0.88)',
+                    textTransform: 'uppercase',
+                    textAlign: 'center',
+                    margin: 0,
+                    whiteSpace: 'nowrap',
+                    textShadow: '0 1px 0 rgba(255,255,255,0.08), 0 -1px 0 rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)',
+                  }}
+                >
+                  Chartered Accountants · Business &amp; Tax Advisers
+                </p>
+                <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.18))' }} />
+              </div>
+
+            </div>
+          </div>
+
+          {/* Right column — service pillars */}
+          <div
+            className="hidden lg:flex flex-col gap-4 flex-shrink-0"
+            style={{
+              width: '160px',
+              opacity: phase >= 3 ? 1 : 0,
+              transform: phase >= 3 ? 'translateX(0)' : 'translateX(20px)',
+              transition: 'opacity 0.9s ease, transform 0.9s ease',
+            }}
+          >
+            <span
+              className="font-serif"
+              style={{ fontSize: 'clamp(9px, 1.2vw, 11px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic' }}
+            >
               Authentic Relations
             </span>
-            <span style={{ color: 'rgba(198,167,94,0.28)', fontSize: '9px' }}>|</span>
-            <span className="font-serif" style={{ fontSize: 'clamp(10px, 2vw, 13px)', letterSpacing: '0.20em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic', whiteSpace: 'nowrap' }}>
+
+            <div style={{ height: '1px', background: 'linear-gradient(to left, rgba(198,167,94,0.3), transparent)' }} />
+
+            {rightPillars.map((pillar) => (
+              <div key={pillar} className="flex items-start gap-2">
+                <span style={{ color: 'rgba(198,167,94,0.45)', fontSize: '6px', marginTop: '4px', flexShrink: 0 }}>◆</span>
+                <span
+                  className="font-sans"
+                  style={{ fontSize: 'clamp(8px, 1.1vw, 10px)', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(229,228,226,0.55)', lineHeight: 1.5 }}
+                >
+                  {pillar}
+                </span>
+              </div>
+            ))}
+
+            <div style={{ height: '1px', background: 'linear-gradient(to left, rgba(198,167,94,0.3), transparent)' }} />
+
+            <span
+              className="font-serif"
+              style={{ fontSize: 'clamp(9px, 1.2vw, 11px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic' }}
+            >
               Dynamic Solutions
             </span>
           </div>
+
         </div>
-
       </div>
-
 
     </section>
   )

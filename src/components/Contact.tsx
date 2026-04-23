@@ -9,7 +9,7 @@ const reasons = [
 export default function Contact() {
 
   return (
-    <section id="contact" className="py-16 sm:py-24 bg-navy-dark">
+    <section id="contact" className="py-16 sm:py-24" style={{ background: '#080e1a' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold metallic-chrome mb-4">

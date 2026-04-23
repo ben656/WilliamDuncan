@@ -34,11 +34,12 @@ export default function Heritage() {
     <section
       id="heritage"
       ref={sectionRef}
-      className="py-16 sm:py-24 md:py-32 bg-gradient-to-br from-[#0a1628] via-[#0f1e3a] to-[#1a2847] relative"
+      className="py-16 sm:py-24 md:py-32 relative"
+      style={{ background: '#080e1a' }}
     >
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 overflow-visible">
@@ -160,7 +161,7 @@ export default function Heritage() {
             </div>
 
             <div className="relative mt-2 md:mt-0">
-              <div className="bg-gradient-to-br from-[#1a2847]/60 to-[#0a1628]/60 backdrop-blur-sm border border-gold/20 rounded-2xl p-5 sm:p-8 shadow-2xl">
+              <div className="backdrop-blur-sm border border-gold/20 rounded-2xl p-5 sm:p-8 shadow-2xl" style={{ background: 'rgba(14,20,34,0.6)' }}>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4 group">
                     <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">

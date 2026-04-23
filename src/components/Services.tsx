@@ -61,21 +61,21 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      <div className="relative bg-gradient-to-br from-navy-dark/90 via-navy/80 to-navy-dark/90 backdrop-blur-sm border border-sky-500/50 px-5 sm:px-8 py-7 sm:py-10 transition-all duration-500 shadow-2xl hover:border-sky-400/70 group">
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 via-transparent to-sky-400/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="relative backdrop-blur-sm border border-gold/30 px-5 sm:px-8 py-7 sm:py-10 transition-all duration-500 shadow-2xl hover:border-gold/55 group" style={{ background: 'linear-gradient(160deg, rgba(14,20,34,0.95) 0%, rgba(8,14,26,0.95) 100%)' }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-gold/4 via-transparent to-gold/6 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-        <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-sky-400/70"></div>
-        <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-sky-400/70"></div>
+        <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-gold/45"></div>
+        <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/45"></div>
 
         <div className="relative z-10">
-          <div className="w-12 h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent mb-4 opacity-70"></div>
-          <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-light text-sky-400 mb-3 tracking-wide drop-shadow-lg">
+          <div className="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mb-4 opacity-60"></div>
+          <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-light mb-3 tracking-wide" style={{ color: 'rgba(198,167,94,0.9)' }}>
             {service.title}
           </h3>
-          <p className="font-sans text-slate-300 leading-relaxed">
+          <p className="font-sans leading-relaxed" style={{ color: 'rgba(229,228,226,0.7)' }}>
             {service.description}
           </p>
-          <div className="w-12 h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent mt-4 opacity-70"></div>
+          <div className="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mt-4 opacity-60"></div>
         </div>
       </div>
     </div>
@@ -84,14 +84,14 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 
 export default function Services() {
   return (
-    <section id="services" className="py-16 sm:py-24 bg-navy">
+    <section id="services" className="py-16 sm:py-24" style={{ background: '#080e1a' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <div className="relative inline-block">
             <div className="absolute inset-0 blur-2xl opacity-30">
               <div className="w-full h-full bg-gold/20 rounded-full"></div>
             </div>
-            <div className="relative bg-gradient-to-br from-navy-dark/95 via-navy/90 to-navy-dark/95 backdrop-blur-sm px-6 sm:px-12 py-6 sm:py-8 shadow-2xl border border-gold/30">
+            <div className="relative backdrop-blur-sm px-6 sm:px-12 py-6 sm:py-8 shadow-2xl border border-gold/30" style={{ background: 'linear-gradient(160deg, rgba(14,20,34,0.98) 0%, rgba(8,14,26,0.98) 100%)' }}>
               <div className="absolute inset-0 border border-gold/10 m-3"></div>
               <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-gold/50"></div>
               <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-gold/50"></div>

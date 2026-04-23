@@ -33,7 +33,8 @@ export default function WhyChooseUs() {
     <section
       id="why-choose-us"
       ref={sectionRef}
-      className="py-16 sm:py-24 bg-gradient-to-b from-navy-dark to-navy relative"
+      className="py-16 sm:py-24 relative"
+      style={{ background: '#080e1a' }}
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>

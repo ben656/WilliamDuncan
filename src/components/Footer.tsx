@@ -6,7 +6,7 @@ const phrases = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gold/10" style={{ background: 'linear-gradient(to bottom, #1a1814, #111009)' }}>
+    <footer className="border-t border-gold/10" style={{ background: '#080e1a' }}>
 
       <div className="border-b border-gold/10 flex flex-col items-start justify-center gap-2" style={{ padding: '18px 24px' }}>
         {phrases.map((phrase, i) => (
