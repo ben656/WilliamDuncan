@@ -263,22 +263,6 @@ export default function Hero() {
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.18))' }} />
             </div>
 
-            {/* Trusted line — below subtitle */}
-            <div className="flex items-center justify-center" style={{ marginTop: '28px' }}>
-              <span
-                className="font-serif"
-                style={{
-                  fontSize: 'clamp(0.65rem, 1.8vw, 0.88rem)',
-                  letterSpacing: '0.12em',
-                  color: 'rgba(198,167,94,0.75)',
-                  fontStyle: 'italic',
-                  whiteSpace: 'nowrap',
-                  textShadow: '0 1px 6px rgba(0,0,0,0.9)',
-                }}
-              >
-                Trusted by clients for a century
-              </span>
-            </div>
           </div>
         </div>
 
