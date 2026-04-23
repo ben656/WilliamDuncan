@@ -46,7 +46,7 @@ export default function Hero() {
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(to bottom, rgba(17,16,9,0.2) 0%, transparent 40%, rgba(17,16,9,0.85) 100%)',
+          background: 'linear-gradient(to bottom, rgba(8,14,26,0.2) 0%, transparent 40%, rgba(8,14,26,0.85) 100%)',
         }}
       />
 
@@ -346,15 +346,6 @@ export default function Hero() {
           transition: 'opacity 0.9s ease',
         }}
       >
-        {/* Pulsing gold dot */}
-        <span style={{ position: 'relative', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
-          <span style={{
-            display: 'block', width: '7px', height: '7px', borderRadius: '50%',
-            background: '#8a6e30',
-            animation: 'alertPulse 2s ease-in-out infinite',
-          }} />
-        </span>
-
         <span
           className="font-sans"
           style={{
@@ -368,12 +359,10 @@ export default function Hero() {
             gap: '8px',
           }}
         >
-          <span style={{ color: '#8c1f2e', fontWeight: 700 }}>HMRC Making Tax Digital</span>
-          <span style={{ color: '#8c1f2e', fontWeight: 700 }}>&nbsp;enquiries and enforcement are real&hellip; and are here to stay.</span>
-          <span style={{ color: 'rgba(198,167,94,0.7)', fontSize: '6px', lineHeight: 1 }}>◆</span>
+          <span style={{ color: '#8c1f2e', fontWeight: 700 }}>HMRC Making Tax Digital enquiries and enforcement are real&hellip; and are here to stay.</span>
         </span>
 
-        <div style={{ width: '1px', height: '14px', background: 'rgba(148,122,60,0.25)', flexShrink: 0 }} />
+        <div style={{ width: '1px', height: '14px', background: 'rgba(229,228,226,0.2)', flexShrink: 0 }} />
 
         <a
           href="/wd-hub-client-alert.html"
@@ -383,10 +372,10 @@ export default function Hero() {
           style={{
             fontSize: 'clamp(7.5px, 1.5vw, 9px)',
             letterSpacing: '0.24em',
-            color: '#9a7e3a',
+            color: '#E5E4E2',
             textTransform: 'uppercase',
             textDecoration: 'none',
-            border: '1px solid rgba(148,122,60,0.4)',
+            border: '1px solid rgba(229,228,226,0.35)',
             borderRadius: '2px',
             padding: '3px 10px',
             whiteSpace: 'nowrap',
@@ -394,26 +383,20 @@ export default function Hero() {
           }}
           onMouseEnter={e => {
             const el = e.currentTarget as HTMLAnchorElement
-            el.style.color = '#c8a85a'
-            el.style.borderColor = 'rgba(198,167,94,0.65)'
-            el.style.background = 'rgba(148,122,60,0.10)'
+            el.style.color = '#ffffff'
+            el.style.borderColor = 'rgba(229,228,226,0.65)'
+            el.style.background = 'rgba(229,228,226,0.08)'
           }}
           onMouseLeave={e => {
             const el = e.currentTarget as HTMLAnchorElement
-            el.style.color = '#9a7e3a'
-            el.style.borderColor = 'rgba(148,122,60,0.4)'
+            el.style.color = '#E5E4E2'
+            el.style.borderColor = 'rgba(229,228,226,0.35)'
             el.style.background = 'transparent'
           }}
         >
-          Our Guided Support &mdash; Act Now
+          Let&rsquo;s Plan &amp; Protect Together
         </a>
 
-        <style>{`
-          @keyframes alertPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(148,122,60,0.6); }
-            50% { box-shadow: 0 0 0 5px rgba(148,122,60,0); }
-          }
-        `}</style>
       </div>
 
     </section>
