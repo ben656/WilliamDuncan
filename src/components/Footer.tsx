@@ -16,8 +16,8 @@ export default function Footer() {
       setTimeout(() => {
         setIndex(i => (i + 1) % phrases.length)
         setVisible(true)
-      }, 600)
-    }, 4500)
+      }, 250)
+    }, 2800)
     return () => clearInterval(interval)
   }, [])
 
@@ -33,7 +33,7 @@ export default function Footer() {
             color: 'rgba(198,167,94,0.68)',
             fontStyle: 'italic',
             opacity: visible ? 1 : 0,
-            transition: 'opacity 0.6s ease',
+            transition: 'opacity 0.25s ease',
             margin: 0,
             padding: '0 16px',
           }}
