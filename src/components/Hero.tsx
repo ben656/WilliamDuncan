@@ -35,28 +35,17 @@ export default function Hero() {
         style={{ height: '100px', background: 'rgba(8,14,26,0.97)', backdropFilter: 'blur(8px)' }}
       />
 
-      {/* Top left — phrases + Client Guidance download */}
+      {/* Top left — Client Guidance download */}
       <div
-        className="absolute top-0 left-0 z-30 flex flex-col justify-center"
+        className="absolute top-0 left-0 z-30 flex items-center"
         style={{
           height: '100px',
           paddingLeft: 'clamp(12px, 3vw, 40px)',
-          gap: '5px',
           opacity: phase >= 1 ? 1 : 0,
           transform: phase >= 1 ? 'translateY(0)' : 'translateY(-12px)',
           transition: 'opacity 0.7s ease, transform 0.7s ease',
         }}
       >
-        {/* Footer phrases merged into header */}
-        <div className="hidden sm:flex items-center gap-2">
-          <span className="font-serif" style={{ fontSize: 'clamp(7px, 1.3vw, 9px)', letterSpacing: '0.14em', color: 'rgba(198,167,94,0.65)', fontStyle: 'italic', whiteSpace: 'nowrap' }}>
-            Authentic relations, entrenched client support
-          </span>
-          <span style={{ color: 'rgba(198,167,94,0.25)', fontSize: '7px' }}>|</span>
-          <span className="font-serif" style={{ fontSize: 'clamp(7px, 1.3vw, 9px)', letterSpacing: '0.14em', color: 'rgba(198,167,94,0.65)', fontStyle: 'italic', whiteSpace: 'nowrap' }}>
-            Dynamic solutions to every challenge faced
-          </span>
-        </div>
         <a
           href="/wd-hub-client-alert.html"
           target="_blank"
