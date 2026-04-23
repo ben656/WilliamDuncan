@@ -44,7 +44,7 @@ export default function Hero() {
         style={{ height: '100px', background: 'rgba(8,14,26,0.97)', backdropFilter: 'blur(8px)', borderBottom: '1px solid rgba(198,167,94,0.08)' }}
       />
 
-      {/* Top left — Client Guidance | HMRC Alert */}
+      {/* Top left — "Trusted for over a century" */}
       <div
         className="absolute top-0 left-0 z-30 flex items-center"
         style={{
@@ -55,26 +55,18 @@ export default function Hero() {
           transition: 'opacity 0.7s ease, transform 0.7s ease',
         }}
       >
-        <a
-          href="/wd-hub-client-alert.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Client Guidance"
-          className="flex items-center gap-2 group"
-          style={{ textDecoration: 'none' }}
+        <span
+          className="font-serif"
+          style={{
+            fontSize: 'clamp(10px, 1.8vw, 13px)',
+            letterSpacing: '0.22em',
+            color: 'rgba(198,167,94,0.85)',
+            fontStyle: 'italic',
+            whiteSpace: 'nowrap',
+          }}
         >
-          <svg
-            width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}
-            style={{ color: 'rgba(229,228,226,0.75)', flexShrink: 0 }}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-          </svg>
-          <span className="font-sans whitespace-nowrap hidden sm:inline" style={{ fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase' }}>
-            <span style={{ fontSize: '9px', fontWeight: 600, color: 'rgba(229,228,226,0.75)' }}>Client Guidance</span>
-            <span style={{ color: 'rgba(229,228,226,0.2)', margin: '0 6px' }}>|</span>
-            <span style={{ fontSize: '9px', fontWeight: 700, color: '#8c1f2e' }}>HMRC Alert</span>
-          </span>
-        </a>
+          Trusted for over a century
+        </span>
       </div>
 
       {/* Top right — contact icons */}
@@ -134,48 +126,63 @@ export default function Hero() {
       {/* Main content — three columns */}
       <div
         className="relative z-10 flex-1 flex items-center justify-center px-4 sm:px-8"
-        style={{ paddingTop: '110px', paddingBottom: '48px' }}
+        style={{ paddingTop: '100px', paddingBottom: '40px' }}
       >
         <div className="w-full max-w-7xl flex items-center gap-6 lg:gap-10">
 
-          {/* Left column — credentials */}
+          {/* Left column — logo + credentials */}
           <div
-            className="hidden lg:flex flex-col gap-5 flex-shrink-0"
+            className="hidden lg:flex flex-col items-center gap-6 flex-shrink-0"
             style={{
-              width: '160px',
+              width: '170px',
               opacity: phase >= 3 ? 1 : 0,
               transform: phase >= 3 ? 'translateX(0)' : 'translateX(-20px)',
               transition: 'opacity 0.9s ease, transform 0.9s ease',
             }}
           >
-            {/* Italic tagline above stats */}
+            {/* Firm logo */}
+            <img
+              src="/Logo.jpg"
+              alt="William Duncan"
+              style={{
+                width: '100%',
+                maxWidth: '140px',
+                height: 'auto',
+                borderRadius: '2px',
+                opacity: 0.92,
+                filter: 'drop-shadow(0 4px 18px rgba(0,0,0,0.7))',
+              }}
+            />
+
+            <div style={{ width: '100%', height: '1px', background: 'linear-gradient(to right, rgba(198,167,94,0.3), transparent)' }} />
+
+            {/* Tagline */}
             <span
-              className="font-serif"
-              style={{ fontSize: 'clamp(9px, 1.2vw, 11px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic' }}
+              className="font-serif text-center"
+              style={{ fontSize: '10px', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic', lineHeight: 1.6 }}
             >
-              Trusted by clients for a century
+              Trusted by clients<br />for a century
             </span>
 
-            <div style={{ height: '1px', background: 'linear-gradient(to right, rgba(198,167,94,0.3), transparent)' }} />
+            <div style={{ width: '100%', height: '1px', background: 'linear-gradient(to right, rgba(198,167,94,0.3), transparent)' }} />
 
+            {/* Stats */}
             {leftCredentials.map(({ label, value }) => (
-              <div key={label}>
+              <div key={label} style={{ width: '100%' }}>
                 <div
                   className="font-sans font-light"
-                  style={{ fontSize: 'clamp(22px, 3vw, 32px)', color: 'rgba(198,167,94,0.85)', letterSpacing: '0.04em', lineHeight: 1 }}
+                  style={{ fontSize: 'clamp(22px, 3vw, 30px)', color: 'rgba(198,167,94,0.85)', letterSpacing: '0.04em', lineHeight: 1 }}
                 >
                   {value}
                 </div>
                 <div
                   className="font-sans"
-                  style={{ fontSize: '8px', letterSpacing: '0.32em', textTransform: 'uppercase', color: 'rgba(229,228,226,0.35)', marginTop: '4px' }}
+                  style={{ fontSize: '8px', letterSpacing: '0.32em', textTransform: 'uppercase', color: 'rgba(229,228,226,0.35)', marginTop: '3px' }}
                 >
                   {label}
                 </div>
               </div>
             ))}
-
-            <div style={{ height: '1px', background: 'linear-gradient(to right, rgba(198,167,94,0.3), transparent)' }} />
           </div>
 
           {/* Centre — plaque */}
@@ -261,7 +268,7 @@ export default function Hero() {
           <div
             className="hidden lg:flex flex-col gap-4 flex-shrink-0"
             style={{
-              width: '160px',
+              width: '170px',
               opacity: phase >= 3 ? 1 : 0,
               transform: phase >= 3 ? 'translateX(0)' : 'translateX(20px)',
               transition: 'opacity 0.9s ease, transform 0.9s ease',
@@ -269,7 +276,7 @@ export default function Hero() {
           >
             <span
               className="font-serif"
-              style={{ fontSize: 'clamp(9px, 1.2vw, 11px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic' }}
+              style={{ fontSize: '10px', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic' }}
             >
               Authentic Relations
             </span>
@@ -292,7 +299,7 @@ export default function Hero() {
 
             <span
               className="font-serif"
-              style={{ fontSize: 'clamp(9px, 1.2vw, 11px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic' }}
+              style={{ fontSize: '10px', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.72)', fontStyle: 'italic' }}
             >
               Dynamic Solutions
             </span>
