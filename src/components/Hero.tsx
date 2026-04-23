@@ -60,13 +60,10 @@ export default function Hero() {
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
           </svg>
-          <span
-            className="font-sans font-semibold whitespace-nowrap hidden sm:inline"
-            style={{ fontSize: '9px', letterSpacing: '0.28em', color: 'rgba(229,228,226,0.75)', textTransform: 'uppercase', transition: 'color 0.2s ease' }}
-            onMouseEnter={e => (e.currentTarget.style.color = '#C6A75E')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(229,228,226,0.75)')}
-          >
-            Client Guidance
+          <span className="font-sans whitespace-nowrap hidden sm:inline" style={{ fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase' }}>
+            <span style={{ fontWeight: 600, color: 'rgba(229,228,226,0.75)', transition: 'color 0.2s ease' }}>Client Guidance</span>
+            <span style={{ color: 'rgba(229,228,226,0.2)', margin: '0 6px' }}>|</span>
+            <span style={{ fontWeight: 700, color: '#8c1f2e' }}>HMRC Alert</span>
           </span>
         </a>
       </div>
