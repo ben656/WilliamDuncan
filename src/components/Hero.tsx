@@ -250,7 +250,7 @@ export default function Hero() {
                 style={{
                   fontSize: 'clamp(0.5rem, 1.6vw, 0.65rem)',
                   letterSpacing: '0.22em',
-                  color: 'rgba(229,228,226,0.55)',
+                  color: 'rgba(198,167,94,0.75)',
                   textTransform: 'uppercase',
                   textAlign: 'center',
                   margin: 0,
@@ -276,7 +276,7 @@ export default function Hero() {
             alignItems: 'center',
             justifyContent: 'center',
             gap: '14px',
-            marginTop: '28px',
+            marginTop: '52px',
           }}
         >
           {pillars.map((pillar, i) => (
