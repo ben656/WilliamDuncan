@@ -55,8 +55,7 @@ export default function Hero() {
         className="absolute left-0 right-0 top-0 z-20"
         style={{
           height: '80px',
-          background: 'rgba(14,12,8,0.55)',
-          borderBottom: '1px solid rgba(198,167,94,0.14)',
+          background: 'rgba(8,14,26,0.97)',
           backdropFilter: 'blur(8px)',
         }}
       />
@@ -165,7 +164,7 @@ export default function Hero() {
       {/* Main content */}
       <div
         className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4 sm:px-6"
-        style={{ paddingTop: '120px', paddingBottom: '80px' }}
+        style={{ paddingTop: '160px', paddingBottom: '80px' }}
       >
 
         {/* Plaque wrapper — enlarged and centred */}
@@ -336,7 +335,6 @@ export default function Hero() {
       <div
         className="relative z-20 w-full"
         style={{
-          borderTop: '1px solid rgba(148,122,60,0.3)',
           background: 'rgba(8,14,26,0.97)',
           backdropFilter: 'blur(8px)',
           height: '48px',
@@ -363,15 +361,15 @@ export default function Hero() {
             fontSize: 'clamp(8.5px, 1.8vw, 10.5px)',
             letterSpacing: '0.16em',
             color: '#8c1f2e',
-            fontWeight: 300,
+            fontWeight: 700,
             whiteSpace: 'nowrap',
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
           }}
         >
-          <span style={{ color: '#8c1f2e', fontWeight: 600 }}>HMRC Making Tax Digital</span>
-          <span style={{ color: '#8c1f2e', fontWeight: 400 }}>&nbsp;enquiries and enforcement are real&hellip; and are here to stay.</span>
+          <span style={{ color: '#8c1f2e', fontWeight: 700 }}>HMRC Making Tax Digital</span>
+          <span style={{ color: '#8c1f2e', fontWeight: 700 }}>&nbsp;enquiries and enforcement are real&hellip; and are here to stay.</span>
           <span style={{ color: 'rgba(198,167,94,0.7)', fontSize: '6px', lineHeight: 1 }}>◆</span>
         </span>
 
