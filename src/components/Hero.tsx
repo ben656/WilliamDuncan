@@ -209,7 +209,7 @@ export default function Hero() {
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.35))' }} />
               <span
                 className="font-sans font-light"
-                style={{ fontSize: 'clamp(7px, 1.7vw, 10px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.55)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}
+                style={{ fontSize: 'clamp(7px, 1.7vw, 10px)', letterSpacing: '0.42em', color: 'rgba(198,167,94,0.75)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}
               >
                 Est. 1924
               </span>
@@ -270,7 +270,7 @@ export default function Hero() {
                 style={{
                   fontSize: 'clamp(0.65rem, 1.8vw, 0.88rem)',
                   letterSpacing: '0.12em',
-                  color: 'rgba(229,228,226,0.82)',
+                  color: 'rgba(198,167,94,0.75)',
                   fontStyle: 'italic',
                   whiteSpace: 'nowrap',
                   textShadow: '0 1px 6px rgba(0,0,0,0.9)',
