@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 
-const pillars = ['Authentic Support', 'Dynamic Solutions', 'Evolutionary Advice']
-
 export default function Hero() {
   const [phase, setPhase] = useState(0)
 
@@ -246,7 +244,7 @@ export default function Hero() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.18))' }} />
               <p
-                className="font-sans font-bold"
+                className="font-sans font-light"
                 style={{
                   fontSize: 'clamp(0.5rem, 1.6vw, 0.65rem)',
                   letterSpacing: '0.22em',
@@ -266,41 +264,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Three pillars on one line */}
-        <div
-          style={{
-            opacity: phase >= 3 ? 1 : 0,
-            transform: phase >= 3 ? 'translateY(0)' : 'translateY(8px)',
-            transition: 'opacity 0.9s ease, transform 0.9s ease',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '14px',
-            marginTop: '52px',
-          }}
-        >
-          {pillars.map((pillar, i) => (
-            <span key={pillar} style={{ display: 'inline-flex', alignItems: 'center', gap: '14px' }}>
-              <span
-                className="font-sans font-light"
-                style={{
-                  fontSize: 'clamp(0.48rem, 1.2vw, 0.62rem)',
-                  letterSpacing: '0.28em',
-                  color: 'rgba(229,228,226,0.72)',
-                  textTransform: 'uppercase',
-                  fontWeight: 300,
-                  whiteSpace: 'nowrap',
-                  textShadow: '0 1px 0 rgba(0,0,0,0.6)',
-                }}
-              >
-                {pillar}
-              </span>
-              {i < pillars.length - 1 && (
-                <span style={{ color: 'rgba(198,167,94,0.45)', fontSize: '6px', lineHeight: 1 }}>◆</span>
-              )}
-            </span>
-          ))}
-        </div>
 
       </div>
 
