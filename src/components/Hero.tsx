@@ -165,7 +165,7 @@ export default function Hero() {
       {/* Main content */}
       <div
         className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4 sm:px-6"
-        style={{ paddingTop: '80px', paddingBottom: '80px' }}
+        style={{ paddingTop: '80px', paddingBottom: '120px' }}
       >
 
         {/* Plaque wrapper — enlarged and centred */}
@@ -204,6 +204,23 @@ export default function Hero() {
               border: '1px solid rgba(198,167,94,0.07)',
               borderRadius: '1px', pointerEvents: 'none',
             }} />
+
+            {/* Trusted line — above Est. 1924 */}
+            <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '10px' }}>
+              <span
+                className="font-serif"
+                style={{
+                  fontSize: 'clamp(0.5rem, 1.3vw, 0.62rem)',
+                  letterSpacing: '0.14em',
+                  color: 'rgba(198,167,94,0.55)',
+                  fontStyle: 'italic',
+                  whiteSpace: 'nowrap',
+                  textShadow: '0 1px 3px rgba(0,0,0,0.8)',
+                }}
+              >
+                Trusted by clients for a century
+              </span>
+            </div>
 
             {/* Eyebrow */}
             <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '22px' }}>
@@ -308,33 +325,6 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Most-delayed line — Trusted by clients for a century */}
-        <div
-          style={{
-            opacity: phase >= 6 ? 1 : 0,
-            transform: phase >= 6 ? 'translateY(0)' : 'translateY(10px)',
-            transition: 'opacity 1.2s ease, transform 1.2s ease',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '14px',
-          }}
-        >
-          <div style={{ width: 'clamp(20px, 4vw, 40px)', height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.3))' }} />
-          <span
-            className="font-serif"
-            style={{
-              fontSize: 'clamp(0.55rem, 1.4vw, 0.7rem)',
-              letterSpacing: '0.18em',
-              color: 'rgba(198,167,94,0.6)',
-              fontStyle: 'italic',
-              whiteSpace: 'nowrap',
-              textShadow: '0 1px 4px rgba(0,0,0,0.7)',
-            }}
-          >
-            Trusted by clients for a century
-          </span>
-          <div style={{ width: 'clamp(20px, 4vw, 40px)', height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.3))' }} />
-        </div>
 
       </div>
 
@@ -371,9 +361,13 @@ export default function Hero() {
             color: 'rgba(210,200,185,0.78)',
             fontWeight: 300,
             whiteSpace: 'nowrap',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
           }}
         >
-          HMRC MTD scope, mandate and enforcement is scaling up.
+          Making Tax Digital: HMRC scope, mandate and enforcement is scaling up.
+          <span style={{ color: 'rgba(198,167,94,0.7)', fontSize: '6px', lineHeight: 1 }}>◆</span>
         </span>
 
         <div style={{ width: '1px', height: '14px', background: 'rgba(148,122,60,0.25)', flexShrink: 0 }} />
