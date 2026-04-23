@@ -331,73 +331,88 @@ export default function Hero() {
 
       </div>
 
-      {/* Act Now alert bar */}
+      {/* Act Now alert bar — scrolling ticker */}
       <div
-        className="relative z-20 w-full"
+        className="relative z-20 w-full overflow-hidden"
         style={{
           background: 'rgba(8,14,26,0.97)',
           backdropFilter: 'blur(8px)',
           height: '48px',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
-          gap: '16px',
           opacity: phase >= 5 ? 1 : 0,
           transition: 'opacity 0.9s ease',
         }}
       >
-        <span
-          className="font-sans"
-          style={{
-            fontSize: 'clamp(8.5px, 1.8vw, 10.5px)',
-            letterSpacing: '0.16em',
-            fontWeight: 700,
-            whiteSpace: 'nowrap',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0',
-          }}
-        >
-          <span style={{ color: '#8c1f2e' }}>HMRC</span>
-          <span style={{ color: 'rgba(229,228,226,0.55)' }}>&nbsp;digital power is growing.</span>
-        </span>
+        <style>{`
+          @keyframes ticker {
+            0%   { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+          }
+          .ticker-track {
+            display: inline-flex;
+            align-items: center;
+            gap: 80px;
+            white-space: nowrap;
+            animation: ticker 28s linear infinite;
+            will-change: transform;
+          }
+          .ticker-track:hover { animation-play-state: paused; }
+        `}</style>
 
-        <div style={{ width: '1px', height: '14px', background: 'rgba(229,228,226,0.2)', flexShrink: 0 }} />
-
-        <a
-          href="/wd-hub-client-alert.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-sans"
-          style={{
-            fontSize: 'clamp(7.5px, 1.5vw, 9px)',
-            letterSpacing: '0.24em',
-            fontWeight: 300,
-            color: 'rgba(229,228,226,0.55)',
-            textTransform: 'uppercase',
-            textDecoration: 'none',
-            border: '1px solid rgba(229,228,226,0.25)',
-            borderRadius: '2px',
-            padding: '3px 10px',
-            whiteSpace: 'nowrap',
-            transition: 'color 0.2s, border-color 0.2s, background 0.2s',
-          }}
-          onMouseEnter={e => {
-            const el = e.currentTarget as HTMLAnchorElement
-            el.style.color = 'rgba(229,228,226,0.85)'
-            el.style.borderColor = 'rgba(229,228,226,0.5)'
-            el.style.background = 'rgba(229,228,226,0.06)'
-          }}
-          onMouseLeave={e => {
-            const el = e.currentTarget as HTMLAnchorElement
-            el.style.color = 'rgba(229,228,226,0.55)'
-            el.style.borderColor = 'rgba(229,228,226,0.25)'
-            el.style.background = 'transparent'
-          }}
-        >
-          Let&rsquo;s Plan &amp; Protect Together
-        </a>
-
+        <div className="ticker-track">
+          {[0,1,2,3].map(i => (
+            <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '32px' }}>
+              <span
+                className="font-sans"
+                style={{
+                  fontSize: 'clamp(8.5px, 1.8vw, 10.5px)',
+                  letterSpacing: '0.16em',
+                  color: '#8c1f2e',
+                  fontWeight: 400,
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                HMRC digital enforcement is growing
+              </span>
+              <span style={{ color: 'rgba(140,31,46,0.4)', fontSize: '10px' }}>◆</span>
+              <a
+                href="/wd-hub-client-alert.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans"
+                style={{
+                  fontSize: 'clamp(7.5px, 1.5vw, 9px)',
+                  letterSpacing: '0.24em',
+                  fontWeight: 300,
+                  color: 'rgba(229,228,226,0.55)',
+                  textTransform: 'uppercase',
+                  textDecoration: 'none',
+                  border: '1px solid rgba(229,228,226,0.25)',
+                  borderRadius: '2px',
+                  padding: '3px 10px',
+                  whiteSpace: 'nowrap',
+                  transition: 'color 0.2s, border-color 0.2s, background 0.2s',
+                }}
+                onMouseEnter={e => {
+                  const el = e.currentTarget as HTMLAnchorElement
+                  el.style.color = 'rgba(229,228,226,0.85)'
+                  el.style.borderColor = 'rgba(229,228,226,0.5)'
+                  el.style.background = 'rgba(229,228,226,0.06)'
+                }}
+                onMouseLeave={e => {
+                  const el = e.currentTarget as HTMLAnchorElement
+                  el.style.color = 'rgba(229,228,226,0.55)'
+                  el.style.borderColor = 'rgba(229,228,226,0.25)'
+                  el.style.background = 'transparent'
+                }}
+              >
+                Let&rsquo;s Plan &amp; Protect Together
+              </a>
+              <span style={{ color: 'rgba(140,31,46,0.4)', fontSize: '10px' }}>◆</span>
+            </span>
+          ))}
+        </div>
       </div>
 
     </section>
