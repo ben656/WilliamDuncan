@@ -9,17 +9,18 @@ export default function Hero() {
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase(1), 200),
-      setTimeout(() => setPhase(2), 600),
-      setTimeout(() => setPhase(3), 1000),
-      setTimeout(() => setPhase(4), 1300),
-      setTimeout(() => setPhase(5), 1600),
+      setTimeout(() => setPhase(1), 400),
+      setTimeout(() => setPhase(2), 1000),
+      setTimeout(() => setPhase(3), 1800),
+      setTimeout(() => setPhase(4), 2600),
+      setTimeout(() => setPhase(5), 3200),
+      setTimeout(() => setPhase(6), 4400),
     ]
     return () => timers.forEach(clearTimeout)
   }, [])
 
   useEffect(() => {
-    if (phase < 4) return
+    if (phase < 5) return
     const interval = setInterval(() => {
       setPillarVisible(false)
       setTimeout(() => {
@@ -271,8 +272,8 @@ export default function Hero() {
             width: phase >= 3 ? 'clamp(60px, 10vw, 120px)' : '0px',
             height: '1px',
             background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.5), transparent)',
-            transition: 'width 0.8s ease 0.1s',
-            marginBottom: '28px',
+            transition: 'width 1s ease 0.2s',
+            marginBottom: '24px',
           }}
         />
 
@@ -280,11 +281,13 @@ export default function Hero() {
         <div
           style={{
             opacity: phase >= 4 ? 1 : 0,
-            transition: 'opacity 0.6s ease',
+            transform: phase >= 4 ? 'translateY(0)' : 'translateY(8px)',
+            transition: 'opacity 0.9s ease, transform 0.9s ease',
             height: '20px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            marginBottom: '20px',
           }}
         >
           <span
@@ -305,14 +308,42 @@ export default function Hero() {
           </span>
         </div>
 
+        {/* Most-delayed line — Trusted by clients for a century */}
+        <div
+          style={{
+            opacity: phase >= 6 ? 1 : 0,
+            transform: phase >= 6 ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'opacity 1.2s ease, transform 1.2s ease',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '14px',
+          }}
+        >
+          <div style={{ width: 'clamp(20px, 4vw, 40px)', height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.3))' }} />
+          <span
+            className="font-serif"
+            style={{
+              fontSize: 'clamp(0.55rem, 1.4vw, 0.7rem)',
+              letterSpacing: '0.18em',
+              color: 'rgba(198,167,94,0.6)',
+              fontStyle: 'italic',
+              whiteSpace: 'nowrap',
+              textShadow: '0 1px 4px rgba(0,0,0,0.7)',
+            }}
+          >
+            Trusted by clients for a century
+          </span>
+          <div style={{ width: 'clamp(20px, 4vw, 40px)', height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.3))' }} />
+        </div>
+
       </div>
 
       {/* Act Now alert bar */}
       <div
         className="relative z-20 w-full"
         style={{
-          borderTop: '1px solid rgba(180,30,30,0.35)',
-          background: 'rgba(12,6,6,0.82)',
+          borderTop: '1px solid rgba(148,122,60,0.3)',
+          background: 'rgba(10,9,6,0.88)',
           backdropFilter: 'blur(8px)',
           height: '48px',
           display: 'flex',
@@ -320,16 +351,15 @@ export default function Hero() {
           justifyContent: 'center',
           gap: '16px',
           opacity: phase >= 5 ? 1 : 0,
-          transition: 'opacity 0.7s ease 0.8s',
+          transition: 'opacity 0.9s ease',
         }}
       >
-        {/* Pulsing red dot */}
+        {/* Pulsing gold dot */}
         <span style={{ position: 'relative', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
           <span style={{
             display: 'block', width: '7px', height: '7px', borderRadius: '50%',
-            background: '#c0272d',
-            boxShadow: '0 0 0 0 rgba(192,39,45,0.5)',
-            animation: 'alertPulse 1.6s ease-in-out infinite',
+            background: '#8a6e30',
+            animation: 'alertPulse 2s ease-in-out infinite',
           }} />
         </span>
 
@@ -338,7 +368,7 @@ export default function Hero() {
           style={{
             fontSize: 'clamp(8.5px, 1.8vw, 10.5px)',
             letterSpacing: '0.16em',
-            color: 'rgba(229,220,210,0.82)',
+            color: 'rgba(210,200,185,0.78)',
             fontWeight: 300,
             whiteSpace: 'nowrap',
           }}
@@ -346,7 +376,7 @@ export default function Hero() {
           HMRC enforcement is escalating &mdash; MTD scope widens.
         </span>
 
-        <div style={{ width: '1px', height: '14px', background: 'rgba(198,167,94,0.2)', flexShrink: 0 }} />
+        <div style={{ width: '1px', height: '14px', background: 'rgba(148,122,60,0.25)', flexShrink: 0 }} />
 
         <a
           href="/wd-hub-client-alert.html"
@@ -355,11 +385,11 @@ export default function Hero() {
           className="font-sans font-semibold"
           style={{
             fontSize: 'clamp(7.5px, 1.5vw, 9px)',
-            letterSpacing: '0.28em',
-            color: '#c0272d',
+            letterSpacing: '0.24em',
+            color: '#9a7e3a',
             textTransform: 'uppercase',
             textDecoration: 'none',
-            border: '1px solid rgba(192,39,45,0.45)',
+            border: '1px solid rgba(148,122,60,0.4)',
             borderRadius: '2px',
             padding: '3px 10px',
             whiteSpace: 'nowrap',
@@ -367,14 +397,14 @@ export default function Hero() {
           }}
           onMouseEnter={e => {
             const el = e.currentTarget as HTMLAnchorElement
-            el.style.color = '#e8d5b0'
-            el.style.borderColor = 'rgba(198,167,94,0.6)'
-            el.style.background = 'rgba(192,39,45,0.12)'
+            el.style.color = '#c8a85a'
+            el.style.borderColor = 'rgba(198,167,94,0.65)'
+            el.style.background = 'rgba(148,122,60,0.10)'
           }}
           onMouseLeave={e => {
             const el = e.currentTarget as HTMLAnchorElement
-            el.style.color = '#c0272d'
-            el.style.borderColor = 'rgba(192,39,45,0.45)'
+            el.style.color = '#9a7e3a'
+            el.style.borderColor = 'rgba(148,122,60,0.4)'
             el.style.background = 'transparent'
           }}
         >
@@ -383,8 +413,8 @@ export default function Hero() {
 
         <style>{`
           @keyframes alertPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(192,39,45,0.55); }
-            50% { box-shadow: 0 0 0 5px rgba(192,39,45,0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(148,122,60,0.6); }
+            50% { box-shadow: 0 0 0 5px rgba(148,122,60,0); }
           }
         `}</style>
       </div>
