@@ -337,7 +337,7 @@ export default function Hero() {
         className="relative z-20 w-full"
         style={{
           borderTop: '1px solid rgba(148,122,60,0.3)',
-          background: 'rgba(10,9,6,0.88)',
+          background: 'rgba(8,14,26,0.97)',
           backdropFilter: 'blur(8px)',
           height: '48px',
           display: 'flex',
@@ -362,7 +362,7 @@ export default function Hero() {
           style={{
             fontSize: 'clamp(8.5px, 1.8vw, 10.5px)',
             letterSpacing: '0.16em',
-            color: 'rgba(210,200,185,0.78)',
+            color: '#8c1f2e',
             fontWeight: 300,
             whiteSpace: 'nowrap',
             display: 'flex',
@@ -371,7 +371,7 @@ export default function Hero() {
           }}
         >
           <span style={{ color: '#8c1f2e', fontWeight: 600 }}>HMRC Making Tax Digital</span>
-          <span style={{ color: '#8c1f2e', fontWeight: 300 }}>&nbsp;enquiries and enforcement are real&hellip; and are here to stay.</span>
+          <span style={{ color: '#8c1f2e', fontWeight: 400 }}>&nbsp;enquiries and enforcement are real&hellip; and are here to stay.</span>
           <span style={{ color: 'rgba(198,167,94,0.7)', fontSize: '6px', lineHeight: 1 }}>◆</span>
         </span>
 
