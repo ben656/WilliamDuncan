@@ -246,19 +246,19 @@ export default function Hero() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.18))' }} />
               <p
-                className="font-sans font-light"
+                className="font-sans font-bold"
                 style={{
                   fontSize: 'clamp(0.5rem, 1.6vw, 0.65rem)',
                   letterSpacing: '0.22em',
-                  color: 'rgba(198,167,94,0.75)',
+                  color: 'rgba(229,228,226,0.55)',
                   textTransform: 'uppercase',
                   textAlign: 'center',
                   margin: 0,
                   whiteSpace: 'nowrap',
-                  textShadow: '0 1px 2px rgba(0,0,0,0.9)',
+                  textShadow: '0 1px 0 rgba(255,255,255,0.08), 0 -1px 0 rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)',
                 }}
               >
-                Chartered Accountants&nbsp;&nbsp;·&nbsp;&nbsp;Business &amp; Tax Advisers
+                Chartered Accountants · Business &amp; Tax Advisers
               </p>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.18))' }} />
             </div>
@@ -351,15 +351,15 @@ export default function Hero() {
           style={{
             fontSize: 'clamp(8.5px, 1.8vw, 10.5px)',
             letterSpacing: '0.16em',
-            color: '#8c1f2e',
             fontWeight: 700,
             whiteSpace: 'nowrap',
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
+            gap: '0',
           }}
         >
-          <span style={{ color: '#8c1f2e', fontWeight: 700 }}>HMRC Making Tax Digital enquiries and enforcement are real&hellip; and are here to stay.</span>
+          <span style={{ color: '#8c1f2e' }}>HMRC</span>
+          <span style={{ color: 'rgba(229,228,226,0.55)' }}>&nbsp;Making Tax Digital enquiries and enforcement power are real&hellip; and are here to stay.</span>
         </span>
 
         <div style={{ width: '1px', height: '14px', background: 'rgba(229,228,226,0.2)', flexShrink: 0 }} />
@@ -368,14 +368,15 @@ export default function Hero() {
           href="/wd-hub-client-alert.html"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-sans font-semibold"
+          className="font-sans"
           style={{
             fontSize: 'clamp(7.5px, 1.5vw, 9px)',
             letterSpacing: '0.24em',
-            color: '#E5E4E2',
+            fontWeight: 300,
+            color: 'rgba(229,228,226,0.55)',
             textTransform: 'uppercase',
             textDecoration: 'none',
-            border: '1px solid rgba(229,228,226,0.35)',
+            border: '1px solid rgba(229,228,226,0.25)',
             borderRadius: '2px',
             padding: '3px 10px',
             whiteSpace: 'nowrap',
@@ -383,14 +384,14 @@ export default function Hero() {
           }}
           onMouseEnter={e => {
             const el = e.currentTarget as HTMLAnchorElement
-            el.style.color = '#ffffff'
-            el.style.borderColor = 'rgba(229,228,226,0.65)'
-            el.style.background = 'rgba(229,228,226,0.08)'
+            el.style.color = 'rgba(229,228,226,0.85)'
+            el.style.borderColor = 'rgba(229,228,226,0.5)'
+            el.style.background = 'rgba(229,228,226,0.06)'
           }}
           onMouseLeave={e => {
             const el = e.currentTarget as HTMLAnchorElement
-            el.style.color = '#E5E4E2'
-            el.style.borderColor = 'rgba(229,228,226,0.35)'
+            el.style.color = 'rgba(229,228,226,0.55)'
+            el.style.borderColor = 'rgba(229,228,226,0.25)'
             el.style.background = 'transparent'
           }}
         >
