@@ -4,8 +4,6 @@ const pillars = ['Authentic Support', 'Dynamic Solutions', 'Evolutionary Advice'
 
 export default function Hero() {
   const [phase, setPhase] = useState(0)
-  const [pillarIndex, setPillarIndex] = useState(0)
-  const [pillarVisible, setPillarVisible] = useState(true)
 
   useEffect(() => {
     const timers = [
@@ -14,22 +12,9 @@ export default function Hero() {
       setTimeout(() => setPhase(3), 1800),
       setTimeout(() => setPhase(4), 2600),
       setTimeout(() => setPhase(5), 3200),
-      setTimeout(() => setPhase(6), 4400),
     ]
     return () => timers.forEach(clearTimeout)
   }, [])
-
-  useEffect(() => {
-    if (phase < 5) return
-    const interval = setInterval(() => {
-      setPillarVisible(false)
-      setTimeout(() => {
-        setPillarIndex(i => (i + 1) % pillars.length)
-        setPillarVisible(true)
-      }, 500)
-    }, 3200)
-    return () => clearInterval(interval)
-  }, [phase])
 
   return (
     <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
@@ -103,7 +88,7 @@ export default function Hero() {
         </a>
       </div>
 
-      {/* Contact icons — top right */}
+      {/* Contact icons + trusted line — top right */}
       <div
         className="absolute top-0 right-0 z-30 flex items-center"
         style={{
@@ -115,6 +100,21 @@ export default function Hero() {
           transition: 'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s',
         }}
       >
+        <span
+          className="font-serif hidden sm:inline"
+          style={{
+            fontSize: 'clamp(0.55rem, 1.3vw, 0.72rem)',
+            letterSpacing: '0.12em',
+            color: 'rgba(198,167,94,0.72)',
+            fontStyle: 'italic',
+            whiteSpace: 'nowrap',
+            textShadow: '0 1px 6px rgba(0,0,0,0.8)',
+          }}
+        >
+          Trusted by clients for a century
+        </span>
+
+        <div style={{ width: '1px', height: '14px', background: 'rgba(229,228,226,0.15)', flexShrink: 0 }} className="hidden sm:block" />
         <a
           href="mailto:wmdadmin@williamduncan-ca.co.uk"
           title="Email us"
@@ -266,52 +266,41 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Spacer — pushes pillar group to equidistant point between plaque bottom and alert bar */}
-        <div style={{ flex: 1 }} />
-
-        {/* Gold rule + rotating pillar — centred in remaining space */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', flex: 1, justifyContent: 'center', paddingTop: '40px' }}>
-          <div
-            style={{
-              width: phase >= 3 ? 'clamp(60px, 10vw, 120px)' : '0px',
-              height: '1px',
-              background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.5), transparent)',
-              transition: 'width 1s ease 0.2s',
-            }}
-          />
-
-          <div
-            style={{
-              opacity: phase >= 4 ? 1 : 0,
-              transform: phase >= 4 ? 'translateY(0)' : 'translateY(8px)',
-              transition: 'opacity 0.9s ease, transform 0.9s ease',
-              height: '20px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <span
-              className="font-sans font-light"
-              style={{
-                fontSize: 'clamp(0.5rem, 1.3vw, 0.65rem)',
-                letterSpacing: '0.30em',
-                color: 'rgba(229,228,226,0.75)',
-                textTransform: 'uppercase',
-                fontWeight: 300,
-                whiteSpace: 'nowrap',
-                textShadow: '0 1px 0 rgba(0,0,0,0.6)',
-                opacity: pillarVisible ? 1 : 0,
-                transition: 'opacity 0.5s ease',
-              }}
-            >
-              {pillars[pillarIndex]}
+        {/* Three pillars on one line */}
+        <div
+          style={{
+            opacity: phase >= 3 ? 1 : 0,
+            transform: phase >= 3 ? 'translateY(0)' : 'translateY(8px)',
+            transition: 'opacity 0.9s ease, transform 0.9s ease',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '14px',
+            marginTop: '28px',
+          }}
+        >
+          {pillars.map((pillar, i) => (
+            <span key={pillar} style={{ display: 'inline-flex', alignItems: 'center', gap: '14px' }}>
+              <span
+                className="font-sans font-light"
+                style={{
+                  fontSize: 'clamp(0.48rem, 1.2vw, 0.62rem)',
+                  letterSpacing: '0.28em',
+                  color: 'rgba(229,228,226,0.72)',
+                  textTransform: 'uppercase',
+                  fontWeight: 300,
+                  whiteSpace: 'nowrap',
+                  textShadow: '0 1px 0 rgba(0,0,0,0.6)',
+                }}
+              >
+                {pillar}
+              </span>
+              {i < pillars.length - 1 && (
+                <span style={{ color: 'rgba(198,167,94,0.45)', fontSize: '6px', lineHeight: 1 }}>◆</span>
+              )}
             </span>
-          </div>
+          ))}
         </div>
-
-        {/* Bottom spacer — mirrors top so pillar sits true centre */}
-        <div style={{ flex: 1 }} />
 
       </div>
 
