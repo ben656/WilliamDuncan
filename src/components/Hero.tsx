@@ -165,7 +165,7 @@ export default function Hero() {
       {/* Main content */}
       <div
         className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4 sm:px-6"
-        style={{ paddingTop: '80px', paddingBottom: '120px' }}
+        style={{ paddingTop: '80px', paddingBottom: '80px' }}
       >
 
         {/* Plaque wrapper — enlarged and centred */}
@@ -206,16 +206,16 @@ export default function Hero() {
             }} />
 
             {/* Trusted line — above Est. 1924 */}
-            <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '10px' }}>
+            <div className="flex items-center gap-3 justify-center" style={{ marginBottom: '12px' }}>
               <span
                 className="font-serif"
                 style={{
-                  fontSize: 'clamp(0.5rem, 1.3vw, 0.62rem)',
-                  letterSpacing: '0.14em',
-                  color: 'rgba(198,167,94,0.55)',
+                  fontSize: 'clamp(0.65rem, 1.8vw, 0.88rem)',
+                  letterSpacing: '0.12em',
+                  color: 'rgba(229,228,226,0.92)',
                   fontStyle: 'italic',
                   whiteSpace: 'nowrap',
-                  textShadow: '0 1px 3px rgba(0,0,0,0.8)',
+                  textShadow: '0 1px 6px rgba(0,0,0,0.9), 0 0 20px rgba(198,167,94,0.12)',
                 }}
               >
                 Trusted by clients for a century
@@ -283,48 +283,52 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Gold rule */}
-        <div
-          style={{
-            width: phase >= 3 ? 'clamp(60px, 10vw, 120px)' : '0px',
-            height: '1px',
-            background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.5), transparent)',
-            transition: 'width 1s ease 0.2s',
-            marginBottom: '24px',
-          }}
-        />
+        {/* Spacer — pushes pillar group to equidistant point between plaque bottom and alert bar */}
+        <div style={{ flex: 1 }} />
 
-        {/* Rotating single pillar */}
-        <div
-          style={{
-            opacity: phase >= 4 ? 1 : 0,
-            transform: phase >= 4 ? 'translateY(0)' : 'translateY(8px)',
-            transition: 'opacity 0.9s ease, transform 0.9s ease',
-            height: '20px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: '20px',
-          }}
-        >
-          <span
-            className="font-sans font-light"
+        {/* Gold rule + rotating pillar — centred in remaining space */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', flex: 1, justifyContent: 'center' }}>
+          <div
             style={{
-              fontSize: 'clamp(0.5rem, 1.3vw, 0.65rem)',
-              letterSpacing: '0.30em',
-              color: 'rgba(229,228,226,0.75)',
-              textTransform: 'uppercase',
-              fontWeight: 300,
-              whiteSpace: 'nowrap',
-              textShadow: '0 1px 0 rgba(0,0,0,0.6)',
-              opacity: pillarVisible ? 1 : 0,
-              transition: 'opacity 0.5s ease',
+              width: phase >= 3 ? 'clamp(60px, 10vw, 120px)' : '0px',
+              height: '1px',
+              background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.5), transparent)',
+              transition: 'width 1s ease 0.2s',
+            }}
+          />
+
+          <div
+            style={{
+              opacity: phase >= 4 ? 1 : 0,
+              transform: phase >= 4 ? 'translateY(0)' : 'translateY(8px)',
+              transition: 'opacity 0.9s ease, transform 0.9s ease',
+              height: '20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
-            {pillars[pillarIndex]}
-          </span>
+            <span
+              className="font-sans font-light"
+              style={{
+                fontSize: 'clamp(0.5rem, 1.3vw, 0.65rem)',
+                letterSpacing: '0.30em',
+                color: 'rgba(229,228,226,0.75)',
+                textTransform: 'uppercase',
+                fontWeight: 300,
+                whiteSpace: 'nowrap',
+                textShadow: '0 1px 0 rgba(0,0,0,0.6)',
+                opacity: pillarVisible ? 1 : 0,
+                transition: 'opacity 0.5s ease',
+              }}
+            >
+              {pillars[pillarIndex]}
+            </span>
+          </div>
         </div>
 
+        {/* Bottom spacer — mirrors top so pillar sits true centre */}
+        <div style={{ flex: 1 }} />
 
       </div>
 
@@ -366,7 +370,7 @@ export default function Hero() {
             gap: '8px',
           }}
         >
-          Making Tax Digital: HMRC scope, mandate and enforcement is scaling up.
+          Making Tax Digital:&nbsp;<span style={{ color: '#7a1c28', fontWeight: 600 }}>MTD</span>&nbsp;scope, mandate and enforcement is scaling up.
           <span style={{ color: 'rgba(198,167,94,0.7)', fontSize: '6px', lineHeight: 1 }}>◆</span>
         </span>
 

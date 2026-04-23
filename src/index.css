@@ -233,7 +233,7 @@
   }
 
   .plaque-mid-panel {
-    background: linear-gradient(160deg, rgba(28,36,52,1) 0%, rgba(18,26,40,1) 40%, rgba(22,30,46,1) 75%, rgba(26,34,50,1) 100%);
+    background: linear-gradient(160deg, rgba(14,20,34,1) 0%, rgba(8,14,26,1) 40%, rgba(10,17,30,1) 75%, rgba(13,19,32,1) 100%);
     box-shadow:
       0 0 0 1px rgba(198,167,94,0.45),
       inset 0 1px 0 rgba(198,167,94,0.30),
