@@ -179,37 +179,45 @@ export default function Hero() {
               {statements[statIdx]}
             </p>
 
-            {/* Plaque image — Est. and subtitle hug it tightly */}
-            <div style={{ position: 'relative', flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            {/* Plaque image area — image fills space, Est/subtitle pinned tight to it */}
+            <div style={{ position: 'relative', flex: 1, minHeight: 0, width: '100%' }}>
 
-              {/* Est. 1924 — tight above image */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', marginBottom: '2px' }}>
+              {/* Ambient glow behind image */}
+              <div style={{ position: 'absolute', inset: '-20px -30px', background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(198,167,94,0.11) 0%, rgba(198,167,94,0.03) 60%, transparent 100%)', pointerEvents: 'none', filter: 'blur(6px)' }} />
+
+              {/* Image fills the space */}
+              <img
+                src="/Adobe_Express_-_file.png"
+                alt="William Duncan"
+                style={{
+                  display: 'block', width: '100%', height: '100%', objectFit: 'contain',
+                  position: 'relative', zIndex: 1,
+                  filter: 'drop-shadow(0 1px 0 rgba(198,167,94,0.3)) drop-shadow(0 -1px 0 rgba(0,0,0,0.8)) drop-shadow(0 3px 14px rgba(0,0,0,0.75)) drop-shadow(0 0 22px rgba(198,167,94,0.10))',
+                }}
+              />
+
+              {/* Est. 1924 — overlaid immediately above image centre */}
+              <div style={{
+                position: 'absolute', bottom: '100%', left: 0, right: 0,
+                display: 'flex', alignItems: 'center', gap: '10px',
+                marginBottom: '4px', zIndex: 2,
+              }}>
                 <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.32))' }} />
                 <span className="font-sans font-light" style={{ fontSize: 'clamp(6px, 0.85vw, 10px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Est. 1924</span>
-                <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.32))' }} />
+                <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, rgba(198,167,94,0.32), transparent)' }} />
               </div>
 
-              {/* Plaque image */}
-              <div style={{ position: 'relative', flex: 1, minHeight: 0, width: '100%', display: 'flex', alignItems: 'center' }}>
-                <div style={{ position: 'absolute', inset: '-20px -30px', background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(198,167,94,0.11) 0%, rgba(198,167,94,0.03) 60%, transparent 100%)', pointerEvents: 'none', filter: 'blur(6px)' }} />
-                <img
-                  src="/Adobe_Express_-_file.png"
-                  alt="William Duncan"
-                  style={{
-                    display: 'block', width: '100%', height: '100%', objectFit: 'contain',
-                    position: 'relative', zIndex: 1,
-                    filter: 'drop-shadow(0 1px 0 rgba(198,167,94,0.3)) drop-shadow(0 -1px 0 rgba(0,0,0,0.8)) drop-shadow(0 3px 14px rgba(0,0,0,0.75)) drop-shadow(0 0 22px rgba(198,167,94,0.10))',
-                  }}
-                />
-              </div>
-
-              {/* Subtitle — tight below image */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', marginTop: '2px' }}>
+              {/* Subtitle — overlaid immediately below image */}
+              <div style={{
+                position: 'absolute', top: '100%', left: 0, right: 0,
+                display: 'flex', alignItems: 'center', gap: '10px',
+                marginTop: '4px', zIndex: 2,
+              }}>
                 <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.16))' }} />
                 <p className="font-sans font-light" style={{ fontSize: 'clamp(0.38rem, 1vw, 0.62rem)', letterSpacing: '0.22em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', textAlign: 'center', margin: 0, whiteSpace: 'nowrap', textShadow: '0 1px 0 rgba(255,255,255,0.06), 0 -1px 0 rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)' }}>
                   Chartered Accountants · Business &amp; Tax Advisers
                 </p>
-                <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.16))' }} />
+                <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, rgba(198,167,94,0.16), transparent)' }} />
               </div>
             </div>
           </div>
