@@ -138,25 +138,51 @@ export default function Hero() {
             ))}
             <div style={{ position: 'absolute', inset: '6px', border: '1px solid rgba(198,167,94,0.06)', borderRadius: '1px', pointerEvents: 'none' }} />
 
-            {/* Spacer — pushes content block to vertical centre */}
-            <div style={{ flex: 1 }} />
-
-            {/* "Trusted for over a century" — above Est. */}
+            {/* Top-left hero — "Trusted for over a century" */}
             <p
               className="font-serif"
               style={{
-                margin: '0 0 clamp(6px, 1.2vh, 14px) 0',
+                position: 'absolute',
+                top: 'clamp(18px, 3vh, 36px)',
+                left: 'clamp(18px, 3.5vw, 40px)',
+                margin: 0,
                 fontSize: 'clamp(10px, 1.2vw, 15px)',
                 letterSpacing: '0.22em',
                 color: 'rgba(198,167,94,0.82)',
                 fontStyle: 'italic',
-                textAlign: 'center',
                 opacity: phase >= 1 ? 1 : 0,
                 transition: 'opacity 0.8s ease 0.3s',
+                zIndex: 2,
+                whiteSpace: 'nowrap',
               }}
             >
               Trusted for over a century
             </p>
+
+            {/* Bottom-right hero — rotating statement */}
+            <p
+              className="font-serif"
+              style={{
+                position: 'absolute',
+                bottom: 'clamp(18px, 3vh, 36px)',
+                right: 'clamp(18px, 3.5vw, 40px)',
+                margin: 0,
+                fontSize: 'clamp(10px, 1.1vw, 14px)',
+                letterSpacing: '0.16em',
+                color: 'rgba(198,167,94,0.72)',
+                fontStyle: 'italic',
+                textAlign: 'right',
+                opacity: statVisible ? 1 : 0,
+                transition: 'opacity 0.55s ease',
+                zIndex: 2,
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {statements[statIdx]}
+            </p>
+
+            {/* Spacer — pushes content block to vertical centre */}
+            <div style={{ flex: 1 }} />
 
             {/* Est. 1924 — immediately above image */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
@@ -187,23 +213,6 @@ export default function Hero() {
               </p>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, rgba(198,167,94,0.16), transparent)' }} />
             </div>
-
-            {/* Rotating statement — below subtitle, right-aligned */}
-            <p
-              className="font-serif"
-              style={{
-                margin: 'clamp(6px, 1.2vh, 14px) 0 0 0',
-                fontSize: 'clamp(10px, 1.1vw, 14px)',
-                letterSpacing: '0.16em',
-                color: 'rgba(198,167,94,0.72)',
-                fontStyle: 'italic',
-                textAlign: 'right',
-                opacity: statVisible ? 1 : 0,
-                transition: 'opacity 0.55s ease',
-              }}
-            >
-              {statements[statIdx]}
-            </p>
 
             {/* Spacer — balances the top spacer */}
             <div style={{ flex: 1 }} />
