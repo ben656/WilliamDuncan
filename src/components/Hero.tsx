@@ -59,54 +59,28 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* Shared background — radial glow + diamond pattern */}
-      <div
-        style={{
-          position: 'absolute', inset: 0, pointerEvents: 'none',
-          background: 'radial-gradient(ellipse 85% 75% at 50% 48%, rgba(198,167,94,0.07) 0%, transparent 70%)',
-        }}
-      />
-      <div
-        className="diamond-pattern"
-        style={{ position: 'absolute', inset: 0, opacity: 0.28, pointerEvents: 'none' }}
-      />
+      {/* Shared background */}
+      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse 85% 75% at 50% 48%, rgba(198,167,94,0.07) 0%, transparent 70%)' }} />
+      <div className="diamond-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.28, pointerEvents: 'none' }} />
 
       {/* ── Header bar ── */}
       <div
         style={{
-          position: 'relative', zIndex: 20,
-          flexShrink: 0,
+          position: 'relative', zIndex: 20, flexShrink: 0,
           height: 'clamp(54px, 7vh, 80px)',
-          background: 'rgba(8,14,26,0.85)',
-          backdropFilter: 'blur(8px)',
+          background: 'rgba(8,14,26,0.85)', backdropFilter: 'blur(8px)',
           display: 'flex', alignItems: 'center',
-          padding: '0 clamp(14px, 3vw, 44px)',
-          justifyContent: 'space-between',
+          padding: '0 clamp(14px, 3vw, 44px)', justifyContent: 'space-between',
         }}
       >
-        {/* Left — tagline */}
         <span
           className="font-serif"
-          style={{
-            fontSize: 'clamp(9px, 1.3vw, 13px)',
-            letterSpacing: '0.22em',
-            color: phase >= 1 ? 'rgba(198,167,94,0.85)' : 'transparent',
-            fontStyle: 'italic',
-            whiteSpace: 'nowrap',
-            transition: 'color 0.8s ease',
-          }}
+          style={{ fontSize: 'clamp(9px, 1.3vw, 13px)', letterSpacing: '0.22em', color: phase >= 1 ? 'rgba(198,167,94,0.85)' : 'transparent', fontStyle: 'italic', whiteSpace: 'nowrap', transition: 'color 0.8s ease' }}
         >
           Trusted for over a century
         </span>
 
-        {/* Right — contact icons */}
-        <div
-          style={{
-            display: 'flex', alignItems: 'center', gap: '14px',
-            opacity: phase >= 1 ? 1 : 0,
-            transition: 'opacity 0.7s ease 0.1s',
-          }}
-        >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', opacity: phase >= 1 ? 1 : 0, transition: 'opacity 0.7s ease 0.1s' }}>
           <a href="mailto:wmdadmin@williamduncan-ca.co.uk" title="Email" style={iconStyle} onMouseEnter={e => (e.currentTarget.style.color='#C6A75E')} onMouseLeave={e => (e.currentTarget.style.color='rgba(229,228,226,0.7)')}>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0l-9.75 6.75L2.25 6.75" /></svg>
           </a>
@@ -121,40 +95,27 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── Main content — fills all remaining space ── */}
+      {/* ── Main content ── */}
       <div
         style={{
-          flex: 1,
-          position: 'relative', zIndex: 10,
-          display: 'flex',
-          alignItems: 'stretch',
+          flex: 1, position: 'relative', zIndex: 10, minHeight: 0,
+          display: 'flex', alignItems: 'stretch',
           padding: 'clamp(6px, 1.2vh, 16px) clamp(8px, 2vw, 24px)',
           gap: 'clamp(6px, 1.5vw, 20px)',
-          minHeight: 0,
         }}
       >
-        {/* Left column */}
+        {/* Left column — stats only */}
         <div
           className="hidden lg:flex flex-col items-center"
           style={{
-            width: 'clamp(110px, 12vw, 170px)',
-            flexShrink: 0,
-            gap: 'clamp(6px, 1vh, 16px)',
-            justifyContent: 'center',
+            width: 'clamp(110px, 12vw, 170px)', flexShrink: 0,
+            gap: 'clamp(6px, 1vh, 16px)', justifyContent: 'center',
             opacity: phase >= 2 ? 1 : 0,
             transform: phase >= 2 ? 'translateX(0)' : 'translateX(-16px)',
             transition: 'opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s',
           }}
         >
-          <img
-            src="/Logo.jpg"
-            alt="William Duncan"
-            style={{ width: '100%', maxWidth: '130px', height: 'auto', borderRadius: '2px', opacity: 0.9, filter: 'drop-shadow(0 4px 18px rgba(0,0,0,0.7))' }}
-          />
-          <div style={hRule('right')} />
-          <span className="font-serif text-center" style={{ fontSize: 'clamp(7px, 0.8vw, 10px)', letterSpacing: '0.16em', color: 'rgba(198,167,94,0.68)', fontStyle: 'italic', lineHeight: 1.7 }}>
-            Trusted by clients<br />for a century
-          </span>
+          <img src="/Logo.jpg" alt="William Duncan" style={{ width: '100%', maxWidth: '130px', height: 'auto', borderRadius: '2px', opacity: 0.9, filter: 'drop-shadow(0 4px 18px rgba(0,0,0,0.7))' }} />
           <div style={hRule('right')} />
           {leftCredentials.map(({ label, value }) => (
             <div key={label} style={{ width: '100%' }}>
@@ -164,11 +125,10 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Centre — plaque fills all vertical space */}
+        {/* Centre — plaque */}
         <div
           style={{
-            flex: 1,
-            minWidth: 0,
+            flex: 1, minWidth: 0,
             opacity: phase >= 1 ? 1 : 0,
             transform: phase >= 1 ? 'scale(1)' : 'scale(0.97)',
             transition: 'opacity 1s ease, transform 1s ease',
@@ -177,13 +137,8 @@ export default function Hero() {
           <div
             className="plaque-mid-panel"
             style={{
-              position: 'relative',
-              width: '100%',
-              height: '100%',
-              borderRadius: '2px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
+              position: 'relative', width: '100%', height: '100%', borderRadius: '2px',
+              display: 'flex', flexDirection: 'column', justifyContent: 'center',
               padding: 'clamp(10px, 2vh, 40px) clamp(14px, 4vw, 56px)',
             }}
           >
@@ -193,11 +148,39 @@ export default function Hero() {
             ))}
             <div style={{ position: 'absolute', inset: '6px', border: '1px solid rgba(198,167,94,0.06)', borderRadius: '1px', pointerEvents: 'none' }} />
 
-            {/* Plaque image — fills centre, Est. and subtitle hug it */}
+            {/* ── Gold italic labels inside plaque corners ── */}
+            {/* Top-right */}
+            <span
+              className="font-serif"
+              style={{
+                position: 'absolute', top: 'clamp(14px, 2.5vh, 28px)', right: 'clamp(14px, 3vw, 32px)',
+                fontSize: 'clamp(7px, 0.8vw, 10px)', letterSpacing: '0.18em',
+                color: 'rgba(198,167,94,0.65)', fontStyle: 'italic',
+                opacity: phase >= 3 ? 1 : 0, transition: 'opacity 1s ease 0.4s',
+                zIndex: 2,
+              }}
+            >
+              Authentic Relations
+            </span>
+            {/* Bottom-left */}
+            <span
+              className="font-serif"
+              style={{
+                position: 'absolute', bottom: 'clamp(14px, 2.5vh, 28px)', left: 'clamp(14px, 3vw, 32px)',
+                fontSize: 'clamp(7px, 0.8vw, 10px)', letterSpacing: '0.18em',
+                color: 'rgba(198,167,94,0.65)', fontStyle: 'italic',
+                opacity: phase >= 3 ? 1 : 0, transition: 'opacity 1s ease 0.5s',
+                zIndex: 2,
+              }}
+            >
+              Trusted by clients for a century
+            </span>
+
+            {/* Plaque image area — Est. and subtitle hug it tightly */}
             <div style={{ position: 'relative', flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
 
-              {/* Est. 1924 — tight above image */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', marginBottom: '6px' }}>
+              {/* Est. 1924 — 2px above image */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', marginBottom: '2px' }}>
                 <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.32))' }} />
                 <span className="font-sans font-light" style={{ fontSize: 'clamp(6px, 0.85vw, 10px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Est. 1924</span>
                 <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.32))' }} />
@@ -217,8 +200,8 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Subtitle — tight below image */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', marginTop: '6px' }}>
+              {/* Subtitle — 2px below image */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', marginTop: '2px' }}>
                 <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.16))' }} />
                 <p className="font-sans font-light" style={{ fontSize: 'clamp(0.38rem, 1vw, 0.62rem)', letterSpacing: '0.22em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', textAlign: 'center', margin: 0, whiteSpace: 'nowrap', textShadow: '0 1px 0 rgba(255,255,255,0.06), 0 -1px 0 rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)' }}>
                   Chartered Accountants · Business &amp; Tax Advisers
@@ -229,20 +212,17 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right column */}
+        {/* Right column — pillars only */}
         <div
           className="hidden lg:flex flex-col"
           style={{
-            width: 'clamp(110px, 12vw, 170px)',
-            flexShrink: 0,
-            gap: 'clamp(6px, 1vh, 14px)',
-            justifyContent: 'center',
+            width: 'clamp(110px, 12vw, 170px)', flexShrink: 0,
+            gap: 'clamp(6px, 1vh, 14px)', justifyContent: 'center',
             opacity: phase >= 2 ? 1 : 0,
             transform: phase >= 2 ? 'translateX(0)' : 'translateX(16px)',
             transition: 'opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s',
           }}
         >
-          <span className="font-serif" style={{ fontSize: 'clamp(7px, 0.8vw, 10px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.68)', fontStyle: 'italic' }}>Authentic Relations</span>
           <div style={hRule('left')} />
           {rightPillars.map((p) => (
             <div key={p} style={{ display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
@@ -251,25 +231,20 @@ export default function Hero() {
             </div>
           ))}
           <div style={hRule('left')} />
-          <span className="font-serif" style={{ fontSize: 'clamp(7px, 0.8vw, 10px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.68)', fontStyle: 'italic' }}>Dynamic Solutions</span>
         </div>
       </div>
 
-      {/* ── Bottom bar — rotating statement + client alert ── */}
+      {/* ── Bottom bar ── */}
       <div
         style={{
-          position: 'relative', zIndex: 20,
-          flexShrink: 0,
+          position: 'relative', zIndex: 20, flexShrink: 0,
           height: 'clamp(48px, 6.5vh, 70px)',
-          background: 'rgba(8,14,26,0.82)',
-          backdropFilter: 'blur(8px)',
-          display: 'flex',
-          alignItems: 'center',
-          padding: '0 clamp(14px, 3vw, 44px)',
-          gap: '24px',
+          background: 'rgba(8,14,26,0.82)', backdropFilter: 'blur(8px)',
+          display: 'flex', alignItems: 'center',
+          padding: '0 clamp(14px, 3vw, 44px)', gap: '24px',
         }}
       >
-        {/* Client alert — left */}
+        {/* Client guidance */}
         <a
           href="/wd-hub-client-alert.html"
           target="_blank"
@@ -277,8 +252,7 @@ export default function Hero() {
           className="font-sans flex items-center gap-3 flex-shrink-0"
           style={{
             textDecoration: 'none',
-            border: '1px solid rgba(140,31,46,0.38)',
-            borderRadius: '2px',
+            border: '1px solid rgba(140,31,46,0.38)', borderRadius: '2px',
             padding: '4px 12px',
             transition: 'border-color 0.2s, background 0.2s',
           }}
@@ -286,30 +260,23 @@ export default function Hero() {
           onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor='rgba(140,31,46,0.38)'; el.style.background='transparent' }}
         >
           <span style={{ fontSize: '8px', letterSpacing: '0.28em', fontWeight: 500, color: 'rgba(229,228,226,0.55)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Client Guidance</span>
-          {/* download icon */}
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(229,228,226,0.45)" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
             <path d="M12 3v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" />
           </svg>
           <span style={{ color: 'rgba(140,31,46,0.35)', fontSize: '6px' }}>◆</span>
-          <span style={{ fontSize: '8px', letterSpacing: '0.22em', color: '#8c1f2e', fontWeight: 700, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>HMRC Enforcement Alert</span>
+          <span className="beacon-pulse" style={{ fontSize: '8px', letterSpacing: '0.22em', color: '#8c1f2e', fontWeight: 700, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>HMRC Enforcement Alert</span>
         </a>
 
-        {/* Separator */}
         <div style={{ width: '1px', height: '18px', background: 'rgba(198,167,94,0.12)', flexShrink: 0 }} />
 
-        {/* Rotating statement — right aligned */}
+        {/* Rotating statement — right */}
         <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', overflow: 'hidden' }}>
           <p
             className="font-serif"
             style={{
-              fontSize: 'clamp(0.55rem, 1.2vw, 0.75rem)',
-              letterSpacing: '0.16em',
-              color: 'rgba(198,167,94,0.72)',
-              fontStyle: 'italic',
-              margin: 0,
-              whiteSpace: 'nowrap',
-              opacity: statVisible ? 1 : 0,
-              transition: 'opacity 0.55s ease',
+              fontSize: 'clamp(0.55rem, 1.2vw, 0.75rem)', letterSpacing: '0.16em',
+              color: 'rgba(198,167,94,0.72)', fontStyle: 'italic', margin: 0, whiteSpace: 'nowrap',
+              opacity: statVisible ? 1 : 0, transition: 'opacity 0.55s ease',
             }}
           >
             {statements[statIdx]}
@@ -320,7 +287,6 @@ export default function Hero() {
   )
 }
 
-// ── shared style helpers ────────────────────────────────────────
 const iconStyle: React.CSSProperties = {
   color: 'rgba(229,228,226,0.7)',
   transition: 'color 0.2s ease',
