@@ -136,7 +136,7 @@ export default function Hero() {
             {corners.map((pos, i) => (
               <span key={i} style={{ position: 'absolute', ...pos, color: 'rgba(198,167,94,0.35)', fontSize: '7px', lineHeight: 1 }}>◆</span>
             ))}
-            <div style={{ position: 'absolute', inset: '6px', border: '1px solid rgba(198,167,94,0.06)', borderRadius: '1px', pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', inset: '48px 6px', border: '1px solid rgba(198,167,94,0.06)', borderRadius: '1px', pointerEvents: 'none' }} />
 
             {/* Top-left hero — "Trusted for over a century" */}
             <p
