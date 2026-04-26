@@ -90,7 +90,7 @@ export default function Hero() {
         style={{
           flex: 1, position: 'relative', zIndex: 10, minHeight: 0,
           display: 'flex', alignItems: 'stretch',
-          padding: 'clamp(6px, 1.2vh, 16px) clamp(8px, 2vw, 24px)',
+          padding: 'clamp(24px, 4vh, 48px) clamp(8px, 2vw, 24px)',
           gap: 'clamp(6px, 1.5vw, 20px)',
         }}
       >
