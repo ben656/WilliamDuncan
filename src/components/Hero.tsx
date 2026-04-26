@@ -193,37 +193,38 @@ export default function Hero() {
             ))}
             <div style={{ position: 'absolute', inset: '6px', border: '1px solid rgba(198,167,94,0.06)', borderRadius: '1px', pointerEvents: 'none' }} />
 
-            {/* Est. */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: 'clamp(8px, 1.5vh, 20px)' }}>
-              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.32))' }} />
-              <span className="font-sans font-light" style={{ fontSize: 'clamp(6px, 0.85vw, 10px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Est. 1924</span>
-              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.32))' }} />
-            </div>
+            {/* Plaque image — fills centre, Est. and subtitle hug it */}
+            <div style={{ position: 'relative', flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
 
-            {/* Plaque image */}
-            <div style={{ position: 'relative', flex: 1, minHeight: 0, display: 'flex', alignItems: 'center' }}>
-              <div style={{ position: 'absolute', inset: '-20px -30px', background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(198,167,94,0.11) 0%, rgba(198,167,94,0.03) 60%, transparent 100%)', pointerEvents: 'none', filter: 'blur(6px)' }} />
-              <img
-                src="/Adobe_Express_-_file.png"
-                alt="William Duncan"
-                style={{
-                  display: 'block', width: '100%', height: '100%', objectFit: 'contain',
-                  position: 'relative', zIndex: 1,
-                  filter: 'drop-shadow(0 1px 0 rgba(198,167,94,0.3)) drop-shadow(0 -1px 0 rgba(0,0,0,0.8)) drop-shadow(0 3px 14px rgba(0,0,0,0.75)) drop-shadow(0 0 22px rgba(198,167,94,0.10))',
-                }}
-              />
-            </div>
+              {/* Est. 1924 — tight above image */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', marginBottom: '6px' }}>
+                <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.32))' }} />
+                <span className="font-sans font-light" style={{ fontSize: 'clamp(6px, 0.85vw, 10px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Est. 1924</span>
+                <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.32))' }} />
+              </div>
 
-            {/* Divider */}
-            <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(198,167,94,0.28), transparent)', margin: 'clamp(8px, 1.5vh, 20px) 0' }} />
+              {/* Plaque image */}
+              <div style={{ position: 'relative', flex: 1, minHeight: 0, width: '100%', display: 'flex', alignItems: 'center' }}>
+                <div style={{ position: 'absolute', inset: '-20px -30px', background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(198,167,94,0.11) 0%, rgba(198,167,94,0.03) 60%, transparent 100%)', pointerEvents: 'none', filter: 'blur(6px)' }} />
+                <img
+                  src="/Adobe_Express_-_file.png"
+                  alt="William Duncan"
+                  style={{
+                    display: 'block', width: '100%', height: '100%', objectFit: 'contain',
+                    position: 'relative', zIndex: 1,
+                    filter: 'drop-shadow(0 1px 0 rgba(198,167,94,0.3)) drop-shadow(0 -1px 0 rgba(0,0,0,0.8)) drop-shadow(0 3px 14px rgba(0,0,0,0.75)) drop-shadow(0 0 22px rgba(198,167,94,0.10))',
+                  }}
+                />
+              </div>
 
-            {/* Subtitle */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.16))' }} />
-              <p className="font-sans font-light" style={{ fontSize: 'clamp(0.38rem, 1vw, 0.62rem)', letterSpacing: '0.22em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', textAlign: 'center', margin: 0, whiteSpace: 'nowrap', textShadow: '0 1px 0 rgba(255,255,255,0.06), 0 -1px 0 rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)' }}>
-                Chartered Accountants · Business &amp; Tax Advisers
-              </p>
-              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.16))' }} />
+              {/* Subtitle — tight below image */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', marginTop: '6px' }}>
+                <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.16))' }} />
+                <p className="font-sans font-light" style={{ fontSize: 'clamp(0.38rem, 1vw, 0.62rem)', letterSpacing: '0.22em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', textAlign: 'center', margin: 0, whiteSpace: 'nowrap', textShadow: '0 1px 0 rgba(255,255,255,0.06), 0 -1px 0 rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)' }}>
+                  Chartered Accountants · Business &amp; Tax Advisers
+                </p>
+                <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(198,167,94,0.16))' }} />
+              </div>
             </div>
           </div>
         </div>
@@ -284,16 +285,20 @@ export default function Hero() {
           onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor='rgba(140,31,46,0.72)'; el.style.background='rgba(140,31,46,0.05)' }}
           onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor='rgba(140,31,46,0.38)'; el.style.background='transparent' }}
         >
-          <span style={{ fontSize: '8px', letterSpacing: '0.28em', fontWeight: 700, color: '#8c1f2e', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Client Alert</span>
-          <span style={{ color: 'rgba(140,31,46,0.3)', fontSize: '6px' }}>◆</span>
-          <span style={{ fontSize: '8px', letterSpacing: '0.22em', color: 'rgba(229,228,226,0.55)', fontWeight: 500, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>HMRC Digital Enforcement</span>
+          <span style={{ fontSize: '8px', letterSpacing: '0.28em', fontWeight: 500, color: 'rgba(229,228,226,0.55)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Client Guidance</span>
+          {/* download icon */}
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(229,228,226,0.45)" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+            <path d="M12 3v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" />
+          </svg>
+          <span style={{ color: 'rgba(140,31,46,0.35)', fontSize: '6px' }}>◆</span>
+          <span style={{ fontSize: '8px', letterSpacing: '0.22em', color: '#8c1f2e', fontWeight: 700, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>HMRC Enforcement Alert</span>
         </a>
 
         {/* Separator */}
         <div style={{ width: '1px', height: '18px', background: 'rgba(198,167,94,0.12)', flexShrink: 0 }} />
 
-        {/* Rotating statement — centred in remaining space */}
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'center', overflow: 'hidden' }}>
+        {/* Rotating statement — right aligned */}
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', overflow: 'hidden' }}>
           <p
             className="font-serif"
             style={{
