@@ -51,12 +51,8 @@ export default function Hero() {
   return (
     <div
       style={{
-        position: 'fixed',
-        inset: 0,
-        background: '#080e1a',
-        display: 'flex',
-        flexDirection: 'column',
-        overflow: 'hidden',
+        position: 'fixed', inset: 0, background: '#080e1a',
+        display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}
     >
       {/* Shared background */}
@@ -70,16 +66,10 @@ export default function Hero() {
           height: 'clamp(54px, 7vh, 80px)',
           background: 'rgba(8,14,26,0.85)', backdropFilter: 'blur(8px)',
           display: 'flex', alignItems: 'center',
-          padding: '0 clamp(14px, 3vw, 44px)', justifyContent: 'space-between',
+          padding: '0 clamp(14px, 3vw, 44px)', justifyContent: 'flex-end',
         }}
       >
-        <span
-          className="font-serif"
-          style={{ fontSize: 'clamp(9px, 1.3vw, 13px)', letterSpacing: '0.22em', color: phase >= 1 ? 'rgba(198,167,94,0.85)' : 'transparent', fontStyle: 'italic', whiteSpace: 'nowrap', transition: 'color 0.8s ease' }}
-        >
-          Trusted for over a century
-        </span>
-
+        {/* Contact icons — right side only */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px', opacity: phase >= 1 ? 1 : 0, transition: 'opacity 0.7s ease 0.1s' }}>
           <a href="mailto:wmdadmin@williamduncan-ca.co.uk" title="Email" style={iconStyle} onMouseEnter={e => (e.currentTarget.style.color='#C6A75E')} onMouseLeave={e => (e.currentTarget.style.color='rgba(229,228,226,0.7)')}>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0l-9.75 6.75L2.25 6.75" /></svg>
@@ -104,7 +94,7 @@ export default function Hero() {
           gap: 'clamp(6px, 1.5vw, 20px)',
         }}
       >
-        {/* Left column — stats only */}
+        {/* Left column */}
         <div
           className="hidden lg:flex flex-col items-center"
           style={{
@@ -148,38 +138,51 @@ export default function Hero() {
             ))}
             <div style={{ position: 'absolute', inset: '6px', border: '1px solid rgba(198,167,94,0.06)', borderRadius: '1px', pointerEvents: 'none' }} />
 
-            {/* ── Gold italic labels inside plaque corners ── */}
-            {/* Top-right */}
+            {/* Top-left inside plaque — "Trusted for over a century" */}
             <span
               className="font-serif"
               style={{
-                position: 'absolute', top: 'clamp(14px, 2.5vh, 28px)', right: 'clamp(14px, 3vw, 32px)',
-                fontSize: 'clamp(7px, 0.8vw, 10px)', letterSpacing: '0.18em',
-                color: 'rgba(198,167,94,0.65)', fontStyle: 'italic',
-                opacity: phase >= 3 ? 1 : 0, transition: 'opacity 1s ease 0.4s',
+                position: 'absolute',
+                top: 'clamp(14px, 2.5vh, 28px)',
+                left: 'clamp(14px, 3vw, 32px)',
+                fontSize: 'clamp(7px, 0.8vw, 10px)',
+                letterSpacing: '0.22em',
+                color: 'rgba(198,167,94,0.72)',
+                fontStyle: 'italic',
+                opacity: phase >= 1 ? 1 : 0,
+                transition: 'opacity 0.8s ease 0.3s',
                 zIndex: 2,
+                whiteSpace: 'nowrap',
               }}
             >
-              Authentic Relations
-            </span>
-            {/* Bottom-left */}
-            <span
-              className="font-serif"
-              style={{
-                position: 'absolute', bottom: 'clamp(14px, 2.5vh, 28px)', left: 'clamp(14px, 3vw, 32px)',
-                fontSize: 'clamp(7px, 0.8vw, 10px)', letterSpacing: '0.18em',
-                color: 'rgba(198,167,94,0.65)', fontStyle: 'italic',
-                opacity: phase >= 3 ? 1 : 0, transition: 'opacity 1s ease 0.5s',
-                zIndex: 2,
-              }}
-            >
-              Trusted by clients for a century
+              Trusted for over a century
             </span>
 
-            {/* Plaque image area — Est. and subtitle hug it tightly */}
+            {/* Bottom-left inside plaque — rotating statement */}
+            <p
+              className="font-serif"
+              style={{
+                position: 'absolute',
+                bottom: 'clamp(14px, 2.5vh, 28px)',
+                left: 'clamp(14px, 3vw, 32px)',
+                fontSize: 'clamp(7px, 0.85vw, 10px)',
+                letterSpacing: '0.16em',
+                color: 'rgba(198,167,94,0.62)',
+                fontStyle: 'italic',
+                margin: 0,
+                whiteSpace: 'nowrap',
+                opacity: statVisible ? 1 : 0,
+                transition: 'opacity 0.55s ease',
+                zIndex: 2,
+              }}
+            >
+              {statements[statIdx]}
+            </p>
+
+            {/* Plaque image — Est. and subtitle hug it tightly */}
             <div style={{ position: 'relative', flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
 
-              {/* Est. 1924 — 2px above image */}
+              {/* Est. 1924 — tight above image */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', marginBottom: '2px' }}>
                 <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.32))' }} />
                 <span className="font-sans font-light" style={{ fontSize: 'clamp(6px, 0.85vw, 10px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Est. 1924</span>
@@ -200,7 +203,7 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Subtitle — 2px below image */}
+              {/* Subtitle — tight below image */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', marginTop: '2px' }}>
                 <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.16))' }} />
                 <p className="font-sans font-light" style={{ fontSize: 'clamp(0.38rem, 1vw, 0.62rem)', letterSpacing: '0.22em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', textAlign: 'center', margin: 0, whiteSpace: 'nowrap', textShadow: '0 1px 0 rgba(255,255,255,0.06), 0 -1px 0 rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)' }}>
@@ -212,7 +215,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right column — pillars only */}
+        {/* Right column */}
         <div
           className="hidden lg:flex flex-col"
           style={{
@@ -223,6 +226,7 @@ export default function Hero() {
             transition: 'opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s',
           }}
         >
+          <span className="font-serif" style={{ fontSize: 'clamp(7px, 0.8vw, 10px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.68)', fontStyle: 'italic' }}>Authentic Relations</span>
           <div style={hRule('left')} />
           {rightPillars.map((p) => (
             <div key={p} style={{ display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
@@ -231,6 +235,7 @@ export default function Hero() {
             </div>
           ))}
           <div style={hRule('left')} />
+          <span className="font-serif" style={{ fontSize: 'clamp(7px, 0.8vw, 10px)', letterSpacing: '0.18em', color: 'rgba(198,167,94,0.68)', fontStyle: 'italic' }}>Dynamic Solutions</span>
         </div>
       </div>
 
@@ -241,10 +246,10 @@ export default function Hero() {
           height: 'clamp(48px, 6.5vh, 70px)',
           background: 'rgba(8,14,26,0.82)', backdropFilter: 'blur(8px)',
           display: 'flex', alignItems: 'center',
-          padding: '0 clamp(14px, 3vw, 44px)', gap: '24px',
+          padding: '0 clamp(14px, 3vw, 44px)',
         }}
       >
-        {/* Client guidance */}
+        {/* Client guidance — full width, right-aligned */}
         <a
           href="/wd-hub-client-alert.html"
           target="_blank"
@@ -266,22 +271,6 @@ export default function Hero() {
           <span style={{ color: 'rgba(140,31,46,0.35)', fontSize: '6px' }}>◆</span>
           <span className="beacon-pulse" style={{ fontSize: '8px', letterSpacing: '0.22em', color: '#8c1f2e', fontWeight: 700, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>HMRC Enforcement Alert</span>
         </a>
-
-        <div style={{ width: '1px', height: '18px', background: 'rgba(198,167,94,0.12)', flexShrink: 0 }} />
-
-        {/* Rotating statement — right */}
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', overflow: 'hidden' }}>
-          <p
-            className="font-serif"
-            style={{
-              fontSize: 'clamp(0.55rem, 1.2vw, 0.75rem)', letterSpacing: '0.16em',
-              color: 'rgba(198,167,94,0.72)', fontStyle: 'italic', margin: 0, whiteSpace: 'nowrap',
-              opacity: statVisible ? 1 : 0, transition: 'opacity 0.55s ease',
-            }}
-          >
-            {statements[statIdx]}
-          </p>
-        </div>
       </div>
     </div>
   )
