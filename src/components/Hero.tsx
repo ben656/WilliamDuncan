@@ -128,7 +128,7 @@ export default function Hero() {
             className="plaque-mid-panel"
             style={{
               position: 'relative', width: '100%', height: '100%', borderRadius: '2px',
-              display: 'flex', flexDirection: 'column', justifyContent: 'center',
+              display: 'flex', flexDirection: 'column',
               padding: 'clamp(10px, 2vh, 40px) clamp(14px, 4vw, 56px)',
             }}
           >
@@ -138,85 +138,75 @@ export default function Hero() {
             ))}
             <div style={{ position: 'absolute', inset: '6px', border: '1px solid rgba(198,167,94,0.06)', borderRadius: '1px', pointerEvents: 'none' }} />
 
-            {/* Top-left inside plaque — "Trusted for over a century" */}
-            <span
+            {/* Spacer — pushes content block to vertical centre */}
+            <div style={{ flex: 1 }} />
+
+            {/* "Trusted for over a century" — above Est. */}
+            <p
               className="font-serif"
               style={{
-                position: 'absolute',
-                top: 'clamp(14px, 2.5vh, 28px)',
-                left: 'clamp(14px, 3vw, 32px)',
+                margin: '0 0 clamp(6px, 1.2vh, 14px) 0',
                 fontSize: 'clamp(10px, 1.2vw, 15px)',
                 letterSpacing: '0.22em',
                 color: 'rgba(198,167,94,0.82)',
                 fontStyle: 'italic',
+                textAlign: 'center',
                 opacity: phase >= 1 ? 1 : 0,
                 transition: 'opacity 0.8s ease 0.3s',
-                zIndex: 2,
-                whiteSpace: 'nowrap',
               }}
             >
               Trusted for over a century
-            </span>
+            </p>
 
-            {/* Bottom-right inside plaque — rotating statement */}
+            {/* Est. 1924 — immediately above image */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
+              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.32))' }} />
+              <span className="font-sans font-light" style={{ fontSize: 'clamp(6px, 0.85vw, 10px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Est. 1924</span>
+              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, rgba(198,167,94,0.32), transparent)' }} />
+            </div>
+
+            {/* Plaque image — fills remaining middle space */}
+            <div style={{ position: 'relative', flex: 1, minHeight: 0 }}>
+              <div style={{ position: 'absolute', inset: '-20px -30px', background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(198,167,94,0.11) 0%, rgba(198,167,94,0.03) 60%, transparent 100%)', pointerEvents: 'none', filter: 'blur(6px)' }} />
+              <img
+                src="/Adobe_Express_-_file.png"
+                alt="William Duncan"
+                style={{
+                  display: 'block', width: '100%', height: '100%', objectFit: 'contain',
+                  position: 'relative', zIndex: 1,
+                  filter: 'drop-shadow(0 1px 0 rgba(198,167,94,0.3)) drop-shadow(0 -1px 0 rgba(0,0,0,0.8)) drop-shadow(0 3px 14px rgba(0,0,0,0.75)) drop-shadow(0 0 22px rgba(198,167,94,0.10))',
+                }}
+              />
+            </div>
+
+            {/* Subtitle — immediately below image */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '4px' }}>
+              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.16))' }} />
+              <p className="font-sans font-light" style={{ fontSize: 'clamp(0.38rem, 1vw, 0.62rem)', letterSpacing: '0.22em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', textAlign: 'center', margin: 0, whiteSpace: 'nowrap', textShadow: '0 1px 0 rgba(255,255,255,0.06), 0 -1px 0 rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)' }}>
+                Chartered Accountants · Business &amp; Tax Advisers
+              </p>
+              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, rgba(198,167,94,0.16), transparent)' }} />
+            </div>
+
+            {/* Rotating statement — below subtitle, right-aligned */}
             <p
               className="font-serif"
               style={{
-                position: 'absolute',
-                bottom: 'clamp(14px, 2.5vh, 28px)',
-                right: 'clamp(14px, 3vw, 32px)',
+                margin: 'clamp(6px, 1.2vh, 14px) 0 0 0',
                 fontSize: 'clamp(10px, 1.1vw, 14px)',
                 letterSpacing: '0.16em',
                 color: 'rgba(198,167,94,0.72)',
                 fontStyle: 'italic',
-                margin: 0,
-                whiteSpace: 'nowrap',
                 textAlign: 'right',
                 opacity: statVisible ? 1 : 0,
                 transition: 'opacity 0.55s ease',
-                zIndex: 2,
               }}
             >
               {statements[statIdx]}
             </p>
 
-            {/* Plaque image area — outer flex container fills remaining space */}
-            <div style={{ position: 'relative', flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-
-              {/* Inner wrapper — sized to content so Est/subtitle pin to actual image edges */}
-              <div style={{ position: 'relative', width: '100%', flex: 1, minHeight: 0 }}>
-
-                {/* Ambient glow */}
-                <div style={{ position: 'absolute', inset: '-20px -30px', background: 'radial-gradient(ellipse 75% 65% at 50% 50%, rgba(198,167,94,0.11) 0%, rgba(198,167,94,0.03) 60%, transparent 100%)', pointerEvents: 'none', filter: 'blur(6px)' }} />
-
-                {/* Image */}
-                <img
-                  src="/Adobe_Express_-_file.png"
-                  alt="William Duncan"
-                  style={{
-                    display: 'block', width: '100%', height: '100%', objectFit: 'contain',
-                    position: 'relative', zIndex: 1,
-                    filter: 'drop-shadow(0 1px 0 rgba(198,167,94,0.3)) drop-shadow(0 -1px 0 rgba(0,0,0,0.8)) drop-shadow(0 3px 14px rgba(0,0,0,0.75)) drop-shadow(0 0 22px rgba(198,167,94,0.10))',
-                  }}
-                />
-
-                {/* Est. 1924 — immediately above image */}
-                <div style={{ position: 'absolute', bottom: '100%', left: 0, right: 0, display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px', zIndex: 2 }}>
-                  <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.32))' }} />
-                  <span className="font-sans font-light" style={{ fontSize: 'clamp(6px, 0.85vw, 10px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Est. 1924</span>
-                  <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, rgba(198,167,94,0.32), transparent)' }} />
-                </div>
-
-                {/* Subtitle — immediately below image */}
-                <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, display: 'flex', alignItems: 'center', gap: '10px', marginTop: '4px', zIndex: 2 }}>
-                  <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.16))' }} />
-                  <p className="font-sans font-light" style={{ fontSize: 'clamp(0.38rem, 1vw, 0.62rem)', letterSpacing: '0.22em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', textAlign: 'center', margin: 0, whiteSpace: 'nowrap', textShadow: '0 1px 0 rgba(255,255,255,0.06), 0 -1px 0 rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)' }}>
-                    Chartered Accountants · Business &amp; Tax Advisers
-                  </p>
-                  <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, rgba(198,167,94,0.16), transparent)' }} />
-                </div>
-              </div>
-            </div>
+            {/* Spacer — balances the top spacer */}
+            <div style={{ flex: 1 }} />
           </div>
         </div>
 
