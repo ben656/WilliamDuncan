@@ -65,11 +65,35 @@ export default function Hero() {
           position: 'relative', zIndex: 20, flexShrink: 0,
           height: 'clamp(54px, 7vh, 80px)',
           background: 'rgba(8,14,26,0.85)', backdropFilter: 'blur(8px)',
-          display: 'flex', alignItems: 'center',
-          padding: '0 clamp(14px, 3vw, 44px)', justifyContent: 'flex-end',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '0 clamp(14px, 3vw, 44px)',
         }}
       >
-        {/* Contact icons — right side only */}
+        {/* Alert — left side */}
+        <a
+          href="/wd-hub-client-alert.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-sans flex items-center gap-3 flex-shrink-0"
+          style={{
+            textDecoration: 'none',
+            border: '1px solid rgba(140,31,46,0.38)', borderRadius: '2px',
+            padding: '4px 12px',
+            transition: 'border-color 0.2s, background 0.2s',
+            opacity: phase >= 1 ? 1 : 0,
+          } as React.CSSProperties}
+          onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor='rgba(140,31,46,0.72)'; el.style.background='rgba(140,31,46,0.05)' }}
+          onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor='rgba(140,31,46,0.38)'; el.style.background='transparent' }}
+        >
+          <span style={{ fontSize: 'clamp(9px, 1vw, 13px)', letterSpacing: '0.28em', fontWeight: 500, color: 'rgba(229,228,226,0.55)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Client Guidance</span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(229,228,226,0.45)" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+            <path d="M12 3v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" />
+          </svg>
+          <span style={{ color: 'rgba(140,31,46,0.35)', fontSize: '6px' }}>◆</span>
+          <span className="beacon-pulse" style={{ fontSize: 'clamp(9px, 1vw, 13px)', letterSpacing: '0.22em', color: '#8c1f2e', fontWeight: 700, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>HMRC Enforcement Alert</span>
+        </a>
+
+        {/* Contact icons — right side */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px', opacity: phase >= 1 ? 1 : 0, transition: 'opacity 0.7s ease 0.1s' }}>
           <a href="mailto:wmdadmin@williamduncan-ca.co.uk" title="Email" style={iconStyle} onMouseEnter={e => (e.currentTarget.style.color='#C6A75E')} onMouseLeave={e => (e.currentTarget.style.color='rgba(229,228,226,0.7)')}>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0l-9.75 6.75L2.25 6.75" /></svg>
@@ -90,7 +114,7 @@ export default function Hero() {
         style={{
           flex: 1, position: 'relative', zIndex: 10, minHeight: 0,
           display: 'flex', alignItems: 'stretch',
-          padding: 'clamp(48px, 8vh, 96px) clamp(8px, 2vw, 24px)',
+          padding: 'clamp(64px, 10vh, 120px) clamp(8px, 2vw, 24px) clamp(32px, 5vh, 64px)',
           gap: 'clamp(6px, 1.5vw, 20px)',
         }}
       >
@@ -243,39 +267,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── Bottom bar ── */}
-      <div
-        style={{
-          position: 'relative', zIndex: 20, flexShrink: 0,
-          height: 'clamp(48px, 6.5vh, 70px)',
-          background: 'rgba(8,14,26,0.82)', backdropFilter: 'blur(8px)',
-          display: 'flex', alignItems: 'center',
-          padding: '0 clamp(14px, 3vw, 44px)',
-        }}
-      >
-        {/* Client guidance — full width, right-aligned */}
-        <a
-          href="/wd-hub-client-alert.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-sans flex items-center gap-3 flex-shrink-0"
-          style={{
-            textDecoration: 'none',
-            border: '1px solid rgba(140,31,46,0.38)', borderRadius: '2px',
-            padding: '4px 12px',
-            transition: 'border-color 0.2s, background 0.2s',
-          }}
-          onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor='rgba(140,31,46,0.72)'; el.style.background='rgba(140,31,46,0.05)' }}
-          onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor='rgba(140,31,46,0.38)'; el.style.background='transparent' }}
-        >
-          <span style={{ fontSize: 'clamp(13px, 1.6vw, 20px)', letterSpacing: '0.28em', fontWeight: 500, color: 'rgba(229,228,226,0.55)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Client Guidance</span>
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(229,228,226,0.45)" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-            <path d="M12 3v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" />
-          </svg>
-          <span style={{ color: 'rgba(140,31,46,0.35)', fontSize: '6px' }}>◆</span>
-          <span className="beacon-pulse" style={{ fontSize: 'clamp(13px, 1.6vw, 20px)', letterSpacing: '0.22em', color: '#8c1f2e', fontWeight: 700, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>HMRC Enforcement Alert</span>
-        </a>
-      </div>
     </div>
   )
 }
