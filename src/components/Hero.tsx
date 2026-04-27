@@ -167,7 +167,7 @@ export default function Hero() {
                 bottom: 'clamp(18px, 3vh, 36px)',
                 right: 'clamp(18px, 3.5vw, 40px)',
                 margin: 0,
-                fontSize: 'clamp(13px, 1.4vw, 18px)',
+                fontSize: 'clamp(13px, 1.6vw, 20px)',
                 letterSpacing: '0.16em',
                 color: 'rgba(198,167,94,0.72)',
                 fontStyle: 'italic',
@@ -268,12 +268,12 @@ export default function Hero() {
           onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor='rgba(140,31,46,0.72)'; el.style.background='rgba(140,31,46,0.05)' }}
           onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor='rgba(140,31,46,0.38)'; el.style.background='transparent' }}
         >
-          <span style={{ fontSize: '8px', letterSpacing: '0.28em', fontWeight: 500, color: 'rgba(229,228,226,0.55)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Client Guidance</span>
+          <span style={{ fontSize: 'clamp(13px, 1.6vw, 20px)', letterSpacing: '0.28em', fontWeight: 500, color: 'rgba(229,228,226,0.55)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Client Guidance</span>
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(229,228,226,0.45)" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
             <path d="M12 3v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" />
           </svg>
           <span style={{ color: 'rgba(140,31,46,0.35)', fontSize: '6px' }}>◆</span>
-          <span className="beacon-pulse" style={{ fontSize: '8px', letterSpacing: '0.22em', color: '#8c1f2e', fontWeight: 700, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>HMRC Enforcement Alert</span>
+          <span className="beacon-pulse" style={{ fontSize: 'clamp(13px, 1.6vw, 20px)', letterSpacing: '0.22em', color: '#8c1f2e', fontWeight: 700, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>HMRC Enforcement Alert</span>
         </a>
       </div>
     </div>
