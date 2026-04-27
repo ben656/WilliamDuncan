@@ -90,7 +90,7 @@ export default function Hero() {
         style={{
           flex: 1, position: 'relative', zIndex: 10, minHeight: 0,
           display: 'flex', alignItems: 'stretch',
-          padding: 'clamp(24px, 4vh, 48px) clamp(8px, 2vw, 24px)',
+          padding: 'clamp(48px, 8vh, 96px) clamp(8px, 2vw, 24px)',
           gap: 'clamp(6px, 1.5vw, 20px)',
         }}
       >
@@ -146,7 +146,7 @@ export default function Hero() {
                 top: 'clamp(18px, 3vh, 36px)',
                 left: 'clamp(18px, 3.5vw, 40px)',
                 margin: 0,
-                fontSize: 'clamp(10px, 1.2vw, 15px)',
+                fontSize: 'clamp(13px, 1.6vw, 20px)',
                 letterSpacing: '0.22em',
                 color: 'rgba(198,167,94,0.82)',
                 fontStyle: 'italic',
@@ -167,7 +167,7 @@ export default function Hero() {
                 bottom: 'clamp(18px, 3vh, 36px)',
                 right: 'clamp(18px, 3.5vw, 40px)',
                 margin: 0,
-                fontSize: 'clamp(10px, 1.1vw, 14px)',
+                fontSize: 'clamp(13px, 1.4vw, 18px)',
                 letterSpacing: '0.16em',
                 color: 'rgba(198,167,94,0.72)',
                 fontStyle: 'italic',
@@ -187,7 +187,7 @@ export default function Hero() {
             {/* Est. 1924 — immediately above image */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.32))' }} />
-              <span className="font-sans font-light" style={{ fontSize: 'clamp(6px, 0.85vw, 10px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Est. 1924</span>
+              <span className="font-sans font-light" style={{ fontSize: 'clamp(9px, 1.1vw, 14px)', letterSpacing: '0.42em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Est. 1924</span>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, rgba(198,167,94,0.32), transparent)' }} />
             </div>
 
@@ -208,7 +208,7 @@ export default function Hero() {
             {/* Subtitle — immediately below image */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '4px' }}>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(198,167,94,0.16))' }} />
-              <p className="font-sans font-light" style={{ fontSize: 'clamp(0.38rem, 1vw, 0.62rem)', letterSpacing: '0.22em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', textAlign: 'center', margin: 0, whiteSpace: 'nowrap', textShadow: '0 1px 0 rgba(255,255,255,0.06), 0 -1px 0 rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)' }}>
+              <p className="font-sans font-light" style={{ fontSize: 'clamp(0.55rem, 1.3vw, 0.85rem)', letterSpacing: '0.22em', color: 'rgba(229,228,226,0.85)', textTransform: 'uppercase', textAlign: 'center', margin: 0, whiteSpace: 'nowrap', textShadow: '0 1px 0 rgba(255,255,255,0.06), 0 -1px 0 rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9)' }}>
                 Chartered Accountants · Business &amp; Tax Advisers
               </p>
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, rgba(198,167,94,0.16), transparent)' }} />
